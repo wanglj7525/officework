@@ -90,4 +90,40 @@ angular.module('app')
       }
     }
     
-  }]);
+  }]).service('planlistservice', ['$q','$http', function($q,$http){
+	var data={};
+	return{
+		getData:function(id){
+			var deferred=$q.defer();
+			var path='/public/app/api/planlist';
+			if (id) {
+				path+='';
+			};
+			var promise=$http.get(path).then(function(response){
+				return response;
+			},function(response){
+				return response;
+			});
+			return promise;
+		}
+	}
+
+}]).service('plandetailservice', ['$q','$http', function($q,$http){
+	var data={};
+	return{
+		getData:function(id){
+			var deferred=$q.defer();
+			var path='/public/app/api/plandetail';
+			if (id) {
+				path+='';
+			};
+			var promise=$http.get(path).then(function(response){
+				return response;
+			},function(response){
+				return response;
+			});
+			return promise;
+		}
+	}
+
+}]);

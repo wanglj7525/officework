@@ -64,10 +64,23 @@ angular.module('app')
                 templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
                 resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjust.js'])
               })
+              //.state('app.adjustplan', {
+            	//  url: '/adjustplan',
+            	//  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
+            	//  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
+              //})
+              // 调整方案
               .state('app.adjustplan', {
-            	  url: '/adjustplan',
-            	  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
-            	  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
+                  abstract: true,
+                  url: '/adjustplan',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
+                  // use resolve to load other dependences
+                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
+              })
+              .state('app.adjustplan.detail', {
+                  url: '/detail/{id}',
+                  templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
               })
                // 工作提示
               .state('app.worktip', {
@@ -77,11 +90,6 @@ angular.module('app')
                   // use resolve to load other dependences
                   resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/worktip.js'])
               })
-              // .state('app.worktip', {
-              //     url: '/worktip',
-              //     templateUrl: STATIC_PATH + 'tpl/ui_worktip.html',
-              //     resolve: load(['angularBootstrapNavTree', STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/worktip.js'])
-              // })
               .state('app.worktip.edit', {
                   url: '/edit',
                   templateUrl: STATIC_PATH + 'tpl/worktip.edit.html'

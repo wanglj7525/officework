@@ -1,0 +1,123 @@
+<!--<div class="row hbox hbox-auto-xs  hbox-auto-sm bg-light" ng-controller="MessageController">-->
+	<!--<div class="col-md-3 bg-light dk  bg-auto">-->
+		<!--<div class="vbox">-->
+			<!--<div class="wrapper">-->
+				<!--&lt;!&ndash; <div class="input-group">-->
+                   <!--<div class="pull-right"> &ndash;&gt;-->
+				<!--&lt;!&ndash;      <div class="btn-group w-full">-->
+                       <!--<button class="btn  btn-default" ng-click="changeView('agendaDay')">快捷</button>-->
+                       <!--<button class="btn  btn-default" ng-click="changeView('agendaWeek')">更多</button>-->
+                       <!--<button class="btn  btn-default" ng-click="changeView('month')">自定义</button>-->
+                     <!--</div> &ndash;&gt;-->
+				<!--<div class="btn-group btn-group-justified">-->
+					<!--<a class="btn btn-dark" href="">快捷</a>-->
+					<!--<a class="btn btn-dark" href="">更多</a>-->
+					<!--<a class="btn btn-dark" href="">自定义</a>-->
+				<!--</div>-->
+
+				<!--&lt;!&ndash; </div>-->
+                <!--</div> &ndash;&gt;-->
+			<!--</div>-->
+
+			<!--<div class="">-->
+				<!--<div class="cell scrollable hover">-->
+					<!--<div class="cell-inner">-->
+						<!--<div class="padder">-->
+							<!--<div class="list-group">-->
+								<!--<form class="bs-example form-horizontal ng-pristine ng-valid">-->
+									<!--<div class="form-group list-group-item" ng-repeat="searchitem in searchlist | filter:{show:'less'}">-->
+										<!--<label class="col-lg-4 control-label">{{searchitem.title}}</label>-->
+										<!--<div class="col-lg-8">-->
+											<!--<select class="form-control" name="{{searchitem.title}}" class="form-control">-->
+												<!--<option ng-repeat="selectitem in searchitem.selectitem" value="{{selectitem.name}}">{{selectitem.name}}</option>-->
+											<!--</select>-->
+										<!--</div>-->
+									<!--</div>-->
+
+									<!--<div class="form-group">-->
+										<!--<button type="submit" class="btn w-full  btn-info font-bold">搜索</button>-->
+									<!--</div>-->
+								<!--</form>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="col-md-9 ">-->
+		<div class="row" ng-controller="MessageController">
+			<!-- tab -->
+			<tabset class="tab-container " >
+			<!-- 默认选中第二个 active="selectTab"-->
+			<tab heading="按头像查看" class="blue-500">
+			<div class="row" >
+				<script type="text/ng-template" id="myModalContent.html">
+		            <div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
+		          </script>
+				<div ng-repeat="t in imgs">
+					<div class="col-sm-2">
+						<div class="panel panel-card">
+							<div class="item">
+								<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
+							</div>
+							<div class="wrapper">
+								<h4>
+									{{t.name}}
+								</h4>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+
+			</tab>
+			<tab heading="按花名册查看"  class="blue-500" >
+				<div class="row">
+                    <table st-table="messagetabletab"  class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th st-sort="name">姓名</th>
+                            <th st-sort="company">职务</th>
+                            <th st-sort="sex">性别</th>
+                            <th st-sort="nation">民族</th>
+                            <th st-sort="birthday">出生</th>
+                            <th st-sort="place">籍贯</th>
+                            <th st-sort="troops">入伍</th>
+                            <th st-sort="party">入党</th>
+                            <th st-sort="education">学历</th>
+                            <th st-sort="school">学校</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="row in messagetabletab" >
+                            <td>{{row.name}}</td>
+                            <td>{{row.company}}</td>
+                            <td>{{row.sex}}</td>
+                            <td>{{row.nation}}</td>
+                            <td>{{row.birthday}}</td>
+                            <td>{{row.palce}}</td>
+                            <td>{{row.troops}}</td>
+                            <td>{{row.party}}</td>
+                            <td>{{row.education}}</td>
+                            <td>{{row.school}}</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="10" class="text-center">
+                                <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7" class="no-margin"></div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+			</tab>
+
+			</tabset>
+		</div>
+		<!--  /tab -->
+	<!--</div>-->
+<!--</div>-->

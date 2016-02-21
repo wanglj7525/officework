@@ -1,0 +1,93 @@
+angular.module('app')
+  .service('quicksearch',['$q','$http',function($q,$http){
+	var data={};
+	return{
+		getData:function(id){
+			var deferred=$q.defer();
+			var path='/public/app/api/search';
+			if (id) {
+				path+='';
+			};
+			var promise=$http.get(path).then(function(response){
+				return response;
+			},function(response){
+				return response;
+			});
+			return promise;
+		}
+	}
+}] )
+  .service('worktipservice', ['$q','$http', function($q,$http){
+    var data={};
+    return{
+      getData:function(id){
+        var deferred=$q.defer();
+        var path='/public/app/api/worktip';
+        if (id) {
+          path+='';
+        };
+        var promise=$http.get(path).then(function(response){
+          return response;
+        },function(response){
+          return response;
+        });
+        return promise;
+      }
+    }
+    
+  }]).service('worktiplistservice', ['$q','$http', function($q,$http){
+  	var data={};
+  	return{
+  		getData:function(id){
+  			var deferred=$q.defer();
+  			var path='/public/app/api/worktiplist';
+  			if (id) {
+  				path+='';
+  			};
+  			var promise=$http.get(path).then(function(response){
+  				return response;
+  			},function(response){
+  				return response;
+  			});
+  			return promise;
+  		}
+  	}
+  	
+  }])
+  .service('messageservice', ['$q','$http', function($q,$http){
+  	var data={};
+  	return{
+  		getData:function(id){
+  			var deferred=$q.defer();
+  			var path='/public/app/api/message';
+  			if (id) {
+  				path+='';
+  			};
+  			var promise=$http.get(path).then(function(response){
+  				return response;
+  			},function(response){
+  				return response;
+  			});
+  			return promise;
+  		}
+  	}
+  	
+  }]).service('searchservice', ['$q','$http', function($q,$http){
+    var data={};
+    return{
+      getData:function(id){
+        var deferred=$q.defer();
+        var path='/public/app/api/searchlist';
+        if (id) {
+          path+='';
+        };
+        var promise=$http.get(path).then(function(response){
+          return response;
+        },function(response){
+          return response;
+        });
+        return promise;
+      }
+    }
+    
+  }]);

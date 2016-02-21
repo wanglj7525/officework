@@ -1,0 +1,41 @@
+
+<div ng-controller="WorktipListCtrl">
+     
+      <div class="panel panel-default">
+         <!--  <div class="panel-heading">工作提示
+          </div>  --> 
+          <table st-table="worktiptable"  class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                 <th width="10%">序号</th>
+                 <th>分类</th>
+                 <th width="20%">地区/单位</th>
+                 <th>提示</th>
+                 <th>备注</th>
+                 <th>操作</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="row in worktiptable | filter: {pid:pid}" >
+                <td ng-bind="$index+1">1</td>
+                <td>{{row.fenlei}}</td>
+                <td>{{row.diqu}}</td>
+                <td >{{row.tishi}}</td>
+                <td >{{row.beizhu}}</td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-default">
+                    {{row.caozuo}}
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="6" class="text-center">
+                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7" class="no-margin"></div>
+                  </td>
+                </tr>
+              </tfoot>
+          </table>
+        </div>
+</div>

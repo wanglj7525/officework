@@ -2,52 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/api/adjustd2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/api/adjustdetail" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/api/adjustlist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjustdetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Login" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Login" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.PlayDocumentation" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.PlayDocumentation" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$1" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$2" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$3" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieMapViewModel" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieMapViewModel" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieSource" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieSource" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.ResultInfo" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.ResultInfo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.Tree" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.Tree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.User" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.User" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/Application.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/Login.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/PlayDocumentation.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/PlayDocumentation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/.settings/org.eclipse.core.resources.prefs" afterPath="$PROJECT_DIR$/eclipse/.settings/org.eclipse.core.resources.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/Connect JPDA to officwork.launch" afterPath="$PROJECT_DIR$/eclipse/Connect JPDA to officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/Test officwork.launch" afterPath="$PROJECT_DIR$/eclipse/Test officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/officwork.launch" afterPath="$PROJECT_DIR$/eclipse/officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.router.js" afterPath="$PROJECT_DIR$/public/app/js/config.router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/adjust.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/adjust.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/adjustplan.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/adjustplan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/tree.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/services/service.js" afterPath="$PROJECT_DIR$/public/app/js/services/service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjust.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjust.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_errors_404.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_errors_404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_errors_404.txt" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_errors_404.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_tags_404.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_tags_404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -751,7 +706,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456061657569</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="见客户后修改页面样式">
+      <created>1456133741502</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1456133741502</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -760,6 +721,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -768,7 +730,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -783,7 +744,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mac" />
     <MESSAGE value="跳转" />
-    <option name="LAST_COMMIT_MESSAGE" value="跳转" />
+    <MESSAGE value="见客户后修改页面样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="见客户后修改页面样式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

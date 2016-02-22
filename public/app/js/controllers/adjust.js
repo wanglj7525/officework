@@ -1,15 +1,38 @@
 'use strict';
-app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','messageservice',
-                       		function($scope, $http, $state, $timeout,messageservice) {
-								//获取人员信息
-								messageservice.getData().then(
-									function (res) {
-										$scope.adjusttable = res.data.info;
-									},
-									function (rej) {
-										console.log(rej);
-									}
-								);
+app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout','$stateParams','adjustdetailservice',
+	function($scope, $http, $state, $timeout,$stateParams,adjustdetailservice) {
+		$scope.id = $stateParams.id;
+		adjustdetailservice.getData().then(
+			function (res) {
+				$scope.adjusttable = res.data.info
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
+	}
+]);
+app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adjustlistservice',
+                       		function($scope, $http, $state, $timeout,adjustlistservice) {
+				//获取人员信息
+				adjustlistservice.getData().then(
+					function (res) {
+						$scope.adjustlist = res.data.info;
+					},
+					function (rej) {
+						console.log(rej);
+					}
+				);
+
+				//planlistservice.getData().then(
+				//	function (res) {
+				//		$scope.adjustlist = res.data.info
+				//	},
+				//	function (rej) {
+				//		console.log(rej);
+				//	}
+				//);
+
 	//$scope.selecttable = [
 	//               { id:1,img:'/public/app/img/a0.jpg', name:'张三1' ,sex:"男",company:"福清市xxx、xxx信息1",nation:"汉",birthday:"196511",palce:"福清龙田",troops:"197712",party:"191212",education:"本科",school:"福建师范"},
 	//               { id:2,img:'/public/app/img/a1.jpg', name:'张三2' ,sex:"男",company:"福清市xxx、xxx信息2",nation:"汉",birthday:"195411",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},

@@ -36,59 +36,95 @@ angular.module('app')
                   url: '/app',
                   templateUrl: layout
               })
+              .state('app.message',{
+                  url:'/message',
+                  views:{
+                      'left':{
+                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
+                      },
+                      '':{
+                          templateUrl: STATIC_PATH + 'tpl/ui_message.html',
+                            resolve: load([STATIC_PATH + 'js/controllers/message.js'])
+                      }
+                  }
+              })
+              .state('app.analysis',{
+                  url:'/analysis',
+                  views:{
+                      'left':{
+                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
+                      },
+                      '':{
+                          templateUrl: STATIC_PATH + 'tpl/ui_analysis.html',
+                          resolve: load(['smart-table',STATIC_PATH + 'js/controllers/analysis.js'])
+                      }
+                  }
+              })
+              .state('app.deploy',{
+                  url:'/deploy',
+                  views:{
+                      'left':{
+                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
+                      },
+                      '':{
+                          templateUrl: STATIC_PATH + 'tpl/ui_deploy.html',
+                          resolve: load(['smart-table',STATIC_PATH + 'js/controllers/deploy.js'])
+                      }
+                  }
+              })
 
-              .state('app.search',{
-                  abstract: true,
-                  url: '/search',
-                  templateUrl: STATIC_PATH + 'tpl/ui_search.html',
-                  resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/search.js'])
+              //.state('app.search',{
+              //    abstract: true,
+              //    url: '/search',
+              //    templateUrl: STATIC_PATH + 'tpl/ui_search.html',
+              //    resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/search.js'])
+              //
+              //})
+              //.state('app.search.message', {
+            	//  url: '/message',
+            	//  templateUrl: STATIC_PATH + 'tpl/ui_message.html',
+            	//  resolve: load([STATIC_PATH + 'js/controllers/message.js'])
+              //})
+              //.state('app.search.analysis', {
+            	//  url: '/analysis',
+            	//  templateUrl: STATIC_PATH + 'tpl/ui_analysis.html',
+            	//  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/analysis.js'])
+              //})
+              //.state('app.search.deploy', {
+            	//  url: '/deploy',
+            	//  templateUrl: STATIC_PATH + 'tpl/ui_deploy.html',
+            	//  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/deploy.js'])
+              //})
+              //.state('app.adjust', {
+              //  url: '/adjust',
+              //  templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
+              //  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjust.js'])
+              //})
 
-              })
-              .state('app.search.message', {
-            	  url: '/message',
-            	  templateUrl: STATIC_PATH + 'tpl/ui_message.html',
-            	  resolve: load([STATIC_PATH + 'js/controllers/message.js'])
-              })
-              .state('app.search.analysis', {
-            	  url: '/analysis',
-            	  templateUrl: STATIC_PATH + 'tpl/ui_analysis.html',
-            	  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/analysis.js'])
-              })
-              .state('app.search.deploy', {
-            	  url: '/deploy',
-            	  templateUrl: STATIC_PATH + 'tpl/ui_deploy.html',
-            	  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/deploy.js'])
-              })
-              .state('app.adjust', {
-                url: '/adjust',
-                templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
-                resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjust.js'])
-              })
               //.state('app.adjustplan', {
             	//  url: '/adjustplan',
             	//  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
             	//  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
               //})
-              // 调整方案
-              .state('app.adjustplan', {
-                  abstract: true,
-                  url: '/adjustplan',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
-                  // use resolve to load other dependences
-                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
-              })
-              .state('app.adjustplan.detail', {
-                  url: '/detail/{id}',
-                  templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
-              })
+
                // 工作提示
               .state('app.worktip', {
                   abstract: true,
                   url: '/worktip',
-                  templateUrl: STATIC_PATH + 'tpl/ui_worktip.html',
-                  // use resolve to load other dependences
-                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/worktip.js'])
+                  views:{
+                      'left':{
+                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
+                      },
+                      '':{
+                          templateUrl: STATIC_PATH + 'tpl/ui_worktip.html',
+                          // use resolve to load other dependences
+                          resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/worktip.js']),
+                      }
+                  }
               })
               .state('app.worktip.edit', {
                   url: '/edit',
@@ -124,6 +160,29 @@ angular.module('app')
               .state('notree.dataconfig',{
                   url:'/dataconfig',
                   templateUrl:STATIC_PATH+'tpl/ui_dataconfig.html'
+              })
+              // 调整方案
+              .state('notree.adjustplan', {
+                  abstract: true,
+                  url: '/adjustplan',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
+                  // use resolve to load other dependences
+                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
+              })
+              .state('notree.adjustplan.detail', {
+                  url: '/detail/{id}',
+                  templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
+              })
+              .state('notree.adjust',{
+                  url:'/adjust',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
+                  resolve: load(['smart-table',,STATIC_PATH + 'js/controllers/adjust.js'])
+              })
+              .state('notree.adjust.detail', {
+                  url: '/detail/{id}',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjustdetail.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
               })
           ;
 

@@ -1533,6 +1533,7 @@
 }
 
 .md-aside {
+  height: 100%;
   position: fixed;
   left:0;
   right:0;

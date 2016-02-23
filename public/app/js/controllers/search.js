@@ -11,3 +11,14 @@ app.controller('SearchController', [ '$scope', '$http', '$state','$timeout','$mo
         );
     }
 ]);
+app.controller('SearchGuController',['$scope','searchguservice',function($scope, searchguservice) {
+    searchguservice.getData().then(
+        function (res) {
+            $scope.searchguinfo = res.data.info
+        },
+        function (rej) {
+            console.log(rej);
+        }
+    );
+
+} ]);

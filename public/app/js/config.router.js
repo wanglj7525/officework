@@ -41,7 +41,7 @@ angular.module('app')
                   views:{
                       'left':{
                           templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
-                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
+                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/search.js'])
                       },
                       '':{
                           templateUrl: STATIC_PATH + 'tpl/ui_message.html',

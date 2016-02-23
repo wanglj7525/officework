@@ -16,15 +16,7 @@
   app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','messageservice',
 		function($scope, $http, $state, $timeout,$modal,$log,messageservice) {
             $scope.itemsByPage=10;
-            //searchservice.getData().then(
-			//	function (res) {
-			//		console.log("MessageController");
-			//		$scope.searchlist = res.data.info;
-			//	},
-			//	function (rej) {
-			//		console.log(rej);
-			//	}
-			//);
+
 			//获取人员信息
 			messageservice.getData().then(
 				function (res) {
@@ -75,48 +67,36 @@
 			};
 
 
-		////选择条件
-		//quicksearch.getData().then(
-		//  function (res) {
-		//    $scope.selectshow = res.data.info
-		//  },
-		//  function (rej) {
-		//  	console.log(rej);
-		//  }
-//);
-
-		  //$scope.getShowPosition = function() {
-		  //  return Object.keys($scope.selectshow)
-		  //    .filter(function(pos) { return $scope.showPosition[pos]; })
-		  //    .join(' ');
-		  //};
-//			$http.get('/rest/gettree').success(function(data) {
-//				console.log(data.info);
-//				if (data.result == "success") {
-//				
-//				} else {
-//				}
-//			}).error(function(data) {
-//				alert(data);
-//			});
-
 		} ]);
-//app.controller('messagetableController', [ '$scope', '$http', '$state','$timeout','messageservice',
-//		function($scope, $http, $state, $timeout,messageservice) {
-//            $scope.itemsByPage=10;
-//
-//			//获取人员信息
-//			messageservice.getData().then(
-//				function (res) {
-//					console.log(res);
-//					$scope.showtables  = res.data.info;
-//				},
-//				function (rej) {
-//					console.log(rej);
-//				}
-//			);
-//
-//		} ]);
-//app.controller('oneMessageController', ['$scope', '$http', '$state', function($scope, $http, $state){
-//
-//		}]);
+
+app.controller('oneMessageController', ['$scope', '$http', '$state', function($scope, $http, $state){
+
+		}]);
+app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){
+	$scope.onemessage= {
+		"id": 1,
+		"img": "/public/app/img/a0.jpg",
+		"name": "张三1",
+		"sex": "男",
+		"company": "福清市xxx、xxx信息",
+		"nation": "汉",
+		"birthday": "19551111",
+		"palce": "福清龙田",
+		"troops": "19771212",
+		"party": "19771212",
+		"education": "本科",
+		"school": "福建师范",
+		"health":"健康或良好",
+		"zhengzhi":"中国共产党党员",
+		"shenfenzheng":"11111111111111111111111x",
+		"zhuanchang":"唱歌",
+		"beiwang":"备忘1",
+		"beiyong1":"备用1",
+		"beiyong2":"备用2",
+		"zhiji":"处长",
+		"gerenshenfen":"xx处长",
+		"zhuangtai":"退休",
+		"zhicheng":"中级职称"
+	};
+	$scope.selectedIndex = 0;
+}]);

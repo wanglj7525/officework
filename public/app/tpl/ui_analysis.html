@@ -1,131 +1,71 @@
-<!--&lt;!&ndash; hbox layout &ndash;&gt;-->
-<!--<div class="row hbox hbox-auto-xs  hbox-auto-sm bg-light "  ng-controller="analysisController">-->
-  <!--&lt;!&ndash; column &ndash;&gt;-->
-  <!--&lt;!&ndash; <div class="col w-lg lt b-r">-->
-    <!---->
-      <!---->
-      <!--<div flex class=" md-whiteframe-z0 md-aside md-content hidden-xs scrollable m-l" data-ng-include=" '/public/app/tpl/blocks/material.aside.html' ">-->
-          <!--</div> -->
-    <!---->
-  <!--</div> &ndash;&gt;-->
-  <!--&lt;!&ndash; /column &ndash;&gt; -->
-   <!--&lt;!&ndash; column &ndash;&gt;-->
-  <!--<div flex class="col-md-3 bg-light dk  bg-auto">-->
-    <!--<div class="vbox">-->
-      <!--<div class="wrapper">-->
-       <!--&lt;!&ndash; <div class="input-group">-->
-          <!--<div class="pull-right"> &ndash;&gt;-->
-     <!--&lt;!&ndash;      <div class="btn-group w-full">-->
-            <!--<button class="btn  btn-default" ng-click="changeView('agendaDay')">快捷</button>-->
-            <!--<button class="btn  btn-default" ng-click="changeView('agendaWeek')">更多</button>-->
-            <!--<button class="btn  btn-default" ng-click="changeView('month')">自定义</button>-->
-          <!--</div> &ndash;&gt;-->
-          <!--<div class="btn-group btn-group-justified">-->
-          <!--<a class="btn btn-dark" href="">快捷</a>-->
-          <!--<a class="btn btn-dark" href="">更多</a>-->
-          <!--<a class="btn btn-dark" href="">自定义</a>-->
-        <!--</div>-->
+<div  ng-controller="analysisController">
+    <div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >
+        <nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>
+    </div>
+    <div class="md-right">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">年龄</div>
+                <div class="panel-body row" style="display:inline;">
+                    <div class="col-md-7 col-sm-7">
+                        <pies id="pies" config="config1" ></pies>
+                    </div>
 
-        <!--&lt;!&ndash; </div>-->
-        <!--</div> &ndash;&gt;-->
-      <!--</div>-->
-
-      <!--<div class="">-->
-        <!--<div class="cell scrollable hover">-->
-          <!--<div class="cell-inner">-->
-            <!--<div class="padder">-->
-              <!--<div class="list-group">-->
-                <!--<form class="bs-example form-horizontal ng-pristine ng-valid">-->
-                  <!--<div class="form-group list-group-item" ng-repeat="searchitem in searchlist | filter:{show:'less'}">-->
-                    <!--<label class="col-lg-4 control-label">{{searchitem.title}}</label>-->
-                    <!--<div class="col-lg-8">-->
-                     <!--<select class="form-control" name="{{searchitem.title}}" class="form-control">-->
-                      <!--<option ng-repeat="selectitem in searchitem.selectitem" value="{{selectitem.name}}">{{selectitem.name}}</option>-->
-                    <!--</select>-->
-                    <!--</div>-->
-                  <!--</div>-->
-              <!---->
-                  <!--<div class="form-group">-->
-                    <!--<button type="submit" class="btn w-full  btn-info font-bold">搜索</button>  -->
-                  <!--</div>-->
-                <!--</form>-->
-               <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--&lt;!&ndash; /column &ndash;&gt;-->
-    <!--<div class="col-md-9">-->
-    <!--&lt;!&ndash; <div ui-view ></div> &ndash;&gt;-->
-    <div  ng-controller="analysisController">
-
-    <div class="row">
-
-        <div class="panel panel-default">
-          <div class="panel-heading font-bold">年龄</div>
-          <div class="panel-body row" style="display:inline;">
-              <div class="col-md-7 col-sm-7">
-                  <pies id="pies" config="config1" ></pies>
-              </div>
-
-          <div class="col-md-5 col-sm-5 list-group"  style="display:inline;">
-             <div class="list-group-item">
-              <span>年龄比例不协调，需要进行班子调整</span>
-              <button ui-sref="app.search.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button>
+                    <div class="col-md-5 col-sm-5 list-group"  style="display:inline;">
+                        <div class="list-group-item">
+                            <span>年龄比例不协调，需要进行班子调整</span>
+                            <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button>
+                        </div>
+                        <div class="list-group-item">
+                            <span>年龄比例不协调，需要进行班子调整</span>
+                            <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-              <div class="list-group-item">
-                  <span>年龄比例不协调，需要进行班子调整</span>
-                  <button ui-sref="app.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button>
-              </div>
-           </div>
-          </div>
         </div>
-      </div>  
-      <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading font-bold">性别</div>
-          <div class="panel-body">
-              <div class="col-md-7">
-                  <pies id="pies2" config="config2" ></pies>
-              </div>
-            <div class="col-md-5 list-group">
-             <div class="list-group-item">性别比例不协调，需要进行班子调整 
-              <button ui-sref="app.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button></div>
-           </div>
-          </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">性别</div>
+                <div class="panel-body">
+                    <div class="col-md-7">
+                        <pies id="pies2" config="config2" ></pies>
+                    </div>
+                    <div class="col-md-5 list-group">
+                        <div class="list-group-item">性别比例不协调，需要进行班子调整
+                            <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading font-bold">学历</div>
-          <div class="panel-body">
-              <div class="col-md-7">
-                  <pies id="pies3" config="config3" ></pies>
-              </div>
-           <div class="col-md-5 list-group">
-             <div class="list-group-item">学历比例不协调，需要进行班子调整
-              <button  ui-sref="app.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button></div>
-           </div>
-          </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">学历</div>
+                <div class="panel-body">
+                    <div class="col-md-7">
+                        <pies id="pies3" config="config3" ></pies>
+                    </div>
+                    <div class="col-md-5 list-group">
+                        <div class="list-group-item">学历比例不协调，需要进行班子调整
+                            <button  ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button></div>
+                    </div>
+                </div>
+            </div>
         </div>
-       </div>  
-      <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading font-bold">党派</div>
-          <div class="panel-body">
-              <div class="col-md-7">
-                  <pies id="pies4" config="config4" ></pies>
-              </div>
-            <div class="col-md-5 list-group">
-             <div class="list-group-item">党派比例不协调，需要进行班子调整
-              <button ui-sref="app.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button></div>
-           </div>
-          </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">党派</div>
+                <div class="panel-body">
+                    <div class="col-md-7">
+                        <pies id="pies4" config="config4" ></pies>
+                    </div>
+                    <div class="col-md-5 list-group">
+                        <div class="list-group-item">党派比例不协调，需要进行班子调整
+                            <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-danger ">班子调整</button></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-  </div>
-  <!--</div>-->
-<!--</div>-->
-<!-- /hbox layout -->
+
+</div>

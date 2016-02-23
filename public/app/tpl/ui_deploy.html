@@ -1,29 +1,48 @@
 <div ng-controller="deployCtrl">
 	<div class="row">
-		<div class="col-md-3" >
+		<script type="text/ng-template" id="myModalContent.html">
+			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
+		</script>
+		<div class="col-md-5" >
 			<div  ng-repeat="row in daweilist">
 				<div class="panel panel-default">
 					<div class="panel-heading">{{row.name}}
 						<a  class="pull-right m-l"> <i class="fa fa-times"></i></a>
 						<a  class="pull-right m-l"> <i class="fa fa-refresh"></i></a>
 					</div>
-					<ul class="list-group no-radius">
-						<li class="list-group-item" ng-repeat="reason in row.reason">
-							{{reason.name}}
-						</li>
+					<!--<ul class="list-group no-radius">-->
+						<!--<li class="list-group-item" ng-repeat="reason in row.reason">-->
+							<!--{{reason.name}}-->
+						<!--</li>-->
 
-					</ul>
+					<!--</ul>-->
+					<div class="row" >
+						<!--<script type="text/ng-template" id="myModalContent.html">-->
+							<!--<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>-->
+						<!--</script>-->
+						<div ng-repeat="t in row.peoples">
+							<div class="col-sm-3">
+								<div class="panel panel-card">
+									<div class="item">
+										<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
+									</div>
+									<div class="wrapper">
+										{{t.name}}
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<button class="btn w-full  btn-info font-bold" type="submit">保存调整</button>
 			</div>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-7">
 			<div class="row" >
-				<script type="text/ng-template" id="myModalContent.html">
-					<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
-				</script>
+
 				<div ng-repeat="t in imgs">
 					<div class="col-sm-2">
 						<div class="panel panel-card">
@@ -31,7 +50,8 @@
 								<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
 							</div>
 							<div class="wrapper">
-								<button class="btn m-b-xs btn-sm btn-primary ">修改职务</button>
+								{{t.name}}
+								<!--<button class="btn m-b-xs btn-sm btn-primary ">修改职务</button>-->
 								<!--<ul class="list-group no-radius">-->
 									<!--<li class="list-group-item" >-->
 										<!--{{t.name}}-->

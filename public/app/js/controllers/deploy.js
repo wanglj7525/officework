@@ -13,13 +13,22 @@ app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', functi
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','messageservice',
-                       		function($scope, $http, $state, $timeout,$modal,messageservice) {
-								$scope.daweilist=[
-									{"id":1,"name":'市委',"reason":[{"name":"超编两人"},{"name":"女性比例比正常值偏少"}]},
-									{"id":2,"name":'市人大',"reason":[{"name":"缺编两人"},{"name":"女性比例比正常值偏少"}]},
-									{"id":3,"name":'市政协',"reason":[{"name":"人员比例正常"}]},
-									{"id":4,"name":'市政府',"reason":[{"name":"超编两人"}]}];
+app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','deploydanweiservice','messageservice',
+                       		function($scope, $http, $state, $timeout,$modal,deploydanweiservice,messageservice) {
+								deploydanweiservice.getData().then(
+									function (res) {
+										$scope.daweilist = res.data.info;
+										//$scope.messagetabletab = res.data.info;
+									},
+									function (rej) {
+										console.log(rej);
+									}
+								);
+								//$scope.daweilist=[
+								//	{"id":1,"name":'市委',"peoples":[{"name":"超编两人"},{"name":"女性比例比正常值偏少"}]},
+								//	{"id":2,"name":'市人大',"reason":[{"name":"缺编两人"},{"name":"女性比例比正常值偏少"}]},
+								//	{"id":3,"name":'市政协',"reason":[{"name":"人员比例正常"}]},
+								//	{"id":4,"name":'市政府',"reason":[{"name":"超编两人"}]}];
 								//获取人员信息
 								messageservice.getData().then(
 									function (res) {
@@ -101,4 +110,31 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','m
 //	 }
 //
 } ]);
-
+app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){
+	$scope.onemessage= {
+		"id": 1,
+		"img": "/public/app/img/a0.jpg",
+		"name": "张三1",
+		"sex": "男",
+		"company": "福清市xxx、xxx信息",
+		"nation": "汉",
+		"birthday": "19551111",
+		"palce": "福清龙田",
+		"troops": "19771212",
+		"party": "19771212",
+		"education": "本科",
+		"school": "福建师范",
+		"health":"健康或良好",
+		"zhengzhi":"中国共产党党员",
+		"shenfenzheng":"11111111111111111111111x",
+		"zhuanchang":"唱歌",
+		"beiwang":"备忘1",
+		"beiyong1":"备用1",
+		"beiyong2":"备用2",
+		"zhiji":"处长",
+		"gerenshenfen":"xx处长",
+		"zhuangtai":"退休",
+		"zhicheng":"中级职称"
+	};
+	$scope.selectedIndex = 0;
+}]);

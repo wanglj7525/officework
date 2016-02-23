@@ -1533,7 +1533,7 @@
 }
 
 .md-aside {
-  position: relative;
+  position: fixed;
   left:0;
   right:0;
   /*position: relative;*/
@@ -1541,7 +1541,14 @@
   width: 240px;
   max-width: 240px;
 }
-
+.md-right{
+  margin-left: 240px;
+}
+@media (max-width: 767px) {
+  .md-right{
+    margin-left: 0px;
+  }
+}
 .md-content {
   display: block;
   overflow: auto;

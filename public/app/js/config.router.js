@@ -53,7 +53,7 @@ angular.module('app')
                   url:'/analysis',
                   views:{
                       'left':{
-                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          templateUrl: STATIC_PATH + 'tpl/blocks/nosearch.aside.html',
                           resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
                       },
                       '':{
@@ -66,7 +66,7 @@ angular.module('app')
                   url:'/deploy',
                   views:{
                       'left':{
-                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          templateUrl: STATIC_PATH + 'tpl/blocks/nosearch.aside.html',
                           resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
                       },
                       '':{
@@ -116,7 +116,7 @@ angular.module('app')
                   url: '/worktip',
                   views:{
                       'left':{
-                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+                          templateUrl: STATIC_PATH + 'tpl/blocks/nosearch.aside.html',
                           resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
                       },
                       '':{

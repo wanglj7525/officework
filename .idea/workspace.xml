@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
+    <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="修改左侧菜单栏显示 修改班子调配">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/my.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/app.css" afterPath="$PROJECT_DIR$/public/app/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/index.html" afterPath="$PROJECT_DIR$/public/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.router.js" afterPath="$PROJECT_DIR$/public/app/js/config.router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,113 +31,7 @@
     <favorites_list name="officwork" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ui_adjustdetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjustdetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.75">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plandetail" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/api/plandetail">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="245" column="31" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="material.header.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.821428">
-              <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55774647">
-              <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ui_adjust.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjust.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3571428">
-              <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adjust.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/adjust.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="34" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adjustdetail" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/api/adjustdetail">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="206" column="41" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adjustd2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/api/adjustd2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ui_plandetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_plandetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7142856">
-              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.router.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="181" column="22" selection-start-line="181" selection-start-column="22" selection-end-line="181" selection-end-column="42" />
-              <folding>
-                <marker date="1456132157132" expanded="true" signature="6178:6190" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -149,7 +52,6 @@
         <option value="$PROJECT_DIR$/public/app/tpl/analysis.html" />
         <option value="$PROJECT_DIR$/public/app/css/md.css" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
-        <option value="$PROJECT_DIR$/public/app/css/app.css" />
         <option value="$PROJECT_DIR$/public/app/api/message" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_search.html" />
@@ -168,15 +70,12 @@
         <option value="$PROJECT_DIR$/public/app/api/plandetail" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
-        <option value="$PROJECT_DIR$/public/app/index.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
         <option value="$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
-        <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/adjustplan.js" />
         <option value="$PROJECT_DIR$/public/app/api/adjustlist.txt" />
         <option value="$PROJECT_DIR$/public/app/api/adjustdetail.txt" />
@@ -187,6 +86,14 @@
         <option value="$PROJECT_DIR$/public/app/api/adjustdetail" />
         <option value="$PROJECT_DIR$/public/app/api/adjustd2" />
         <option value="$PROJECT_DIR$/public/app/js/services/service.js" />
+        <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
+        <option value="$PROJECT_DIR$/public/app/css/app.css" />
+        <option value="$PROJECT_DIR$/public/app/css/my.css" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
+        <option value="$PROJECT_DIR$/public/app/index.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" />
+        <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
       </list>
     </option>
   </component>
@@ -572,6 +479,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -594,7 +527,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -627,9 +560,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qyh2015\git\officework\public\app\tpl\blocks" />
       <recent name="C:\Users\qyh2015\git\officework\public\app\api" />
       <recent name="C:\Users\qyh2015\git\officework\public\app\tpl" />
-      <recent name="C:\Users\qyh2015\git\officework\public\app\tpl\blocks" />
       <recent name="$PROJECT_DIR$/public/app/tpl" />
     </key>
   </component>
@@ -712,18 +645,25 @@
       <option name="project" value="LOCAL" />
       <updated>1456133741502</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="见客户后修改页面样式">
+      <created>1456133750668</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1456133750668</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -734,7 +674,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -745,48 +684,14 @@
     <MESSAGE value="mac" />
     <MESSAGE value="跳转" />
     <MESSAGE value="见客户后修改页面样式" />
-    <option name="LAST_COMMIT_MESSAGE" value="见客户后修改页面样式" />
+    <MESSAGE value="修改左侧菜单栏显示 修改班子调配" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改左侧菜单栏显示 修改班子调配" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/app/api/worktiplist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/api/searchlist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/api/search">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/slider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/signin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -935,30 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.446429">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7142856">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39170507">
@@ -971,22 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.785714">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1839081">
-          <caret line="4192" column="1" selection-start-line="4192" selection-start-column="1" selection-end-line="4192" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1063,16 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="181" column="22" selection-start-line="181" selection-start-column="22" selection-end-line="181" selection-end-column="42" />
-          <folding>
-            <marker date="1456132157132" expanded="true" signature="6178:6190" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.821428">
@@ -1091,7 +946,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_plandetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7142856">
+        <state vertical-scroll-proportion="0.10704225">
           <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
           <folding />
         </state>
@@ -1099,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/adjust.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.15447155">
           <caret line="6" column="34" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="34" />
           <folding />
         </state>
@@ -1107,7 +962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjust.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3571428">
+        <state vertical-scroll-proportion="0.11143695">
           <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
           <folding />
         </state>
@@ -1118,15 +973,15 @@
         <state vertical-scroll-proportion="-4.75">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/api/adjustdetail">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="3.7289972">
           <caret line="206" column="41" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="41" />
           <folding />
         </state>
@@ -1134,7 +989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/api/adjustd2">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.76829267">
           <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
           <folding />
         </state>
@@ -1142,9 +997,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55774647">
-          <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.7056338">
+          <caret line="160" column="15" selection-start-line="160" selection-start-column="15" selection-end-line="160" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/directives/appdirectives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10298103">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07723577">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.116743475">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/libs/angular/angular/angular.1.2.29.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33195877">
+          <caret line="17797" column="66" selection-start-line="17797" selection-start-column="66" selection-end-line="17797" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32112676">
+          <caret line="12" column="109" selection-start-line="12" selection-start-column="109" selection-end-line="12" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0357144">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.428571">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.428571">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026760563">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5293255">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41678938">
+          <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+          <folding>
+            <marker date="1456194217392" expanded="true" signature="6178:6190" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

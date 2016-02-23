@@ -137,7 +137,7 @@ angular.module('app')
               })
               .state('access', {
                   url: '/access',
-                  template: '<div ui-view style="height: 100%"  class="blue-900"></div>'
+                  template: '<div ui-view style="height: 100%" flex  class="blue-900"></div>'
               })
               .state('access.signin', {
                   url: '/signin',

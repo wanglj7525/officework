@@ -15,29 +15,18 @@ app.controller('WorktipFormController',['$scope','worktipservice','treeservice',
 	};
 	$scope.my_data = [];
 	$scope.doing_async = true;
-	$scope.my_tree = tree = {};
 	treeservice.getData().then(
 		function (res) {
 			$scope.my_data = res.data.info
 			$scope.doing_async = false;
-			//tree.expand_all();
-
-		},
-		function (rej) {
-			console.log(rej);
-		}
-	);
-
-	worktipservice.getData().then(
-		function (res) {
-			$scope.tipinfo = res.data.info
+			tree.expand_all();
 		},
 		function (rej) {
 			console.log(rej);
 		}
 	);
 	//$scope.my_data=treedata_avm;
-
+	$scope.my_tree = tree = {};
 
 
 	//treedata_avm = [
@@ -114,6 +103,17 @@ app.controller('WorktipFormController',['$scope','worktipservice','treeservice',
     //
 	//$scope.my_data = treedata_avm;
 	//$scope.my_tree = tree = {};
+
+		worktipservice.getData().then(
+			  function (res) {
+			    $scope.tipinfo = res.data.info
+			  }, 
+			  function (rej) {
+			  	console.log(rej);
+			  }
+		);
+
+
 } ]);
 app.controller('WorktipListCtrl', ['$scope', 'worktiplistservice', '$stateParams',  function($scope, worktiplistservice,$stateParams) {
 	$scope.pid = $stateParams.pid;

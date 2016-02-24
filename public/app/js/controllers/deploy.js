@@ -65,25 +65,26 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 		$scope.doing_async = true;
 		treeservice.getData().then(
 			function (res) {
-				$scope.my_data = res.data.info
-				$scope.doing_async = false;
-				var modaldeployInstance = $modal.open({
-					templateUrl: 'selectCompanyModel.html',
-					controller: 'ModalDeployInstanceCtrl',
-					size: 'lg',
-					resolve: {
-						items: function () {
-							return $scope.my_data
-						}
-					}
-				});
-				modaldeployInstance.result.then(function (selectedItem) {
-					$scope.selected = selectedItem;
-					console.log($scope.selected);
-					console.log($scope.first);
-				}, function () {
-					$log.info('Modal dismissed at: ' + new Date());
-				});
+				//$scope.my_data = res.data.info
+				$scope.deploy=res.data.info;
+				//$scope.doing_async = false;
+				//var modaldeployInstance = $modal.open({
+				//	templateUrl: 'selectCompanyModel.html',
+				//	controller: 'ModalDeployInstanceCtrl',
+				//	size: 'lg',
+				//	resolve: {
+				//		items: function () {
+				//			return $scope.my_data
+				//		}
+				//	}
+				//});
+				//modaldeployInstance.result.then(function (selectedItem) {
+				//	$scope.selected = selectedItem;
+				//	console.log($scope.selected);
+				//	console.log($scope.first);
+				//}, function () {
+				//	$log.info('Modal dismissed at: ' + new Date());
+				//});
 			},
 			function (rej) {
 				console.log(rej);
@@ -92,14 +93,14 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 		//$scope.my_data=treedata_avm;
 		$scope.my_tree = tree = {};
 
-		deploydanweiservice.getData().then(
-			function (res) {
-				$scope.daweilist = res.data.info;
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
+		//deploydanweiservice.getData().then(
+		//	function (res) {
+		//		$scope.daweilist = res.data.info;
+		//	},
+		//	function (rej) {
+		//		console.log(rej);
+		//	}
+		//);
 		//获取人员信息
 		messageservice.getData().then(
 			function (res) {
@@ -111,6 +112,25 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 			}
 		);
 
+		$scope.selectdw=function(first,second,third){
+			//alert(first.label+" "+second.label+" "+third.label);
+			//if(third){
+			//	$scope.daweilist=third;
+			//}else if(second){
+			//	$scope.daweilist=second;
+			//}else{
+			//	$scope.daweilist=first;
+			//}
+
+			deploydanweiservice.getData().then(
+				function (res) {
+					$scope.daweilist = res.data.info;
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
+		}
 
 	} ]);
 app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){

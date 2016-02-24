@@ -15,95 +15,7 @@ app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', functi
 }]);
 app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice',
 	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice) {
-
-		var  tree, treedata_avm;
-		$scope.my_tree_handler = function(branch) {
-			var _ref;
-			$scope.output = branch.label;
-			if ((_ref = branch.data) != null ? _ref.description : void 0) {
-				return $scope.output += '(' + branch.data.description + ')';
-			}
-			console.log($scope.output);
-			//TODO
-		};
-//treedata_avm = [
-//			{
-//				label: '市委班子',
-//				data:1,
-//				children: [
-//					{
-//						label: '市委',
-//						data: 11,
-//						children:[]
-//					}, {
-//						label: '市人大',
-//						data: 12
-//					}, {
-//						label: '市政协',
-//						data: 13
-//					}, {
-//						label: '市政府',
-//						data: 14,
-//						children: ['市政府市委', '市政府党委', '市政府政协']
-//					}
-//				]
-//			}, {
-//				label: '县市区',
-//				data:5,
-//				children: [
-//					{
-//						label: '福清',
-//						data:51,
-//						children: ['福清区委', '福清党委']
-//					}, {
-//						label: '长乐',
-//						data:52,
-//						children: ['长乐党委']
-//					}, {
-//						label: '闽侯',
-//						data:53
-//					}
-//				]
-//			}
-//		];
-		$scope.my_data = [];
-		$scope.doing_async = true;
-		treeservice.getData().then(
-			function (res) {
-				$scope.my_data = res.data.info
-				$scope.doing_async = false;
-				tree.expand_all();
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
-		//$scope.my_data=treedata_avm;
-		$scope.my_tree = tree = {};
-
-		deploydanweiservice.getData().then(
-			function (res) {
-				$scope.daweilist = res.data.info;
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
-		//$scope.daweilist=[
-		//	{"id":1,"name":'市委',"peoples":[{"name":"超编两人"},{"name":"女性比例比正常值偏少"}]},
-		//	{"id":2,"name":'市人大',"reason":[{"name":"缺编两人"},{"name":"女性比例比正常值偏少"}]},
-		//	{"id":3,"name":'市政协',"reason":[{"name":"人员比例正常"}]},
-		//	{"id":4,"name":'市政府',"reason":[{"name":"超编两人"}]}];
-		//获取人员信息
-		messageservice.getData().then(
-			function (res) {
-				$scope.imgs = res.data.info;
-				//$scope.messagetabletab = res.data.info;
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
+		$scope.oneAtATime = true;
 		//点击头像查看个人信息
 		$scope.items = ['item1', 'item2', 'item3'];
 		$scope.showOneDetail=function(oneid){
@@ -124,6 +36,63 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		};
+
+		var  tree, treedata_avm;
+		$scope.my_tree_handler = function(branch) {
+			var _ref;
+			$scope.output = branch.label;
+			if ((_ref = branch.data) != null ? _ref.description : void 0) {
+				return $scope.output += '(' + branch.data.description + ')';
+			}
+			console.log($scope.output);
+			//TODO
+		};
+		$scope.my_data = [];
+		$scope.doing_async = true;
+		treeservice.getData().then(
+			function (res) {
+				$scope.my_data = res.data.info
+				$scope.doing_async = false;
+				var modaldeployInstance = $modal.open({
+					templateUrl: 'selectCompanyModel.html',
+					controller: 'ModalInstanceCtrl',
+					size: 'lg',
+					resolve: {
+						items: function () {
+							return $scope.my_data
+						},
+						oneAtATime:function(){
+							return $scope.oneAtATime
+						}
+					}
+				});
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
+		//$scope.my_data=treedata_avm;
+		$scope.my_tree = tree = {};
+
+		deploydanweiservice.getData().then(
+			function (res) {
+				$scope.daweilist = res.data.info;
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
+		//获取人员信息
+		messageservice.getData().then(
+			function (res) {
+				$scope.imgs = res.data.info;
+				//$scope.messagetabletab = res.data.info;
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
+
 
 	} ]);
 app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){

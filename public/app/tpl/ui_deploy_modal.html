@@ -1,0 +1,74 @@
+<div class="modal-header">
+	<div style="position: relative">
+		<span >
+			<h3 class="modal-title">请选择单位进行调配</h3>
+		</span>
+
+
+	</div>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+		<!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>-->
+		<!--<accordion close-others="oneAtATime" class="row">-->
+		<!--<accordion-group  ng-repeat="item in items">-->
+		<!--<accordion-heading>-->
+		<!--{{ item.label }} <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>-->
+		<!--</accordion-heading>-->
+		<!--</accordion-group>-->
+		<!--</accordion>-->
+
+		<div class="form-group">
+			<label class="col-md-2 control-label">请选择</label>
+
+			<div class="col-md-10 row">
+				<div  class="col-md-4 m-l-n">
+					<select required="" class="form-control" ng-model="first" ng-options=" a.label for a in items"
+							ng-change="second='';third='';">
+						<!--<option value="">省</option>-->
+					</select>
+				</div>
+				<div  class="col-md-4 m-l-n">
+					<select  ng-show="first.children.length" class="form-control" ng-model="second" ng-options="b.label for b in first.children"
+							 ng-change="third='';">
+						<option value="">请选择或者取消选择</option>
+					</select>
+				</div>
+				<div  class="col-md-4 m-l-n">
+					<select ng-show="second.children.length" class="form-control" ng-model="third" ng-options="c.label for c in second.children">
+						<option value="">请选择或者取消选择</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class=" form-group">
+			<label class="col-md-2 control-label">当前选择单位：</label>
+			<div class="col-md-8 row">
+				<label class="control-label">
+					{{first.label}}-{{second.label}}-{{third.label}}
+				</label>
+			</div>
+		</div>
+	</form>
+
+	<!--<ul>-->
+	<!--<li ng-repeat="item in items">-->
+	<!--<a ng-click="selected.item = item.label">{{ item.label }}</a>-->
+	<!--<ul>-->
+	<!--<li ng-repeat="child1 in item.children">-->
+	<!--<a ng-click="selected.item = child1.label">{{child1.label}}</a>-->
+	<!--<ul>-->
+	<!--<li ng-repeat="child2 in child1.children">-->
+	<!--<a ng-click="selected.item = child2.label">{{child2.label}}</a>-->
+	<!--</li>-->
+	<!--</ul>-->
+	<!--</li>-->
+	<!--</ul>-->
+	<!--</li>-->
+	<!--</ul>-->
+	<!--Selected: <b>{{ selected.item }}</b>-->
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+	<button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

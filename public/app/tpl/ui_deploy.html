@@ -1,8 +1,11 @@
 <div ng-controller="deployCtrl">
-	<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >
-		<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>
-	</div>
-	<div class="md-right row">
+	<!--<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >-->
+		<!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>-->
+	<!--</div>-->
+	<div class=" row">
+		<script type="text/ng-template" id="selectCompanyModel.html">
+			<div ng-include="'/public/app/tpl/ui_deploy_modal.html'"></div>
+		</script>
 		<script type="text/ng-template" id="myModalContent.html">
 			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
 		</script>
@@ -13,24 +16,15 @@
 						<a  class="pull-right m-l"> <i class="fa fa-times"></i></a>
 						<a  class="pull-right m-l"> <i class="fa fa-refresh"></i></a>
 					</div>
-					<!--<ul class="list-group no-radius">-->
-						<!--<li class="list-group-item" ng-repeat="reason in row.reason">-->
-							<!--{{reason.name}}-->
-						<!--</li>-->
-
-					<!--</ul>-->
 					<div class="row" >
-						<!--<script type="text/ng-template" id="myModalContent.html">-->
-							<!--<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>-->
-						<!--</script>-->
 						<div ng-repeat="t in row.peoples">
 							<div class="col-sm-3">
 								<div class="panel panel-card">
 									<div class="item">
-										<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
+										<img  src="{{t.img}}" class="w-full r-t" alt="Washed Out">
 									</div>
 									<div class="wrapper">
-										{{t.name}}
+										<button class="btn btn-default" ng-click="showOneDetail(t.id)">{{t.name}}</button>
 									</div>
 								</div>
 
@@ -50,22 +44,12 @@
 					<div class="col-sm-2">
 						<div class="panel panel-card">
 							<div class="item">
-								<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
+								<img  src="{{t.img}}" class="w-full r-t" alt="Washed Out">
 							</div>
 							<div class="wrapper">
-								{{t.name}}
-								<!--<button class="btn m-b-xs btn-sm btn-primary ">修改职务</button>-->
-								<!--<ul class="list-group no-radius">-->
-									<!--<li class="list-group-item" >-->
-										<!--{{t.name}}-->
-									<!--</li>-->
-									<!--<li class="list-group-item" >-->
-										<!--{{t.company}}-->
-									<!--</li>-->
-								<!--</ul>-->
+								<button class="btn btn-default" ng-click="showOneDetail(t.id)">{{t.name}}</button>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>

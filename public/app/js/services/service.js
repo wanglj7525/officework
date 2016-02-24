@@ -179,40 +179,4 @@ angular.module('app')
 			return promise;
 		}
 	}
-}]).service('deploydanweiservice', ['$q','$http', function($q,$http){
-	var data={};
-	return{
-		getData:function(id){
-			var deferred=$q.defer();
-			var path='/public/app/api/deploydanwei';
-			if (id) {
-				path+='';
-			};
-			var promise=$http.get(path).then(function(response){
-				return response;
-			},function(response){
-				return response;
-			});
-			return promise;
-		}
-	}
-}]).service('treeservice', ['$q','$http', function($q,$http){
-	var data={};
-	return{
-		getData:function(id){
-			var deferred=$q.defer();
-			var path='/public/app/api/tree';
-			if (id) {
-				path+='';
-			};
-			var promise=$http.get(path).then(function(response){
-				console.log(response);
-				return response;
-			},function(response){
-				return response;
-			});
-			return promise;
-		}
-	}
-
 }]);

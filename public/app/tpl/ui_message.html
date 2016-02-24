@@ -46,11 +46,11 @@
 		<!--</div>-->
 	<!--</div>-->
 	<!--<div class="col-md-9 ">-->
-		<div class="row" ng-controller="MessageController">
+		<div class="row appUnder" ng-controller="MessageController" >
 			<!-- tab -->
 			<tabset class="tab-container " >
 			<!-- 默认选中第二个 active="selectTab"-->
-			<tab heading="按头像查看" class="blue-500">
+			<tab heading="按头像查看" class="green-100">
 			<div class="row" >
 				<script type="text/ng-template" id="myModalContent.html">
 		            <div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
@@ -74,7 +74,7 @@
 			</div>
 
 			</tab>
-			<tab heading="按花名册查看"  class="blue-500" >
+			<tab heading="按花名册查看"  class="green-100" >
 				<div class="row">
                     <table st-table="messagetabletab"  class="table table-bordered table-striped">
                         <thead>

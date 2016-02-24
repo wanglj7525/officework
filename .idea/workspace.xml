@@ -2,64 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/api/worktip2" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/md.css" afterPath="$PROJECT_DIR$/public/app/css/md.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/app.js" afterPath="$PROJECT_DIR$/public/app/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.js" afterPath="$PROJECT_DIR$/public/app/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.lazyload.js" afterPath="$PROJECT_DIR$/public/app/js/config.lazyload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.router.js" afterPath="$PROJECT_DIR$/public/app/js/config.router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/adjust.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/adjust.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/adjustplan.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/adjustplan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/analysis.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/message.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/message.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/search.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/signin.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/signin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/slider.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/table.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/table.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/tree.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/worktip.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/setnganimate.js" afterPath="$PROJECT_DIR$/public/app/js/directives/setnganimate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-butterbar.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-butterbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-focus.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-focus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-fullscreen.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-fullscreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-jq.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-jq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-module.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-nav.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-scroll.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-scroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-shift.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-shift.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/ui-toggleclass.js" afterPath="$PROJECT_DIR$/public/app/js/directives/ui-toggleclass.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/filters/fromNow.js" afterPath="$PROJECT_DIR$/public/app/js/filters/fromNow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/services/service.js" afterPath="$PROJECT_DIR$/public/app/js/services/service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/services/ui-load.js" afterPath="$PROJECT_DIR$/public/app/js/services/ui-load.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/page_footer.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/page_footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/page_404.html" afterPath="$PROJECT_DIR$/public/app/tpl/page_404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/page_signin.html" afterPath="$PROJECT_DIR$/public/app/tpl/page_signin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjust.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjust.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjustdetail.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjustdetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_dataconfig.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_dataconfig.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_message.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_message_modal.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_message_modal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_message_modal_table.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_message_modal_table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_message_modal_xinxi.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_message_modal_xinxi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_plandetail.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_plandetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_search.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/worktip.edit.html" afterPath="$PROJECT_DIR$/public/app/tpl/worktip.edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/worktip.list.html" afterPath="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,63 +26,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ui_message.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="material.layout.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5084507">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ui_worktip.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
+      <file leaf-file-name="worktip.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/worktip.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-9.5">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="25" />
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.535714">
-              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.router.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
+      <file leaf-file-name="worktip" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/api/worktip">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="79" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="79" />
-              <folding>
-                <marker date="1456221354000" expanded="true" signature="6319:6331" placeholder="..." />
-              </folding>
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="material.aside.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html">
+      <file leaf-file-name="worktip2" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/api/worktip2">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6785714">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.41192412">
+              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -160,7 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_search.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.edit.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_dataconfig.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
@@ -195,7 +118,6 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
         <option value="$PROJECT_DIR$/public/app/api/tree" />
-        <option value="$PROJECT_DIR$/public/app/js/services/service.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/message.js" />
@@ -207,10 +129,12 @@
         <option value="$PROJECT_DIR$/public/app/css/md.css" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
+        <option value="$PROJECT_DIR$/public/app/js/services/service.js" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
+        <option value="$PROJECT_DIR$/public/app/api/worktip2" />
       </list>
     </option>
   </component>
@@ -454,6 +378,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -473,11 +419,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qyh2015\officework\public\app\api" />
       <recent name="C:\Users\qyh2015\officework\public\app\js" />
       <recent name="C:\Users\qyh2015\officework\public\app\tpl\blocks" />
       <recent name="C:\Users\qyh2015\officework\public\app\tpl" />
       <recent name="C:\Users\qyh2015\git\officework\public\app\tpl" />
-      <recent name="C:\Users\qyh2015\git\officework\public\app\api" />
     </key>
   </component>
   <component name="RunManager">
@@ -607,7 +553,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456213531275</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="合并">
+      <created>1456284192262</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1456284192262</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -616,13 +568,13 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20551379" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -655,7 +607,8 @@
     <MESSAGE value="左树固定 右边滚动 缩小后全屏" />
     <MESSAGE value="左树滚动" />
     <MESSAGE value="点击跳转到班子调配" />
-    <option name="LAST_COMMIT_MESSAGE" value="点击跳转到班子调配" />
+    <MESSAGE value="合并" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -701,13 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/api/worktip">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -801,14 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/worktip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56639564">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3571428">
@@ -819,7 +757,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.535714">
+        <state vertical-scroll-proportion="0.4549296">
           <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
           <folding />
         </state>
@@ -835,7 +773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.3089431">
           <caret line="42" column="79" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="79" />
           <folding>
             <marker date="1456221354000" expanded="true" signature="6319:6331" placeholder="..." />
@@ -845,7 +783,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6785714">
+        <state vertical-scroll-proportion="0.026760563">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
@@ -853,7 +791,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
+        <state vertical-scroll-proportion="0.3746479">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="25" />
           <folding />
         </state>
@@ -871,6 +809,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5084507">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/api/worktip">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/worktip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.5">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/api/worktip2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41192412">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
           <folding />
         </state>
       </provider>

@@ -2,7 +2,7 @@
 
 /* Controllers */
 // signin controller
-app.controller('WorktipFormController',['$scope','worktipservice','treeservice',function($scope, worktipservice,treeservice) {
+app.controller('WorktipFormController',['$scope','worktipservice','treeservice','worktipservice2',function($scope, worktipservice,treeservice,worktipservice2) {
 	var  tree, treedata_avm;
 	$scope.my_tree_handler = function(branch) {
 		var _ref;
@@ -11,6 +11,26 @@ app.controller('WorktipFormController',['$scope','worktipservice','treeservice',
 			return $scope.output += '(' + branch.data.description + ')';
 		}
 		console.log($scope.output);
+		if($scope.output=="市委班子"){
+			worktipservice2.getData().then(
+				function (res) {
+					$scope.tipinfo = res.data.info
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
+		}else{
+			worktipservice.getData().then(
+				function (res) {
+					$scope.tipinfo = res.data.info
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
+		}
+
 		//TODO
 	};
 	$scope.my_data = [];

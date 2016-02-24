@@ -72,7 +72,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 			function (res) {
 				$scope.my_data = res.data.info
 				$scope.doing_async = false;
-				tree.expand_all();
+				//tree.expand_all();
 			},
 			function (rej) {
 				console.log(rej);

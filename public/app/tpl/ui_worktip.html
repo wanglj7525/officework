@@ -1,7 +1,31 @@
 
 <div class="row hbox hbox-auto-xs hbox-auto-sm" ng-controller="WorktipFormController">
     <div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >
-        <nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>
+        <nav ui-nav >
+            <div flex class="vbox">
+                <!--<div class=""> &lt;!&ndash; wrapper &ndash;&gt;-->
+                <!--<div class="input-group">-->
+                <!--<input type="text" class="form-control input-sm" placeholder="search" ng-model="query">-->
+                <!--<span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="hbox hbox-auto-xs hbox-auto-sm" >
+                    <!--ng-controller="AbnTestController"-->
+                    <div class="col">
+                        <div class=""><!-- wrapper-md -->
+                            <div class="b-a bg-light dk r r-2x">
+                                <span ng-if="doing_async">...loading...</span>
+                                <abn-tree tree-data="my_data" tree-control="my_tree"
+                                          on-select="my_tree_handler(branch)" expand-level="2"
+                                          initial-selection="Granny Smith" icon-leaf="fa fa-file-o"
+                                          icon-expand="fa fa-plus" icon-collapse="fa fa-minus">
+                                </abn-tree>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
 
    <!-- column -->

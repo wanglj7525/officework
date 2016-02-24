@@ -16,7 +16,7 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state',
 				$http.post('/rest/login', params).success(function(data) {
 					console.log(data.msg);
 					if (data.result == "success") {
-						$state.go('app.worktip.list');
+						$state.go('notree.worktip.list');
 					} else {
 						$scope.authError = 'Email or Password not right';
 					}

@@ -206,6 +206,7 @@ angular.module('app')
 				path+='';
 			};
 			var promise=$http.get(path).then(function(response){
+				console.log(response);
 				return response;
 			},function(response){
 				return response;

@@ -13,10 +13,24 @@ app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', functi
 		$modalInstance.dismiss('cancel');
 	};
 }]);
+app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
+	$scope.items = items;
+	$scope.selected = {
+		item: $scope.first
+	};
+
+	$scope.ok = function () {
+		$modalInstance.close($scope.first);
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+}]);
 app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice',
 	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice) {
-		$scope.oneAtATime = true;
 		//点击头像查看个人信息
+		$scope.first=[];
 		$scope.items = ['item1', 'item2', 'item3'];
 		$scope.showOneDetail=function(oneid){
 			var modalInstance = $modal.open({
@@ -55,16 +69,20 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				$scope.doing_async = false;
 				var modaldeployInstance = $modal.open({
 					templateUrl: 'selectCompanyModel.html',
-					controller: 'ModalInstanceCtrl',
+					controller: 'ModalDeployInstanceCtrl',
 					size: 'lg',
 					resolve: {
 						items: function () {
 							return $scope.my_data
-						},
-						oneAtATime:function(){
-							return $scope.oneAtATime
 						}
 					}
+				});
+				modaldeployInstance.result.then(function (selectedItem) {
+					$scope.selected = selectedItem;
+					console.log($scope.selected);
+					console.log($scope.first);
+				}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
 				});
 			},
 			function (rej) {

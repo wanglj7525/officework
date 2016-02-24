@@ -9,15 +9,6 @@
 </div>
 <div class="modal-body">
 	<form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-		<!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>-->
-		<!--<accordion close-others="oneAtATime" class="row">-->
-		<!--<accordion-group  ng-repeat="item in items">-->
-		<!--<accordion-heading>-->
-		<!--{{ item.label }} <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>-->
-		<!--</accordion-heading>-->
-		<!--</accordion-group>-->
-		<!--</accordion>-->
-
 		<div class="form-group">
 			<label class="col-md-2 control-label">请选择</label>
 
@@ -44,7 +35,7 @@
 		<div class=" form-group">
 			<label class="col-md-2 control-label">当前选择单位：</label>
 			<div class="col-md-8 row">
-				<label class="control-label">
+				<label class="control-label" ng-model="selectdanwei">
 					{{first.label}}-{{second.label}}-{{third.label}}
 				</label>
 			</div>

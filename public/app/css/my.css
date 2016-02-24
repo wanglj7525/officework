@@ -4,95 +4,61 @@
 .left-button{
     margin:5px;
 }
-.navbar-inverse .navbar-collapse, 
-.navbar-inverse .navbar-form,
-.navbar-nav,
-.app-aside, 
-.navbar-header,
-.navbar-inverse .navbar-nav > .active > a, 
-.navbar-inverse .navbar-nav > .active > a:hover, 
-.navbar-inverse .navbar-nav > .active > a:focus {
-    color: #fff;
-    background-color:  #21364a;
-}
+/*导航栏样式*/
+
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:visited,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:active {
     color: #fff !important;
-    background-color: #2d8490;
+    background-color: #8ac1f2;
 }
-.btn-dark {
-    color: #ffffff !important;
-    background-color: #21364a;
-    border-color: gray;
-}
-.appUnder{
-    margin:auto 1%;width: 98%;
-}
-.green-100{
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff;
-    background-color: #2d8490;
+    background-color: #336699;
 }
 
 
+
+
+/*自适应屏幕*/
 
 @media (max-width: 366px){
-    #headerLayout{
-        margin-top: 70px;
-    }
-    #header{
-        margin-top: 120px;
+    #header,#headerLayout{
+        margin-top: 50px;
     }
 }
 @media (min-width: 366px) and (max-width: 768px) {
-    #headerLayout{
-        margin-top: 20px;
-    }
-    #header{
-        margin-top: 70px;
+    #header,#headerLayout{
+        margin-top: 0px;
     }
 }
 @media (min-width: 768px) and (max-width: 1066px) {
-    #headerLayout{
-        margin-top: 122px;
-    }
-    #header{
-        margin-top: 172px;
+    #header,#headerLayout{
+        margin-top: 102px;
     }
 }
-@media (min-width: 1066px) and (max-width: 1086px) {
-    #headerLayout{
-        margin-top: 71px;
-    }
-    #header{
-        margin-top: 120px;
+@media (min-width: 1066px) and (max-width: 1085px) {
+    #header,#headerLayout{
+        margin-top: 51px;
     }
 }
-@media (min-width: 1086px) and (max-width: 1263px) {
-    #headerLayout{
-        margin-top: 71px;
+@media (min-width: 1086px) and (max-width: 1147px) {
+    #header,#headerLayout{
+        margin-top: 51px;
     }
-    #header{
-        margin-top: 121px;
+}
+@media (min-width: 1148px) and (max-width: 1262px) {
+    #header,#headerLayout{
+        margin-top: 0px;
     }
 }
 @media (min-width: 1263px){
-    #headerLayout{
-        margin-top: 20px;
-    }
-    #header{
-        margin-top: 70px;
+    #header,#headerLayout{
+        margin-top: 0px;
     }
 }
-@media (min-width: 348px) and (max-width: 366px) {
-    #header{
-        margin-top: 120px;
-    }
-}
-@media (min-width: 1148px) and (max-width: 1264px){
-    #headerLayout{
-        margin-top: 20px;
-    }
-    
-}
+

@@ -13,12 +13,18 @@
     color: #fff !important;
     background-color: #8ac1f2;
 }
-
-.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff;
     background-color: #336699;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+    color: #fff;
+}
+.nav-title:hover{
+    color: #fff;
+    text-decoration: underline;
 }
 /*登陆界面*/
 .blue-900{
@@ -46,11 +52,7 @@
     color: #8AC1F2;
 }
 
-
-
-
 /*自适应屏幕*/
-
 @media (max-width: 366px){
     #header,#headerLayout{
         margin-top: 50px;

@@ -30,38 +30,38 @@ app.controller('analysisController',[ '$scope','treeservice',
 		$scope.my_tree = tree = {};
 		$scope.selectTab=true;
 		$scope.name1="年龄比例";
-		$scope.legendpie1 = [ "35岁及以下xx", "36-40岁", '41-45岁', '45-50岁', '51-55岁', '56岁以上' ];
+		//$scope.legendpie1 = [ "35岁及以下xx:335", "36-40岁:310", '41-45岁:234', '45-50岁:135', '51-55岁:135', '56岁以上:148' ];
 		$scope.datapie1 = [{value:335, name:'35岁及以下xx'},{value:310, name:'36-40岁'},{value:234, name:'41-45岁'},{value:135, name:'45-50岁'},{value:135, name:'51-55岁'},{value:148, name:'56岁以上'}];
 
 		$scope.name2="性别比例";
-		$scope.legendpie2 = [ "男", "女"];
+		//$scope.legendpie2 = [ "男", "女"];
 		$scope.datapie2 = [{value:335, name:'男'},{value:310, name:'女'}];
 
 		$scope.name3="学历比例";
-		$scope.legendpie3 = [ "研究生", "大学本科", '大学专科' , '中专', '高中', '初中及以下'];
+		//$scope.legendpie3 = [ "研究生", "大学本科", '大学专科' , '中专', '高中', '初中及以下'];
 		$scope.datapie3 = [{value:335, name:'研究生'},{value:510, name:'大学本科'},{value:294, name:'大学专科'},{value:235, name:'中专'},{value:135, name:'高中'},{value:348, name:'初中及以下'}];
 
 		$scope.name4="政治面貌比例";
-		$scope.legendpie4 = [ "中共党员", "民革", '民盟', '农工党', '九三学社', '台盟' ];
+		//$scope.legendpie4 = [ "中共党员", "民革", '民盟', '农工党', '九三学社', '台盟' ];
 		$scope.datapie4 = [{value:635, name:'中共党员'},{value:210, name:'民革'},{value:134, name:'民盟'},{value:135, name:'农工党'},{value:535, name:'九三学社'},{value:118, name:'台盟'}];
 		$scope.config1={
 			names:$scope.name1,
-			legend:$scope.legendpie1,
+			//legend:$scope.legendpie1,
 			data:$scope.datapie1
 		}
 		$scope.config2={
 			names:$scope.name2,
-			legend:$scope.legendpie2,
+			//legend:$scope.legendpie2,
 			data:$scope.datapie2
 		}
 		$scope.config3={
 			names:$scope.name3,
-			legend:$scope.legendpie3,
+			//legend:$scope.legendpie3,
 			data:$scope.datapie3
 		}
 		$scope.config4={
 			names:$scope.name4,
-			legend:$scope.legendpie4,
+			//legend:$scope.legendpie4,
 			data:$scope.datapie4
 		}
 
@@ -186,7 +186,8 @@ app.directive('pies', function() {
 				window.onresize = myChart.resize;
 			}
 			$scope.$watch('config',function(newValue,oldValue){
-				newValue && newValue.legend.length>0 && newValue.data.length>0 && showpie();
+				//newValue && newValue.legend.length>0 && newValue.data.length>0 && showpie();
+				newValue &&  newValue.data.length>0 && showpie();
 			});
 		}
 	};

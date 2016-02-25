@@ -4,8 +4,6 @@
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_deploy_modal.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ui_deploy_modal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1920821">
-              <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+            <state vertical-scroll-proportion="-3.6964285">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -48,13 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="message" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/api/message">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="296" column="9" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploy.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.571428">
-              <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.9633803">
+              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
               <folding>
-                <marker date="1456369892096" expanded="true" signature="1951:1957" placeholder="{...}" />
+                <marker date="1456371160895" expanded="true" signature="1878:1880" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -635,7 +643,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456368684238</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="班子调配 点击调配">
+      <created>1456370014075</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1456370014075</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -688,7 +702,8 @@
     <MESSAGE value="班子调配 弹出框选择单位" />
     <MESSAGE value="班子调配页面修改" />
     <MESSAGE value="班子调配搜索 获取参数" />
-    <option name="LAST_COMMIT_MESSAGE" value="班子调配搜索 获取参数" />
+    <MESSAGE value="班子调配 点击调配" />
+    <option name="LAST_COMMIT_MESSAGE" value="班子调配 点击调配" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -733,7 +748,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456369892096" expanded="true" signature="1951:1957" placeholder="{...}" />
+            <marker date="1456371160895" expanded="true" signature="1878:1880" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -812,13 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2347826">
           <caret line="6541" column="1" selection-start-line="6541" selection-start-column="1" selection-end-line="6541" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/api/message">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.4041533">
-          <caret line="309" column="9" selection-start-line="268" selection-start-column="8" selection-end-line="309" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1055,16 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.571428">
-          <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
-          <folding>
-            <marker date="1456369892096" expanded="true" signature="1951:1957" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="15.607142">
@@ -1075,10 +1073,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1920821">
-          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        <state vertical-scroll-proportion="-3.6964285">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/api/message">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="296" column="9" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9633803">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding>
+            <marker date="1456371160895" expanded="true" signature="1878:1880" placeholder="{...}" />
           </folding>
         </state>
       </provider>

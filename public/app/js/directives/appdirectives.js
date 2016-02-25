@@ -12,8 +12,9 @@ angular.module('app')
                     element.addClass('btn-danger');
                 }
                 scope.$watch(attrs.selectbutton, function (isselect) {
+                    var i=0;
                     if (isselect) {
-                        doseleted()
+                        doseleted();
                     } else {
                         noselected();
                     }

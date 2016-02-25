@@ -29,9 +29,16 @@
 }
 
 /*登陆按钮*/
-[aria-disabled=false]{
+.panel-body > [aria-disabled=false]{
     background-color: #AFA8A8;
     color: #ffffff;
+}
+
+/*拟任职务*/
+.selectAdjust{
+    width:65%;
+    border: 0px;
+    border-bottom: 1px #ccc solid;
 }
 
 /*单位树图标*/

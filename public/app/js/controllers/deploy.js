@@ -30,7 +30,8 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'items', 
 app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
 	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
 		//点击头像查看个人信息
-		$scope.first=[];
+		//$scope.first=[];
+		$scope.selectparam=[];
 		$scope.status = {
 			open: true
 		};
@@ -127,6 +128,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 		};
 		//右侧查询人员列表
 		$scope.search=function(){
+			console.log($scope.selectparam);
 			//获取人员信息
 			messageservice.getData().then(
 				function (res) {

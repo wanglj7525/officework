@@ -16,7 +16,6 @@
   app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','messageservice',
 		function($scope, $http, $state, $timeout,$modal,$log,messageservice) {
             $scope.itemsByPage=10;
-
 			//获取人员信息
 			messageservice.getData().then(
 				function (res) {

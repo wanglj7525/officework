@@ -9,19 +9,27 @@ padding-right:0px;
 .left-button{
     margin:5px;
 }
+/*字体设置*/
+.nav-title{
+    font-family: 微软雅黑;
+    font-size: 110%;
+}
+
 /*导航栏样式*/
 
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:visited,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:active {
-    color: #fff !important;
-    background-color: #8ac1f2;
+    color: #000;
+    background-color: #D9D9D9;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
-    color: #fff;
+   
+    font-size: 100%;
+    font-weight: bold;
     background-color: #336699;
 }
 .navbar-inverse .navbar-nav > li > a:hover{
@@ -31,6 +39,7 @@ padding-right:0px;
     color: #fff;
     text-decoration: underline;
 }
+
 /*登陆界面*/
 .blue-900{
     background-color: #336699;
@@ -53,8 +62,36 @@ padding-right:0px;
 }
 
 /*单位树图标*/
+ul.abn-tree li.abn-tree-row {
+    padding: 0px;
+    margin-top: 10px;
+}
 .glyphicon-th-large{
     color: #8AC1F2;
+}
+.treeTitle h1{
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 微软雅黑;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    width: 60%;
+    height:100%;
+    
+}
+
+.treeIcon{
+    background-color: #8AC1F2;
+    width: 55px;
+    height:55px;
+}
+.treeMain{
+    margin-left: 7%;
+}
+
+.treeMain li>a:hover{
+    text-decoration: underline;
 }
 
 /*自适应屏幕*/

@@ -20,10 +20,11 @@
                         <td>{{row.company}}</td>
                         <td>{{row.company}}</td>
                         <td>
-                            <select class="selectAdjust"  ng-model="favoriteTopping" placeholder="请选择职务">
+                            <select class="selectAdjust"  ng-model="favoriteTopping">
                                 <!--
                                     <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
                                  -->
+                                <option value="">请选择职务</option>
                                 <option ng-value="topping.name" ng-repeat="topping in toppings">{{topping.name}}</option>
                             </select>
                         </td>

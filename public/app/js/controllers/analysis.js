@@ -151,7 +151,7 @@ app.directive('pies', function() {
 			config : "="
 		},
 		restrict : 'E',
-		template: '<div style="width:400px;height:300px;"></div>',
+		template: '<div style="width:500px;height:300px;"></div>',
 		replace : true,
 		link : function($scope, element, attrs, controller) {
 			function showpie(){

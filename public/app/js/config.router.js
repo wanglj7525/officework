@@ -183,8 +183,25 @@ angular.module('app')
                   resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/deploy.js'])
               })
               .state('notree.setting',{
+                  abstract: true,
                   url:'/setting',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting.html'
+                  templateUrl:STATIC_PATH+'tpl/ui_setting.html',
+                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
+              })
+              .state('notree.setting.tree',{
+                  url:'/settree',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html'
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              .state('notree.setting.daima',{
+                  url:'/settree',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html'
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              .state('notree.setting.user',{
+                  url:'/settree',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_user.html'
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.dataconfig',{
                   url:'/dataconfig',

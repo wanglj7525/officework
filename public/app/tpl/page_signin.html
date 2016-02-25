@@ -2,14 +2,14 @@
 	ng-controller="SigninFormController"
 	ng-init="app.settings.container = false;">
 	<!-- <a href class="navbar-brand block m-t">{{app.name}}</a> -->
-	<div class="m-b-lg">
+	<div class="m-b-lg" id="formClass">
     <div class="wrapper text-center">
     </div>
 		<form name="form" class="form-validation">
 
 
 	<div class="wrapper-md">
-		<div class="panel panel-default" >
+		<div class="panel panel-default animated bounce" >
 		    <div class="panel-heading text-center">{{app.name}}</div>  
 			<div class="panel-body">
 			<div class="text-danger wrapper text-center" ng-show="authError">
@@ -25,7 +25,7 @@
 						class="form-control no-border" ng-model="user.password" required>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-lg btn-primary btn-block"
+			<button type="submit" class="btn btn-lg btnLogin btn-block"
 				ng-click="login()" ng-disabled='form.$invalid'>
 				登录
 			</button>

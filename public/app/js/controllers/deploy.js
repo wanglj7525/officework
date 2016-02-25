@@ -13,16 +13,22 @@ app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', functi
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
-	$scope.items = items;
-	$scope.selected = {
-		item: $scope.first
-	};
-
+app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'reasonlist','tolist',function($scope, $modalInstance,reasonlist,tolist) {
+	$scope.reasonlist = reasonlist;
+	$scope.tolist = tolist;
 	$scope.ok = function () {
-		$modalInstance.close($scope.first);
+		$modalInstance.close();
 	};
 
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+}]);
+app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist', function($scope, $modalInstance,adjustlist) {
+	$scope.adjustlist=adjustlist;
+	$scope.ok = function () {
+		$modalInstance.close();
+	};
 	$scope.cancel = function () {
 		$modalInstance.dismiss('cancel');
 	};
@@ -30,7 +36,6 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'items', 
 app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
 	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
 		//点击头像查看个人信息
-		//$scope.first=[];
 		$scope.selectparam=[];
 		$scope.status = {
 			open: true
@@ -65,58 +70,18 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 			console.log($scope.output);
 			//TODO
 		};
-		$scope.my_data = [];
-		$scope.doing_async = true;
 		treeservice.getData().then(
 			function (res) {
-				//$scope.my_data = res.data.info
 				$scope.deploy=res.data.info;
-				//$scope.doing_async = false;
-				//var modaldeployInstance = $modal.open({
-				//	templateUrl: 'selectCompanyModel.html',
-				//	controller: 'ModalDeployInstanceCtrl',
-				//	size: 'lg',
-				//	resolve: {
-				//		items: function () {
-				//			return $scope.my_data
-				//		}
-				//	}
-				//});
-				//modaldeployInstance.result.then(function (selectedItem) {
-				//	$scope.selected = selectedItem;
-				//	console.log($scope.selected);
-				//	console.log($scope.first);
-				//}, function () {
-				//	$log.info('Modal dismissed at: ' + new Date());
-				//});
 			},
 			function (rej) {
 				console.log(rej);
 			}
 		);
-		//$scope.my_data=treedata_avm;
-		$scope.my_tree = tree = {};
 
-		//deploydanweiservice.getData().then(
-		//	function (res) {
-		//		$scope.daweilist = res.data.info;
-		//	},
-		//	function (rej) {
-		//		console.log(rej);
-		//	}
-		//);
 
 
 		$scope.selectdw=function(first,second,third){
-			//alert(first.label+" "+second.label+" "+third.label);
-			//if(third){
-			//	$scope.daweilist=third;
-			//}else if(second){
-			//	$scope.daweilist=second;
-			//}else{
-			//	$scope.daweilist=first;
-			//}
-
 			deploydanweiservice.getData().then(
 				function (res) {
 					$scope.daweilist = res.data.info;
@@ -133,7 +98,6 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 			messageservice.getData().then(
 				function (res) {
 					$scope.imgs = res.data.info;
-					//$scope.messagetabletab = res.data.info;
 				},
 				function (rej) {
 					console.log(rej);
@@ -149,7 +113,8 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				console.log(rej);
 			}
 		);
-
+		$scope.reasonlist=[{"id":"1","reason":"工作调动原因一"},{"id":"2","reason":"工作调动原因2"},{"id":"3","reason":"工作调动原因3"}];
+		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"主任"},{"id":"3","reason":"处长"}];
 		$scope.selectpeople=function(people){
 			console.log(people);
 			var modaldeployInstance = $modal.open({
@@ -157,13 +122,18 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				controller: 'ModalDeployInstanceCtrl',
 				size: 'md',
 				resolve: {
-					items: function () {
-						return $scope.my_data
+					reasonlist: function () {
+						return $scope.reasonlist;
+					},
+					tolist:function(){
+						return $scope.tolist;
 					}
 				}
 			});
 			modaldeployInstance.result.then(function () {
-				$scope.daweilist[0].peoples.push(people);
+				if(Array.indexOf($scope.daweilist[0].peoples,people)==-1){
+					$scope.daweilist[0].peoples.push(people);
+				}
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
@@ -175,13 +145,34 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				controller: 'ModalDeployInstanceCtrl',
 				size: 'md',
 				resolve: {
-					items: function () {
-						return $scope.my_data
+					reasonlist: function () {
+						return $scope.reasonlist;
+					},
+					tolist:function(){
+						return $scope.tolist;
 					}
 				}
 			});
 			modaldeployInstance.result.then(function () {
 				$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
+		$scope.adjustlist=[{"id":"1","name":"方案一"},{"id":"1","name":"方案二"}];
+		$scope.savedeploy=function(){
+			console.log($scope.daweilist);
+			var modalsaveInstance = $modal.open({
+				templateUrl: 'savePeopleModel.html',
+				controller: 'SaveDeployInstanceCtrl',
+				size: 'md',
+				resolve: {
+					adjustlist: function () {
+						return $scope.adjustlist
+					}
+				}
+			});
+			modalsaveInstance.result.then(function () {
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

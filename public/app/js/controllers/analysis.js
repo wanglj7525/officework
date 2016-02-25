@@ -151,7 +151,7 @@ app.directive('pies', function() {
 			config : "="
 		},
 		restrict : 'E',
-		template: '<div style="width:500px;height:300px;"></div>',
+		template: '<div style="width:350px;height:300px;"></div>',
 		replace : true,
 		link : function($scope, element, attrs, controller) {
 			function showpie(){
@@ -162,11 +162,11 @@ app.directive('pies', function() {
 						trigger : 'item'
 					},
 					// 图例
-					legend : {
-						orient : 'horizontal',
-						x : 'left',
-						data :$scope.config.legend
-					},
+					//legend : {
+					//	orient : 'horizontal',
+					//	x : 'left',
+					//	data :$scope.config.legend
+					//},
 					calculable : true,
 					// 数据内容数组
 					series : [

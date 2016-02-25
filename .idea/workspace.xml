@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/my.css" afterPath="$PROJECT_DIR$/public/app/css/my.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/analysis.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,26 +28,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ui_analysis.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ui_deploy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.714286">
+              <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_analysis.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.428572">
-              <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.4112676">
+              <caret line="19" column="40" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="40" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analysis.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="my.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="9" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analysis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/js/controllers/analysis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69376695">
-              <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="179" column="21" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="21" />
               <folding>
-                <marker date="1456387835115" expanded="true" signature="3469:3494" placeholder="..." />
+                <marker date="1456388629351" expanded="true" signature="3469:3494" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -81,7 +105,6 @@
         <option value="$PROJECT_DIR$/public/app/api/adjustdetail" />
         <option value="$PROJECT_DIR$/public/app/api/adjustd2" />
         <option value="$PROJECT_DIR$/public/app/css/app.css" />
-        <option value="$PROJECT_DIR$/public/app/css/my.css" />
         <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
@@ -117,8 +140,9 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploysave_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
+        <option value="$PROJECT_DIR$/public/app/css/my.css" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
       </list>
     </option>
   </component>
@@ -937,7 +961,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456387400049</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="班子分析">
+      <created>1456387893208</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1456387893208</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -992,7 +1022,8 @@
     <MESSAGE value="班子调配搜索 获取参数" />
     <MESSAGE value="班子调配 保存方案" />
     <MESSAGE value="班子调配 修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="班子调配 修改" />
+    <MESSAGE value="班子分析" />
+    <option name="LAST_COMMIT_MESSAGE" value="班子分析" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1081,13 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4549296">
           <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3170732">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -1400,31 +1424,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47067448">
-          <caret line="94" column="68" selection-start-line="94" selection-start-column="68" selection-end-line="94" selection-end-column="68" />
+        <state vertical-scroll-proportion="-9.714286">
+          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/analysis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.428572">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="179" column="21" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="21" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1456388629351" expanded="true" signature="3469:3494" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/analysis.js">
+    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69376695">
-          <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4112676">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="40" />
           <folding>
-            <marker date="1456387835115" expanded="true" signature="3469:3494" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

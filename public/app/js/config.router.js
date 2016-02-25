@@ -189,17 +189,17 @@ angular.module('app')
                   resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
               })
               .state('notree.setting.tree',{
-                  url:'/settree',
+                  url:'/setting/tree',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.daima',{
-                  url:'/settree',
+                  url:'/setting/daima',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.user',{
-                  url:'/settree',
+                  url:'/setting/user',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_user.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })

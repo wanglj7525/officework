@@ -30,7 +30,8 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'items', 
 app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
 	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
 		//点击头像查看个人信息
-		$scope.first=[];
+		//$scope.first=[];
+		$scope.selectparam=[];
 		$scope.status = {
 			open: true
 		};
@@ -127,6 +128,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 		};
 		//右侧查询人员列表
 		$scope.search=function(){
+			console.log($scope.selectparam);
 			//获取人员信息
 			messageservice.getData().then(
 				function (res) {
@@ -147,6 +149,43 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				console.log(rej);
 			}
 		);
+
+		$scope.selectpeople=function(people){
+			console.log(people);
+			var modaldeployInstance = $modal.open({
+				templateUrl: 'selectPeopleModel.html',
+				controller: 'ModalDeployInstanceCtrl',
+				size: 'md',
+				resolve: {
+					items: function () {
+						return $scope.my_data
+					}
+				}
+			});
+			modaldeployInstance.result.then(function () {
+				$scope.daweilist[0].peoples.push(people);
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
+		$scope.removepeople=function(people){
+			console.log(people);
+			var modaldeployInstance = $modal.open({
+				templateUrl: 'selectPeopleModel.html',
+				controller: 'ModalDeployInstanceCtrl',
+				size: 'md',
+				resolve: {
+					items: function () {
+						return $scope.my_data
+					}
+				}
+			});
+			modaldeployInstance.result.then(function () {
+				$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
 	} ]);
 app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){
 	$scope.onemessage= {

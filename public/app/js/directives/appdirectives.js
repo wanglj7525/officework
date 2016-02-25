@@ -3,11 +3,12 @@ angular.module('app')
         return {
             link: function (scope, element, attrs) {
                function noselected() {
+                   scope.selectparam.splice(Array.indexOf(scope.selectparam,attrs.selectparam),1);
                     element.removeClass('btn-danger');
                     element.addClass('btn-default');
                 }
                 function doseleted() {
-                    console.log("选中");
+                    scope.selectparam.push(attrs.selectparam);
                     element.removeClass('btn-default');
                     element.addClass('btn-danger');
                 }

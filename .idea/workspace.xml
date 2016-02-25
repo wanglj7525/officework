@@ -4,7 +4,9 @@
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
 <<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
+<<<<<<< HEAD
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" />
@@ -26,6 +28,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" />
 >>>>>>> Stashed changes
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,6 +51,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="ui_analysis.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -56,19 +62,46 @@
             <state vertical-scroll-proportion="-2.15625">
               <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
 >>>>>>> Stashed changes
+=======
+      <file leaf-file-name="ui_deploy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="15.607142">
+              <caret line="46" column="85" selection-start-line="46" selection-start-column="85" selection-end-line="46" selection-end-column="85" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="nosearch.nav.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
             <state vertical-scroll-proportion="12.321428">
               <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+=======
+      <file leaf-file-name="ui_deploy_modal.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1920821">
+              <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
               <folding>
-                <marker date="1456363832148" expanded="true" signature="1924:1930" placeholder="{...}" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.571428">
+              <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
+              <folding>
+                <marker date="1456369892096" expanded="true" signature="1951:1957" placeholder="{...}" />
               </folding>
 =======
             <state vertical-scroll-proportion="-11.5">
@@ -95,6 +128,26 @@
               <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
               <folding />
 >>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploydanwei" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/api/deploydanwei">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appdirectives.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/directives/appdirectives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,14 +185,12 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_adjustdetail.html" />
         <option value="$PROJECT_DIR$/public/app/api/adjustdetail" />
         <option value="$PROJECT_DIR$/public/app/api/adjustd2" />
-        <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
         <option value="$PROJECT_DIR$/public/app/css/app.css" />
         <option value="$PROJECT_DIR$/public/app/css/my.css" />
         <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
         <option value="$PROJECT_DIR$/public/app/api/searchgu" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/search.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message_modal_xinxi.html" />
         <option value="$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.css" />
@@ -148,7 +199,6 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/message.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/signin.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" />
@@ -162,16 +212,22 @@
         <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
         <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/app/api/tree" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" />
         <option value="$PROJECT_DIR$/public/app/api/deploydanwei" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+        <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/search.js" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/message.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
 >>>>>>> Stashed changes
+=======
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
       </list>
     </option>
   </component>
@@ -355,6 +411,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
+=======
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -379,6 +490,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="officework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -575,7 +708,19 @@
       <option name="project" value="LOCAL" />
       <updated>1456364037550</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="班子调配页面修改">
+      <created>1456364362555</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1456364362555</updated>
+    </task>
+    <task id="LOCAL-00018" summary="班子调配搜索 获取参数">
+      <created>1456368684238</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1456368684238</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -633,13 +778,15 @@
     <MESSAGE value="合并" />
     <MESSAGE value="班子调配 弹出框选择单位" />
     <MESSAGE value="班子调配页面修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="班子调配页面修改" />
+    <MESSAGE value="班子调配搜索 获取参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="班子调配搜索 获取参数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -671,6 +818,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
     <entry file="file://$PROJECT_DIR$/public/app/api/deploydanwei">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -694,6 +843,7 @@
         <state vertical-scroll-proportion="0.0">
 <<<<<<< Updated upstream
           <caret line="37" column="67" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="67" />
+<<<<<<< HEAD
 =======
           <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
           <folding />
@@ -706,6 +856,11 @@
           <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
           <folding />
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
         </state>
       </provider>
     </entry>
@@ -721,7 +876,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456363832148" expanded="true" signature="1924:1930" placeholder="{...}" />
+            <marker date="1456369892096" expanded="true" signature="1951:1957" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -821,6 +976,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39577466">
           <caret line="1539" column="25" selection-start-line="1539" selection-start-column="25" selection-end-line="1539" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -855,6 +1011,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -869,6 +1026,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
     <entry file="file://$PROJECT_DIR$/public/app/api/worktip">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -926,28 +1085,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html">
+    <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.8222591">
           <caret line="38" column="35" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="35" />
 =======
 >>>>>>> Stashed changes
+=======
+        <state vertical-scroll-proportion="5.2520328">
+          <caret line="204" column="50" selection-start-line="204" selection-start-column="38" selection-end-line="204" selection-end-column="50" />
+          <folding />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
+    <entry file="file://$PROJECT_DIR$/public/libs/jquery/jquery/dist/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.2520328">
-          <caret line="204" column="50" selection-start-line="204" selection-start-column="38" selection-end-line="204" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="6107" column="8" selection-start-line="6107" selection-start-column="8" selection-end-line="6107" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/api/deploydanwei">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.025745258">
           <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+=======
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1060" column="4" selection-start-line="1060" selection-start-column="4" selection-end-line="1060" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38880706">
+          <caret line="147" column="17" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1087" column="4" selection-start-line="1087" selection-start-column="4" selection-end-line="1087" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1408451">
+          <caret line="0" column="57" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="57" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
           <folding />
         </state>
       </provider>
@@ -960,43 +1162,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5084507">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24647887">
+          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/search.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.07723577">
           <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="10" selection-end-column="10" />
 =======
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
 >>>>>>> Stashed changes
+=======
+        <state vertical-scroll-proportion="0.38617885">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33468834">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/libs/angular/angular-material/angular-material.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.357143">
+          <caret line="115" column="9" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/api/deploydanwei">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/directives/appdirectives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <state vertical-scroll-proportion="12.321428">
           <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+=======
+        <state vertical-scroll-proportion="-16.571428">
+          <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
           <folding>
-            <marker date="1456363832148" expanded="true" signature="1924:1930" placeholder="{...}" />
+            <marker date="1456369892096" expanded="true" signature="1951:1957" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.44281524">
           <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
 =======
         <state vertical-scroll-proportion="0.0">
           <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
 >>>>>>> Stashed changes
+=======
+        <state vertical-scroll-proportion="15.607142">
+          <caret line="46" column="85" selection-start-line="46" selection-start-column="85" selection-end-line="46" selection-end-column="85" />
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.21994135">
           <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
@@ -1053,6 +1319,13 @@
           <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
 >>>>>>> Stashed changes
           <folding />
+=======
+        <state vertical-scroll-proportion="0.1920821">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+>>>>>>> cbb8278fb2f75f69aa772fe25276bdd52e443adf
         </state>
       </provider>
     </entry>

@@ -149,6 +149,43 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				console.log(rej);
 			}
 		);
+
+		$scope.selectpeople=function(people){
+			console.log(people);
+			var modaldeployInstance = $modal.open({
+				templateUrl: 'selectPeopleModel.html',
+				controller: 'ModalDeployInstanceCtrl',
+				size: 'md',
+				resolve: {
+					items: function () {
+						return $scope.my_data
+					}
+				}
+			});
+			modaldeployInstance.result.then(function () {
+				$scope.daweilist[0].peoples.push(people);
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
+		$scope.removepeople=function(people){
+			console.log(people);
+			var modaldeployInstance = $modal.open({
+				templateUrl: 'selectPeopleModel.html',
+				controller: 'ModalDeployInstanceCtrl',
+				size: 'md',
+				resolve: {
+					items: function () {
+						return $scope.my_data
+					}
+				}
+			});
+			modaldeployInstance.result.then(function () {
+				$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
 	} ]);
 app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){
 	$scope.onemessage= {

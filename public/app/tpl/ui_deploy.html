@@ -3,9 +3,9 @@
 		<!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>-->
 	<!--</div>-->
 	<div class=" row">
-		<!--<script type="text/ng-template" id="selectCompanyModel.html">-->
-			<!--<div ng-include="'/public/app/tpl/ui_deploy_modal.html'"></div>-->
-		<!--</script>-->
+		<script type="text/ng-template" id="selectPeopleModel.html">
+			<div ng-include="'/public/app/tpl/ui_deploy_modal.html'"></div>
+		</script>
 		<script type="text/ng-template" id="myModalContent.html">
 			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
 		</script>
@@ -61,7 +61,7 @@
 							<div class="col-sm-2">
 								<div class="panel panel-card">
 									<div class="item">
-										<img  src="{{t.img}}" class="w-full r-t" alt="Washed Out">
+										<img ng-click="removepeople(t)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
 									</div>
 									<div class="wrapper">
 										<button class="btn btn-default" ng-click="showOneDetail(t.id)">{{t.name}}</button>
@@ -119,7 +119,7 @@
 							<div class="col-sm-2">
 								<div class="panel panel-card">
 									<div class="item">
-										<img  src="{{t.img}}" class="w-full r-t" alt="Washed Out">
+										<img ng-click="selectpeople(t)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
 									</div>
 									<div class="wrapper">
 										<button class="btn btn-default" ng-click="showOneDetail(t.id)">{{t.name}}</button>

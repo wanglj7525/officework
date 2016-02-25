@@ -3,21 +3,8 @@
     <div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >
         <nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>
     </div>
-
-   <!-- column -->
- <!--  <div class="col w-lg lt b-r">
-
-
-      <div flex class=" md-whiteframe-z0 md-aside md-content hidden-xs scrollable m-l" data-ng-include=" '/public/app/tpl/blocks/material.aside.html' ">
-          </div>
-
-  </div> -->
     <div class="md-right">
         <div class="col-md-3  bg-light dk b-r bg-auto"><!--  style="position:fixed"  -->
-            <!--  <div class="wrapper b-b bg"> -->
-            <!-- <a ng-click="$root.$state.go('app.worktip.edit',{},{reload:true})" class="btn btn-sm btn-danger w-xs font-bold">管理标签</a> -->
-            <!-- <a ui-sref="app.worktip.edit" class="btn btn-sm btn-danger w-xs font-bold">管理标签</a> -->
-            <!--  </div> -->
             <div class="" id="tipinfo-menu">
                 <ul class="nav nav-pills nav-stacked ">
                     <li ui-sref-active="active">
@@ -32,10 +19,25 @@
                     </li>
                 </ul>
                 <a ui-sref="notree.worktip.edit" class="btn btn-dark w-full font-bold">管理标签</a>
+                <!--<ul class="nav nav-pills nav-stacked ">-->
+                    <!--<li ui-sref-active="active">-->
+                        <!--<a ng-click="isedit=false">-->
+                            <!--全部-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li ng-repeat="item in tipinfo" ui-sref-active="active">-->
+                        <!--<a  ng-click="isedit=true">-->
+                            <!--{{item.name}}-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<a ui-sref="notree.worktip.edit" class="btn btn-dark w-full font-bold">管理标签</a>-->
             </div>
         </div>
         <div class="col-md-9" style="">
             <div ui-view ></div>
+            <!--<div class="row" ng-show="!isedit" ng-include="'/public/app/tpl/worktip.list.html'"></div>-->
+            <!--<div class="row"></div>-->
         </div>
     </div>
 

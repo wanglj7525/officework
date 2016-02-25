@@ -27,10 +27,13 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'items', 
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice',
-	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice) {
+app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
+	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
 		//点击头像查看个人信息
 		$scope.first=[];
+		$scope.status = {
+			open: true
+		};
 		$scope.items = ['item1', 'item2', 'item3'];
 		$scope.showOneDetail=function(oneid){
 			var modalInstance = $modal.open({
@@ -101,16 +104,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 		//		console.log(rej);
 		//	}
 		//);
-		//获取人员信息
-		messageservice.getData().then(
-			function (res) {
-				$scope.imgs = res.data.info;
-				//$scope.messagetabletab = res.data.info;
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
+
 
 		$scope.selectdw=function(first,second,third){
 			//alert(first.label+" "+second.label+" "+third.label);
@@ -130,8 +124,29 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 					console.log(rej);
 				}
 			);
-		}
+		};
+		//右侧查询人员列表
+		$scope.search=function(){
+			//获取人员信息
+			messageservice.getData().then(
+				function (res) {
+					$scope.imgs = res.data.info;
+					//$scope.messagetabletab = res.data.info;
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
+		};
 
+		searchservice.getData().then(
+			function (res) {
+				$scope.searchlist = res.data.info;
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
 	} ]);
 app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){
 	$scope.onemessage= {

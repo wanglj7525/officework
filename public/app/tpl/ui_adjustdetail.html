@@ -1,6 +1,6 @@
 <div ng-controller="adjustdetailController">
     <div class="">
-        <div class="row">
+        <div class="row ">
             <div class="panel panel-default">
                 <div class="panel-heading" style="position: relative">已选择的人员
                     <button type="submit" ui-sref="app.adjustplan.detail({id:1})" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >方案审核</button>
@@ -20,12 +20,12 @@
                         <td>{{row.company}}</td>
                         <td>{{row.company}}</td>
                         <td>
-                            <md-select  ng-model="favoriteTopping" placeholder="请选择职务">
+                            <select class="selectAdjust"  ng-model="favoriteTopping" placeholder="请选择职务">
                                 <!--
                                     <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
                                  -->
-                                <md-option ng-value="topping.name" ng-repeat="topping in toppings">{{topping.name}}</md-option>
-                            </md-select>
+                                <option ng-value="topping.name" ng-repeat="topping in toppings">{{topping.name}}</option>
+                            </select>
                         </td>
                     </tr>
                     </tbody>

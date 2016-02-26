@@ -23,10 +23,10 @@
             <div class=""><!-- wrapper-md -->
               <div class="b-a bg-light dk r r-2x">
                 <span ng-if="doing_async">...loading...</span>
-                <abn-tree tree-data="my_data" tree-control="my_tree"
+                <abn-tree tree-data="my_data" tree-control="my_tree" class="treeMain"
                           on-select="my_tree_handler(branch)" expand-level="2"
                           initial-selection="Granny Smith" icon-leaf="mdi"
-                          icon-expand="mdi mdi-navigation-chevron-right" icon-collapse="mdi mdi-navigation-expand-more">
+                          icon-expand="glyphicon glyphicon-triangle-right" icon-collapse="glyphicon glyphicon-triangle-bottom" style="background-color: #fff">
                 </abn-tree>
               </div>
             </div>

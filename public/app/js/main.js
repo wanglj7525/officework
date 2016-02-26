@@ -9,10 +9,12 @@ angular.module('app')
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       if(isIE){ angular.element($window.document.body).addClass('ie');}
       if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
+      
       /*切换单位树*/
       $scope.treeToggle=function(){
         
       }
+      
       // config
       $scope.app = {
         name: '领导班子分析调配系统',

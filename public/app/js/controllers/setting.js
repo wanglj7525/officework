@@ -72,7 +72,6 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
     }
 
     $scope.addtree=function(which){
-
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveAddTreeModel.html',
             controller: 'ModalAddTreeInstanceCtrl',
@@ -118,7 +117,6 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
         });
     }
     $scope.deletetree=function(which,idx,data){
-        console.log(data);
         var modaltreedeleteInstance = $modal.open({
             templateUrl: 'deleteTreeModel.html',
             controller: 'ModalDeleteTreeInstanceCtrl',

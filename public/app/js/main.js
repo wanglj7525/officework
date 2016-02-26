@@ -79,6 +79,7 @@ angular.module('app')
 			// mobile devices
           return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
       }
+
   }]).controller('TimeController', ['$scope','$timeout', function(s,t){
     //页面显示当前日期时间
       var updateTime=function(){

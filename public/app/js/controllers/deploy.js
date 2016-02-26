@@ -35,10 +35,13 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist
 }]);
 app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
 	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
+
+
 		//点击头像查看个人信息
 		$scope.selectparam=[];
 		$scope.status = {
-			open: true
+			open: true,
+			leftopen:true
 		};
 		$scope.items = ['item1', 'item2', 'item3'];
 		$scope.showOneDetail=function(oneid){
@@ -116,7 +119,6 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 		$scope.reasonlist=[{"id":"1","reason":"工作调动原因一"},{"id":"2","reason":"工作调动原因2"},{"id":"3","reason":"工作调动原因3"}];
 		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"主任"},{"id":"3","reason":"处长"}];
 		$scope.selectpeople=function(people){
-			console.log(people);
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
@@ -131,7 +133,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				}
 			});
 			modaldeployInstance.result.then(function () {
-				if(Array.indexOf($scope.daweilist[0].peoples,people)==-1){
+				if($scope.daweilist[0].peoples.indexOf(people)==-1){
 					$scope.daweilist[0].peoples.push(people);
 				}
 			}, function () {
@@ -154,7 +156,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				}
 			});
 			modaldeployInstance.result.then(function () {
-				$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
+				$scope.daweilist[0].peoples.splice($scope.daweilist[0].peoples.indexOf(people),1);
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

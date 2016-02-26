@@ -4,12 +4,12 @@
       <div class="panel panel-default">
          <!--  <div class="panel-heading">工作提示
           </div>  --> 
-          <table st-table="worktiptable"  class="table table-bordered table-striped">
+          <table st-table="worktiptable"  class="table">
               <thead>
               <tr>
-                 <th width="10%">序号</th>
+                 <th width="7%">序号</th>
                  <th>分类</th>
-                 <th width="20%">地区/单位</th>
+                 <th width="15%">地区/单位</th>
                  <th>提示</th>
                  <th>备注</th>
                  <th>操作</th>
@@ -22,19 +22,15 @@
                 <td>{{row.diqu}}</td>
                 <td >{{row.tishi}}</td>
                 <td >{{row.beizhu}}</td>
-                <td>
-                  <button type="button" ui-sref="notree.deploy" class="btn btn-danger btn-default">
+                <td class="lastTd">
+                  <button type="button" ui-sref="notree.deploy" class="btn btn-href btn-default">
                     {{row.caozuo}}
                   </button>
                 </td>
               </tr>
               </tbody>
               <tfoot>
-                <tr>
-                  <td colspan="6" class="text-center">
-                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7" class="no-margin"></div>
-                  </td>
-                </tr>
+               
               </tfoot>
           </table>
         </div>

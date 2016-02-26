@@ -9,10 +9,12 @@ angular.module('app')
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       if(isIE){ angular.element($window.document.body).addClass('ie');}
       if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
+      
       /*切换单位树*/
       $scope.treeToggle=function(){
         
       }
+      
       // config
       $scope.app = {
         name: '领导班子分析调配系统',
@@ -79,6 +81,7 @@ angular.module('app')
 			// mobile devices
           return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
       }
+
   }]).controller('TimeController', ['$scope','$timeout', function(s,t){
     //页面显示当前日期时间
       var updateTime=function(){

@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Login" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Login" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.PlayDocumentation" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.PlayDocumentation" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$1" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$2" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$3" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieMapViewModel" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieMapViewModel" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieSource" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieSource" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.ResultInfo" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.ResultInfo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.Tree" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.Tree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.User" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.User" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/Application.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/Login.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/PlayDocumentation.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/PlayDocumentation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/Test officwork.launch" afterPath="$PROJECT_DIR$/eclipse/Test officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/officwork.launch" afterPath="$PROJECT_DIR$/eclipse/officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/my.css" afterPath="$PROJECT_DIR$/public/app/css/my.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting_tree.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting_tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/worktip.list.html" afterPath="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_errors_404.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_errors_404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_tags_404.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_tags_404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting_user.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting_user.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,19 +57,43 @@
       <file leaf-file-name="worktip.list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/worktip.list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.708333">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="45" />
+            <state vertical-scroll-proportion="-9.208333">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_setting_tree.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ui_setting_user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.875">
+              <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_setting_tree.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_tree.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3652174">
-              <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
-              <folding />
+            <state vertical-scroll-proportion="-0.96190476">
+              <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_setting_daima.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20620438">
+              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +101,8 @@
       <file leaf-file-name="my.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="12" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="12" />
+            <state vertical-scroll-proportion="-8.125">
+              <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -123,80 +124,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="123" column="12" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="240" column="21" selection-start-line="240" selection-start-column="21" selection-end-line="240" selection-end-column="21" />
-              <folding>
-                <marker date="1456490874000" expanded="true" signature="46:401" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="78:400" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="432:789" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="465:788" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="490:785" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="515:781" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="598:620" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="677:706" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="725:754" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="821:1180" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="854:1179" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="879:1175" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="904:1171" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="988:1010" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1067:1096" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1115:1144" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1214:1575" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="1247:1574" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1610:1972" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="1668:1968" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1693:1964" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1781:1803" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1860:1889" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="1908:1937" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2002:2360" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="2035:2359" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2060:2355" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2085:2351" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2168:2190" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2247:2276" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2295:2324" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2387:2731" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="2420:2730" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="2760:3102" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="2793:3101" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3133:3477" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="3166:3476" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3189:3473" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3213:3470" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3296:3316" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3372:3399" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3418:3445" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3508:3852" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="3541:3851" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3885:4272" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="3918:4271" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3941:4269" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="3965:4266" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4092:4112" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4214:4241" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4301:4642" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="4334:4641" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4357:4639" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4381:4636" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4462:4482" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4584:4611" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4675:5020" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="4708:5019" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4731:5017" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4755:5014" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="4840:4860" placeholder="{...}" />
-                <marker date="1456490874000" expanded="true" signature="5045:6197" placeholder="[...]" />
-                <marker date="1456490874000" expanded="true" signature="5078:6196" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -229,8 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/plandetail.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_plandetail.html" />
         <option value="$PROJECT_DIR$/public/app/api/planlist" />
         <option value="$PROJECT_DIR$/public/app/api/plandetail" />
@@ -279,7 +204,9 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
         <option value="$PROJECT_DIR$/public/app/css/my.css" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_user.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_tree.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html" />
       </list>
     </option>
   </component>
@@ -408,129 +335,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tpl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blocks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -707,22 +512,28 @@
       <option name="project" value="LOCAL" />
       <updated>1456306805806</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="合并调整">
+      <created>1456493510445</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1456493510445</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="723" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2046875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2046875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -758,93 +569,14 @@
     <MESSAGE value="点击左树更新右侧数据示例" />
     <MESSAGE value="合并" />
     <MESSAGE value="班子调配 弹出框选择单位" />
-    <option name="LAST_COMMIT_MESSAGE" value="班子调配 弹出框选择单位" />
+    <MESSAGE value="合并调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并调整" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/app/js/services/service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="204" column="36" selection-start-line="204" selection-start-column="36" selection-end-line="204" selection-end-column="36" />
-          <folding>
-            <marker date="1456490874000" expanded="true" signature="46:401" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="78:400" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="432:789" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="465:788" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="490:785" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="515:781" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="598:620" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="677:706" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="725:754" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="821:1180" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="854:1179" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="879:1175" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="904:1171" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="988:1010" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1067:1096" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1115:1144" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1214:1575" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="1247:1574" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1610:1972" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="1668:1968" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1693:1964" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1781:1803" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1860:1889" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="1908:1937" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2002:2360" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="2035:2359" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2060:2355" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2085:2351" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2168:2190" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2247:2276" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2295:2324" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2387:2731" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="2420:2730" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="2760:3102" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="2793:3101" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3133:3477" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="3166:3476" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3189:3473" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3213:3470" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3296:3316" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3372:3399" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3418:3445" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3508:3852" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="3541:3851" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3885:4272" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="3918:4271" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3941:4269" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="3965:4266" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4092:4112" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4214:4241" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4301:4642" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="4334:4641" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4357:4639" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4381:4636" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4462:4482" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4584:4611" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4675:5020" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="4708:5019" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4731:5017" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4755:5014" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="4840:4860" placeholder="{...}" />
-            <marker date="1456490874000" expanded="true" signature="5045:6197" placeholder="[...]" />
-            <marker date="1456490874000" expanded="true" signature="5078:6196" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/api/deploydanwei">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1395,27 +1127,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/worktip.list.html">
+    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.708333">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="45" />
+        <state vertical-scroll-proportion="-8.125">
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/worktip.list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="12" />
+        <state vertical-scroll-proportion="-9.208333">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_tree.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3652174">
-          <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
-          <folding />
+        <state vertical-scroll-proportion="-0.96190476">
+          <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20620438">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

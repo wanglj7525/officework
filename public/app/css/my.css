@@ -17,7 +17,13 @@ padding-right:0px;
 .left-button{
     margin:5px;
 }
-
+.markerButton{
+    /*width: 100px;*/
+    /*margin-left: 0px;*/
+    margin-top: 2%;
+    color: #336699!important;
+    background-color: #fff;
+}
 /*管理标签调整*/
 .markerManage{
     width: 40%;

@@ -1,7 +1,39 @@
 'use strict';
 
-app.controller('SetTreeCtrl',['$scope',function($scope){
-
+app.controller('SetTreeCtrl',['$scope','treeservice',function($scope,treeservice){
+    treeservice.getData().then(
+        function (res) {
+            $scope.treelist = res.data.info;
+            $scope.second= $scope.treelist[0];
+            if( $scope.second.children){
+                $scope.third= $scope.second.children[0];
+                if( $scope.third.children){
+                    $scope.fouth= $scope.third.children[0];
+                }
+            }
+        },
+        function (rej) {
+            console.log(rej);
+        }
+    );
+    $scope.showsecond=function(data){
+        $scope.second=data;
+        if( $scope.second.children){
+            $scope.third=data.children[0];
+            if( $scope.third.children){
+                $scope.fouth= $scope.third.children[0];
+            }
+        }
+    }
+    $scope.showthird=function(data){
+        $scope.third=data;
+        if( $scope.third.children){
+            $scope.fouth= $scope.third.children[0];
+        }
+    }
+    $scope.showfouth=function(data){
+        $scope.fouth=data;
+    }
 }]);
 app.controller('SetUserCtrl',['$scope','userservice',function($scope,userservice){
     $scope.itemsByPage=10;

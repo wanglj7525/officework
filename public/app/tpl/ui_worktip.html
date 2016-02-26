@@ -80,12 +80,12 @@
                                <td ng-bind="$index+1">1</td>
                                <td>{{row.name}}</td>
                                <td>
-                                   <a>
-                                       <i class="glyphicon glyphicon-pencil"></i>
-                                   </a>
-                                   <a>
-                                       <i class="glyphicon glyphicon-remove"></i>
-                                   </a>
+                                   <button  class="btn btn-info " ng-click="updatetip(row)">
+                                       修改
+                                   </button>
+                                   <button  class="btn btn-info "  ng-click="deletetip($index)">
+                                       删除
+                                   </button>
                                </td>
                            </tr>
                            </tbody>

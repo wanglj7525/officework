@@ -87,6 +87,13 @@ app.controller('WorktipFormController',
 		$scope.clickleft=function(){
 			$scope.isedit=false;
 		}
+		$scope.updatetip=function(tip){
+			console.log(tip);
+			$scope.name=tip.name;
+		}
+		$scope.deletetip=function(idx){
+			$scope.tipinfo.splice(idx,1);
+		}
 	} ]);
 app.controller('WorktipListCtrl', ['$scope', 'worktiplistservice', '$stateParams',  function($scope, worktiplistservice,$stateParams) {
 	$scope.pid = $stateParams.pid;

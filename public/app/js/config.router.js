@@ -36,19 +36,19 @@ angular.module('app')
                   url: '/app',
                   templateUrl: layout
               })
-              .state('app.message',{
-                  url:'/message',
-                  views:{
-                      'left':{
-                          templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
-                          resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/search.js'])
-                      },
-                      '':{
-                          templateUrl: STATIC_PATH + 'tpl/ui_message.html',
-                            resolve: load([STATIC_PATH + 'js/controllers/message.js'])
-                      }
-                  }
-              })
+              //.state('app.message',{
+              //    url:'/message',
+              //    views:{
+              //        'left':{
+              //            templateUrl: STATIC_PATH + 'tpl/blocks/material.aside.html',
+              //            resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/search.js'])
+              //        },
+              //        '':{
+              //            templateUrl: STATIC_PATH + 'tpl/ui_message.html',
+              //              resolve: load([STATIC_PATH + 'js/controllers/message.js'])
+              //        }
+              //    }
+              //})
               //.state('app.analysis',{
               //    url:'/analysis',
               //    views:{
@@ -152,6 +152,11 @@ angular.module('app')
                   abstract: true,
                   url: '/notree',
                   templateUrl: notreelayout
+              })
+              .state('notree.message',{
+                  url:'/message',
+                  templateUrl: STATIC_PATH + 'tpl/ui_message.html',
+                  resolve: load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/search.js',STATIC_PATH + 'js/controllers/message.js'])
               })
               .state('notree.worktip', {
                   abstract: true,

@@ -22,4 +22,17 @@ angular.module('app')
                 });
             }
         };
-    }]);
+    }]).directive("scroll", function ($window) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+            if (this.pageYOffset >= 50) {
+                scope.isfix = true;
+                console.log('Scrolled below header.');
+            } else {
+                scope.isfix = false;
+                console.log('Header is in view.');
+            }
+            scope.$apply();
+        });
+    };
+});

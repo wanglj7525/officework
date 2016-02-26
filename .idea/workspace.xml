@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="系统设置单位树 有子树 不提供删除功能">
+    <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/setting.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/setting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/my.css" afterPath="$PROJECT_DIR$/public/app/css/my.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/index.html" afterPath="$PROJECT_DIR$/public/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.router.js" afterPath="$PROJECT_DIR$/public/app/js/config.router.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" afterPath="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_message.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ui_deploy.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ui_deploy.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3900293">
-              <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+            <state vertical-scroll-proportion="-13.821428">
+              <caret line="113" column="56" selection-start-line="113" selection-start-column="56" selection-end-line="113" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -41,31 +44,93 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+      <file leaf-file-name="ui_analysis.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.892858">
-              <caret line="175" column="15" selection-start-line="175" selection-start-column="15" selection-end-line="175" selection-end-column="15" />
+            <state vertical-scroll-proportion="-2.7142856">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/app.js">
+      <file leaf-file-name="my.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.2357724">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.router.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="162" column="33" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="33" />
+              <folding>
+                <marker date="1456471136914" expanded="true" signature="6345:6357" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appdirectives.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/directives/appdirectives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/main.js">
+      <file leaf-file-name="material.header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.821428">
-              <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+            <state vertical-scroll-proportion="-33.92857">
+              <caret line="50" column="71" selection-start-line="50" selection-start-column="71" selection-end-line="50" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_message.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.892858">
+              <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.7142856">
+              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nosearch.nav.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.178572">
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="material.nav.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-33.25">
+              <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -92,7 +157,6 @@
         <option value="$PROJECT_DIR$/public/app/api/adjustdetail" />
         <option value="$PROJECT_DIR$/public/app/api/adjustd2" />
         <option value="$PROJECT_DIR$/public/app/css/app.css" />
-        <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/nosearch.aside.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
         <option value="$PROJECT_DIR$/public/app/api/searchgu" />
@@ -103,10 +167,8 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message_modal_table.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/signin.js" />
-        <option value="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" />
         <option value="$PROJECT_DIR$/public/app/css/md.css" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
         <option value="$PROJECT_DIR$/public/app/api/worktip2" />
         <option value="$PROJECT_DIR$/public/app/api/deploydanwei" />
@@ -120,12 +182,9 @@
         <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploysave_modal.html" />
-        <option value="$PROJECT_DIR$/public/app/css/my.css" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
-        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
-        <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_user.html" />
         <option value="$PROJECT_DIR$/public/app/js/services/service.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html" />
@@ -137,9 +196,15 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_tree.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/setting.js" />
         <option value="$PROJECT_DIR$/public/app/js/main.js" />
-        <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+        <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html" />
+        <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
+        <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
+        <option value="$PROJECT_DIR$/public/app/css/my.css" />
       </list>
     </option>
   </component>
@@ -1000,7 +1065,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456462722188</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="班子调配">
+      <created>1456468964122</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1456468964133</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1059,34 +1130,14 @@
     <MESSAGE value="用户管理代码维护页面" />
     <MESSAGE value="系统设置单位树管理" />
     <MESSAGE value="系统设置单位树 有子树 不提供删除功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="系统设置单位树 有子树 不提供删除功能" />
+    <MESSAGE value="班子调配" />
+    <option name="LAST_COMMIT_MESSAGE" value="班子调配" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/libs/angular/angular/angular.1.2.29.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21613" column="4" selection-start-line="21613" selection-start-column="4" selection-end-line="21613" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/libs/jquery/jquery/dist/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="6107" column="8" selection-start-line="6107" selection-start-column="8" selection-end-line="6107" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="1060" column="4" selection-start-line="1060" selection-start-column="4" selection-end-line="1060" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38880706">
@@ -1108,31 +1159,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1408451">
-          <caret line="0" column="57" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="73" selection-start-line="0" selection-start-column="73" selection-end-line="0" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5084507">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24647887">
-          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1175,13 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2655826">
           <caret line="88" column="48" selection-start-line="88" selection-start-column="48" selection-end-line="88" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40140846">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1272,23 +1295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.964285">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="202" column="62" selection-start-line="202" selection-start-column="62" selection-end-line="202" selection-end-column="62" />
-          <folding>
-            <marker date="1456392959373" expanded="true" signature="6319:6331" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/api/daimalist">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1313,28 +1319,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65211266">
-          <caret line="72" column="26" selection-start-line="52" selection-start-column="19" selection-end-line="72" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.535714">
           <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3604336">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1477,30 +1465,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/directives/appdirectives.js">
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        <state vertical-scroll-proportion="-9.785714">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.892858">
-          <caret line="175" column="15" selection-start-line="175" selection-start-column="15" selection-end-line="175" selection-end-column="15" />
+        <state vertical-scroll-proportion="-12.892858">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/notree.layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.107143">
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.25">
+          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="33" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="33" />
+          <folding>
+            <marker date="1456471136914" expanded="true" signature="6345:6357" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.92857">
+          <caret line="50" column="71" selection-start-line="50" selection-start-column="71" selection-end-line="50" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/nosearch.nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.178572">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.892858">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7142856">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/css/md.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.353521">
+          <caret line="1551" column="1" selection-start-line="1551" selection-start-column="1" selection-end-line="1551" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_analysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7142856">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/directives/appdirectives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3900293">
-          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+        <state vertical-scroll-proportion="-13.821428">
+          <caret line="113" column="56" selection-start-line="113" selection-start-column="56" selection-end-line="113" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2357724">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,9 +1,18 @@
 <div ng-controller="SetTreeCtrl">
+     <script type="text/ng-template" id="saveTreeModel.html">
+          <div ng-include="'/public/app/tpl/ui_tree_modal.html'"></div>
+     </script>
+     <script type="text/ng-template" id="saveAddTreeModel.html">
+          <div ng-include="'/public/app/tpl/ui_treeadd_modal.html'"></div>
+     </script>
+     <script type="text/ng-template" id="deleteTreeModel.html">
+          <div ng-include="'/public/app/tpl/ui_treedelete_modal.html'"></div>
+     </script>
      <div class="row">
           <div class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">一级树管理
-                         <button type="submit" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(1)" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
                     </div>
                     <table st-table="treelist"  class="table table-bordered table-striped">
                          <thead>
@@ -18,10 +27,10 @@
                               <td>{{row.data}}</td>
                               <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.label}}</button></td>
                               <td>
-                                   <button  class="btn btn-danger ">
+                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger ">
+                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
                                         删除
                                    </button>
                               </td>
@@ -33,7 +42,7 @@
           <div ng-show="second.children.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{second.label}}
-                         <button type="submit" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(2)" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
                     </div>
                     <table st-table="second.children"  class="table table-bordered table-striped">
                          <thead>
@@ -48,10 +57,10 @@
                               <td>{{row.data}}</td>
                               <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.label}}</button></td>
                               <td>
-                                   <button class="btn btn-danger ">
+                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button class="btn btn-danger ">
+                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
                                         删除
                                    </button>
                               </td>
@@ -63,7 +72,7 @@
           <div ng-show="third.children.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{third.label}}
-                         <button type="submit" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(3)" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
                     </div>
                     <table st-table="third.children"  class="table table-bordered table-striped">
                          <thead>
@@ -78,10 +87,10 @@
                               <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.label}}</button></td>
                               <td>{{row.label}}</td>
                               <td>
-                                   <button  class="btn btn-danger ">
+                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger ">
+                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
                                         删除
                                    </button>
                               </td>
@@ -93,7 +102,7 @@
           <div ng-show="fouth.children.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{fouth.label}}
-                         <button type="submit" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(4)" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>
                     </div>
                     <table st-table="fouth.children"  class="table table-bordered table-striped">
                          <thead>
@@ -108,10 +117,10 @@
                               <td>{{row.data}}</td>
                               <td>{{row.label}}</td>
                               <td>
-                                   <button  class="btn btn-danger ">
+                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger ">
+                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
                                         删除
                                    </button>
                               </td>
@@ -120,35 +129,5 @@
                     </table>
                </div>
           </div>
-          <!--<div ng-show="fouth.length" class="col-md-3">-->
-               <!--<div class="panel panel-default">-->
-                    <!--<div class="panel-heading" style="position: relative">四级树管理-->
-                         <!--<button type="submit" class="btn btn-danger" style="width: 150px;position: absolute;right: 0;top:0;height: 100%;" >添加</button>-->
-                    <!--</div>-->
-                    <!--<table st-table="fouth"  class="table table-bordered table-striped">-->
-                         <!--<thead>-->
-                         <!--<tr>-->
-                              <!--<th>id</th>-->
-                              <!--<th>名称</th>-->
-                              <!--<th>操作</th>-->
-                         <!--</tr>-->
-                         <!--</thead>-->
-                         <!--<tbody>-->
-                         <!--<tr ng-repeat="row in fouth " >-->
-                              <!--<td>{{row.data}}</td>-->
-                              <!--<td>{{row.label}}</td>-->
-                              <!--<td>-->
-                                   <!--<button type="button"  class="btn btn-danger ">-->
-                                        <!--修改-->
-                                   <!--</button>-->
-                                   <!--<button type="button"  class="btn btn-danger ">-->
-                                        <!--删除-->
-                                   <!--</button>-->
-                              <!--</td>-->
-                         <!--</tr>-->
-                         <!--</tbody>-->
-                    <!--</table>-->
-               <!--</div>-->
-          <!--</div>-->
      </div>
 </div>

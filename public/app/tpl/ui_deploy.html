@@ -1,8 +1,27 @@
-<div ng-controller="deployCtrl" scroll>
+<!--<script type="text/javascript">-->
+	<!--$(function(){-->
+		<!--console.log("222");-->
+<!--//		//获取要定位元素距离浏览器顶部的距离-->
+<!--//		var navH = $(".baocun").offset().top;-->
+		<!--//滚动条事件-->
+		<!--$(window).scroll(function(){-->
+			<!--console.log("1111");-->
+			<!--//获取滚动条的滑动距离-->
+			<!--var scroH = $(this).scrollTop();-->
+			<!--//滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定-->
+			<!--if(scroH>=50){-->
+				<!--$(".baocun").css({"position":"fixed","top":"50px"});-->
+			<!--}else if(scroH<50){-->
+				<!--$(".baocun").css({"position":"static"});-->
+			<!--}-->
+		<!--})-->
+	<!--})-->
+<!--</script>-->
+<div class="row" ng-controller="deployCtrl" >
 	<!--<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >-->
 	<!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>-->
 	<!--</div>-->
-	<div class=" row">
+	<div class=" ">
 		<script type="text/ng-template" id="savePeopleModel.html">
 			<div ng-include="'/public/app/tpl/ui_deploysave_modal.html'"></div>
 		</script>
@@ -13,62 +32,66 @@
 			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
 		</script>
 		<div class="col-md-4" >
-			<accordion>
-				<accordion-group is-open="status.leftopen" class="b-info">
-					<accordion-heading class="btn-info">
-						请选择班子进行调整 <label class="text-danger"> （点击显示或隐藏）</label><i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.leftopen, 'fa-angle-right': !status.leftopen}"></i>
-					</accordion-heading>
-					<div class="vbox">
-						<form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled" ng-submit="selectdw(first,second,third)">
-							<div class="form-group">
-								<label class="col-md-3 control-label">请选择</label>
-								<div class="col-md-9 row">
-									<div  >
-										<select required="" class="form-control" ng-model="first" ng-options=" a.label for a in deploy"
-												ng-change="second='';third='';">
-											<!--<option value="">省</option>
-                                            <!--<option value="">请选择</option>-->
-										</select>
-									</div>
-									<div >
-										<select  ng-show="first.children.length" class="form-control" ng-model="second" ng-options="b.label for b in first.children"
-												 ng-change="third='';">
-											<option value="">请选择或者取消选择</option>
-										</select>
-									</div>
-									<div >
-										<select ng-show="second.children.length" class="form-control" ng-model="third" ng-options="c.label for c in second.children">
-											<option value="">请选择或者取消选择</option>
-										</select>
-									</div>
-									<div >
-										<select ng-show="third.children.length" class="form-control" ng-model="fouth" ng-options="c.label for c in third.children">
-											<option value="">请选择或者取消选择</option>
-										</select>
+			<div>
+				<accordion >
+					<accordion-group is-open="status.leftopen" class="b-info">
+						<accordion-heading class="btn-info">
+							请选择班子进行调整 <label class="text-danger"> （点击显示或隐藏）</label><i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.leftopen, 'fa-angle-right': !status.leftopen}"></i>
+						</accordion-heading>
+						<div class="vbox">
+							<form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled" ng-submit="selectdw(first,second,third)">
+								<div class="form-group">
+									<label class="col-md-3 control-label">请选择</label>
+									<div class="col-md-9 row">
+										<div  >
+											<select required="" class="form-control" ng-model="first" ng-options=" a.label for a in deploy"
+													ng-change="second='';third='';">
+												<!--<option value="">省</option>
+                                                <!--<option value="">请选择</option>-->
+											</select>
+										</div>
+										<div >
+											<select  ng-show="first.children.length" class="form-control" ng-model="second" ng-options="b.label for b in first.children"
+													 ng-change="third='';">
+												<option value="">请选择或者取消选择</option>
+											</select>
+										</div>
+										<div >
+											<select ng-show="second.children.length" class="form-control" ng-model="third" ng-options="c.label for c in second.children">
+												<option value="">请选择或者取消选择</option>
+											</select>
+										</div>
+										<div >
+											<select ng-show="third.children.length" class="form-control" ng-model="fouth" ng-options="c.label for c in third.children">
+												<option value="">请选择或者取消选择</option>
+											</select>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class=" form-group">
-								<label class="col-md-3 control-label">选择单位</label>
-								<label class="col-md-9">
-									{{first.label}}-{{second.label}}-{{third.label}}-{{fouth.label}}
-								</label>
-							</div>
-							<div class="form-group">
-								<button  ng-click="status.leftopen = !status.leftopen"  type="submit" class="btn w-full btn-info ">确定 </button>
-							</div>
-						</form>
-					</div>
-				</accordion-group>
-			</accordion>
+								<div class=" form-group">
+									<label class="col-md-3 control-label">选择单位</label>
+									<label class="col-md-9">
+										{{first.label}}-{{second.label}}-{{third.label}}-{{fouth.label}}
+									</label>
+								</div>
+								<div class="form-group">
+									<button  ng-click="status.leftopen = !status.leftopen"  type="submit" class="btn w-full btn-info ">确定 </button>
+								</div>
+							</form>
+						</div>
+					</accordion-group>
+				</accordion>
+			</div>
+
 			<div  ng-repeat="row in daweilist">
-				<div class="panel panel-default" scroll>
+				<div class="panel panel-default">
 					<div class="panel-heading">{{row.name}}<label class="text-danger"> （点击头像查看详细信息，点击删除按钮，进行人员调动）</label>
 						<!--<a  class="pull-right m-l"> <i class="fa fa-times"></i></a>-->
 						<!--<a  class="pull-right m-l"> <i class="fa fa-refresh"></i></a>-->
 					</div>
 					<div class="form-group" >
-						<button ng-class="{fixtop:isfix}" class="btn w-full  btn-info font-bold" ng-click="savedeploy()">保存班子调整</button>
+						<!--<button ng-class="{fixtop:isfix}" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>-->
+						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn col-md-4  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
 					<div class="row" >
 						<div ng-repeat="t in row.peoples">

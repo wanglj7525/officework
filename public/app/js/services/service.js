@@ -268,4 +268,22 @@ angular.module('app')
 			return promise;
 		}
 	}
+}]).service('daimaservice', ['$q','$http', function($q,$http){
+	var data={};
+	return{
+		getData:function(id){
+			var deferred=$q.defer();
+			var path='/public/app/api/daimalist';
+			if (id) {
+				path+='';
+			};
+			var promise=$http.get(path).then(function(response){
+				console.log(response);
+				return response;
+			},function(response){
+				return response;
+			});
+			return promise;
+		}
+	}
 }]);

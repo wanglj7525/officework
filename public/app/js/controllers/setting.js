@@ -14,12 +14,12 @@ app.controller('SetUserCtrl',['$scope','userservice',function($scope,userservice
         }
     );
 }]);
-app.controller('SetDaimaCtrl',['$scope','adjustlistservice',function($scope,adjustlistservice){
+app.controller('SetDaimaCtrl',['$scope','daimaservice',function($scope,daimaservice){
 //获取人员信息
-    adjustlistservice.getData().then(
+    daimaservice.getData().then(
         function (res) {
-            $scope.adjustlist = res.data.info;
-            $scope.daima= $scope.adjustlist[0];
+            $scope.daimalist = res.data.info;
+            $scope.daima= $scope.daimalist[0];
         },
         function (rej) {
             console.log(rej);
@@ -27,7 +27,6 @@ app.controller('SetDaimaCtrl',['$scope','adjustlistservice',function($scope,adju
     );
 
     $scope.selectdaima=function(daima){
-        console.log(daima);
         $scope.daima=daima;
     }
 }]);

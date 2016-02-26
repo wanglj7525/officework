@@ -30,7 +30,7 @@
                                    <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
+                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(1,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -60,7 +60,7 @@
                                    <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
+                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(2,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -90,7 +90,7 @@
                                    <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
+                                   <button ng-show="!row.children.length"  class="btn btn-danger "  ng-click="deletetree(3,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -120,7 +120,7 @@
                                    <button  class="btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn btn-danger "  ng-click="deletetree(row)">
+                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(4,$index,row)">
                                         删除
                                    </button>
                               </td>

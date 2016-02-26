@@ -38,9 +38,9 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
         function (res) {
             $scope.treelist = res.data.info;
             $scope.second= $scope.treelist[0];
-            if( $scope.second.children){
+            if( $scope.second&&$scope.second.children){
                 $scope.third= $scope.second.children[0];
-                if( $scope.third.children){
+                if($scope.third&& $scope.third.children){
                     $scope.fouth= $scope.third.children[0];
                 }
             }
@@ -53,9 +53,9 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
         $scope.second=data;
         $scope.third=[];
         $scope.fouth=[];
-        if( $scope.second.children){
+        if($scope.second&& $scope.second.children){
             $scope.third=data.children[0];
-            if( $scope.third.children){
+            if($scope.third&& $scope.third.children){
                 $scope.fouth= $scope.third.children[0];
             }
         }
@@ -63,7 +63,7 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
     $scope.showthird=function(data){
         $scope.third=data;
         $scope.fouth=[];
-        if( $scope.third.children){
+        if($scope.third&& $scope.third.children){
             $scope.fouth= $scope.third.children[0];
         }
     }
@@ -117,7 +117,8 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
-    $scope.deletetree=function(data){
+    $scope.deletetree=function(which,idx,data){
+        console.log(data);
         var modaltreedeleteInstance = $modal.open({
             templateUrl: 'deleteTreeModel.html',
             controller: 'ModalDeleteTreeInstanceCtrl',
@@ -129,6 +130,15 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
             }
         });
         modaltreedeleteInstance.result.then(function () {
+            if(which==1){
+                $scope.treelist.splice(idx,1);
+            }else if(which==2){
+                $scope.second.children.splice(idx,1);
+            }else if(which==3){
+                $scope.third.children.splice(idx,1);
+            }else{
+                $scope.fouth.children.splice(idx,1);
+            }
             //TODO 调用后台保存
             //$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
         }, function () {

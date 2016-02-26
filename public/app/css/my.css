@@ -1,3 +1,6 @@
+.btn-padding{
+    padding: 0px;
+}
 .fixtop{
     position:fixed;
     top:50px;

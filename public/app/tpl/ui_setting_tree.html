@@ -17,20 +17,20 @@
                     <table st-table="treelist"  class="table table-bordered table-striped">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th></th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in treelist " >
-                              <td>{{row.data}}</td>
+                              <td ng-bind="$index+1">1</td>
                               <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.label}}</button></td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(1,$index,row)">
+                                   <button ng-show="!row.children.length" class="btn-padding btn btn-danger "  ng-click="deletetree(1,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -47,20 +47,20 @@
                     <table st-table="second.children"  class="table table-bordered table-striped">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th></th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in second.children " >
-                              <td>{{row.data}}</td>
+                              <td ng-bind="$index+1">1</td>
                               <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.label}}</button></td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(2,$index,row)">
+                                   <button ng-show="!row.children.length" class="btn-padding btn btn-danger "  ng-click="deletetree(2,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -77,20 +77,20 @@
                     <table st-table="third.children"  class="table table-bordered table-striped">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th></th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in third.children " >
+                              <td ng-bind="$index+1">1</td>
                               <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.label}}</button></td>
-                              <td>{{row.label}}</td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length"  class="btn btn-danger "  ng-click="deletetree(3,$index,row)">
+                                   <button ng-show="!row.children.length"  class="btn-padding btn btn-danger "  ng-click="deletetree(3,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -114,13 +114,13 @@
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in fouth.children " >
-                              <td>{{row.data}}</td>
+                              <td ng-bind="$index+1">1</td>
                               <td>{{row.label}}</td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-danger " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(4,$index,row)">
+                                   <button ng-show="!row.children.length" class=" btn-padding btn btn-danger "  ng-click="deletetree(4,$index,row)">
                                         删除
                                    </button>
                               </td>

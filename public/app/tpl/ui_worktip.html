@@ -6,7 +6,7 @@
     <div class="md-right">
         <div class="col-md-3  bg-light dk b-r bg-auto" style="padding-left: 5px;padding-right: 0px;><!--  style="position:fixed"  -->
             <div class="" id="tipinfo-menu">
-                <div ui-sref="notree.worktip.edit" class="btn markerManage btn-dark   font-bold">管理标签</div>
+                <div ng-click="isedit=true" class="btn markerManage btn-dark   font-bold">管理标签</div>
                 <hr class="markerHr"/>
                 <ul class="treeMain nav nav-pills nav-stacked ">
                     <li ui-sref-active="active">
@@ -35,13 +35,13 @@
                 <!--<a ui-sref="notree.worktip.edit" class="btn btn-dark w-full font-bold">管理标签</a>-->
             </div>
         </div>
-        <div class="workBgColor col-md-9" style="">
-            <div ui-view ></div>
+        <!--<div class="workBgColor col-md-9" style="">-->
+            <!--<div ui-view ></div>-->
 
-            </div>
-        </div>
-      
-        <div class="col-md-9" style="">
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="workBgColor col-md-9" style="">
             <div ng-show="!isedit" ui-view ></div>
            <div ng-show="isedit">
                <div class="panel panel-default">
@@ -89,7 +89,7 @@
                        <table st-table="tipinfo"  class="table table-striped">
                            <thead>
                            <tr>
-                               <th>序号</th>
+                               <th></th>
                                <th>名称</th>
                                <th>操作</th>
                            </tr>
@@ -124,4 +124,4 @@
         </div>
     </div>
 
-</div>
+

@@ -34,6 +34,7 @@ app.controller('ModalAddTreeInstanceCtrl', ['$scope', '$modalInstance', 'which',
     };
 }]);
 app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($scope,$modal,$log,treeservice){
+
     treeservice.getData().then(
         function (res) {
             $scope.treelist = res.data.info;
@@ -145,6 +146,7 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
     }
 }]);
 app.controller('SetUserCtrl',['$scope','userservice',function($scope,userservice){
+
     $scope.itemsByPage=10;
     userservice.getData().then(
         function (res) {
@@ -156,6 +158,7 @@ app.controller('SetUserCtrl',['$scope','userservice',function($scope,userservice
     );
 }]);
 app.controller('SetDaimaCtrl',['$scope','daimaservice',function($scope,daimaservice){
+
 //获取人员信息
     daimaservice.getData().then(
         function (res) {

@@ -14,7 +14,7 @@ angular.module('app')
       $scope.treeToggle=function(){
         
       }
-      
+
       // config
       $scope.app = {
         name: '领导班子分析调配系统',

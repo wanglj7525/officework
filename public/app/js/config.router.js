@@ -163,18 +163,27 @@ angular.module('app')
                   url: '/worktip',
                   templateUrl: STATIC_PATH + 'tpl/ui_worktip.html',
                   // use resolve to load other dependences
-                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/worktip.js']),
-
-
+                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
               })
-              .state('notree.worktip.edit', {
-                  url: '/edit',
-                  templateUrl: STATIC_PATH + 'tpl/worktip.edit.html'
-              })
+              //.state('notree.worktip.edit', {
+              //    url: '/edit',
+              //    templateUrl: STATIC_PATH + 'tpl/worktip.edit.html'
+              //})
               .state('notree.worktip.list', {
                   url: '/list/{pid}',
                   templateUrl: STATIC_PATH + 'tpl/worktip.list.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
+              })
+              .state('notree.adjust',{
+                  abstract: true,
+                  url:'/adjust',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
+              })
+              .state('notree.adjust.detail', {
+                  url: '/detail/{id}',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjustdetail.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
               })
               .state('notree.analysis',{
                   url:'/analysis',
@@ -194,17 +203,17 @@ angular.module('app')
                   resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
               })
               .state('notree.setting.tree',{
-                  url:'/setting/tree',
+                  url:'/tree',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.daima',{
-                  url:'/setting/daima',
+                  url:'/daima',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.user',{
-                  url:'/setting/user',
+                  url:'/user',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_user.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
@@ -225,16 +234,7 @@ angular.module('app')
                   templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
               })
-              .state('notree.adjust',{
-                  url:'/adjust',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
-                  resolve: load(['smart-table',,STATIC_PATH + 'js/controllers/adjust.js'])
-              })
-              .state('notree.adjust.detail', {
-                  url: '/detail/{id}',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjustdetail.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
-              })
+
           ;
 
           function load(srcs, callback) {

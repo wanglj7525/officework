@@ -1,9 +1,9 @@
 <div ng-controller="SetUserCtrl">
      <div class="panel panel-default">
           <div class="panel-heading" style="position: relative">用户管理
-               <button type="submit"  class="btn markerButton btn-dark font-bold" style="position: absolute;right: 10px;bottom:0;"  >添加</button>
+               <button type="submit" class="btn btn-add btn-href" style="width: 150px;" >添加</button>
           </div>
-          <table st-table="userlist"  class="table table-bordered ">
+          <table st-table="userlist"  class="table table-bordered">
                <thead>
                <tr>
                     <th width="10%">序号</th>
@@ -22,10 +22,10 @@
                     <td >{{row.role}}</td>
                     <td >{{row.pass}}</td>
                     <td>
-                         <button type="button"  class="btn markerButton btn-dark   font-bold ">
-                             修改
+                         <button type="button"  class="btn btn-href ">
+                              修改
                          </button>
-                         <button type="button"  class="btn markerButton btn-dark   font-bold ">
+                         <button type="button"  class="btn btn-href ">
                               删除
                          </button>
                     </td>

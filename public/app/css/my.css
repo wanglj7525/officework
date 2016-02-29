@@ -241,19 +241,29 @@ table{
         margin-top: 0px;
     }
 }
-@media (min-width: 768px) and (max-width: 1066px) {
+@media (min-width: 768px) and (max-width: 890px) {
     #header,#headerLayout{
         margin-top: 102px;
     }
 }
-@media (min-width: 1066px) and (max-width: 1085px) {
+@media (min-width: 891px) and (max-width: 965px) {
     #header,#headerLayout{
-        margin-top: 51px;
+        margin-top: 50px;
+    }
+}
+@media (min-width: 966px) and (max-width: 1066px) {
+    #header,#headerLayout{
+        margin-top: 0px;
+    }
+}
+@media (min-width: 1067px) and (max-width: 1085px) {
+    #header,#headerLayout{
+        margin-top:0px;
     }
 }
 @media (min-width: 1086px) and (max-width: 1147px) {
     #header,#headerLayout{
-        margin-top: 51px;
+        margin-top: 0px;
     }
 }
 @media (min-width: 1148px) and (max-width: 1262px) {

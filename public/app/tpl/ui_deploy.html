@@ -31,7 +31,7 @@
 		<script type="text/ng-template" id="myModalContent.html">
 			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
 		</script>
-		<div class="col-md-4" >
+		<div class="col-md-4" style="height:700px;overflow-y: auto">
 			<div>
 				<accordion >
 					<accordion-group is-open="status.leftopen" class="b-info">
@@ -83,7 +83,7 @@
 				</accordion>
 			</div>
 
-			<div  ng-repeat="row in daweilist">
+			<div ng-show="daweilist">
 				<div class="panel panel-default">
 					<div class="panel-heading">{{row.name}}<label class="text-danger"> （点击头像查看详细信息，点击删除按钮，进行人员调动）</label>
 						<!--<a  class="pull-right m-l"> <i class="fa fa-times"></i></a>-->
@@ -93,21 +93,52 @@
 						<!--<button ng-class="{fixtop:isfix}" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>-->
 						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
-					<div class="row" >
-						<div ng-repeat="t in row.peoples">
-							<div class="col-sm-4">
-								<div class="panel panel-card">
-									<div class="item">
-										<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
-									</div>
-									<div class="list-group">
-										<div class="list-group-item">{{t.name}}</div>
-										<div class="list-group-item">{{t.company}}</div>
-										<div class="list-group-item">
-											<button class="btn btn-info  w-full"  ng-click="removepeople(t)">删除</button>
+					<div class="row">
+						<div ng-repeat="t in daweilist.jiegou">
+							<div ng-if="t.jibie==1">
+								<div class="row">
+									<div class="panel panel-card col-sm-4" >
+										<div class="item">
+											<img ng-click="showOneDetail(t.people[0].id)" src="{{t.people[0].img}}" class="w-full r-t" alt="Washed Out">
 										</div>
+										<div class="list-group">
+											<div class="list-group-item">{{t.people[0].name}}</div>
+											<div class="list-group-item">{{t.name}}</div>
+											<div class="list-group-item">
+												<button class="btn btn-info  w-full"  ng-click="removepeople(t)">删除</button>
+											</div>
 
+										</div>
 									</div>
+
+								</div>
+							</div>
+							<div ng-if="t.jibie==2" class="col-sm-4">
+								<div class="panel panel-card">
+									<div ng-if="t.people.length==0">
+										<div class="item">
+											<img  src="/public/app/img/a.png" class="w-full r-t" alt="Washed Out">
+										</div>
+										<div class="list-group">
+											<div class="list-group-item">?</div>
+											<div class="list-group-item">{{t.name}}</div>
+
+										</div>
+									</div>
+									<div ng-if="t.people.length!=0">
+										<div class="item">
+											<img ng-click="showOneDetail(t.people[0].id)" src="{{t.people[0].img}}" class="w-full r-t" alt="Washed Out">
+										</div>
+										<div class="list-group">
+											<div class="list-group-item">{{t.people[0].name}}</div>
+											<div class="list-group-item">{{t.name}}</div>
+											<div class="list-group-item">
+												<button class="btn btn-info  w-full"  ng-click="removepeople(t)">删除</button>
+											</div>
+
+										</div>
+									</div>
+
 								</div>
 
 							</div>
@@ -118,7 +149,7 @@
 			</div>
 
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8"  style="height:700px;overflow-y: auto" >
 			<accordion close-others="oneAtATime">
 				<accordion-group is-open="status.open" class="b-info">
 					<accordion-heading class="btn-info">

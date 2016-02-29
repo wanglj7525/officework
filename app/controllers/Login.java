@@ -18,7 +18,8 @@ public class Login extends Controller{
 		}else{
 			renderJSON(result.error("用户名或密码错误"));
 		}
-		renderJSON(result.success(user));
+		String access_token="1234567890";
+		renderJSON(result.success(user,access_token));
 	}
 
 }

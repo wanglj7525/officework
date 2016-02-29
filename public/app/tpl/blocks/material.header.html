@@ -43,13 +43,13 @@
             </a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="notree.adjust.detail({id:1})" href="/notree/adjust">
+            <a ui-sref="notree.adjust.detail" href="/notree/adjust/detail">
               <span class="nav-title">调整一览</span>
             </a>
           </li>
           <li ui-sref-active="active">
 
-            <a ui-sref="notree.adjustplan.detail({id:1})" href="/notree/adjustplan/detail/1">
+            <a ui-sref="notree.adjustplan.detail" href="/notree/adjustplan/detail">
               <span class="nav-title">调整方案</span> 
             </a>
           </li>
@@ -78,8 +78,8 @@
             </a>
           </li> -->
               <li>
-
-                <a ui-sref="access.signin" class="nav-title"><i class="fa fa-power-off"></i>退出</a>
+                <a ng-click="logout()" class="nav-title"><i class="fa fa-power-off"></i>退出</a>
+                <!--<a ui-sref="access.signin" class="nav-title"><i class="fa fa-power-off"></i>退出</a>-->
               </li>
          </ul>
         <!-- / navbar right -->

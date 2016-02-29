@@ -1,4 +1,25 @@
 angular.module('app')
+    .directive('authApplication', function() {
+        return {
+            restrict: 'C',
+            link: function(scope, elem, attrs) {
+
+                scope.$on('event:auth-loginRequired', function() {
+                    //login.slideDown('slow', function() {
+                    //    main.hide();
+                    //});
+                    //TODO login form
+                    console.log("xu yao deng lu");
+                });
+                scope.$on('event:auth-loginConfirmed', function() {
+                    //main.show();
+                    //login.slideUp();
+                    //TODO login hide
+                    console.log("bu xu yao deng lu");
+                });
+            }
+        }
+    })
     .directive('selectbutton', ['$transition', function ($transition) {
         return {
             link: function (scope, element, attrs) {

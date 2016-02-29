@@ -12,25 +12,25 @@
           <div class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">一级树管理
-                         <button ng-click="addtree(1)" class="btn btn-danger" style="position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(1)" class="btn btn-add btn-href">添加</button>
                     </div>
-                    <table st-table="treelist"  class="table table-bordered table-striped">
+                    <table st-table="treelist"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th></th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in treelist " >
-                              <td>{{row.data}}</td>
+                              <td ng-bind="$index+1">1</td>
                               <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.label}}</button></td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(1,$index,row)">
+                                   <button ng-show="!row.children.length" class="btn-padding btn btn-href "  ng-click="deletetree(1,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -42,25 +42,25 @@
           <div ng-show="second.children.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{second.label}}
-                         <button ng-click="addtree(2)" class="btn btn-danger" style="position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(2)" class="btn btn-add btn-href">添加</button>
                     </div>
-                    <table st-table="second.children"  class="table table-bordered table-striped">
+                    <table st-table="second.children"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th></th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in second.children " >
-                              <td>{{row.data}}</td>
+                              <td ng-bind="$index+1">1</td>
                               <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.label}}</button></td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(2,$index,row)">
+                                   <button ng-show="!row.children.length" class="btn-padding btn btn-href "  ng-click="deletetree(2,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -72,25 +72,25 @@
           <div ng-show="third.children.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{third.label}}
-                         <button ng-click="addtree(3)" class="btn btn-danger" style="position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(3)" class="btn btn-add btn-href"  >添加</button>
                     </div>
-                    <table st-table="third.children"  class="table table-bordered table-striped">
+                    <table st-table="third.children"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th></th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in third.children " >
+                              <td ng-bind="$index+1">1</td>
                               <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.label}}</button></td>
-                              <td>{{row.label}}</td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length"  class="btn btn-danger "  ng-click="deletetree(3,$index,row)">
+                                   <button ng-show="!row.children.length"  class="btn-padding btn btn-href "  ng-click="deletetree(3,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -102,9 +102,9 @@
           <div ng-show="fouth.children.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{fouth.label}}
-                         <button ng-click="addtree(4)" class="btn btn-danger" style="position: absolute;right: 0;top:0;height: 100%;" >添加</button>
+                         <button ng-click="addtree(4)" class="btn btn-add btn-href">添加</button>
                     </div>
-                    <table st-table="fouth.children"  class="table table-bordered table-striped">
+                    <table st-table="fouth.children"  class="table table-bordered ">
                          <thead>
                          <tr>
                               <th>id</th>
@@ -114,13 +114,13 @@
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in fouth.children " >
-                              <td>{{row.data}}</td>
+                              <td ng-bind="$index+1">1</td>
                               <td>{{row.label}}</td>
                               <td>
-                                   <button  class="btn btn-danger " ng-click="updatetree(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn btn-danger "  ng-click="deletetree(4,$index,row)">
+                                   <button ng-show="!row.children.length" class=" btn-padding btn btn-href "  ng-click="deletetree(4,$index,row)">
                                         删除
                                    </button>
                               </td>

@@ -5,10 +5,28 @@
  */
 angular.module('app')
   .run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
+    [          '$rootScope', '$state', '$stateParams','$localStorage',
+      function ($rootScope,   $state,   $stateParams,$localStorage) {
           $rootScope.$state = $state;
-          $rootScope.$stateParams = $stateParams;        
+          $rootScope.$stateParams = $stateParams;
+
+          //$rootScope.$on('$stateChangeStart',function(event,state,params){
+          //      //console.log("切换路由"+state.name+"--"+$localStorage.token+"--"+params);
+          //      if(state.name=='signin')return;// 如果是进入登录界面则允许
+          //      // 如果用户不存在
+          //      //if(!$rootScope.user || !$rootScope.user.token){
+          //      if(!$localStorage.token){
+          //        event.preventDefault();// 取消默认跳转行为
+          //        $state.go("access.signin");//跳转到登录界面
+          //      }
+          //    var allowed=function(state,params){
+          //        //TODO 根据state和params判断是否可以授权,返回true或者false
+          //
+          //    };
+          //    if(!allowed(state,params)){
+          //        event.preventDefault();
+          //    }
+          //});
       }
     ]
   )
@@ -163,18 +181,27 @@ angular.module('app')
                   url: '/worktip',
                   templateUrl: STATIC_PATH + 'tpl/ui_worktip.html',
                   // use resolve to load other dependences
-                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/worktip.js']),
-
-
+                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
               })
-              .state('notree.worktip.edit', {
-                  url: '/edit',
-                  templateUrl: STATIC_PATH + 'tpl/worktip.edit.html'
-              })
+              //.state('notree.worktip.edit', {
+              //    url: '/edit',
+              //    templateUrl: STATIC_PATH + 'tpl/worktip.edit.html'
+              //})
               .state('notree.worktip.list', {
                   url: '/list/{pid}',
                   templateUrl: STATIC_PATH + 'tpl/worktip.list.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
+              })
+              .state('notree.adjust',{
+                  abstract: true,
+                  url:'/adjust',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
+              })
+              .state('notree.adjust.detail', {
+                  url: '/detail/{id}',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjustdetail.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
               })
               .state('notree.analysis',{
                   url:'/analysis',
@@ -194,17 +221,17 @@ angular.module('app')
                   resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
               })
               .state('notree.setting.tree',{
-                  url:'/setting/tree',
+                  url:'/tree',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.daima',{
-                  url:'/setting/daima',
+                  url:'/daima',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.user',{
-                  url:'/setting/user',
+                  url:'/user',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_user.html'
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
@@ -225,16 +252,7 @@ angular.module('app')
                   templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
               })
-              .state('notree.adjust',{
-                  url:'/adjust',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
-                  resolve: load(['smart-table',,STATIC_PATH + 'js/controllers/adjust.js'])
-              })
-              .state('notree.adjust.detail', {
-                  url: '/detail/{id}',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjustdetail.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
-              })
+
           ;
 
           function load(srcs, callback) {

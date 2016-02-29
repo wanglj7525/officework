@@ -32,7 +32,25 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
   .config(function($httpProvider) {
     $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
- 
+
+      $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
+          return {
+              'request': function (config) {
+                  config.headers = config.headers || {};
+                  if ($localStorage.token) {
+                      console.log("$httpProvider.interceptors--"+$localStorage.token);
+                      //config.headers.Authorization = 'Bearer ' + $localStorage.token;
+                  }
+                  return config;
+              },
+              'responseError': function(response) {
+                  if(response.status === 401 || response.status === 403) {
+                      $location.path('/404');
+                  }
+                  return $q.reject(response);
+              }
+          };
+      }]);
     // Override $http service's default transformRequest
     $httpProvider.defaults.transformRequest = [function(data) {
         /**
@@ -41,12 +59,13 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
          * @return {String}
          */
         var param = function(obj) {
+            console.log(obj);
             var query = '';
             var name, value, fullSubName, subName, subValue, innerObj, i;
- 
+
             for (name in obj) {
                 value = obj[name];
- 
+
                 if (value instanceof Array) {
                     for (i = 0; i < value.length; ++i) {
                         subValue = value[i];
@@ -68,10 +87,11 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
                             + encodeURIComponent(value) + '&';
                 }
             }
- 
+
+            console.log(query);
             return query.length ? query.substr(0, query.length - 1) : query;
         };
- 
+
         return angular.isObject(data) && String(data) !== '[object File]'
                 ? param(data)
                 : data;

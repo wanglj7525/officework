@@ -5,10 +5,28 @@
  */
 angular.module('app')
   .run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
+    [          '$rootScope', '$state', '$stateParams','$localStorage',
+      function ($rootScope,   $state,   $stateParams,$localStorage) {
           $rootScope.$state = $state;
-          $rootScope.$stateParams = $stateParams;        
+          $rootScope.$stateParams = $stateParams;
+
+          //$rootScope.$on('$stateChangeStart',function(event,state,params){
+          //      //console.log("切换路由"+state.name+"--"+$localStorage.token+"--"+params);
+          //      if(state.name=='signin')return;// 如果是进入登录界面则允许
+          //      // 如果用户不存在
+          //      //if(!$rootScope.user || !$rootScope.user.token){
+          //      if(!$localStorage.token){
+          //        event.preventDefault();// 取消默认跳转行为
+          //        $state.go("access.signin");//跳转到登录界面
+          //      }
+          //    var allowed=function(state,params){
+          //        //TODO 根据state和params判断是否可以授权,返回true或者false
+          //
+          //    };
+          //    if(!allowed(state,params)){
+          //        event.preventDefault();
+          //    }
+          //});
       }
     ]
   )

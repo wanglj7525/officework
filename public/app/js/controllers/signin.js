@@ -2,8 +2,8 @@
 
 /* Controllers */
 // signin controller
-app.controller('SigninFormController', [ '$scope', '$http', '$state',
-		function($scope, $http, $state) {
+app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStorage',
+		function($scope, $http, $state,$localStorage) {
 			$scope.user = {};
 			$scope.authError = null;
 			$scope.login = function() {
@@ -16,6 +16,8 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state',
 				$http.post('/rest/login', params).success(function(data) {
 					console.log(data.msg);
 					if (data.result == "success") {
+						//存储access_token
+						$localStorage.token=data.access_token;
 						$state.go('notree.worktip.list');
 					} else {
 						$scope.authError = 'Email or Password not right';

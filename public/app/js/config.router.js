@@ -5,8 +5,8 @@
  */
 angular.module('app')
   .run(
-    [          '$rootScope', '$state', '$stateParams','$localStorage',
-      function ($rootScope,   $state,   $stateParams,$localStorage) {
+    [          '$rootScope', '$state','$stateParams','$localStorage',
+      function ($rootScope,   $state,  $stateParams,$localStorage) {
           $rootScope.$state = $state;
           $rootScope.$stateParams = $stateParams;
 
@@ -222,17 +222,29 @@ angular.module('app')
               })
               .state('notree.setting.tree',{
                   url:'/tree',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html'
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.daima',{
                   url:'/daima',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html'
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                      console.log($state);
+                      console.log($state.$current.name);
+                      console.log($state.includes("notree.setting"));
+                  }
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.setting.user',{
                   url:'/user',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_user.html'
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_user.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               .state('notree.dataconfig',{

@@ -33,7 +33,7 @@ app.controller('ModalAddTreeInstanceCtrl', ['$scope', '$modalInstance', 'which',
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($scope,$modal,$log,treeservice){
+app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','treeservice',function($rootScope,$state,$scope,$modal,$log,treeservice){
 
     treeservice.getData().then(
         function (res) {
@@ -145,7 +145,7 @@ app.controller('SetTreeCtrl',['$scope','$modal','$log','treeservice',function($s
         });
     }
 }]);
-app.controller('SetUserCtrl',['$scope','userservice',function($scope,userservice){
+app.controller('SetUserCtrl',['$rootScope','$state','$scope','userservice',function($rootScope,$state,$scope,userservice){
 
     $scope.itemsByPage=10;
     userservice.getData().then(
@@ -157,7 +157,7 @@ app.controller('SetUserCtrl',['$scope','userservice',function($scope,userservice
         }
     );
 }]);
-app.controller('SetDaimaCtrl',['$scope','daimaservice',function($scope,daimaservice){
+app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','daimaservice',function($rootScope,$state,$scope,daimaservice){
 
 //获取人员信息
     daimaservice.getData().then(

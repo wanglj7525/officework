@@ -58,7 +58,7 @@
               <!--<span class="nav-title">数据维护</span> -->
             <!--</a>-->
           <!--</li>-->
-          <li ui-sref-active="active">
+          <li  ng-class="{'active':$state.includes('notree.setting')}">
             <a  ui-sref="notree.setting.tree" href="/setting">
               <span class="nav-title">系统设置</span> 
             </a>

@@ -3,15 +3,33 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window','$state',
-    function(              $scope,   $translate,   $localStorage,   $window ,$state) {
+  .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state',
+    function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state) {
+
+      $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+
+        console.log("切换路由--"+toState.name+"--"+$localStorage.token);
+
+        //if($localStorage.token!='0'||toState.name=='access.signin'){
+        //  console.log("zhengchang");
+        //  return
+        //}else{
+        //  $state.go("access.signin");
+        //}
+        //if(toState.name=='login')return;// 如果是进入登录界面则允许
+        //// 如果用户不存在
+        //if(!$rootScope.user || !$rootScope.user.token){
+        //  event.preventDefault();// 取消默认跳转行为
+        //  $state.go("login",{from:fromState.name,w:'notLogin'});//跳转到登录界面
+        //}
+      });
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       if(isIE){ angular.element($window.document.body).addClass('ie');}
       if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
 
       $scope.logout=function(){
-        delete $localStorage.token;
+        $localStorage.token='0';
         console.log($localStorage.token);
         $state.go("access.signin");
       }
@@ -87,16 +105,7 @@ angular.module('app')
           return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
       }
 
-      //$scope.$on('$stateChangeStart',function(event, toState){
-      //  console.log("切换路由"+toState.name+"--"+$localStorage.token);
-      //  if(toState.name=='signin')return;// 如果是进入登录界面则允许
-      //  // 如果用户不存在
-      //  //if(!$rootScope.user || !$rootScope.user.token){
-      //  if(!$localStorage.token){
-      //    event.preventDefault();// 取消默认跳转行为
-      //    $state.go("access.signin");//跳转到登录界面
-      //  }
-      //});
+
   //}]).controller('TimeController', ['$scope','$timeout', function(s,t){
   //  //页面显示当前日期时间
   //    var updateTime=function(){

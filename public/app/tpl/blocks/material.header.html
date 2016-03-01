@@ -8,7 +8,7 @@
           <i class="glyphicon glyphicon-align-justify"></i>
         </button>
         <!-- brand -->
-        <a href="#/" class="navbar-brand text-lt">
+        <a href="/notree/worktip/list/" class="navbar-brand text-lt">
           <!-- <img src="/public/app/img/logo.png"> -->
           <span class="hidden-folded">{{app.name}}</span>
         </a>
@@ -54,9 +54,8 @@
             </a>
           </li>
 
-          <!--<li ng-if="Auth.roleid==0"  ng-class="{'active':$state.includes('notree.setting')}">-->
           <!--根据权限隐藏 菜单 还需要在路由中 根据权限判断 否则可以在地址栏手动输入地址-->
-          <li  ng-if="Auth.roleid()==0" ng-class="{'active':$state.includes('notree.setting')}">
+          <li  ng-if="Auth.roleid==1" ng-class="{'active':$state.includes('notree.setting')}">
             <a  ui-sref="notree.setting.tree" href="/setting">
               <span class="nav-title">系统设置</span>
             </a>

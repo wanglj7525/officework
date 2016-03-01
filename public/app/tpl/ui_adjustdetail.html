@@ -12,6 +12,7 @@
                         <th>现任职务</th>
                         <th>拟免职务</th>
                         <th>拟任职务</th>
+                        <th>调配原因</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,6 +27,15 @@
                                  -->
                                 <option value="">请选择职务</option>
                                 <option ng-value="topping.name" ng-repeat="topping in toppings">{{topping.name}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="selectAdjust" ng-model="reasonAjust">
+                                <!--
+                                    <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
+                                 -->
+                                <option value="">调配原因</option>
+                                <option ng-value="reason.name" ng-repeat="reason in reasons">{{reason.title}}</option>
                             </select>
                         </td>
                     </tr>

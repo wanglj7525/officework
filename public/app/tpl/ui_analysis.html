@@ -1,4 +1,7 @@
 <div  ng-controller="analysisController">
+    <script type="text/ng-template" id="analysisChartsModel.html">
+        <div ng-include="'/public/app/tpl/ui_charts_modal.html'"></div>
+    </script>
     <div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix">
         <nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'" ></nav>
     </div>
@@ -10,7 +13,7 @@
                         <div class="panel-heading font-bold">年龄</div>
                         <div class="panel-body" >
                             <div>
-                                <pies id="pies" config="config1" ></pies>
+                                <pies id="pies" config="config1"></pies>
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,11 @@
 .left-button{
     margin:5px;
 }
-
+/*标签定义*/
+.addziduan{margin-left: 3px}
+.addguanxi{margin-right: 3px}
+.addzhi{margin-right: 4px}
+.addluoji{width: 60%;margin-left: 40%;}
 /*管理标签调整*/
 .markerManage{
     width: 40%;

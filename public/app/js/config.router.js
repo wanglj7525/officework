@@ -247,6 +247,14 @@ angular.module('app')
                   }
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
+              .state('notree.setting.people',{
+                  url:'/people',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
               .state('notree.dataconfig',{
                   url:'/dataconfig',
                   templateUrl:STATIC_PATH+'tpl/ui_dataconfig.html'

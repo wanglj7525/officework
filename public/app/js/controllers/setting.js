@@ -266,3 +266,15 @@ app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','daimaservice',fun
         $scope.daima=daima;
     }
 }]);
+app.controller('SetPeopleCtrl',['$rootScope','$state','$scope','messageservice',function($rootScope,$state,$scope,messageservice){
+
+    $scope.itemsByPage=10;
+    messageservice.getData().then(
+        function (res) {
+            $scope.peoplelist = res.data.info
+        },
+        function (rej) {
+            console.log(rej);
+        }
+    );
+}]);

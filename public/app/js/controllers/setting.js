@@ -282,13 +282,35 @@ app.controller('SetPeopleCtrl',['$rootScope','$state','$scope','messageservice',
         { id:12,img:'/public/app/img/a1.jpg', name:'张三2' ,sex:"女",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197712",party:"197212",education:"本科",school:"福建师范"},
         {id:21,img:'/public/app/img/a10.jpg', name:'张三11' ,sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195111",palce:"福清龙田",troops:"191212",party:"197712",education:"本科",school:"福建师范"}];
 
-    $scope.itemsByPage=10;
     messageservice.getData().then(
         function (res) {
-            $scope.peoplelist = res.data.info
+            $scope.peoplelist = res.data.info;
+            $scope.itemsByPage=10;
         },
         function (rej) {
             console.log(rej);
         }
     );
+}]);
+app.controller('testController'['Resource', function (service) {
+
+    var ctrl = this;
+
+    this.displayed = [];
+
+    this.callServer = function callServer(tableState) {
+
+        ctrl.isLoading = true;
+
+        var pagination = tableState.pagination;
+
+        var start = pagination.start || 0;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
+        var number = pagination.number || 10;  // Number of entries showed per page.
+
+        service.getPage(start, number, tableState).then(function (result) {
+            ctrl.displayed = result.data;
+            tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
+            ctrl.isLoading = false;
+        });
+    };
 }]);

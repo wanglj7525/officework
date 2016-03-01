@@ -59,7 +59,8 @@ app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance',function($s
     $scope.zws={
         id:4,
         name:'',
-        num:''
+        num:'',
+        level:''
     };
     $scope.ok = function () {
         $modalInstance.close($scope.zws);

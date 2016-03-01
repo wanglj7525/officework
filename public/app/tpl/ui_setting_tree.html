@@ -164,6 +164,7 @@
                          <th></th>
                          <th>职位名称</th>
                          <th>数量</th>
+                         <th>level</th>
                          <th>操作</th>
                     </tr>
                     </thead>
@@ -172,6 +173,7 @@
                          <td ng-bind="$index+1">1</td>
                          <td>{{row.name}}</td>
                          <td>{{row.num}}</td>
+                         <td>{{row.level}}</td>
                          <td>
                               <button  class="btn-padding btn btn-href " ng-click="updatezhiwei(row)">
                                    修改

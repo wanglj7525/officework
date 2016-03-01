@@ -5,11 +5,11 @@
  */
 angular.module('app')
   .run(
-    [          '$rootScope', '$state','$stateParams','$localStorage',
-      function ($rootScope,   $state,  $stateParams,$localStorage) {
+    [          '$rootScope', '$state','$stateParams','$localStorage','Auth',
+      function ($rootScope,   $state,  $stateParams,$localStorage,Auth) {
           $rootScope.$state = $state;
           $rootScope.$stateParams = $stateParams;
-
+          $rootScope.Auth=Auth;
           //$rootScope.$on('$stateChangeStart',function(event,state,params){
           //      //console.log("切换路由"+state.name+"--"+$localStorage.token+"--"+params);
           //      if(state.name=='signin')return;// 如果是进入登录界面则允许
@@ -242,6 +242,14 @@ angular.module('app')
               .state('notree.setting.user',{
                   url:'/user',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_user.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              .state('notree.setting.people',{
+                  url:'/people',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }

@@ -3,35 +3,43 @@
         {
             "label": "市委班子",
             "data": 1,
+            "zhiwei":[{"id":1,"name":"市长","num":1,"level":1},{"id":2,"name":"副市长","num":6,"level":2},{"id":3,"name":"秘书长","num":1,"level":3}],
             "children": [
                 {
                     "label": "市委",
                     "data": 11,
+                    "zhiwei":[{"id":1,"name":"市长1","num":1,"level":1},{"id":2,"name":"副市长1","num":6,"level":2},{"id":3,"name":"秘书长1","num":1,"level":3}],
                     "children": [
                         {
                             "label": "市委1",
                             "data": 111,
+                            "zhiwei":[{"id":1,"name":"市长3","num":1,"level":1},{"id":2,"name":"副市长3","num":6,"level":2},{"id":3,"name":"秘书长3","num":1,"level":3}],
                             "children": [
                                 {
                                     "label": "市委11",
+                                    "zhiwei":[{"id":1,"name":"市长5","num":1,"level":1},{"id":2,"name":"副市长5","num":6,"level":2},{"id":3,"name":"秘书长5","num":1,"level":3}],
                                     "data": 141
                                 },
                                 {
                                     "label": "市委12",
+                                    "zhiwei":[{"id":1,"name":"市长6","num":1,"level":1},{"id":2,"name":"副市长6","num":6,"level":2},{"id":3,"name":"秘书长6","num":1,"level":3}],
                                     "data": 142
                                 },
                                 {
                                     "label": "市委13",
+                                    "zhiwei":[{"id":1,"name":"市长7","num":1,"level":1},{"id":2,"name":"副市长7","num":6,"level":2},{"id":3,"name":"秘书长7","num":1,"level":3}],
                                     "data": 143
                                 }
                             ]
                         },
                         {
                             "label": "市委2",
+                            "zhiwei":[{"id":1,"name":"市长8","num":1,"level":1},{"id":2,"name":"副市长8","num":6,"level":2},{"id":3,"name":"秘书长8","num":1,"level":3}],
                             "data": 112
                         },
                         {
                             "label": "市委3",
+                            "zhiwei":[{"id":1,"name":"市长9","num":1,"level":1},{"id":2,"name":"副市长9","num":6,"level":2},{"id":3,"name":"秘书长9","num":1,"level":3}],
                             "data": 113
                         }
                     ]

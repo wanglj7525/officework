@@ -16,8 +16,12 @@ app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', functi
 app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'reasonlist','tolist',function($scope, $modalInstance,reasonlist,tolist) {
 	$scope.reasonlist = reasonlist;
 	$scope.tolist = tolist;
+	$scope.zhiwei = {
+		'id': 1
+	}
+
 	$scope.ok = function () {
-		$modalInstance.close();
+		$modalInstance.close($scope.zhiwei.id);
 	};
 
 	$scope.cancel = function () {
@@ -116,7 +120,7 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 			}
 		);
 		$scope.reasonlist=[{"id":"1","reason":"工作调动原因一"},{"id":"2","reason":"工作调动原因2"},{"id":"3","reason":"工作调动原因3"}];
-		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"主任"},{"id":"3","reason":"处长"}];
+		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"副局长"}];
 		$scope.selectpeople=function(people){
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectPeopleModel.html',
@@ -131,16 +135,22 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 					}
 				}
 			});
-			modaldeployInstance.result.then(function () {
-				if($scope.daweilist[0].peoples.indexOf(people)==-1){
-					$scope.daweilist[0].peoples.push(people);
+			modaldeployInstance.result.then(function (zhiwei) {
+				var indexs=zhiwei-1;
+
+				if($scope.daweilist[indexs].people.indexOf(people)==-1){
+					$scope.daweilist[indexs].people.push(people);
 				}
+				//if($scope.daweilist[0].peoples.indexOf(people)==-1){
+				//	$scope.daweilist[0].peoples.push(people);
+				//}
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
-		$scope.removepeople=function(people){
-			console.log(people);
+		$scope.removepeople=function(which,people){
+			console.log(which-1);
+			var indexs=which-1;
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
@@ -155,7 +165,8 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 				}
 			});
 			modaldeployInstance.result.then(function () {
-				$scope.daweilist[0].peoples.splice($scope.daweilist[0].peoples.indexOf(people),1);
+				$scope.daweilist[indexs].people.splice($scope.daweilist[indexs].people.indexOf(people),1);
+				//$scope.daweilist[0].peoples.splice($scope.daweilist[0].peoples.indexOf(people),1);
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

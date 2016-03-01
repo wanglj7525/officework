@@ -22,6 +22,7 @@ public class User extends GenericModel {
 	public Integer id;
 	public String u_name;
 	public String u_pass;
+	public Integer role_id;
 
 
 }

@@ -1,21 +1,21 @@
 <!--<script type="text/javascript">-->
-	<!--$(function(){-->
-		<!--console.log("222");-->
+<!--$(function(){-->
+<!--console.log("222");-->
 <!--//		//获取要定位元素距离浏览器顶部的距离-->
 <!--//		var navH = $(".baocun").offset().top;-->
-		<!--//滚动条事件-->
-		<!--$(window).scroll(function(){-->
-			<!--console.log("1111");-->
-			<!--//获取滚动条的滑动距离-->
-			<!--var scroH = $(this).scrollTop();-->
-			<!--//滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定-->
-			<!--if(scroH>=50){-->
-				<!--$(".baocun").css({"position":"fixed","top":"50px"});-->
-			<!--}else if(scroH<50){-->
-				<!--$(".baocun").css({"position":"static"});-->
-			<!--}-->
-		<!--})-->
-	<!--})-->
+<!--//滚动条事件-->
+<!--$(window).scroll(function(){-->
+<!--console.log("1111");-->
+<!--//获取滚动条的滑动距离-->
+<!--var scroH = $(this).scrollTop();-->
+<!--//滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定-->
+<!--if(scroH>=50){-->
+<!--$(".baocun").css({"position":"fixed","top":"50px"});-->
+<!--}else if(scroH<50){-->
+<!--$(".baocun").css({"position":"static"});-->
+<!--}-->
+<!--})-->
+<!--})-->
 <!--</script>-->
 <div class="row" ng-controller="deployCtrl" >
 	<!--<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >-->
@@ -93,55 +93,25 @@
 						<!--<button ng-class="{fixtop:isfix}" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>-->
 						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
-					<div class="row">
-						<div ng-repeat="t in daweilist.jiegou">
-							<div ng-if="t.jibie==1">
-								<div class="row">
-									<div class="panel panel-card col-sm-4" >
-										<div class="item">
-											<img ng-click="showOneDetail(t.people[0].id)" src="{{t.people[0].img}}" class="w-full r-t" alt="Washed Out">
-										</div>
-										<div class="list-group">
-											<div class="list-group-item">{{t.people[0].name}}</div>
-											<div class="list-group-item">{{t.name}}</div>
-											<div class="list-group-item">
-												<button class="btn btn-info  w-full"  ng-click="removepeople(t)">删除</button>
-											</div>
-
-										</div>
+					<div >
+						<div ng-repeat="t in daweilist">
+							<div class="row">
+								<div class="panel panel-card col-sm-4" ng-repeat="peoples in t.people">
+									<div class="item">
+										<img ng-click="showOneDetail(peoples.id)" src="{{peoples.img}}" class="w-full r-t" alt="Washed Out">
 									</div>
-
-								</div>
-							</div>
-							<div ng-if="t.jibie==2" class="col-sm-4">
-								<div class="panel panel-card">
-									<div ng-if="t.people.length==0">
-										<div class="item">
-											<img  src="/public/app/img/a.png" class="w-full r-t" alt="Washed Out">
+									<div class="list-group">
+										<div class="list-group-item">{{peoples.name}}</div>
+										<div class="list-group-item">{{t.jibiename}}</div>
+										<div class="list-group-item">
+											<button class="btn btn-info  w-full"  ng-click="removepeople(t.level,peoples)">免职</button>
 										</div>
-										<div class="list-group">
-											<div class="list-group-item">?</div>
-											<div class="list-group-item">{{t.name}}</div>
 
-										</div>
 									</div>
-									<div ng-if="t.people.length!=0">
-										<div class="item">
-											<img ng-click="showOneDetail(t.people[0].id)" src="{{t.people[0].img}}" class="w-full r-t" alt="Washed Out">
-										</div>
-										<div class="list-group">
-											<div class="list-group-item">{{t.people[0].name}}</div>
-											<div class="list-group-item">{{t.name}}</div>
-											<div class="list-group-item">
-												<button class="btn btn-info  w-full"  ng-click="removepeople(t)">删除</button>
-											</div>
-
-										</div>
-									</div>
-
 								</div>
 
 							</div>
+
 						</div>
 					</div>
 
@@ -211,7 +181,7 @@
 										<div class="list-group-item">{{t.name}}</div>
 										<div class="list-group-item">{{t.company}}</div>
 										<div class="list-group-item">
-											<button class="btn btn-info  w-full"  ng-click="selectpeople(t)">添加</button>
+											<button class="btn btn-info  w-full"  ng-click="selectpeople(t)">任职</button>
 										</div>
 									</div>
 								</div>

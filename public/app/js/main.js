@@ -3,10 +3,11 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state',
-    function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state) {
+  .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','Auth',
+    function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,Auth) {
 
       $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+        $rootScope.Auth=Auth;
       //避免未登录用户直接输入路由地址来跳转到登录界面地址
         console.log("切换路由--"+toState.name+"--"+$localStorage.token);
         if($localStorage.token!='0'||toState.name=='access.signin'){

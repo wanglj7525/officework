@@ -4,10 +4,10 @@ angular.module('app')
 			username: '', //当前登录的用户名
 			userrole: '', //当前登录的角色名
 			userid:0,//当前登录的用户id
-			roleid: $localStorage.user.role_id,//当前登录的角色id
-			//roleid:function(){
-			//	return $localStorage.user.role_id;
-			//},//当前登录的角色id
+			//roleid: $localStorage.user? $localStorage.user.role_id:0,//当前登录的角色id
+			roleid:function(){
+				return $localStorage.user.role_id;
+			},//当前登录的角色id
 			roles: function () {
 				console.log("获取角色列表");
 				//return $http.get('/rest/role')

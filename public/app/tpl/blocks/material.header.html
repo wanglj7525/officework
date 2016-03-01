@@ -55,7 +55,7 @@
           </li>
 
           <!--根据权限隐藏 菜单 还需要在路由中 根据权限判断 否则可以在地址栏手动输入地址-->
-          <li  ng-if="Auth.roleid==1" ng-class="{'active':$state.includes('notree.setting')}">
+          <li  ng-if="Auth.roleid()==1" ng-class="{'active':$state.includes('notree.setting')}">
             <a  ui-sref="notree.setting.tree" href="/setting">
               <span class="nav-title">系统设置</span>
             </a>

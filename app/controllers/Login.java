@@ -12,6 +12,7 @@ public class Login extends Controller{
 		user.id=1;
 		user.u_name=email;
 		user.u_pass=password;
+		user.role_id=1;
 //	    List<Map> user=SqlModel.login(username, Crypto.passwordHash(password));
 	    if (email!=null) {
 	    	

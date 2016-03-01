@@ -5,11 +5,11 @@
  */
 angular.module('app')
   .run(
-    [          '$rootScope', '$state','$stateParams','$localStorage',
-      function ($rootScope,   $state,  $stateParams,$localStorage) {
+    [          '$rootScope', '$state','$stateParams','$localStorage','Auth',
+      function ($rootScope,   $state,  $stateParams,$localStorage,Auth) {
           $rootScope.$state = $state;
           $rootScope.$stateParams = $stateParams;
-
+          $rootScope.Auth=Auth;
           //$rootScope.$on('$stateChangeStart',function(event,state,params){
           //      //console.log("切换路由"+state.name+"--"+$localStorage.token+"--"+params);
           //      if(state.name=='signin')return;// 如果是进入登录界面则允许

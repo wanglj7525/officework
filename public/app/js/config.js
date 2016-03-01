@@ -36,16 +36,17 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
       $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
           return {
               'request': function (config) {
+                  //请求添加token
                   config.headers = config.headers || {};
                   if ($localStorage.token) {
-                      console.log("$httpProvider.interceptors--"+$localStorage.token);
-                      //config.headers.Authorization = 'Bearer ' + $localStorage.token;
+                      config.headers['x-access-token']=$localStorage.token;
                   }
                   return config;
               },
               'responseError': function(response) {
                   if(response.status === 401 || response.status === 403) {
                       $location.path('/404');
+                      //TODO token过期 弹出登陆框 重新登录
                   }
                   return $q.reject(response);
               }

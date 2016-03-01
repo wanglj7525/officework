@@ -55,7 +55,7 @@
                                 <!--  <span class="help-block m-b-none">Example block-level help text here.</span> -->
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="formList">
                             <label class="col-lg-2 control-label">定义条件</label>
                             <div class="col-lg-8 form-inline " style="margin-left: 10px;">
                                 <span>字段：</span>
@@ -73,6 +73,9 @@
                                     <option value="<">小于</option>
                                 </select>
                                 <span>值：</span><input type="text" class="form-control" placeholder="请输入自定义的值">
+                                <button type="button" class="btn btn-default btn-md" ng-click="addCondition()">
+                                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                </button>
                             </div>
                         </div>
                         <div class="form-group">

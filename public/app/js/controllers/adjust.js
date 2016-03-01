@@ -12,8 +12,17 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 		);
 	}
 ]);
-app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adjustlistservice',
-                       		function($scope, $http, $state, $timeout,adjustlistservice) {
+app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adjustlistservice','plandetailservice',
+                       		function($scope, $http, $state, $timeout,adjustlistservice,plandetailservice) {
+				//获取调配原因
+				plandetailservice.getData().then(
+				function (res) {
+					$scope.reasons = res.data.info
+				 },
+					function (rej) {
+						console.log(rej);
+					}
+				);
 				//获取人员信息
 				adjustlistservice.getData().then(
 					function (res) {
@@ -23,15 +32,7 @@ app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adju
 						console.log(rej);
 					}
 				);
-
-				//planlistservice.getData().then(
-				//	function (res) {
-				//		$scope.adjustlist = res.data.info
-				//	},
-				//	function (rej) {
-				//		console.log(rej);
-				//	}
-				//);
+			  
 
 	//$scope.selecttable = [
 	//               { id:1,img:'/public/app/img/a0.jpg', name:'张三1' ,sex:"男",company:"福清市xxx、xxx信息1",nation:"汉",birthday:"196511",palce:"福清龙田",troops:"197712",party:"191212",education:"本科",school:"福建师范"},

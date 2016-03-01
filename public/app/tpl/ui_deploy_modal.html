@@ -25,9 +25,13 @@
 
 			<div class="col-md-9 row">
 				<div  class=" m-l-n">
-					<select required="" class="form-control" ng-model="zhiwei" ng-options=" a.reason for a in tolist">
-						<!--<option value="">省</option>-->
+					<select class="form-control"  ng-model="zhiwei.id">
+						<option ng-selected="zhiwei.id == item.id" ng-repeat="item in tolist" ng-value="item.id">{{item.reason}}</option>
 					</select>
+
+					<!--<select required="" ng-change="selectAction()" class="form-control" ng-model="zhiwei" ng-options=" o.id as o.reason for o in  tolist">-->
+						<!--&lt;!&ndash;<option value="">省</option>&ndash;&gt;-->
+					<!--</select>-->
 				</div>
 			</div>
 		</div>

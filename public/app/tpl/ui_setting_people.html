@@ -3,7 +3,7 @@
           <div class="panel-heading" style="position: relative">人员管理
                <button type="submit" class="btn btn-add btn-href" style="width: 150px;" >添加</button>
           </div>
-          <table st-table="peoplelist"  class="table table-bordered">
+          <table st-table="messagetabletab"  class="table table-bordered">
                <thead>
                <tr>
                     <th st-sort="name">姓名</th>
@@ -20,7 +20,7 @@
                </tr>
                </thead>
                <tbody>
-               <tr ng-repeat="row in peoplelist" >
+               <tr ng-repeat="row in messagetabletab" >
                     <td>{{row.name}}</td>
                     <td>{{row.company}}</td>
                     <td>{{row.sex}}</td>

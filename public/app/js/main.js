@@ -7,8 +7,15 @@ angular.module('app')
     function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state) {
 
       $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
-
+      //避免未登录用户直接输入路由地址来跳转到登录界面地址
         console.log("切换路由--"+toState.name+"--"+$localStorage.token);
+        if($localStorage.token!='0'||toState.name=='access.signin'){
+          return
+        }
+        if($localStorage.token=="0"){
+          event.preventDefault();// 取消默认跳转行为
+          $state.go("access.signin");
+        }
 
         //if($localStorage.token!='0'||toState.name=='access.signin'){
         //  console.log("zhengchang");

@@ -3,8 +3,14 @@
 /* Controllers */
 // signin controller
 app.controller('WorktipFormController',
-	['$scope','worktiplistservice2','treeservice','worktiplistservice','worktipservice',function($scope, worktiplistservice2,treeservice,worktiplistservice,worktipservice) {
+	['$scope','$localStorage','worktiplistservice2','treeservice','worktiplistservice','worktipservice',function($scope,$localStorage, worktiplistservice2,treeservice,worktiplistservice,worktipservice) {
 		$scope.isedit=false;
+		$scope.treeselected=$localStorage.treeselect;
+		console.log("工作提示左树："+$scope.treeselected);
+		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+			$scope.treeselected=$localStorage.treeselect;
+			console.log("工作提示左树变换："+$scope.treeselected);
+		});
 		//var  tree, treedata_avm;
 		//$scope.my_tree_handler = function(branch) {
 		//	var _ref;

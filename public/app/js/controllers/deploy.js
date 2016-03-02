@@ -37,9 +37,14 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
-	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
-
+app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','deploydanweiservice','messageservice','treeservice','searchservice',
+	function($scope, $http, $state, $timeout,$modal,$log,$localStorage,deploydanweiservice,messageservice,treeservice,searchservice) {
+		$scope.treeselected=$localStorage.treeselect;
+		console.log("班子调配左树："+$scope.treeselected);
+		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+			$scope.treeselected=$localStorage.treeselect;
+			console.log("班子调配左树变换："+$scope.treeselected);
+		});
 		//点击头像查看个人信息
 		$scope.selectparam=[];
 		$scope.status = {

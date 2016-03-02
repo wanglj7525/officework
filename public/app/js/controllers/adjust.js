@@ -12,8 +12,14 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 		);
 	}
 ]);
-app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adjustlistservice','adjustreason',
-                       		function($scope, $http, $state, $timeout,adjustlistservice,adjustreason) {
+app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','$localStorage','adjustlistservice','adjustreason',
+                       		function($scope, $http, $state, $timeout,$localStorage,adjustlistservice,adjustreason) {
+								$scope.treeselected=$localStorage.treeselect;
+								console.log("调整一览左树："+$scope.treeselected);
+								$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+									$scope.treeselected=$localStorage.treeselect;
+									console.log("调整一览左树变换："+$scope.treeselected);
+								});
 				//获取调配原因
 				adjustreason.getData().then(
 				function (res) {

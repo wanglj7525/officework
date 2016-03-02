@@ -169,7 +169,8 @@ angular.module('app')
               .state('notree',{
                   abstract: true,
                   url: '/notree',
-                  templateUrl: notreelayout
+                  templateUrl: notreelayout,
+                  resolve:load(['angularBootstrapNavTree',STATIC_PATH + 'js/controllers/tree.js'])
               })
               .state('notree.message',{
                   url:'/message',

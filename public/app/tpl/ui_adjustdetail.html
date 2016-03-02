@@ -1,9 +1,12 @@
 <div ng-controller="adjustdetailController">
+    <script type="text/ng-template" id="adjustReasonModel.html">
+        <div ng-include="'/public/app/tpl/ui_adjustreason_modal.html'"></div>
+    </script>
     <div class="">
         <div class="row ">
             <div class="panel panel-default">
                 <div class="panel-heading" style="position: relative">已选择的人员
-                    <button type="submit" ui-sref="notree.adjustplan.detail({id:1})" class="btn btn-add btn-href" style="width: 150px;" >方案审核</button>
+                    <button type="submit" ui-sref="notree.adjustplan.detail({id:1})" class="btn btn-add btn-href" style="width: 150px">方案审核</button>
                 </div>
                 <table st-table="adjusttable"  class="table table-bordered">
                     <thead>
@@ -30,16 +33,28 @@
                             </select>
                         </td>
                         <td>
-                        
-                            <select class="selectAdjust" ng-model="reasonAjust">
+                        <!--
+                            <select class="addReasonClass selectAdjust " ng-model="reasonAjust">
+                                <option value="">调配原因</option>
+                                <option  ng-value="reason.name" ng-repeat="reason in reasons">{{reason.title}}</option>
+                            </select>
+                            -->
                                 <!--
+                                    <select class="addReasonClass selectAdjust " ng-model="reasonAjust" ng-change="addReason()">
                                     <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
                                  -->
-                                <option value="">调配原因</option>
-                                <option value="addReason" style="color: #336699">添加原因</option>
-                                <option ng-value="reason.name" ng-repeat="reason in reasons">{{reason.name}}</option>
-                            </select>
+                            <input type="text" name="country" class="autocomplete-dynamic">
                         </td>
+                        <script type="text/javascript" src="/public/app/js/jquery.autocomplete.js"></script>
+                        <script type="text/javascript" src="/public/app/js/adjustReason.js"></script>
+                        <script type="text/javascript" >
+                            $(function () {
+                                var countriesArray = $.map(adjustReason, function (value, key) { return { value: value, data: key }; });
+                                $('.autocomplete-dynamic').autocomplete({
+                                    lookup: countriesArray
+                                });
+                            });
+                        </script>
                     </tr>
                     </tbody>
                 </table>

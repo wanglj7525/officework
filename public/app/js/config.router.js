@@ -169,7 +169,10 @@ angular.module('app')
               .state('notree.adjustplan.detail', {
                   url: '/detail/{id}',
                   templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js']),
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
               });
 
           function load(srcs, callback) {

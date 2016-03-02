@@ -47,8 +47,7 @@
               <span class="nav-title">调整一览</span>
             </a>
           </li>
-          <li ui-sref-active="active">
-
+          <li ng-class="{'active':$state.includes('notree.adjustplan')}">
             <a ui-sref="notree.adjustplan.detail" href="/notree/adjustplan/detail">
               <span class="nav-title">调整方案</span> 
             </a>

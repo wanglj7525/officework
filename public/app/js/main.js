@@ -10,6 +10,14 @@ angular.module('app')
         $rootScope.Auth=Auth;
       //避免未登录用户直接输入路由地址来跳转到登录界面地址
         console.log("切换路由--"+toState.name+"--"+$localStorage.token);
+        if(toState.name=='app.adjustplan.detail'||toState.name=='app.setting.tree'){
+          console.log("-----------");
+          $scope.isshowtree=false;
+          $scope.hassearch=false;
+        }else if(toState.name=='app.message'){
+          $scope.isshowtree=true;
+          $scope.hassearch=true;
+        }
         if($localStorage.token!='0'||toState.name=='access.signin'){
           return
         }
@@ -46,9 +54,12 @@ angular.module('app')
         
       }
 
-      $scope.changeMenu=function(show){
-        $scope.hassearch=show;
+      //左侧菜单是否显示//左侧菜单显示查询条件
+      $scope.changeMenu=function(showtree,showsearch){
+        $scope.isshowtree=showtree;
+        $scope.hassearch=showsearch;
       }
+
       // config
       $scope.app = {
         name: '领导班子分析调配系统',

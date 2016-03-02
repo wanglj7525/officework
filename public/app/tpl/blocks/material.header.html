@@ -21,41 +21,41 @@
 		
         <!-- link and dropdown -->
         <ul class="nav navbar-nav">
-          <li ui-sref-active="active" ng-click="changeMenu(false)"><!--class="open"-->
+          <li ui-sref-active="active" ng-click="changeMenu(true,false)"><!--class="open"-->
             <a ui-sref="app.worktip.list"  href="/app/worktip/list">
               <span class="nav-title">工作提示</span>
             </a>
           </li>
-          <li ui-sref-active="active" ng-click="changeMenu(true)">
+          <li ui-sref-active="active" ng-click="changeMenu(true,true)">
             <a ui-sref="app.message" href="/app/message">
               <span class="nav-title">信息浏览</span>
             </a>
           </li>
-          <li ui-sref-active="active" ng-click="changeMenu(false)">
+          <li ui-sref-active="active" ng-click="changeMenu(true,false)">
             <a ui-sref="app.analysis" href="/app/analysis">
               <span class="nav-title">班子分析</span>
             </a>
           </li>
 
-          <li ui-sref-active="active" ng-click="changeMenu(false)">
+          <li ui-sref-active="active" ng-click="changeMenu(true,false)">
             <a ui-sref="app.deploy" href="/app/deploy">
               <span class="nav-title">班子调配</span>
             </a>
           </li>
-          <li ui-sref-active="active" ng-click="changeMenu(false)">
+          <li ui-sref-active="active" ng-click="changeMenu(true,false)">
             <a ui-sref="app.adjust.detail" href="/app/adjust/detail">
               <span class="nav-title">调整一览</span>
             </a>
           </li>
-          <li ng-class="{'active':$state.includes('notree.adjustplan')}">
-            <a ui-sref="notree.adjustplan.detail" href="/notree/adjustplan/detail">
+          <li ng-class="{'active':$state.includes('app.adjustplan')}" ng-click="changeMenu(false,false)">
+            <a ui-sref="app.adjustplan.detail" href="/app/adjustplan/detail">
               <span class="nav-title">调整方案</span> 
             </a>
           </li>
 
           <!--根据权限隐藏 菜单 还需要在路由中 根据权限判断 否则可以在地址栏手动输入地址-->
-          <li  ng-if="Auth.roleid()==1" ng-class="{'active':$state.includes('notree.setting')}">
-            <a  ui-sref="notree.setting.tree" href="/setting">
+          <li  ng-if="Auth.roleid()==1" ng-class="{'active':$state.includes('app.setting')}" ng-click="changeMenu(false,false)">
+            <a  ui-sref="app.setting.tree" href="/setting">
               <span class="nav-title">系统设置</span>
             </a>
           </li>

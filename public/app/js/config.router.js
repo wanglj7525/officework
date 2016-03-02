@@ -97,6 +97,60 @@ angular.module('app')
                   templateUrl: STATIC_PATH + 'tpl/ui_deploy.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/deploy.js'])
               })
+              .state('app.setting',{
+                  abstract: true,
+                  url:'/setting',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/setting.js'])
+              })
+              .state('app.setting.tree',{
+                  url:'/tree',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              .state('app.setting.daima',{
+                  url:'/daima',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              .state('app.setting.user',{
+                  url:'/user',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_user.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              .state('app.setting.people',{
+                  url:'/people',
+                  templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
+              })
+              // 调整方案
+              .state('app.adjustplan', {
+                  abstract: true,
+                  url: '/adjustplan',
+                  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
+                  // use resolve to load other dependences
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
+              })
+              .state('app.adjustplan.detail', {
+                  url: '/detail/{id}',
+                  templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
+                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js']),
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  }
+              })
               .state('access', {
                   url: '/access',
                   template: '<div ui-view style="height: 100%" flex  class="blue-900"></div>'
@@ -116,64 +170,8 @@ angular.module('app')
                   templateUrl: notreelayout
               })
 
-              .state('notree.setting',{
-                  abstract: true,
-                  url:'/setting',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting.html',
-                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
-              })
-              .state('notree.setting.tree',{
-                  url:'/tree',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html',
-                  controller:function($scope,$state){
-                      $scope.state = $state;
-                  }
-                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
-              })
-              .state('notree.setting.daima',{
-                  url:'/daima',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html',
-                  controller:function($scope,$state){
-                      $scope.state = $state;
-                  }
-                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
-              })
-              .state('notree.setting.user',{
-                  url:'/user',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_user.html',
-                  controller:function($scope,$state){
-                      $scope.state = $state;
-                  }
-                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
-              })
-              .state('notree.setting.people',{
-                  url:'/people',
-                  templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
-                  controller:function($scope,$state){
-                      $scope.state = $state;
-                  }
-                  //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
-              })
-              .state('notree.dataconfig',{
-                  url:'/dataconfig',
-                  templateUrl:STATIC_PATH+'tpl/ui_dataconfig.html'
-              })
-              // 调整方案
-              .state('notree.adjustplan', {
-                  abstract: true,
-                  url: '/adjustplan',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
-                  // use resolve to load other dependences
-                  resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/tree.js',STATIC_PATH + 'js/controllers/adjustplan.js'])
-              })
-              .state('notree.adjustplan.detail', {
-                  url: '/detail/{id}',
-                  templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js']),
-                  controller:function($scope,$state){
-                      $scope.state = $state;
-                  }
-              });
+
+              ;
 
           function load(srcs, callback) {
             return {

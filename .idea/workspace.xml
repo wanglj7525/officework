@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/index.html" afterPath="$PROJECT_DIR$/public/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.router.js" afterPath="$PROJECT_DIR$/public/app/js/config.router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/tree.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" afterPath="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +33,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ui_setting_people.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
+      <file leaf-file-name="ui_setting.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.142858">
-              <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+            <state vertical-scroll-proportion="-1.9655173">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_adjustplan.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.285714">
+              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.285715">
+              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -41,9 +67,9 @@
         <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+              <caret line="145" column="47" selection-start-line="145" selection-start-column="47" selection-end-line="145" selection-end-column="47" />
               <folding>
-                <marker date="1456902676789" expanded="true" signature="4353:4365" placeholder="..." />
+                <marker date="1456905707289" expanded="true" signature="7013:7025" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -52,28 +78,58 @@
       <file leaf-file-name="material.header.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5">
-              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+            <state vertical-scroll-proportion="-13.571428">
+              <caret line="49" column="67" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_adjustplan.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5293255">
-              <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.40140846">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_worktip.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.857142">
-              <caret line="16" column="71" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="71" />
+            <state vertical-scroll-proportion="-6.107143">
+              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tree.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/tree.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="material.nav.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.178572">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="material.layout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0357144">
+              <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -111,7 +167,6 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html" />
         <option value="$PROJECT_DIR$/app/models/ResultInfo.java" />
         <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
-        <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/js/app.js" />
         <option value="$PROJECT_DIR$/public/app/js/config.js" />
         <option value="$PROJECT_DIR$/app/models/User.java" />
@@ -125,7 +180,6 @@
         <option value="$PROJECT_DIR$/public/app/api/deploydanwei" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/setting.js" />
         <option value="$PROJECT_DIR$/public/app/api/adjustlist" />
         <option value="$PROJECT_DIR$/public/app/js/services/service.js" />
@@ -134,20 +188,22 @@
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
-        <option value="$PROJECT_DIR$/public/app/js/main.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/message.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/analysis.js" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/adjust.js" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/tree.js" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
         <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
+        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
+        <option value="$PROJECT_DIR$/public/app/index.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
+        <option value="$PROJECT_DIR$/public/app/js/main.js" />
       </list>
     </option>
   </component>
@@ -390,7 +446,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zoa-debug" />
+    <property name="last_opened_file_path" value="D:/workplace/kkk" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -667,7 +723,19 @@
       <option name="project" value="LOCAL" />
       <updated>1456902053502</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="调配方案 人员管理 修改">
+      <created>1456902950961</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1456902950961</updated>
+    </task>
+    <task id="LOCAL-00035" summary="班子调配">
+      <created>1456903310457</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1456903310457</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -705,8 +773,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mac" />
-    <MESSAGE value="跳转" />
     <MESSAGE value="见客户后修改页面样式" />
     <MESSAGE value="修改左侧菜单栏显示 修改班子调配" />
     <MESSAGE value="信息浏览页面左侧搜索菜单修改" />
@@ -730,20 +796,15 @@
     <MESSAGE value="系统设置 单位树添加 职位管理" />
     <MESSAGE value="班子调配修改结构" />
     <MESSAGE value="切换菜单 点击左树 获取所选中的左树值" />
-    <option name="LAST_COMMIT_MESSAGE" value="切换菜单 点击左树 获取所选中的左树值" />
+    <MESSAGE value="调配方案 人员管理 修改" />
+    <MESSAGE value="班子调配" />
+    <option name="LAST_COMMIT_MESSAGE" value="班子调配" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_treezwdelete_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08028169">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_treedelete_modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -818,13 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47360703">
           <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -970,42 +1024,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6964285">
-          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3549297">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/libs/angular/angular-bootstrap-nav-tree/dist/abn_tree_directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10298103">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.026760563">
           <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48169014">
-          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1802,26 +1824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="46" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/adjust.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.392857">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/tree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3604336">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1834,36 +1840,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
-          <folding>
-            <marker date="1456902676789" expanded="true" signature="4353:4365" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
-          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.428169">
+          <caret line="16" column="71" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
+    <entry file="file://$PROJECT_DIR$/public/libs/angular/angular-bootstrap-nav-tree/dist/abn_tree_directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.857142">
-          <caret line="16" column="71" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="251" column="14" selection-start-line="251" selection-start-column="14" selection-end-line="251" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.285715">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.178572">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0357144">
+          <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/tree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="145" column="47" selection-start-line="145" selection-start-column="47" selection-end-line="145" selection-end-column="47" />
+          <folding>
+            <marker date="1456905707289" expanded="true" signature="7013:7025" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.107143">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9655173">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5293255">
-          <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+        <state vertical-scroll-proportion="-15.285714">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/blocks/material.header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.571428">
+          <caret line="49" column="67" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40140846">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding />
         </state>
       </provider>

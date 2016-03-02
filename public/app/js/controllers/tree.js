@@ -1,5 +1,5 @@
 'use strict';
-app.controller('AbnTestController',[ '$scope', '$http', '$state','$timeout', '$localStorage','treeservice',function($scope,$http, $state, $timeout,$localStorage,treeservice) {
+app.controller('AbnTestController',[ '$rootScope','$scope', '$http', '$state','$timeout', '$localStorage','treeservice',function($rootScope,$scope,$http, $state, $timeout,$localStorage,treeservice) {
    console.log("haha");
     var  tree, treedata_avm;
     $scope.my_tree_handler = function(branch) {
@@ -24,7 +24,8 @@ app.controller('AbnTestController',[ '$scope', '$http', '$state','$timeout', '$l
         }
     );
     //$scope.my_data=treedata_avm;
-    $scope.my_tree = tree = {};
+    $rootScope.my_tree = tree = {};
+
     //var apple_selected, tree, treedata_avm, treedata_geography;
     //$scope.my_tree_handler = function(branch) {
     //  var _ref;

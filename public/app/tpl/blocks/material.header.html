@@ -73,6 +73,9 @@
               <span ng-cloak>{{clock.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
             </a>
           </li> -->
+          <li>
+            <a class="nav-title" style="color: yellow">当前选择：{{treeselected}}</a>
+          </li>
               <li>
                 <a ng-click="logout()" class="nav-title"><i class="fa fa-power-off"></i>退出</a>
                 <!--<a ui-sref="access.signin" class="nav-title"><i class="fa fa-power-off"></i>退出</a>-->

@@ -30,12 +30,14 @@
                             </select>
                         </td>
                         <td>
+                        
                             <select class="selectAdjust" ng-model="reasonAjust">
                                 <!--
                                     <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
                                  -->
                                 <option value="">调配原因</option>
-                                <option ng-value="reason.name" ng-repeat="reason in reasons">{{reason.title}}</option>
+                                <option value="addReason" style="color: #336699">添加原因</option>
+                                <option ng-value="reason.name" ng-repeat="reason in reasons">{{reason.name}}</option>
                             </select>
                         </td>
                     </tr>

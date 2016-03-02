@@ -12,10 +12,10 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 		);
 	}
 ]);
-app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adjustlistservice','plandetailservice',
-                       		function($scope, $http, $state, $timeout,adjustlistservice,plandetailservice) {
+app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','adjustlistservice','adjustreason',
+                       		function($scope, $http, $state, $timeout,adjustlistservice,adjustreason) {
 				//获取调配原因
-				plandetailservice.getData().then(
+				adjustreason.getData().then(
 				function (res) {
 					$scope.reasons = res.data.info
 				 },

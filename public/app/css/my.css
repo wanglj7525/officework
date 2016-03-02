@@ -17,6 +17,17 @@
 .left-button{
     margin:5px;
 }
+/*自动搜索*/
+.autocomplete-suggestions{
+    border: 1px #ccc solid;
+    background-color: #ccc;
+    width: 15%;
+    margin-right: 40%;
+}
+.autocomplete-selected{
+    background-color: #676767;
+    color: #fff;
+}
 /*标签定义*/
 .addziduan{margin-left: 3px}
 .addguanxi{margin-right: 3px}

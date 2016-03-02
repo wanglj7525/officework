@@ -21,28 +21,28 @@
 		
         <!-- link and dropdown -->
         <ul class="nav navbar-nav">
-          <li ui-sref-active="active"><!--class="open"-->
+          <li ui-sref-active="active" ng-click="changeMenu(false)"><!--class="open"-->
             <a ui-sref="app.worktip.list"  href="/app/worktip/list">
               <span class="nav-title">工作提示</span>
             </a>
           </li>
-          <li ui-sref-active="active">
+          <li ui-sref-active="active" ng-click="changeMenu(true)">
             <a ui-sref="app.message" href="/app/message">
               <span class="nav-title">信息浏览</span>
             </a>
           </li>
-          <li ui-sref-active="active">
+          <li ui-sref-active="active" ng-click="changeMenu(false)">
             <a ui-sref="app.analysis" href="/app/analysis">
               <span class="nav-title">班子分析</span>
             </a>
           </li>
 
-          <li ui-sref-active="active">
+          <li ui-sref-active="active" ng-click="changeMenu(false)">
             <a ui-sref="app.deploy" href="/app/deploy">
               <span class="nav-title">班子调配</span>
             </a>
           </li>
-          <li ui-sref-active="active">
+          <li ui-sref-active="active" ng-click="changeMenu(false)">
             <a ui-sref="app.adjust.detail" href="/app/adjust/detail">
               <span class="nav-title">调整一览</span>
             </a>

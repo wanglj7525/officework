@@ -46,6 +46,9 @@ angular.module('app')
         
       }
 
+      $scope.changeMenu=function(show){
+        $scope.hassearch=show;
+      }
       // config
       $scope.app = {
         name: '领导班子分析调配系统',

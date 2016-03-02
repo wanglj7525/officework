@@ -7,7 +7,7 @@
         <i class="fa fa-fw fa-angle-down text-active"></i>
       </span>
       <i class="glyphicon glyphicon-th-large icon"></i>
-      <span class="font-bold">单位树</span>
+      <span class="font-bold">班子组成</span>
     </a>
     <ul class="nav nav-sub dk">
       <div flex class="vbox">
@@ -36,7 +36,7 @@
       </div>
     </ul>
   </li>
-  <li >
+  <li ng-if="hassearch">
     <a href md-ink-ripple class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>
@@ -70,7 +70,7 @@
       </div>
     </ul>
   </li>
-  <li >
+  <li  ng-if="hassearch">
     <a href md-ink-ripple class="auto">
       <span class="pull-right text-muted">
         <i class="fa fa-fw fa-angle-right text"></i>

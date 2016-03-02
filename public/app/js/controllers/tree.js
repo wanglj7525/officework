@@ -1,5 +1,6 @@
 'use strict';
 app.controller('AbnTestController',[ '$scope', '$http', '$state','$timeout', 'treeservice',function($scope,$http, $state, $timeout,treeservice) {
+   console.log("haha");
     var  tree, treedata_avm;
     $scope.my_tree_handler = function(branch) {
         var _ref;
@@ -134,3 +135,29 @@ app.controller('AbnTestController',[ '$scope', '$http', '$state','$timeout', 'tr
 //        );
 //    }
 //]);
+app.controller('SearchController', [ '$scope', '$http', '$state','$timeout','$modal','$log','searchservice',
+    function($scope, $http, $state, $timeout,$modal,$log,searchservice) {
+        $scope.itemsByPage=10;
+        $scope.selectparam=[];
+        searchservice.getData().then(
+            function (res) {
+                $scope.searchlist = res.data.info;
+            },
+            function (rej) {
+                console.log(rej);
+            }
+        );
+    }
+]);
+app.controller('SearchGuController',['$scope','searchguservice',function($scope, searchguservice) {
+    $scope.selectparam=[];
+    searchguservice.getData().then(
+        function (res) {
+            $scope.searchguinfo = res.data.info
+        },
+        function (rej) {
+            console.log(rej);
+        }
+    );
+
+} ]);

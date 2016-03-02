@@ -23,37 +23,43 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance', 'items',
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('analysisController',[ '$scope','treeservice',
-	function($scope,treeservice) {
-		//lefttree
-		var  tree, treedata_avm;
-		
-		
-		$scope.my_tree_handler = function(branch) {
-			var _ref;
-			$scope.output = branch.label;
-			if ((_ref = branch.data) != null ? _ref.description : void 0) {
-				return $scope.output += '(' + branch.data.description + ')';
-			}
-			console.log($scope.output);
-			//TODO
-		};
-		$scope.my_data = [];
-		$scope.doing_async = true;
-		treeservice.getData().then(
-			function (res) {
-				$scope.my_data = res.data.info
-				$scope.doing_async = false;
-				//tree.expand_all();
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
-		//$scope.my_data=treedata_avm;
-		$scope.my_tree = tree = {};
-
-		$scope.my_tree = tree = {};
+app.controller('analysisController',[ '$scope','$localStorage','treeservice',
+	function($scope,$localStorage,treeservice) {
+		$scope.treeselected=$localStorage.treeselect;
+		console.log("班子分析左树："+$scope.treeselected);
+		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+			$scope.treeselected=$localStorage.treeselect;
+			console.log("班子分析左树变换："+$scope.treeselected);
+		});
+		////lefttree
+		//var  tree, treedata_avm;
+		//
+		//
+		//$scope.my_tree_handler = function(branch) {
+		//	var _ref;
+		//	$scope.output = branch.label;
+		//	if ((_ref = branch.data) != null ? _ref.description : void 0) {
+		//		return $scope.output += '(' + branch.data.description + ')';
+		//	}
+		//	console.log($scope.output);
+		//	//TODO
+		//};
+		//$scope.my_data = [];
+		//$scope.doing_async = true;
+		//treeservice.getData().then(
+		//	function (res) {
+		//		$scope.my_data = res.data.info
+		//		$scope.doing_async = false;
+		//		//tree.expand_all();
+		//	},
+		//	function (rej) {
+		//		console.log(rej);
+		//	}
+		//);
+		////$scope.my_data=treedata_avm;
+		//$scope.my_tree = tree = {};
+        //
+		//$scope.my_tree = tree = {};
 		$scope.selectTab=true;
 		$scope.name1="年龄比例";
 		$scope.legendpie1 = [ "35岁及以下xx:335", "36-40岁:310", '41-45岁:234', '45-50岁:135', '51-55岁:135', '56岁以上:148' ];

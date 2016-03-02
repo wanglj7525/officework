@@ -27,4 +27,10 @@ angular.module('app')
   //     }  
   //     return input;  
   //  };  
- });
+ }) .filter('startFrom', function () {
+    return function (input, start) {
+        if(input){
+            return input.slice(start - 1);
+        }
+    };
+});

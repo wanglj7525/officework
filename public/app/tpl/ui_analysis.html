@@ -2,9 +2,9 @@
     <script type="text/ng-template" id="analysisChartsModel.html">
         <div ng-include="'/public/app/tpl/ui_charts_modal.html'"></div>
     </script>
-    <div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix">
-        <nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'" ></nav>
-    </div>
+    <!--<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix">-->
+        <!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'" ></nav>-->
+    <!--</div>-->
     <div class="md-right">
         <div class="workBgColor row" >
             <div class="col-md-8">
@@ -52,25 +52,23 @@
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading font-bold">需要调整的问题</div>
+                    <div class="panel-heading font-bold">需要调整的问题
+                        <button ui-sref="app.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
+                    </div>
                     <div class="panel-body" style="padding: 0px">
                         <div class=" list-group"  style="display:inline;">
                             <div class="list-group-item">
                                 <span>年龄比例不协调，需要进行班子调整</span>
-                                <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
+
                             </div>
                             <div class="list-group-item">
                                 <span>年龄比例不协调，需要进行班子调整</span>
-                                <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
                             </div>
                             <div class="list-group-item">性别比例不协调，需要进行班子调整
-                                <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
                             </div>
                             <div class="list-group-item">学历比例不协调，需要进行班子调整
-                                <button  ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
                             </div>
                             <div class="list-group-item">党派比例不协调，需要进行班子调整
-                                <button ui-sref="notree.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
                             </div>
                         </div>
                     </div>

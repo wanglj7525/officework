@@ -19,7 +19,7 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 						$localStorage.token=data.access_token;
 						$localStorage.user=data.info;
 						console.log($localStorage.user);
-						$state.go('notree.worktip.list');
+						$state.go('app.worktip.list');
 					} else {
 						$scope.authError = 'Email or Password not right';
 					}

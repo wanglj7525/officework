@@ -37,9 +37,23 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$log','deploydanweiservice','messageservice','treeservice','searchservice',
-	function($scope, $http, $state, $timeout,$modal,$log,deploydanweiservice,messageservice,treeservice,searchservice) {
+app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','deploydanweiservice','messageservice','treeservice','searchservice',
+	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,deploydanweiservice,messageservice,treeservice,searchservice) {
+		$scope.treeselected=$localStorage.treeselect;
+		console.log("班子调配左树："+$scope.treeselected);
+		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+			$scope.treeselected=$localStorage.treeselect;
+			console.log("班子调配左树变换："+$scope.treeselected);
 
+			deploydanweiservice.getData().then(
+				function (res) {
+					$scope.daweilist = res.data.info;
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
+		});
 		//点击头像查看个人信息
 		$scope.selectparam=[];
 		$scope.status = {
@@ -66,24 +80,24 @@ app.controller('deployCtrl',[ '$scope', '$http', '$state','$timeout','$modal','$
 			});
 		};
 
-		var  tree, treedata_avm;
-		$scope.my_tree_handler = function(branch) {
-			var _ref;
-			$scope.output = branch.label;
-			if ((_ref = branch.data) != null ? _ref.description : void 0) {
-				return $scope.output += '(' + branch.data.description + ')';
-			}
-			console.log($scope.output);
-			//TODO
-		};
-		treeservice.getData().then(
-			function (res) {
-				$scope.deploy=res.data.info;
-			},
-			function (rej) {
-				console.log(rej);
-			}
-		);
+		//var  tree, treedata_avm;
+		//$scope.my_tree_handler = function(branch) {
+		//	var _ref;
+		//	$scope.output = branch.label;
+		//	if ((_ref = branch.data) != null ? _ref.description : void 0) {
+		//		return $scope.output += '(' + branch.data.description + ')';
+		//	}
+		//	console.log($scope.output);
+		//	//TODO
+		//};
+		//treeservice.getData().then(
+		//	function (res) {
+		//		$scope.deploy=res.data.info;
+		//	},
+		//	function (rej) {
+		//		console.log(rej);
+		//	}
+		//);
 
 
 

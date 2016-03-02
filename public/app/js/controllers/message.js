@@ -13,8 +13,14 @@
       $modalInstance.dismiss('cancel');
     };
   }]);
-  app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','messageservice',
-		function($scope, $http, $state, $timeout,$modal,$log,messageservice) {
+  app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','messageservice',
+		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,messageservice) {
+			$scope.treeselected=$localStorage.treeselect;
+			console.log("信息浏览左树："+$scope.treeselected);
+			$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+				$scope.treeselected=$localStorage.treeselect;
+				console.log("信息浏览左树变换："+$scope.treeselected);
+			});
             $scope.itemsByPage=10;
 			//获取人员信息
 			messageservice.getData().then(

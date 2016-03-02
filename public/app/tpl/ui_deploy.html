@@ -85,7 +85,7 @@
 
 			<div>
 				<div class="panel panel-default">
-					<div class="panel-heading">{{row.name}}<label class="text-danger"> （点击头像查看详细信息，点击删除按钮，进行人员调动）</label>
+					<div class="panel-heading">{{treeselected}}
 						<!--<a  class="pull-right m-l"> <i class="fa fa-times"></i></a>-->
 						<!--<a  class="pull-right m-l"> <i class="fa fa-refresh"></i></a>-->
 					</div>
@@ -123,7 +123,7 @@
 			<accordion close-others="oneAtATime">
 				<accordion-group is-open="status.open" class="b-info">
 					<accordion-heading class="btn-info">
-						设置查询条件 <label class="text-danger"> （点击显示或隐藏查询条件）</label><i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>
+						设置查询条件 <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>
 					</accordion-heading>
 					<!--<form>-->
 					<!--<div class="form-group">-->
@@ -168,7 +168,7 @@
 				</accordion-group>
 			</accordion>
 			<div class="panel panel-default">
-				<div class="panel-heading">搜索结果<label class="text-danger"> （点击头像查看详细信息，点击添加按钮，进行人员调动）</label></div>
+				<div class="panel-heading">搜索结果</div>
 				<div class="panel-body row">
 					<div class="row" >
 						<div ng-repeat="t in imgs">

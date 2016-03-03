@@ -43,6 +43,8 @@ angular.module('app')
         if(isIE){ angular.element($window.document.body).addClass('ie');}
         if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
 
+        $scope.showheight=$window.innerHeight-51;
+        console.log($scope.showheight);
         $scope.logout=function(){
           $localStorage.token='0';
           //delete  $localStorage.treeselect;

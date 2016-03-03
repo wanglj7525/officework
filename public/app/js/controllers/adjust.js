@@ -31,13 +31,9 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 
 			$scope.userState = '';
 
-			$scope.toppings = [
-				{name:'主任',id:'1'},
-				{name:'处长',id:'2'},
-				{name:'科长',id:'3'},
-				{name:'科员',id:'4'},
-				{name:'领导',id:'5'},
-				{name:'退休',id:'6'}
+			$scope.companylist = [
+				{company:'局长',id:'1'},
+				{company:'副局长',id:'2'}
 			];
 
 

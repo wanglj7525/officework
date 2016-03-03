@@ -66,6 +66,19 @@ angular.module('app')
 			}
 		};
 	})
+	.factory('Reasons',['$http',function($http){
+		return{
+			queryReasonName:function(term) {
+				return $http({
+					method:"get",
+					url:'/public/app/api/adjustreason',
+					params:{
+						search:term
+					}
+				});
+			}
+		}
+	}])
 	.service('quicksearch',['$q','$http',function($q,$http){
 		var data={};
 		return{

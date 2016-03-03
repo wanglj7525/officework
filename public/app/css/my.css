@@ -1,3 +1,22 @@
+.input_controller {
+    position: absolute;
+
+    top: 0px;
+    cursor: pointer;
+    right: -3px;
+    border-radius: 0px 4px 4px 0px;
+    height: 34px;
+    width: 36px;
+    display: table-cell;
+    text-align: center;
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(#FFF 0%, #E0E0E0 100%);
+    background-position: 0px -15px;
+    background-repeat: repeat-x;
+}
+
 .btn-padding{
     padding: 0px;
 }

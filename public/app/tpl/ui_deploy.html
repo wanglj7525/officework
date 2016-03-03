@@ -31,7 +31,7 @@
 		<script type="text/ng-template" id="myModalContent.html">
 			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
 		</script>
-		<div class="col-md-4" style="height:700px;overflow-y: auto">
+		<div class="col-md-4" ng-style="{height:showheight}" style="overflow-y: auto">
 			<!--<div>-->
 				<!--<accordion >-->
 					<!--<accordion-group is-open="status.leftopen" class="b-info">-->
@@ -119,7 +119,7 @@
 			</div>
 
 		</div>
-		<div class="col-md-8"  style="height:700px;overflow-y: auto" >
+		<div class="col-md-8" ng-style="{height:showheight}" style="overflow-y: auto" >
 			<accordion close-others="oneAtATime">
 				<accordion-group is-open="status.open" class="b-info">
 					<accordion-heading class="btn-info">

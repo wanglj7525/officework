@@ -1,4 +1,30 @@
 angular.module('app')
+ .directive('autocomplete',function(Reasons){
+        return {
+            restrict: "A",
+            require:"?ngModel",
+            link:function(scope,element, attrs, ngModel){
+                // Tasks.queryAllNames().success(function(data){
+                $(element).autocomplete({
+                    source:function(request, response) {
+                        Reasons.queryReasonName(request.term).success(function(data) {
+                            response($.each(data.info, function(index, meta) {
+                                meta.value = meta.reason;
+                                meta.label = meta.reason;
+                            }));
+                        })
+                    },
+                    select:function( event, ui ) {
+                        scope.$apply(function() {
+                            ngModel.$setViewValue(ui.item.label);
+                        })
+                    }
+                });
+                // });
+
+            }
+        }
+    })
     .directive('authApplication', function() {
         return {
             restrict: 'C',

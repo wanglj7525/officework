@@ -76,15 +76,15 @@ angular.module('app')
                   templateUrl: STATIC_PATH + 'tpl/worktip.list.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
               })
-              .state('app.adjust',{
-                  abstract: true,
-                  url:'/adjust',
+              //.state('app.adjust',{
+              //    abstract: true,
+              //    url:'/adjust',
+              //    templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
+              //    resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
+              //})
+              .state('app.adjust', {
+                  url: '/adjust/{id}',
                   templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
-              })
-              .state('app.adjust.detail', {
-                  url: '/detail/{id}',
-                  templateUrl: STATIC_PATH + 'tpl/ui_adjustdetail.html',
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
               })
               .state('app.analysis',{

@@ -10,8 +10,37 @@ app.controller('analysisReasonController', ['$scope', '$modalInstance', 'items',
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout','$stateParams','$modal','$log','adjustdetailservice',
-	function($scope, $http, $state, $timeout,$stateParams,$modal,$log,adjustdetailservice) {
+app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout','$stateParams','$modal','$log','$localStorage','adjustdetailservice','adjustreason',
+	function($scope, $http, $state, $timeout,$stateParams,$modal,$log,$localStorage,adjustdetailservice,adjustreason) {
+			$scope.treeselected=$localStorage.treeselect;
+			console.log("调整一览左树："+$scope.treeselected);
+			$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+				$scope.treeselected=$localStorage.treeselect;
+				console.log("调整一览左树变换："+$scope.treeselected);
+			});
+			//获取调配原因
+			adjustreason.getData().then(
+				function (res) {
+					$scope.reasons = res.data.info
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
+
+
+			$scope.userState = '';
+
+			$scope.toppings = [
+				{name:'主任',id:'1'},
+				{name:'处长',id:'2'},
+				{name:'科长',id:'3'},
+				{name:'科员',id:'4'},
+				{name:'领导',id:'5'},
+				{name:'退休',id:'6'}
+			];
+
+
 		$scope.id = $stateParams.id;
 		$scope.addReason= function () {
 				var modalReasonInstance = $modal.open({

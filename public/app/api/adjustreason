@@ -2,33 +2,27 @@
     "info": [
         {
             "id": "1",
-            "title": "原因1",
-            "detail": "详情1"
+            "reason": "调整原因111"
         },
         {
             "id": "2",
-            "title": "原因2",
-            "detail": "详情2"
+            "reason": "调整原因22"
         },
         {
             "id": "3",
-            "title": "原因3",
-            "detail": "详情3"
+            "reason": "调整原因3"
         },
         {
             "id": "4",
-            "title": "原因4",
-            "detail": "详情4"
+            "reason": "调整原因4"
         },
         {
             "id": "5",
-            "title": "原因5",
-            "detail": "详情5"
+           "reason": "调整原因5"
         },
         {
             "id": "6",
-             "title": "原因6",
-            "detail": "详情6"
+            "reason": "调整原因6"
         }
     ]
 }

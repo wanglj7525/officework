@@ -42,7 +42,8 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 
 
 		$scope.id = $stateParams.id;
-		$scope.addReason= function () {
+		$scope.addReason= function (e) {
+			if (e.keyCode==13){
 				var modalReasonInstance = $modal.open({
 					templateUrl: 'adjustReasonModel.html',
 					controller: 'analysisReasonController',
@@ -58,6 +59,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 				}, function () {
 					$log.info('Modal dismissed at: ' + new Date());
 				});
+			}
 			}
 		adjustdetailservice.getData().then(
 			function (res) {

@@ -1,4 +1,4 @@
-<div  ng-controller="analysisController">
+<div col-padding ng-controller="analysisController">
     <script type="text/ng-template" id="analysisChartsModel.html">
         <div ng-include="'/public/app/tpl/ui_charts_modal.html'"></div>
     </script>
@@ -7,8 +7,8 @@
     <!--</div>-->
     <div class="md-right">
         <div class="workBgColor row" >
-            <div class="col-md-8">
-                <div class="analysis col-md-6">
+            <div class="col-md-8 col-padding">
+                <div class="analysis col-md-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">年龄</div>
                         <div class="panel-body" >
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="analysis col-md-6">
+                <div class="analysis col-md-6 col-padding">
 
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">性别</div>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="analysis col-md-6">
+                <div class="analysis col-md-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">学历</div>
                         <div class="panel-body">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="analysis col-md-6">
+                <div class="analysis col-md-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">党派</div>
                         <div class="panel-body">
@@ -51,10 +51,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-padding">
                 <div class="panel panel-default">
-                    <div class="panel-heading font-bold">需要调整的问题
-                        <button ui-sref="app.deploy" class="btn m-b-xs btn-sm  btn-href ">班子调整</button>
+                    <div class="panel-heading font-bold" style="position: relative">需要调整的问题
+                        <button ui-sref="app.deploy" class="btn btn-add btn-href ">班子调整</button>
                     </div>
                     <div class="panel-body" style="padding: 0px">
                         <div class=" list-group"  style="display:inline;">

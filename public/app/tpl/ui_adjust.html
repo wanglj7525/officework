@@ -35,17 +35,21 @@
 							</td>
 							<td>
 
-                                    <select class="addReasonClass selectAdjust " ng-model="reasonAjust">
-                                        <option value="">调配原因</option>
-                                        <option  ng-value="reason.name" ng-repeat="reason in reasons">{{reason.title}}</option>
-                                    </select>
+                                    <!--<select class="addReasonClass selectAdjust ">-->
+										<!--<option value="">调配原因</option>-->
+										<!--<option  ng-value="reason.name" ng-repeat="reason in reasons">{{reason.title}}</option>-->
+                                    <!--</select>-->
+								<input type="text" list="pasta"  ng-model="reasonAjust" ng-keyup="addReason($event)" value="{{reason.title}}">
+								<datalist id="pasta" >
+									<option  ng-value="reason.name" ng-repeat="reason in reasons">{{reason.title}}</option>
+								</datalist>
 
 								<!--
                                     <select class="addReasonClass selectAdjust " ng-model="reasonAjust" ng-change="addReason()">
                                     <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
                                  -->
-								<!--<input type="text" name="country" class="autocomplete-dynamic">-->
-							</td>
+							<!--<input type="text" name="country" class="autocomplete-dynamic" ng-keyup="addReason($event)">-->
+							<!--</td>-->
 							<!--<script type="text/javascript" src="/public/app/js/jquery.autocomplete.js"></script>-->
 							<!--<script type="text/javascript" src="/public/app/js/adjustReason.js"></script>-->
 							<!--<script type="text/javascript" >-->

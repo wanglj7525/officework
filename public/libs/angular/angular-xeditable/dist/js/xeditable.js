@@ -329,7 +329,7 @@ angular.module('xeditable').directive('editableTextarea', ['editableDirectiveFac
   function(editableDirectiveFactory) {
     return editableDirectiveFactory({
       directiveName: 'editableTextarea',
-      inputTpl: '<textarea></textarea>',
+      inputTpl: '<textarea style="width: 700px"></textarea>',
       addListeners: function() {
         var self = this;
         self.parent.addListeners.call(self);

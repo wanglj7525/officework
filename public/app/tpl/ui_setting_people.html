@@ -91,7 +91,13 @@
 <!--</div>-->
 
 <div>
-     <div  ng-controller="ProjectJobs as vm" >
+     <div  ng-controller="SetPeopleCtrl as vm" >
+          <script type="text/ng-template" id="saveAddPeopleModel.html">
+               <div ng-include="'/public/app/tpl/ui_peopleadd_modal.html'"></div>
+          </script>
+          <script type="text/ng-template" id="saveUpdatePeopleModel.html">
+               <div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>
+          </script>
           <div class="panel panel-default">
                <div class="panel-heading" style="position: relative">
                     <h4 class="col-md-9">人员管理</h4>
@@ -99,7 +105,7 @@
                          <span class="input-group-addon">搜索</span>
                          <input type="search" name="filter" class="form-control input-sm pull-right " ng-model="vm.dataTable.filter" ng-change="vm.dataTable.resetPaging()">
                     </div>
-                    <button type="submit" class="btn btn-add btn-href col-md-1"  >添加</button>
+                    <button ng-click="addpeople()" class="btn btn-add btn-href col-md-1"  >添加</button>
                </div>
                <div class="row form-inline">
                     <div class="col-xs-6 angular-data-table">
@@ -141,7 +147,7 @@
                                    <td>{{project.education}}</td>
                                    <td>{{project.school}}</td>
                                    <td>
-                                        <button type="button"  class="btn btn-href ">
+                                        <button ng-click="updatepeople(project)" type="button"  class="btn btn-href ">
                                              修改
                                         </button>
                                         <button type="button"  class="btn btn-href ">

@@ -101,7 +101,7 @@ angular.module('app')
                   abstract: true,
                   url:'/setting',
                   templateUrl:STATIC_PATH+'tpl/ui_setting.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/setting.js'])
+                  resolve: load(['xeditable','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
               })
               .state('app.setting.tree',{
                   url:'/tree',
@@ -130,9 +130,11 @@ angular.module('app')
               .state('app.setting.people',{
                   url:'/people',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
+                  reslove:load(['xeditable']),
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }
+
                   //resolve: load(['angularBootstrapNavTree','smart-table',STATIC_PATH + 'js/controllers/settingtree.js'])
               })
               // 调整方案

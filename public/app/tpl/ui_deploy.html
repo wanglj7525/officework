@@ -94,8 +94,8 @@
 						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
 					<div >
-						<div ng-repeat="t in daweilist">
-							<div class="row">
+						<div ng-repeat="t in daweilist" class="row">
+							<div >
 								<div class="panel panel-card col-sm-4" ng-repeat="peoples in t.people">
 									<div class="item">
 										<img ng-click="showOneDetail(peoples.id)" src="{{peoples.img}}" class="w-full r-t" alt="Washed Out">
@@ -138,7 +138,7 @@
 													<div class="list-group-item">
 														<div class="form-group" style="margin-bottom: 0px">
 															<div class="input-group">
-																<span class="input-group-addon">按名称查询：</span>
+																<span class="input-group-addon">按关键字查询：</span>
 																<input type="text" class="form-control">
 																 <span class="input-group-btn">
 																	  <button class="btn btn-info"  ng-click="status.open = !status.open"  type="submit">

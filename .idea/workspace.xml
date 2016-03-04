@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/DocViewerPlugin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Login" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Login" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.PlayDocumentation" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.PlayDocumentation" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$1" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$2" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$3" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/helpers.CheatSheetHelper$3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieMapViewModel" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieMapViewModel" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieSource" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.PieSource" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.ResultInfo" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.ResultInfo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.Tree" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.Tree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/models.User" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/models.User" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/Application.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/Login.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/classes/controllers/PlayDocumentation.class" afterPath="$PROJECT_DIR$/tmp/classes/controllers/PlayDocumentation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/.classpath" afterPath="$PROJECT_DIR$/eclipse/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/.project" afterPath="$PROJECT_DIR$/eclipse/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/eclipse/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/Test officwork.launch" afterPath="$PROJECT_DIR$/eclipse/Test officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eclipse/officwork.launch" afterPath="$PROJECT_DIR$/eclipse/officwork.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_errors_404.txt" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_play__framework_templates_errors_404.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_public_app_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/my.css" afterPath="$PROJECT_DIR$/public/app/css/my.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/setting.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/setting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_peopleadd_modal.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_peopleadd_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,35 +31,63 @@
       <file leaf-file-name="ui_setting.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.642857">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="24" />
+            <state vertical-scroll-proportion="-2.15625">
+              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_adjustplan.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html">
+      <file leaf-file-name="ui_setting_people.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.928572">
-              <caret line="40" column="107" selection-start-line="40" selection-start-column="107" selection-end-line="40" selection-end-column="107" />
+            <state vertical-scroll-proportion="-40.033333">
+              <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_peopleupdate_model.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.366667">
+              <caret line="33" column="33" selection-start-line="20" selection-start-column="24" selection-end-line="33" selection-end-column="33" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_worktip.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
+      <file leaf-file-name="ui_peopleadd_modal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleadd_modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7492958">
-              <caret line="30" column="106" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="106" />
+            <state vertical-scroll-proportion="-3.0666666">
+              <caret line="20" column="150" selection-start-line="20" selection-start-column="150" selection-end-line="20" selection-end-column="150" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setting.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.9333334">
+              <caret line="342" column="8" selection-start-line="342" selection-start-column="8" selection-end-line="342" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.57588655">
+              <caret line="303" column="20" selection-start-line="303" selection-start-column="20" selection-end-line="303" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,8 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.aside.html" />
-        <option value="$PROJECT_DIR$/public/app/api/worktip2" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_user.html" />
         <option value="$PROJECT_DIR$/public/app/css/app.css" />
         <option value="$PROJECT_DIR$/app/models/ResultInfo.java" />
@@ -119,7 +124,6 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_treezwupdate_modal.html" />
         <option value="$PROJECT_DIR$/public/app/api/deploydanwei" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy_modal.html" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/setting.js" />
         <option value="$PROJECT_DIR$/public/app/api/adjustlist" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/signin.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/worktip.list.html" />
@@ -140,20 +144,23 @@
         <option value="$PROJECT_DIR$/public/app/api/adjustd2" />
         <option value="$PROJECT_DIR$/public/app/js/services/service.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_adjust.html" />
-        <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
         <option value="$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/public/app/css/my.css" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_daima.html" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_charts_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_treezwdelete_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
+        <option value="$PROJECT_DIR$/public/app/index.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/setting.js" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_peopleadd_modal.html" />
+        <option value="$PROJECT_DIR$/public/app/css/my.css" />
       </list>
     </option>
   </component>
@@ -193,8 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -481,32 +486,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="officework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -585,10 +564,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/zoa-debug" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zoa-debug" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -931,19 +912,19 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32736155" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5410691" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -990,21 +971,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/worktip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3089431">
-          <caret line="12" column="11" selection-start-line="7" selection-start-column="8" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/config.router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="42" selection-start-line="73" selection-start-column="42" selection-end-line="74" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/tree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25745258">
@@ -1016,9 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.0338027">
           <caret line="76" column="74" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="74" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1047,7 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80349344">
           <caret line="189" column="50" selection-start-line="189" selection-start-column="50" selection-end-line="189" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,7 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35942492">
           <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,9 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3115016">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,17 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44850498">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024916943">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1172,13 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.125">
           <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1215,7 +1150,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="24.291666">
           <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,14 +1157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.958333">
-          <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,7 +1171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.125">
           <caret line="37" column="61" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,7 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.9166665">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1268,7 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.375">
           <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,15 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleadd_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,15 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7225352">
           <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,7 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1323,15 +1227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_treezwadd_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1339,7 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,7 +1241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,7 +1248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26760563">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1363,45 +1255,100 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41192412">
           <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.642857">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.7503546">
+          <caret line="30" column="76" selection-start-line="30" selection-start-column="89" selection-end-line="30" selection-end-column="107" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.928572">
-          <caret line="40" column="107" selection-start-line="40" selection-start-column="107" selection-end-line="40" selection-end-column="107" />
+        <state vertical-scroll-proportion="0.032624114">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_worktip.html">
+    <entry file="file://$PROJECT_DIR$/public/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7492958">
-          <caret line="30" column="106" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="106" />
+        <state vertical-scroll-proportion="0.034074076">
+          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.15625">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_treezwadd_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.293617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/libs/angular/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33242875">
+          <caret line="2466" column="12" selection-start-line="2466" selection-start-column="12" selection-end-line="2466" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-40.033333">
+          <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.9333334">
+          <caret line="342" column="8" selection-start-line="342" selection-start-column="8" selection-end-line="342" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.366667">
+          <caret line="33" column="33" selection-start-line="20" selection-start-column="24" selection-end-line="33" selection-end-column="33" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleadd_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0666666">
+          <caret line="20" column="150" selection-start-line="20" selection-start-column="150" selection-end-line="20" selection-end-column="150" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57588655">
+          <caret line="303" column="20" selection-start-line="303" selection-start-column="20" selection-end-line="303" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

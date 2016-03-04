@@ -361,7 +361,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
     //},function(response){
     //    return response;
     //});
-
+    
+  
     peoplelistservice.getData().then(
         function (res) {
             vm.projects = res.data.info;
@@ -387,6 +388,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
+    
     $scope.updatepeople=function(people){
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveUpdatePeopleModel.html',

@@ -1,9 +1,9 @@
 <div class="modal-body">
 	<form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
 	<div class="panel panel-default">
-		<div class="panel-heading text-center"><h4>干部信息修改表</h4></div>
+		<div class="panel-heading text-center "><h4>干部信息修改表</h4></div>
 		<!--ng-controller="oneMessageController"-->
-		<table st-table="shujuCollection" class="table table-bordered table-hover table-condensed bg-white-only"  ng-init="tableform.$show()">
+		<table st-table="shujuCollection" class="table table-bordered table-hover table-condensed bg-white-only table-responsive"  ng-init="tableform.$show()">
 			<tbody>
 			<tr>
 				<td width="13%">姓名</td>
@@ -15,7 +15,24 @@
 				<td width="13%"><span editable-text="people.sex" e-form="tableform" onbeforesave="checkName($data, user.id)">{{ people.sex || '' }}</span></td>
 				<td width="13%">出生年月</td>
 				<td width="13%"><span editable-text="people.birthday" e-form="tableform" onbeforesave="checkName($data, user.id)">{{ people.birthday || '' }}</span></td>
-				<td width="22%" rowspan="4"><img ng-src="{{people.img}}" class="w-full r-t" alt="Washed Out"></td>
+				<td width="22%" rowspan="4">
+						<input type="file" name="carpoolpic1" id="carpoolpic1"  onchange="changeImg(this)" style="width: 100%;"/>
+						<img src="{{people.img}}" class="w-full r-t img-responsive" alt="Washed Out" id="prev">
+						<script>
+							var image = '';
+							function changeImg(file){
+								if(!file.files || !file.files[0]){
+									return;
+								}
+								var reader = new FileReader();
+								reader.onload = function(evt){
+									document.getElementById('prev').src = evt.target.result;
+									image = evt.target.result;
+								}
+								reader.readAsDataURL(file.files[0]);
+							}
+						</script>
+				</td>
 			</tr>
 			<tr>
 				<td>民族</td>

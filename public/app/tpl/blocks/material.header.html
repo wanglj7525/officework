@@ -52,7 +52,6 @@
           <span class="nav-title">调整方案</span>
         </a>
       </li>
-
       <!--根据权限隐藏 菜单 还需要在路由中 根据权限判断 否则可以在地址栏手动输入地址-->
       <li  ui-sref="app.setting.tree" ng-if="Auth.roleid()==1" ng-class="{'active':$state.includes('app.setting')}" ng-click="changeMenu(false,false)">
         <a  ui-sref="app.setting.tree" href="/setting">

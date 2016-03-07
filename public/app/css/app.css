@@ -2578,7 +2578,7 @@ fieldset[disabled] .btn-black.active {
 
 .i-checks input[type="radio"] + i,
 .i-checks input[type="radio"] + i:before {
-  /*border-radius: 50%;*/
+  border-radius: 50%;
 }
 
 .i-checks input[disabled] + i,

@@ -108,7 +108,6 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
         $scope.fouth=data;
     }
 
-
     //修改职位
     $scope.updatezhiweilist=function(data){
         $scope.isEditZW=true;
@@ -192,6 +191,7 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
         });
     }
     $scope.updatetree=function(data){
+        var olddata=data;
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveTreeModel.html',
             controller: 'ModalTreeInstanceCtrl',
@@ -206,6 +206,7 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
             //TODO 调用后台保存
             //$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
         }, function () {
+            console.log(olddata);
             $log.info('Modal dismissed at: ' + new Date());
         });
     }

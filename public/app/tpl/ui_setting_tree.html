@@ -26,24 +26,25 @@
                     <table st-table="treelist"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th></th>
+                              <th>编码</th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in treelist " >
-                              <td ng-bind="$index+1">1</td>
+                              <!--<td ng-bind="$index+1">1</td>-->
+                              <td>{{row.code}}</td>
                               <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.name}}</button></td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
-                                        修改职位
-                                   </button>
                                    <button ng-show="!row.nodes.length" class="btn-padding btn btn-href "  ng-click="deletetree(1,$index,row)">
                                         删除
+                                   </button>
+                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                        职位
                                    </button>
                               </td>
                          </tr>
@@ -59,24 +60,25 @@
                     <table st-table="second.nodes"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th></th>
+                              <th>编码</th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in second.nodes " >
-                              <td ng-bind="$index+1">1</td>
+                              <!--<td ng-bind="$index+1">1</td>-->
+                              <td>{{row.code}}</td>
                               <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.name}}</button></td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
-                                        修改职位
-                                   </button>
                                    <button ng-show="!row.nodes.length" class="btn-padding btn btn-href "  ng-click="deletetree(2,$index,row)">
                                         删除
+                                   </button>
+                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                        职位
                                    </button>
                               </td>
                          </tr>
@@ -92,24 +94,25 @@
                     <table st-table="third.nodes"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th></th>
+                              <th>编码</th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in third.nodes " >
-                              <td ng-bind="$index+1">1</td>
+                              <!--<td ng-bind="$index+1">1</td>-->
+                              <td>{{row.code}}</td>
                               <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.name}}</button></td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
-                                        修改职位
-                                   </button>
                                    <button ng-show="!row.nodes.length"  class="btn-padding btn btn-href "  ng-click="deletetree(3,$index,row)">
                                         删除
+                                   </button>
+                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                        职位
                                    </button>
                               </td>
                          </tr>
@@ -125,24 +128,25 @@
                     <table st-table="fouth.nodes"  class="table table-bordered ">
                          <thead>
                          <tr>
-                              <th>id</th>
+                              <th>编码</th>
                               <th>名称</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
                          <tr ng-repeat="row in fouth.nodes " >
-                              <td ng-bind="$index+1">1</td>
+                              <!--<td ng-bind="$index+1">1</td>-->
+                              <td>{{row.code}}</td>
                               <td>{{row.name}}</td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
-                                        修改职位
-                                   </button>
                                    <button ng-show="!row.nodes.length" class=" btn-padding btn btn-href "  ng-click="deletetree(4,$index,row)">
                                         删除
+                                   </button>
+                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                        职位
                                    </button>
                               </td>
                          </tr>

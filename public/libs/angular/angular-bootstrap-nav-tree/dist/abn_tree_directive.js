@@ -8,7 +8,7 @@
     '$timeout', function($timeout) {
       return {
         restrict: 'E',
-        template: "<ul class=\"nav nav-list nav-pills nav-stacked abn-tree\">\n  <li ng-repeat=\"row in tree_rows | filter:{visible:true} track by row.branch.uid\" ng-animate=\"'abn-tree-animate'\" ng-class=\"'level-' + {{ row.level }} + (row.branch.selected ? ' active':'') + ' ' +row.classes.join(' ')\" class=\"abn-tree-row\"><a ng-click=\"user_clicks_branch(row.branch)\"><i ng-class=\"row.tree_icon\" ng-click=\"row.branch.expanded = !row.branch.expanded\" class=\"indented tree-icon\"> </i><span class=\"indented tree-label\">{{ row.label }} </span></a></li>\n</ul>",
+        template: "<ul class=\"nav nav-list nav-pills nav-stacked abn-tree\">\n  <li ng-repeat=\"row in tree_rows | filter:{visible:true} track by row.branch.uid\" ng-animate=\"'abn-tree-animate'\" ng-class=\"'level-' + {{ row.level }} + (row.branch.selected ? ' active':'') + ' ' +row.classes.join(' ')\" class=\"abn-tree-row\"><a ng-click=\"user_clicks_branch(row.branch)\"><i ng-class=\"row.tree_icon\" ng-click=\"row.branch.expanded = !row.branch.expanded\" class=\"indented tree-icon\"> </i><span class=\"indented tree-label\">{{ row.name }} </span></a></li>\n</ul>",
         replace: true,
         scope: {
           treeData: '=',
@@ -41,7 +41,7 @@
             return;
           }
           if (scope.treeData.length == null) {
-            if (treeData.label != null) {
+            if (treeData.name != null) {
               scope.treeData = [treeData];
             } else {
               alert('treeData should be an array of root branches');
@@ -53,8 +53,8 @@
             do_f = function(branch, level) {
               var child, _i, _len, _ref, _results;
               f(branch, level);
-              if (branch.children != null) {
-                _ref = branch.children;
+              if (branch.nodes != null) {
+                _ref = branch.nodes;
                 _results = [];
                 for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                   child = _ref[_i];
@@ -143,8 +143,8 @@
             console.log('UIDs are set.');
             for_each_branch(function(b) {
               var child, _i, _len, _ref, _results;
-              if (angular.isArray(b.children)) {
-                _ref = b.children;
+              if (angular.isArray(b.nodes)) {
+                _ref = b.nodes;
                 _results = [];
                 for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                   child = _ref[_i];
@@ -156,21 +156,21 @@
             scope.tree_rows = [];
             for_each_branch(function(branch) {
               var child, f;
-              if (branch.children) {
-                if (branch.children.length > 0) {
+              if (branch.nodes) {
+                if (branch.nodes.length > 0) {
                   f = function(e) {
                     if (typeof e === 'string') {
                       return {
-                        label: e,
-                        children: []
+                        name: e,
+                        nodes: []
                       };
                     } else {
                       return e;
                     }
                   };
-                  return branch.children = (function() {
+                  return branch.nodes = (function() {
                     var _i, _len, _ref, _results;
-                    _ref = branch.children;
+                    _ref = branch.nodes;
                     _results = [];
                     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                       child = _ref[_i];
@@ -180,7 +180,7 @@
                   })();
                 }
               } else {
-                return branch.children = [];
+                return branch.nodes = [];
               }
             });
             add_branch_to_list = function(level, branch, visible) {
@@ -191,7 +191,7 @@
               if (branch.classes == null) {
                 branch.classes = [];
               }
-              if (!branch.noLeaf && (!branch.children || branch.children.length === 0)) {
+              if (!branch.noLeaf && (!branch.nodes || branch.nodes.length === 0)) {
                 tree_icon = attrs.iconLeaf;
                 if (__indexOf.call(branch.classes, "leaf") < 0) {
                   branch.classes.push("leaf");
@@ -206,13 +206,13 @@
               scope.tree_rows.push({
                 level: level,
                 branch: branch,
-                label: branch.label,
+                name: branch.name,
                 classes: branch.classes,
                 tree_icon: tree_icon,
                 visible: visible
               });
-              if (branch.children != null) {
-                _ref = branch.children;
+              if (branch.nodes != null) {
+                _ref = branch.nodes;
                 _results = [];
                 for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                   child = _ref[_i];
@@ -233,7 +233,7 @@
           scope.$watch('treeData', on_treeData_change, true);
           if (attrs.initialSelection != null) {
             for_each_branch(function(b) {
-              if (b.label === attrs.initialSelection) {
+              if (b.name === attrs.initialSelection) {
                 return $timeout(function() {
                   return select_branch(b);
                 });
@@ -280,8 +280,8 @@
                 select_branch(b);
                 return b;
               };
-              tree.get_children = function(b) {
-                return b.children;
+              tree.get_nodes = function(b) {
+                return b.nodes;
               };
               tree.select_parent_branch = function(b) {
                 var p;
@@ -298,7 +298,7 @@
               };
               tree.add_branch = function(parent, new_branch) {
                 if (parent != null) {
-                  parent.children.push(new_branch);
+                  parent.nodes.push(new_branch);
                   parent.expanded = true;
                 } else {
                   scope.treeData.push(new_branch);
@@ -335,7 +335,7 @@
                 if (b != null) {
                   p = tree.get_parent_branch(b);
                   if (p) {
-                    siblings = p.children;
+                    siblings = p.nodes;
                   } else {
                     siblings = scope.treeData;
                   }
@@ -398,8 +398,8 @@
                   b = selected_branch;
                 }
                 if (b != null) {
-                  if (((_ref = b.children) != null ? _ref.length : void 0) > 0) {
-                    return b.children[0];
+                  if (((_ref = b.nodes) != null ? _ref.length : void 0) > 0) {
+                    return b.nodes[0];
                   }
                 }
               };
@@ -446,11 +446,11 @@
                 if (b == null) {
                   debugger;
                 }
-                n = b.children.length;
+                n = b.nodes.length;
                 if (n === 0) {
                   return b;
                 } else {
-                  last_child = b.children[n - 1];
+                  last_child = b.nodes[n - 1];
                   return tree.last_descendant(last_child);
                 }
               };

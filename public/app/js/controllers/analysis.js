@@ -23,8 +23,8 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance', 'items',
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('analysisController',[ '$scope','$localStorage','treeservice',
-	function($scope,$localStorage,treeservice) {
+app.controller('analysisController',[ '$scope','$localStorage',
+	function($scope,$localStorage) {
 		$scope.treeselected=$localStorage.treeselect;
 		console.log("班子分析左树："+$scope.treeselected);
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){

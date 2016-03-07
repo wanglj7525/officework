@@ -366,6 +366,26 @@ angular.module('app')
 			return promise;
 		}
 	}
+}]).service('treeservice_new', ['$q','$http','$localStorage','SERVICE_URL', function($q,$http,$localStorage,SERVICE_URL){
+	var data={};
+	return{
+		getData:function(id){
+			var deferred=$q.defer();
+			//var path='/public/app/api/tree';
+			var path=SERVICE_URL+'/setting/tree/getlist?parent=0&access_token='+$localStorage.token;
+			if (id) {
+				path+='';
+			};
+			var promise=$http.get(path).then(function(response){
+				console.log(response);
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		}
+	}
 }]).service('userservice', ['$q','$http', function($q,$http){
 	var data={};
 	return{

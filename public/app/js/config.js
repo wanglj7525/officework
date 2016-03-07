@@ -2,6 +2,8 @@
 
 var app =  
 angular.module('app')   .constant('STATIC_PATH','/public/app/')
+    //.constant('SERVICE_URL','http://192.168.2.117:81')
+    .constant('SERVICE_URL','http://192.168.2.136:8080')
   .config(
     [        '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
     function ($controllerProvider,   $compileProvider,   $filterProvider,   $provide) {
@@ -32,18 +34,19 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
   .config(function($httpProvider) {
     $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
+      $httpProvider.defaults.withCredentials = true;
       $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
           return {
               'request': function (config) {
                   //请求添加token
                   config.headers = config.headers || {};
                   if ($localStorage.token) {
-                      config.headers['x-access-token']=$localStorage.token;
+                      //config.headers['x-access-token']=$localStorage.token;
                   }
                   return config;
               },
               'responseError': function(response) {
+                  console.log(response);
                   if(response.status === 401 || response.status === 403) {
                       $location.path('/404');
                       //TODO token过期 弹出登陆框 重新登录
@@ -60,8 +63,7 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
          * @return {String}
          */
         var param = function(obj) {
-            console.log(obj);
-            var query = '';
+            var query ;
             var name, value, fullSubName, subName, subValue, innerObj, i;
 
             for (name in obj) {
@@ -89,7 +91,7 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
                 }
             }
 
-            console.log(query);
+            console.log("---"+query);
             return query.length ? query.substr(0, query.length - 1) : query;
         };
 

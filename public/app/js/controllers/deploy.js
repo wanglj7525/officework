@@ -37,8 +37,8 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','deploydanweiservice','messageservice','treeservice','searchservice',
-	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,deploydanweiservice,messageservice,treeservice,searchservice) {
+app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','deploydanweiservice','messageservice','searchservice',
+	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,deploydanweiservice,messageservice,searchservice) {
 		$scope.treeselected=$localStorage.treeselect;
 		console.log("班子调配左树："+$scope.treeselected);
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){

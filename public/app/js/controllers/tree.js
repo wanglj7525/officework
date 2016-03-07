@@ -1,19 +1,20 @@
 'use strict';
-app.controller('AbnTestController',[ '$rootScope','$scope', '$http', '$state','$timeout', '$localStorage','treeservice',function($rootScope,$scope,$http, $state, $timeout,$localStorage,treeservice) {
+app.controller('AbnTestController',[ '$rootScope','$scope', '$http', '$state','$timeout', '$localStorage','treeservice_new',function($rootScope,$scope,$http, $state, $timeout,$localStorage,treeservice_new) {
    console.log("haha");
     var  tree, treedata_avm;
     $scope.my_tree_handler = function(branch) {
         var _ref;
-        $scope.output = branch.label;
-        if ((_ref = branch.data) != null ? _ref.description : void 0) {
-            return $scope.output += '(' + branch.data.description + ')';
-        }
+        console.log(branch.uuid);
+        $scope.output = branch.name;
+        //if ((_ref = branch.data) != null ? _ref.description : void 0) {
+        //    return $scope.output += '(' + branch.data.description + ')';
+        //}
         $localStorage.treeselect=$scope.output;
         //TODO
     };
     $scope.my_data = [];
     $scope.doing_async = true;
-    treeservice.getData().then(
+    treeservice_new.getData().then(
         function (res) {
             $scope.my_data = res.data.info
             $scope.doing_async = false;

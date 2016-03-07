@@ -34,7 +34,7 @@
                          <tbody>
                          <tr ng-repeat="row in treelist " >
                               <td ng-bind="$index+1">1</td>
-                              <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.label}}</button></td>
+                              <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.name}}</button></td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
@@ -42,7 +42,7 @@
                                    <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
                                         修改职位
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn-padding btn btn-href "  ng-click="deletetree(1,$index,row)">
+                                   <button ng-show="!row.nodes.length" class="btn-padding btn btn-href "  ng-click="deletetree(1,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -51,12 +51,12 @@
                     </table>
                </div>
           </div>
-          <div ng-show="second.children.length" class="analysis col-md-3">
+          <div ng-show="second.nodes.length" class="analysis col-md-3">
                <div class="panel panel-default">
-                    <div class="panel-heading" style="position: relative">{{second.label}}
+                    <div class="panel-heading" style="position: relative">{{second.name}}
                          <button ng-click="addtree(2)" class="btn btn-add btn-href">添加</button>
                     </div>
-                    <table st-table="second.children"  class="table table-bordered ">
+                    <table st-table="second.nodes"  class="table table-bordered ">
                          <thead>
                          <tr>
                               <th></th>
@@ -65,9 +65,9 @@
                          </tr>
                          </thead>
                          <tbody>
-                         <tr ng-repeat="row in second.children " >
+                         <tr ng-repeat="row in second.nodes " >
                               <td ng-bind="$index+1">1</td>
-                              <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.label}}</button></td>
+                              <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.name}}</button></td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
@@ -75,7 +75,7 @@
                                    <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
                                         修改职位
                                    </button>
-                                   <button ng-show="!row.children.length" class="btn-padding btn btn-href "  ng-click="deletetree(2,$index,row)">
+                                   <button ng-show="!row.nodes.length" class="btn-padding btn btn-href "  ng-click="deletetree(2,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -84,12 +84,12 @@
                     </table>
                </div>
           </div>
-          <div ng-show="third.children.length" class="analysis col-md-3">
+          <div ng-show="third.nodes.length" class="analysis col-md-3">
                <div class="panel panel-default">
-                    <div class="panel-heading" style="position: relative">{{third.label}}
+                    <div class="panel-heading" style="position: relative">{{third.name}}
                          <button ng-click="addtree(3)" class="btn btn-add btn-href"  >添加</button>
                     </div>
-                    <table st-table="third.children"  class="table table-bordered ">
+                    <table st-table="third.nodes"  class="table table-bordered ">
                          <thead>
                          <tr>
                               <th></th>
@@ -98,9 +98,9 @@
                          </tr>
                          </thead>
                          <tbody>
-                         <tr ng-repeat="row in third.children " >
+                         <tr ng-repeat="row in third.nodes " >
                               <td ng-bind="$index+1">1</td>
-                              <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.label}}</button></td>
+                              <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.name}}</button></td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
@@ -108,7 +108,7 @@
                                    <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
                                         修改职位
                                    </button>
-                                   <button ng-show="!row.children.length"  class="btn-padding btn btn-href "  ng-click="deletetree(3,$index,row)">
+                                   <button ng-show="!row.nodes.length"  class="btn-padding btn btn-href "  ng-click="deletetree(3,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -117,12 +117,12 @@
                     </table>
                </div>
           </div>
-          <div ng-show="fouth.children.length" class="analysis col-md-3">
+          <div ng-show="fouth.nodes.length" class="analysis col-md-3">
                <div class="panel panel-default">
-                    <div class="panel-heading" style="position: relative">{{fouth.label}}
+                    <div class="panel-heading" style="position: relative">{{fouth.name}}
                          <button ng-click="addtree(4)" class="btn btn-add btn-href">添加</button>
                     </div>
-                    <table st-table="fouth.children"  class="table table-bordered ">
+                    <table st-table="fouth.nodes"  class="table table-bordered ">
                          <thead>
                          <tr>
                               <th>id</th>
@@ -131,9 +131,9 @@
                          </tr>
                          </thead>
                          <tbody>
-                         <tr ng-repeat="row in fouth.children " >
+                         <tr ng-repeat="row in fouth.nodes " >
                               <td ng-bind="$index+1">1</td>
-                              <td>{{row.label}}</td>
+                              <td>{{row.name}}</td>
                               <td>
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
@@ -141,7 +141,7 @@
                                    <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
                                         修改职位
                                    </button>
-                                   <button ng-show="!row.children.length" class=" btn-padding btn btn-href "  ng-click="deletetree(4,$index,row)">
+                                   <button ng-show="!row.nodes.length" class=" btn-padding btn btn-href "  ng-click="deletetree(4,$index,row)">
                                         删除
                                    </button>
                               </td>
@@ -155,7 +155,7 @@
           <div class="panel panel-default">
                <div class="panel-heading" style="position: relative">
                     <button class="btn btn-info" ng-click="isEditZW=false">返回</button>
-                    <span style="margin-left: 20px">{{editzw.label}}</span>
+                    <span style="margin-left: 20px">{{editzw.name}}</span>
                     <button ng-click="addzw()" class="btn btn-add btn-href">添加</button>
                </div>
                <table st-table="editzw.zhiwei"  class="table table-bordered ">

@@ -6,20 +6,20 @@
 	</div>
 </div>
 <div class="modal-body">
-	<form name="updatetree" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-		<div class="form-group" ng-class="{ 'has-error' : updatetree.name.$invalid && !updatetree.name.$pristine }">
+	<form name="updatetreeform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+		<div class="form-group" ng-class="{ 'has-error' : updatetreeform.name.$invalid && !updatetreeform.name.$pristine }">
 			<label class="col-md-3 control-label">名称</label>
 			<div class="col-md-9 row">
 				<div  class=" m-l-n">
-					<input class="form-control" name="name" type="text" ng-model="olddata.name" required>
+					<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
 				</div>
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group" ng-class="{ 'has-error' : updatetreeform.code.$invalid && !updatetreeform.code.$pristine }">
 			<label class="col-md-3 control-label">编码</label>
 			<div class="col-md-9 row">
 				<div  class=" m-l-n">
-					<input class="form-control" type="text" ng-model="olddata.code" >
+					<input class="form-control" name="code" type="text" ng-model="newdata.code" >
 				</div>
 			</div>
 		</div>
@@ -29,21 +29,21 @@
 				<div  class=" m-l-n">
 					<div class="radio" style="display: inline">
 						<label class="i-checks">
-							<input type="radio" name="type" value="1" ng-model="olddata.type">
+							<input type="radio" name="type" value="1" ng-model="newdata.type">
 							<i></i>
 							区域
 						</label>
 					</div>
 					<div class="radio"  style="display: inline">
 						<label class="i-checks">
-							<input type="radio" name="type" value="2" ng-model="olddata.type" >
+							<input type="radio" name="type" value="2" ng-model="newdata.type" >
 							<i></i>
 							班子
 						</label>
 					</div>
 					<div class="radio"  style="display: inline">
 						<label class="i-checks">
-							<input type="radio" name="type" value="3" ng-model="olddata.type">
+							<input type="radio" name="type" value="3" ng-model="newdata.type">
 							<i></i>
 							单位
 						</label>
@@ -55,7 +55,7 @@
 			<label class="col-md-3 control-label">排序</label>
 			<div class="col-md-9 row">
 				<div  class=" m-l-n">
-					<input class="form-control" type="number" ng-model="olddata.order">
+					<input class="form-control" type="number" ng-model="newdata.rank">
 				</div>
 			</div>
 		</div>
@@ -63,5 +63,5 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">取消</button>
-	<button class="btn btn-primary"  ng-disabled="updatetree.$invalid" ng-click="ok()">确定</button>
+	<button class="btn btn-primary"  ng-disabled="updatetreeform.$invalid" ng-click="ok()">确定</button>
 </div>

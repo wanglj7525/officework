@@ -422,7 +422,8 @@ angular.module('app')
 			return promise;
 		}
 	}
-}]).factory('TableDatePage',['$filter',function($filter){
+}])
+	.factory('TableDatePage',['$filter',function($filter){
 	var AngularDataTable = function(data) {
 
 		var adt = {

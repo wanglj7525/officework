@@ -1,0 +1,39 @@
+<div class="modal-header">
+	<div style="position: relative">
+		<span >
+			<h3 class="modal-title">修改代码</h3>
+		</span>
+	</div>
+</div>
+<div class="modal-body">
+	<form name="updatedaimaform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+		<div class="form-group" ng-class="{ 'has-error' : updatedaimaform.ano.$invalid && !updatedaimaform.ano.$pristine }">
+			<label class="col-md-3 control-label">ano</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n">
+					<input class="form-control" name="ano" type="text" ng-model="newdata.ano" required>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{ 'has-error' : updatedaimaform.dz.$invalid && !updatedaimaform.dz.$pristine }">
+			<label class="col-md-3 control-label">dz</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n">
+					<input class="form-control" name="dz" type="text" ng-model="newdata.dz" required>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{ 'has-error' : updatedaimaform.jc.$invalid && !updatedaimaform.jc.$pristine }">
+			<label class="col-md-3 control-label">jc</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n">
+					<input class="form-control" name="jc" type="text" ng-model="newdata.jc" required>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">取消</button>
+	<button class="btn btn-primary"  ng-disabled="updatedaimaform.$invalid" ng-click="ok()">确定</button>
+</div>

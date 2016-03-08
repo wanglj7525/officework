@@ -471,6 +471,55 @@ angular.module('app')
 				return response;
 			});
 			return promise;
+		},
+		getPositionList:function(id){
+			var deferred=$q.defer();
+			var params=$.param({
+				tree_id:  id,
+				access_token:  $localStorage.token
+			});
+			var path=SERVICE_URL+'/setting/tree/position/getlist?';
+			var promise=$http.get(path+params).then(function(response){
+				console.log(response);
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		},
+		updatePosition:function(params){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/position/update?';
+			var promise=$http.put( path+ params).then(function(response){
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		},
+		addPosition:function(params){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/position/add';
+			var promise=$http.post(path, params).then(function(response){
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		},
+		deletePosition:function(params){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/position/delete?';
+			var promise=$http.delete( path+ params).then(function(response){
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
 		}
 	}
 }])

@@ -43,7 +43,7 @@
                                    <button ng-show="!row.nodes.length" class="btn-padding btn btn-href "  ng-click="deletetree(1,$index,row)">
                                         删除
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="zhiweilist(row)">
                                         职位
                                    </button>
                               </td>
@@ -77,7 +77,7 @@
                                    <button ng-show="!row.nodes.length" class="btn-padding btn btn-href "  ng-click="deletetree(2,$index,row)">
                                         删除
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="zhiweilist(row)">
                                         职位
                                    </button>
                               </td>
@@ -111,7 +111,7 @@
                                    <button ng-show="!row.nodes.length"  class="btn-padding btn btn-href "  ng-click="deletetree(3,$index,row)">
                                         删除
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="zhiweilist(row)">
                                         职位
                                    </button>
                               </td>
@@ -145,7 +145,7 @@
                                    <button ng-show="!row.nodes.length" class=" btn-padding btn btn-href "  ng-click="deletetree(4,$index,row)">
                                         删除
                                    </button>
-                                   <button  class="btn-padding btn btn-href " ng-click="updatezhiweilist(row)">
+                                   <button  class="btn-padding btn btn-href " ng-click="zhiweilist(row)">
                                         职位
                                    </button>
                               </td>
@@ -159,8 +159,8 @@
           <div class="panel panel-default">
                <div class="panel-heading" style="position: relative">
                     <button class="btn btn-info" ng-click="isEditZW=false">返回</button>
-                    <span style="margin-left: 20px">{{editzw.name}}</span>
-                    <button ng-click="addzw()" class="btn btn-add btn-href">添加</button>
+                    <span style="margin-left: 20px">{{parenttree.name}}-{{parenttree.uuid}}</span>
+                    <button ng-click="addzw(parenttree.uuid)" class="btn btn-add btn-href">添加</button>
                </div>
                <table st-table="editzw.zhiwei"  class="table table-bordered ">
                     <thead>
@@ -168,21 +168,21 @@
                          <th></th>
                          <th>职位名称</th>
                          <th>数量</th>
-                         <th>level</th>
+                         <th>排序</th>
                          <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in editzw.zhiwei " >
+                    <tr ng-repeat="row in editzw | orderBy : 'rank'" >
                          <td ng-bind="$index+1">1</td>
                          <td>{{row.name}}</td>
                          <td>{{row.num}}</td>
-                         <td>{{row.level}}</td>
+                         <td>{{row.rank}}</td>
                          <td>
                               <button  class="btn-padding btn btn-href " ng-click="updatezhiwei(row)">
                                    修改
                               </button>
-                              <button  class="btn-padding btn btn-href "  ng-click="deletezhiwei($index,row)">
+                              <button  class="btn-padding btn btn-href "  ng-click="deletezhiwei(row)">
                                    删除
                               </button>
                          </td>

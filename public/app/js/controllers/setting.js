@@ -47,8 +47,8 @@ app.controller('ModalDeleteZWInstanceCtrl', ['$scope', '$modalInstance', 'data',
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('ModalUpdateZWInstanceCtrl', ['$scope', '$modalInstance', 'data',function($scope, $modalInstance,data) {
-    $scope.data = data;
+app.controller('ModalUpdateZWInstanceCtrl', ['$scope', '$modalInstance', 'newposition',function($scope, $modalInstance,newposition) {
+    $scope.newposition = newposition;
     $scope.ok = function () {
         $modalInstance.close();
     };
@@ -60,10 +60,8 @@ app.controller('ModalUpdateZWInstanceCtrl', ['$scope', '$modalInstance', 'data',
 app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
     console.log($scope.zwname);
     $scope.zws={
-        id:4,
-        name:'',
-        num:'',
-        level:''
+        num:1,
+        rank:1
     };
     $scope.ok = function () {
         $modalInstance.close($scope.zws);
@@ -73,7 +71,7 @@ app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance',function($s
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','SeetingtreeService',function($rootScope,$state,$scope,$modal,$log,SeetingtreeService){
+app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$localStorage','SeetingtreeService',function($rootScope,$state,$scope,$modal,$log,$localStorage,SeetingtreeService){
     SeetingtreeService.getTreeList().then(
         function (res) {
             $scope.treelist = res.data.info;
@@ -111,29 +109,60 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
         $scope.fouth=data;
     }
 
-    //修改职位
-    $scope.updatezhiweilist=function(data){
-        $scope.isEditZW=true;
-        $scope.editzw=data;
+    //获取职位列表
+    $scope.zhiweilist=function(data){
+        SeetingtreeService.getPositionList(data.uuid).then(
+            function (res) {
+                $scope.isEditZW=true;
+                $scope.parenttree=data;
+                $scope.editzw=res.data.info;
+            },
+            function (rej) {
+                console.log(rej);
+            }
+        );
+
     }
+    //修改职位
     $scope.updatezhiwei=function(data){
+        $scope.newposition=angular.copy(data);
         var modalupdatezwInstance = $modal.open({
             templateUrl: 'updateZWModel.html',
             controller: 'ModalUpdateZWInstanceCtrl',
             size: 'md',
             resolve: {
-                data: function () {
-                    return data;
+                newposition: function () {
+                    return  $scope.newposition;
                 }
             }
         });
         modalupdatezwInstance.result.then(function () {
-            //TODO 调用后台保存
+            var params=$.param({
+                id:$scope.newposition.id,
+                name:  $scope.newposition.name,
+                num:  $scope.newposition.num,
+                order:$scope.newposition.rank,
+                access_token:$localStorage.token
+            });
+            //调用后台保存 成功后修改页面
+            SeetingtreeService.updatePosition(params).then(
+                function (res) {
+                    if(res.data.code==200){
+                        angular.copy($scope.newposition,data);
+                    }else{
+                        alert(res.data.msg);
+                    }
+                },
+                function (rej) {
+                    console.log(rej);
+                }
+            );
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
-    $scope.deletezhiwei=function(idx,data){
+    //删除职位
+    $scope.deletezhiwei=function(data){
         var modalzwdeleteInstance = $modal.open({
             templateUrl: 'deleteZWModel.html',
             controller: 'ModalDeleteZWInstanceCtrl',
@@ -145,27 +174,66 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
             }
         });
         modalzwdeleteInstance.result.then(function () {
-            $scope.editzw.zhiwei.splice(idx,1);
-            //TODO 调用后台保存
+            var params=$.param({
+                id: data.id,
+                access_token:$localStorage.token
+            });
+            SeetingtreeService.deletePosition(params).then(
+                function (res) {
+                    if(res.data.code==200){
+                        for(var i=0; i<$scope.editzw.length; i++){
+                            if($scope.editzw[i].id==data.id){
+                                $scope.editzw.splice(i,1);
+                            }
+                        }
+                    }else{
+                        alert(res.data.msg);
+                    }
+                },
+                function (rej) {
+                    console.log(rej);
+                }
+            );
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
-    $scope.addzw=function(){
+    //添加职位
+    $scope.addzw=function(treeid){
         var modalzwaddInstance = $modal.open({
             templateUrl: 'saveAddZWModel.html',
             controller: 'ModalAddZWInstanceCtrl',
             size: 'md'
         });
         modalzwaddInstance.result.then(function (zw) {
-            console.log(zw);
-            $scope.editzw.zhiwei.push(zw);
-            //TODO 调用后台保存
+            var params=$.param({
+                tree_id:  treeid,
+                name:  zw.name,
+                num:  zw.num,
+                order:zw.rank,
+                access_token:$localStorage.token
+            });
+            //调用后台保存 成功后修改页面
+            SeetingtreeService.addPosition(params).then(
+                function (res) {
+                    console.log(res);
+                    if(res.data.code==200){
+                        $scope.editzw.push(res.data.info);
+                    }else{
+                        alert(res.data.msg);
+                    }
+
+                },
+                function (rej) {
+                    console.log(rej);
+                }
+            );
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
 
+    //添加单位树
     $scope.addtree=function(which,parent){
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveAddTreeModel.html',
@@ -178,7 +246,8 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
                 code: newdata.code,
                 name:  newdata.name,
                 type:  newdata.type,
-                order:newdata.rank
+                order:newdata.rank,
+                access_token:$localStorage.token
             });
             //调用后台保存 成功后修改页面
             SeetingtreeService.addTree(params).then(
@@ -211,6 +280,7 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
+    //修改单位树
     $scope.updatetree=function(data){
         //修改页面使用的临时数据
         $scope.newdata= angular.copy(data);
@@ -230,7 +300,8 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
                 code: $scope.newdata.code,
                 name:  $scope.newdata.name,
                 type:  $scope.newdata.type,
-                order:$scope.newdata.rank
+                order:$scope.newdata.rank,
+                access_token:$localStorage.token
             });
             //调用后台保存 成功后修改页面
             SeetingtreeService.updateTree(params).then(
@@ -253,6 +324,7 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
+    //删除单位树
     $scope.deletetree=function(which,idx,data){
         var modaltreedeleteInstance = $modal.open({
             templateUrl: 'deleteTreeModel.html',
@@ -266,7 +338,8 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','Se
         });
         modaltreedeleteInstance.result.then(function () {
             var params=$.param({
-                uuid: data.uuid
+                uuid: data.uuid,
+                access_token:$localStorage.token
             });
             SeetingtreeService.deleteTree(params).then(
                 function (res) {

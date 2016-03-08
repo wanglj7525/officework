@@ -9,8 +9,8 @@ app.controller('ModalDeleteTreeInstanceCtrl', ['$scope', '$modalInstance', 'data
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('ModalTreeInstanceCtrl', ['$scope', '$modalInstance', 'data',function($scope, $modalInstance,data) {
-    $scope.data = data;
+app.controller('ModalTreeInstanceCtrl', ['$scope', '$modalInstance', 'olddata',function($scope, $modalInstance,olddata) {
+    $scope.olddata = olddata;
     $scope.ok = function () {
         $modalInstance.close();
     };
@@ -191,14 +191,14 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
         });
     }
     $scope.updatetree=function(data){
-        var olddata=data;
+        $scope.olddata= angular.copy(data);
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveTreeModel.html',
             controller: 'ModalTreeInstanceCtrl',
             size: 'md',
             resolve: {
-                data: function () {
-                    return data;
+                olddata:  function(){
+                    return $scope.olddata
                 }
             }
         });
@@ -206,7 +206,6 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
             //TODO 调用后台保存
             //$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
         }, function () {
-            console.log(olddata);
             $log.info('Modal dismissed at: ' + new Date());
         });
     }

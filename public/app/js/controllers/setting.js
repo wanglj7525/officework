@@ -9,8 +9,8 @@ app.controller('ModalDeleteTreeInstanceCtrl', ['$scope', '$modalInstance', 'data
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('ModalTreeInstanceCtrl', ['$scope', '$modalInstance', 'olddata',function($scope, $modalInstance,olddata) {
-    $scope.olddata = olddata;
+app.controller('ModalTreeInstanceCtrl', ['$scope', '$modalInstance', 'newdata',function($scope, $modalInstance,newdata) {
+    $scope.newdata = newdata;
     $scope.ok = function () {
         $modalInstance.close();
     };
@@ -20,14 +20,17 @@ app.controller('ModalTreeInstanceCtrl', ['$scope', '$modalInstance', 'olddata',f
     };
 }]);
 
-app.controller('ModalAddTreeInstanceCtrl', ['$scope', '$modalInstance', 'which',function($scope, $modalInstance,which) {
-    $scope.which = which;
-    $scope.treename={
-        data:"222",
-        label:$scope.treename
-    };
+app.controller('ModalAddTreeInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.newdata={
+        type:1,
+        rank:1
+    }
+    //$scope.treename={
+    //    data:"222",
+    //    label:$scope.treename
+    //};
     $scope.ok = function () {
-        $modalInstance.close($scope.treename);
+        $modalInstance.close($scope.newdata);
     };
 
     $scope.cancel = function () {
@@ -70,8 +73,8 @@ app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance',function($s
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','treeservice_new',function($rootScope,$state,$scope,$modal,$log,treeservice_new){
-    treeservice_new.getData().then(
+app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','SeetingtreeService',function($rootScope,$state,$scope,$modal,$log,SeetingtreeService){
+    SeetingtreeService.getTreeList().then(
         function (res) {
             $scope.treelist = res.data.info;
             $scope.second= $scope.treelist[0];
@@ -163,49 +166,90 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
         });
     }
 
-    $scope.addtree=function(which){
+    $scope.addtree=function(which,parent){
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveAddTreeModel.html',
             controller: 'ModalAddTreeInstanceCtrl',
-            size: 'md',
-            resolve: {
-                which:function(){
-                    return which;
-                }
-            }
+            size: 'md'
         });
-        modaltreeInstance.result.then(function (name) {
-            //TODO 调用后台保存
-            if(which==1){
-                $scope.treelist.push(name);
-            }else if(which==2){
-                $scope.second.nodes.push(name);
-            }else if(which==3){
-                $scope.third.nodes.push(name);
-            }else{
-                $scope.fouth.nodes.push(name);
-            }
+        modaltreeInstance.result.then(function (newdata) {
+            var params=$.param({
+                parent:  parent,
+                code: newdata.code,
+                name:  newdata.name,
+                type:  newdata.type,
+                order:newdata.rank
+            });
+            //调用后台保存 成功后修改页面
+            SeetingtreeService.addTree(params).then(
+                function (res) {
+                    console.log(res);
+                    if(res.data.code==200){
+                        if(which==1){
+                            $scope.treelist.push(res.data.info);
+                        }else if(which==2){
+                            $scope.second.nodes.push(res.data.info);
+                            $scope.third= $scope.second.nodes[0];
+                        }else if(which==3){
+                            $scope.third.nodes.push(res.data.info);
+                            $scope.fouth= $scope.third.nodes[0];
+                        }else{
+                            $scope.fouth.nodes.push(res.data.info);
+                        }
+                    }else{
+                        alert(res.data.msg);
+                    }
+
+                },
+                function (rej) {
+                    console.log(rej);
+                }
+            );
+
             //$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
     $scope.updatetree=function(data){
-        $scope.olddata= angular.copy(data);
+        //修改页面使用的临时数据
+        $scope.newdata= angular.copy(data);
         var modaltreeInstance = $modal.open({
             templateUrl: 'saveTreeModel.html',
             controller: 'ModalTreeInstanceCtrl',
             size: 'md',
             resolve: {
-                olddata:  function(){
-                    return $scope.olddata
+                newdata:  function(){
+                    return $scope.newdata
                 }
             }
         });
         modaltreeInstance.result.then(function () {
+            var params=$.param({
+                uuid: data.uuid,
+                code: $scope.newdata.code,
+                name:  $scope.newdata.name,
+                type:  $scope.newdata.type,
+                order:$scope.newdata.rank
+            });
+            //调用后台保存 成功后修改页面
+            SeetingtreeService.updateTree(params).then(
+                function (res) {
+                    if(res.data.code==200){
+                        angular.copy($scope.newdata,data);
+                    }else{
+                        alert(res.data.msg);
+                    }
+                },
+                function (rej) {
+                    console.log(rej);
+                }
+            );
+
             //TODO 调用后台保存
-            //$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
         }, function () {
+            //取消修改
+            //angular.copy($scope.olddata,data);
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
@@ -221,17 +265,29 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','tr
             }
         });
         modaltreedeleteInstance.result.then(function () {
-            if(which==1){
-                $scope.treelist.splice(idx,1);
-            }else if(which==2){
-                $scope.second.nodes.splice(idx,1);
-            }else if(which==3){
-                $scope.third.nodes.splice(idx,1);
-            }else{
-                $scope.fouth.nodes.splice(idx,1);
-            }
-            //TODO 调用后台保存
-            //$scope.daweilist[0].peoples.splice(Array.indexOf($scope.daweilist[0].peoples,people),1);
+            var params=$.param({
+                uuid: data.uuid
+            });
+            SeetingtreeService.deleteTree(params).then(
+                function (res) {
+                    if(res.data.code==200){
+                        if(which==1){
+                            $scope.treelist.splice(idx,1);
+                        }else if(which==2){
+                            $scope.second.nodes.splice(idx,1);
+                        }else if(which==3){
+                            $scope.third.nodes.splice(idx,1);
+                        }else{
+                            $scope.fouth.nodes.splice(idx,1);
+                        }
+                    }else{
+                        alert(res.data.msg);
+                    }
+                },
+                function (rej) {
+                    console.log(rej);
+                }
+            );
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });

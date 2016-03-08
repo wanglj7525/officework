@@ -21,7 +21,7 @@
           <div class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">一级树管理
-                         <button ng-click="addtree(1)" class="btn btn-add btn-href">添加</button>
+                         <button ng-click="addtree(1,0)" class="btn btn-add btn-href">添加</button>
                     </div>
                     <table st-table="treelist"  class="table table-bordered ">
                          <thead>
@@ -52,10 +52,10 @@
                     </table>
                </div>
           </div>
-          <div ng-show="second.nodes.length" class="analysis col-md-3">
+          <div ng-show="treelist.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{second.name}}
-                         <button ng-click="addtree(2)" class="btn btn-add btn-href">添加</button>
+                         <button ng-click="addtree(2,second.uuid)" class="btn btn-add btn-href">添加</button>
                     </div>
                     <table st-table="second.nodes"  class="table table-bordered ">
                          <thead>
@@ -86,10 +86,10 @@
                     </table>
                </div>
           </div>
-          <div ng-show="third.nodes.length" class="analysis col-md-3">
+          <div ng-show="second.nodes.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{third.name}}
-                         <button ng-click="addtree(3)" class="btn btn-add btn-href"  >添加</button>
+                         <button ng-click="addtree(3,third.uuid)" class="btn btn-add btn-href"  >添加</button>
                     </div>
                     <table st-table="third.nodes"  class="table table-bordered ">
                          <thead>
@@ -120,10 +120,10 @@
                     </table>
                </div>
           </div>
-          <div ng-show="fouth.nodes.length" class="analysis col-md-3">
+          <div ng-show="third.nodes.length" class="analysis col-md-3">
                <div class="panel panel-default">
                     <div class="panel-heading" style="position: relative">{{fouth.name}}
-                         <button ng-click="addtree(4)" class="btn btn-add btn-href">添加</button>
+                         <button ng-click="addtree(4,fouth.uuid)" class="btn btn-add btn-href">添加</button>
                     </div>
                     <table st-table="fouth.nodes"  class="table table-bordered ">
                          <thead>

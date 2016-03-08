@@ -422,7 +422,59 @@ angular.module('app')
 			return promise;
 		}
 	}
-}]).factory('TableDatePage',['$filter',function($filter){
+}]).service('SeetingtreeService',['$q','$http','SERVICE_URL','$localStorage',function($q,$http,SERVICE_URL,$localStorage){
+	return{
+		getTreeList:function(id){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/getlist?parent=0&access_token='+$localStorage.token;
+			if (id) {
+				path+='';
+			};
+			var promise=$http.get(path).then(function(response){
+				console.log(response);
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		},
+		addTree:function(params){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/add';
+			var promise=$http.post(path, params).then(function(response){
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		},
+		updateTree:function(params){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/update?';
+			var promise=$http.put( path+ params).then(function(response){
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		},
+		deleteTree:function(params){
+			var deferred=$q.defer();
+			var path=SERVICE_URL+'/setting/tree/delete?';
+			var promise=$http.delete( path+ params).then(function(response){
+				return response;
+			},function(response){
+				console.log(response);
+				return response;
+			});
+			return promise;
+		}
+	}
+}])
+	.factory('TableDatePage',['$filter',function($filter){
 	var AngularDataTable = function(data) {
 
 		var adt = {

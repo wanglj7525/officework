@@ -12,6 +12,7 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 					email : $scope.user.email,
 					password : $scope.user.password
 				};
+				console.log(params);
 				// Try to login
 				$http.post('/rest/login', params).success(function(data) {
 					if (data.result == "success") {

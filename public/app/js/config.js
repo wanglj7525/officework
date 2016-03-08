@@ -34,15 +34,15 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
   .config(function($httpProvider) {
     $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-      $httpProvider.defaults.withCredentials = true;
+      //$httpProvider.defaults.withCredentials = true;
       $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
           return {
               'request': function (config) {
                   //请求添加token
                   config.headers = config.headers || {};
-                  if ($localStorage.token) {
-                      //config.headers['x-access-token']=$localStorage.token;
-                  }
+                  //if ($localStorage.token) {
+                  //    //config.headers['x-access-token']=$localStorage.token;
+                  //}
                   return config;
               },
               'responseError': function(response) {
@@ -63,7 +63,7 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
          * @return {String}
          */
         var param = function(obj) {
-            var query ;
+            var query="";
             var name, value, fullSubName, subName, subValue, innerObj, i;
 
             for (name in obj) {

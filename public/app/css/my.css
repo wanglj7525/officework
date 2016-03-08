@@ -129,7 +129,20 @@ table{
     border:0px solid #999;
     font-size:14px;
 }
+/*头像信息*/
+.panel-card{
+    
+}
 
+/*按信息集浏览*/
+.xinxi .nav-tabs > li{
+    background-color: #aaa;
+    color: #336699;
+    margin: auto -1px;
+}
+.xinxi > tab>tab-heading{
+    border: 0px;
+}
 
 
 /*导航栏样式*/

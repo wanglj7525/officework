@@ -101,11 +101,12 @@ angular.module('app')
                   abstract: true,
                   url:'/setting',
                   templateUrl:STATIC_PATH+'tpl/ui_setting.html',
-                  resolve: load(['xeditable','smart-table',STATIC_PATH + 'js/controllers/setting.js'])
+                  resolve: load(['xeditable','smart-table'])
               })
               .state('app.setting.tree',{
                   url:'/tree',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_tree.html',
+                  resolve:load([STATIC_PATH + 'js/controllers/setting.js']),
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }
@@ -114,6 +115,7 @@ angular.module('app')
               .state('app.setting.daima',{
                   url:'/daima',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_daima.html',
+                  resolve:load([STATIC_PATH + 'js/controllers/setting_daima.js']),
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }
@@ -122,6 +124,7 @@ angular.module('app')
               .state('app.setting.user',{
                   url:'/user',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_user.html',
+                  resolve:load([STATIC_PATH + 'js/controllers/setting_user.js']),
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }
@@ -130,7 +133,7 @@ angular.module('app')
               .state('app.setting.people',{
                   url:'/people',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
-                  reslove:load(['xeditable']),
+                  resolve:load(['xeditable',STATIC_PATH + 'js/controllers/setting_people.js']),
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }

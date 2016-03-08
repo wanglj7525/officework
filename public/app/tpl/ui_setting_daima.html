@@ -1,38 +1,52 @@
 <div ng-controller="SetDaimaCtrl">
-     <div class="col-padding col-md-3  bg-light dk b-r bg-auto"><!--  style="position:fixed"  -->
+     <script type="text/ng-template" id="saveAddDaimaModel.html">
+          <div ng-include="'/public/app/tpl/ui_setting_daimaadd_modal.html'"></div>
+     </script>
+     <script type="text/ng-template" id="saveUpdateDaimaModel.html">
+          <div ng-include="'/public/app/tpl/ui_setting_daimaupdate_modal.html'"></div>
+     </script>
+     <script type="text/ng-template" id="deleteDaimaModel.html">
+          <div ng-include="'/public/app/tpl/ui_setting_daimadelete_modal.html'"></div>
+     </script>
+     <div class="col-padding col-md-3  bg-light dk b-r bg-auto"  ng-style="{height:showheight}" style="overflow-y: auto"><!--  style="position:fixed"  -->
           <div class="" >
                <ul class="nav nav-pills nav-stacked ">
-                    <li ui-sref-active="active" ng-repeat="item in daimalist" >
-                         <a ng-click="selectdaima(item)">
-                              {{item.name}}
+                    <li ng-class="{active: currentname == item.name}"  ng-repeat="item in daimalist" >
+                         <a   ng-click="selectdaima(item)">
+                              {{item.hzms}}
                          </a>
                     </li>
                </ul>
           </div>
      </div>
-     <div class="col-padding col-md-9" style="">
+     <!--<div class=" col-padding workBgColor col-md-9" >-->
+          <!--<div  ui-view ></div>-->
+          <!--</div>-->
+     <div class="col-padding col-md-9"   ng-style="{height:showheight}" style="overflow-y: auto">
           <div class="row ">
                <div class="panel panel-default">
-                    <div class="panel-heading" style="position: relative">{{daima.name}}
-                         <button type="submit"  class="btn btn-add btn-href" style="width: 150px;">添加</button>
+                    <div class="panel-heading" style="position: relative">{{daima.catalog_id}}
+                         <button ng-click="addDaima(daima.catalog_id)"  class="btn btn-add btn-href" style="width: 150px;">添加</button>
                     </div>
                     <table st-table="daima.childlist"  class="table table-bordered">
                          <thead>
                          <tr>
-                              <th>id</th>
-                              <th>名称</th>
+                              <th>ano</th>
+                              <th>dz</th>
+                              <th>jc</th>
                               <th>操作</th>
                          </tr>
                          </thead>
                          <tbody>
-                         <tr ng-repeat="row in daima.childlist" >
-                              <td>{{row.id}}</td>
-                              <td>{{row.name}}</td>
+                         <tr ng-repeat="row in daima.list" >
+                              <td>{{row.ano}}</td>
+                              <td>{{row.dz}}</td>
+                              <td>{{row.jc}}</td>
                               <td>
-                                   <button type="button"  class="btn btn-href ">
+                                   <button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">
                                         修改
                                    </button>
-                                   <button type="button"  class="btn btn-href ">
+                                   <button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">
                                         删除
                                    </button>
                               </td>

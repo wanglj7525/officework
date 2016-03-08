@@ -129,13 +129,26 @@ table{
     border:0px solid #999;
     font-size:14px;
 }
+/*头像信息*/
+.panel-card{
+    
+}
 
+/*按信息集浏览*/
+.xinxi .nav-tabs > li{
+    background-color: #aaa;
+    color: #336699;
+    margin: auto -1px;
+}
+.xinxi > tab>tab-heading{
+    border: 0px;
+}
 
 
 /*导航栏样式*/
 
 .nav-pills > li.active > a {
-    color: #000 !important;
+    color: #555 !important;
     background-color: #d9d9d9;
     font-weight: bolder;
 }
@@ -232,7 +245,8 @@ table{
 
 /*整体色调*/
 .bg-light {
-    color: #58666e;
+    font-family: 微软雅黑;
+    color: #444;
     background-color: #f7f7f7;
 }
 .bg-light.dk, .bg-light .dk {

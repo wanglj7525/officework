@@ -119,6 +119,7 @@ app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','$modal','$log','$
         modalupdatezwInstance.result.then(function () {
             var params=$.param({
                 catalog_id:  catalog_id,
+                oldano:data.ano,
                 ano: $scope.newdata.ano,
                 dz:  $scope.newdata.dz,
                 jc:  $scope.newdata.jc,

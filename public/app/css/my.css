@@ -3,7 +3,6 @@
 }
 .input_controller {
     position: absolute;
-
     top: 0px;
     cursor: pointer;
     right: -3px;
@@ -12,7 +11,6 @@
     width: 36px;
     display: table-cell;
     text-align: center;
-    background-color: #EEE;
     border: 1px solid #CCC;
     background-color: #E0E0E0;
     background-image: linear-gradient(#FFF 0%, #E0E0E0 100%);
@@ -178,17 +176,63 @@ table{
 }
 
 /*登陆界面*/
+.demo-label{
+    margin:20px 20px 0 0;display:inline-block
+}
+.demo-radio{
+    display:none
+}
+.demo-radioInput{
+    background-color:#fff;
+    border:1px solid rgba(0,0,0,0.15);
+    border-radius:100%;display:inline-block;
+    height:16px;margin-right:10px;
+    margin-top:-1px;
+    vertical-align:middle;
+    width:16px;
+    line-height:1
+}
+.demo-radio:checked + .demo-radioInput:after{
+    background-color:#000;
+    border-radius:100%;
+    content:"";
+    display:inline-block;
+    height:12px;
+    width:12px;
+    margin: 1px;
+}
+.demo-checkbox.demo-radioInput,.demo-radio:checked + .demo-checkbox.demo-radioInput:after{
+    border-radius:0
+}
 .blue-900{
-    background-color: #336699;
+    background-color: #fff;
 }
-#formClass{
-    margin-top: 33%;
+.form-control-singin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 70%;
 }
-
-/*登陆按钮*/
+.form-control:focus{
+    border: 1px #000 solid;
+}
+.singinFoot{
+    height: 10%;
+    background-color: #E9E9E9;
+    width: 100%;
+    position:fixed;
+    bottom:0;
+}
 .panel-body > [aria-disabled=false]{
-    background-color: #AFA8A8;
+    background-color: #2E7BC9;
     color: #ffffff;
+}
+.btnLogin{
+    width: 20%;
+    margin-top: 7%;
+}
+.singinInput{
+    padding-top:10%;
+    padding-left: 5%;
 }
 /*人员管理*/
 @media (min-width: 1400px) and (max-width: 1600px) {

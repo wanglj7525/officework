@@ -1,31 +1,35 @@
-<div class="container w-xxl w-auto-xs "
-	ng-controller="SigninFormController"
-	ng-init="app.settings.container = false;">
+<div class="container" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
 	<!-- <a href class="navbar-brand block m-t">{{app.name}}</a> -->
-	<div class="m-b-lg" id="formClass">
-    <div class="wrapper text-center">
-    </div>
+	<div class="row" style="margin-bottom: 10%"></div>
+	<div class="row">
+	<div class="col-md-6">
+		<div class="col-md-10">
+		<img src="/public/app/img/singin.jpg" class="img-responsive" style="width: 100%">
+		<div style="width: 100%;height: 130px;background-color: #2E7BC9;font-family: 微软雅黑"></div>
+		</div>
+	</div>
+	<div class="col-md-6">
 		<form name="form" class="form-validation">
-
-
-	<div class="wrapper-md">
-		<div class="panel panel-default animated zoomIn" >
-		    <div class="panel-heading text-center">{{app.name}}</div>  
-			<div class="panel-body">
+	<div class="singinInput">
+		<div class="animated " >
+		    <div class="" style="color: #369;font-size: 30px;margin-bottom: 20px;">{{app.name}}</div>  
+			<div class="panel-body" style="padding: 0px">
 			<div class="text-danger wrapper text-center" ng-show="authError">
 				{{authError}}
 			</div>
-			<div class="list-group list-group-sm">
-				<div class="list-group-item">
-					<input type="email" placeholder="邮箱" class="form-control no-border"
-						ng-model="user.email" required>
+				<div class="">
+					<input type="text" placeholder="用户名" class="form-control form-control-singin" ng-model="user.email" required>
 				</div>
-				<div class="list-group-item">
-					<input type="password" placeholder="密码"
-						class="form-control no-border" ng-model="user.password" required>
+				<div class="">
+					<input type="password" placeholder="密码" class="form-control form-control-singin" ng-model="user.password" required>
 				</div>
-			</div>
-			<button type="submit" class="btn btn-lg btnLogin btn-block"
+				<div class="">
+					<label class="demo-label">
+						<input class="demo-radio" type="checkbox" name="demo-checkbox2" ng-model="user.keepsingin">
+						<span class="demo-checkbox demo-radioInput"></span>使我保持登录状态
+					</label>
+				</div>
+			<button type="submit" class="btn btnLogin "
 				ng-click="login()" ng-disabled='form.$invalid'>
 				登录
 			</button>
@@ -42,8 +46,10 @@
 			 -->
 		</form>
 	</div>
-<!-- 	<div class="text-center"
-		ng-include="'/public/app/tpl/blocks/page_footer.html'">
-		{% include 'blocks/page_footer.html' %}
-	</div> -->
+	</div>
+</div>
+<div class="row singinFoot">
+	<div class="col-md-offset-10 col-md-2" style="margin-top: 30px">
+		<a href="http://www.fzict.ac.cn">©2016 福州(闽侯)中科数据应用研究所</a>
+	</div>
 </div>

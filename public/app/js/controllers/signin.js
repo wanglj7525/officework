@@ -17,7 +17,8 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 				var data={
 					access_token:'123456',
 					info:{
-						role_id:'1'
+						role_id:'1',
+						id:'402882f5535a038b01535a0531b40003'
 					}
 				}
 				$localStorage.token=data.access_token;

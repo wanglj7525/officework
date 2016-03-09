@@ -66,6 +66,11 @@ app.controller('SetUserCtrl',['$rootScope','$state','$scope','$log','$modal','$l
             SettinguserService.updateUser(params).then(
                 function (res) {
                     if(res.data.code==200){
+                        if($scope.newdata.roleid==1){
+                            $scope.newdata.rolename="系统管理员"
+                        }else{
+                            $scope.newdata.rolename="调配人员"
+                        }
                         angular.copy($scope.newdata,data);
                     }else{
                         alert(res.data.msg);

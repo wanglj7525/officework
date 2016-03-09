@@ -24,6 +24,9 @@
 </head>
 <body  ng-controller="AppCtrl" layout="row" class="authApplication" ng-init="isshowtree=true;hassearch=false;">
   <div layout="column" flex ui-view class="fade-in " style="background-color:#fff"  ></div>
+  <script type="text/ng-template" id="updatePasswordModel.html">
+    <div ng-include="'/public/app/tpl/update_password_modal.html'"></div>
+  </script>
 <!-- build:js /public/app//js/app.material.js -->
   <!-- jQuery -->
   <script src="/public/libs/jquery/jquery/dist/jquery.js"></script>

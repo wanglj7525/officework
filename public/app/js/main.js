@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','Auth',
-      function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,Auth) {
+    .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','$modal','$log','Auth','SettinguserService',
+      function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,$modal,$log,Auth,SettinguserService) {
 
         $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
           $rootScope.Auth=Auth;
@@ -43,8 +43,10 @@ angular.module('app')
         if(isIE){ angular.element($window.document.body).addClass('ie');}
         if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
 
+        //获取屏幕高度
         $scope.showheight=$window.innerHeight-51;
         console.log($scope.showheight);
+        //退出
         $scope.logout=function(){
           $localStorage.token='0';
           //delete  $localStorage.treeselect;
@@ -54,7 +56,39 @@ angular.module('app')
         $scope.treeToggle=function(){
 
         }
+        //修改密码
+        $scope.updatepassword=function(){
+          var modaluserInstance = $modal.open({
+            templateUrl: 'updatePasswordModel.html',
+            controller: 'ModalUpdatePasswordInstanceCtrl',
+            size: 'sm'
+          });
+          modaluserInstance.result.then(function (newdata) {
+            var params=$.param({
+              id: $localStorage.user.id,
+              oldpassword:newdata.oldpassword,
+              password:  newdata.password,
+              access_token:$localStorage.token
+            });
+            //调用后台保存 成功后重新登录
+            SettinguserService.updatePassword(params).then(
+                function (res) {
+                  if(res.data.code==200){
+                    $localStorage.token='0';
+                    $state.go("access.signin");
+                  }else{
+                    alert(res.data.msg);
+                  }
+                },
+                function (rej) {
+                  console.log(rej);
+                }
+            );
+          }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+          });
 
+        }
         //左侧菜单是否显示//左侧菜单显示查询条件
         $scope.changeMenu=function(showtree,showsearch){
           $scope.isshowtree=showtree;
@@ -72,47 +106,7 @@ angular.module('app')
         $scope.app = {
           name: '领导班子分析调配系统',
           version: '0.0.1',
-          // for chart colors
-          //color: {
-          //  primary: '#7266ba',
-          //  info:    '#23b7e5',
-          //  success: '#27c24c',
-          //  warning: '#fad733',
-          //  danger:  '#f05050',
-          //  light:   '#e8eff0',
-          //  dark:    '#3a3f51',
-          //  black:   '#1c2b36'
-          //},
-          //settings: {
-          //  themeID: 1,
-          //  navbarHeaderColor: 'bg-black',
-          //  navbarCollapseColor: 'bg-white-only',
-          //  asideColor: 'bg-black',
-          //  headerFixed: true,
-          //  asideFixed: false,
-          //  asideFolded: false,
-          //  asideDock: false,
-          //  container: false
-          //}
         }
-
-        // save settings to local storage
-        //if ( angular.isDefined($localStorage.settings) ) {
-        //  $scope.app.settings = $localStorage.settings;
-        //} else {
-        //  $localStorage.settings = $scope.app.settings;
-        //}
-        //$scope.$watch('app.settings', function(){
-        //  if( $scope.app.settings.asideDock  &&  $scope.app.settings.asideFixed ){
-        //    // aside dock and fixed must set the header fixed.
-        //    $scope.app.settings.headerFixed = true;
-        //  }
-        //  // for box layout, add background image
-        //  $scope.app.settings.container ? angular.element('html').addClass('bg') : angular.element('html').removeClass('bg');
-        //  // save to local storage
-        //  $localStorage.settings = $scope.app.settings;
-        //}, true);
-
         // angular translate
         $scope.lang = { isopen: false };
         $scope.langs = {zh_CN:'简体中文'};
@@ -135,17 +129,17 @@ angular.module('app')
           return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
         }
 
-
-        //}]).controller('TimeController', ['$scope','$timeout', function(s,t){
-        //  //页面显示当前日期时间
-        //    var updateTime=function(){
-        //      s.clock={
-        //        time:new Date()
-        //      };
-        //      t(function(){
-        //        s.clock.time=new Date();
-        //        updateTime();
-        //      },1000);
-        //    }
-        //    updateTime();
       }]);
+app.controller('ModalUpdatePasswordInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+  $scope.newdata={
+    oldpassword:"",
+    password:""
+  };
+  $scope.ok = function () {
+    $modalInstance.close($scope.newdata);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+}]);

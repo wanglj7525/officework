@@ -85,6 +85,16 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
     };
 }]);
 app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage','peoplelistservice', function($scope,$http,$modal,$log,TableDatePage,peoplelistservice){
+    $scope.isedit=false;
+    $scope.showelse=false;
+    //取消
+    $scope.back_people=function(){
+        $scope.isedit=false;
+    }
+    //保存基本信息
+    $scope.saveJiben=function(){
+        $scope.showelse=true;
+    }
     var vm = this;
     //var path='/public/app/api/message';
     //$http.get(path).then(function(response){
@@ -141,7 +151,54 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
     }
 }]);
 
+app.controller('addPeopleController',['$scope', '$http', '$state', function($scope, $http, $state){
+    //上传头像
+    $scope.myImage='';
 
+    var handleFileSelect=function(evt) {
+        console.log(evt);
+        var file=evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function($scope){
+                $scope.myImage=evt.target.result;
+                console.log( $scope.myImage);
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+    angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
+
+    $scope.onemessage= {
+        "id": 1,
+        "img": "/public/app/img/a0.jpg",
+        "name": "张三1",
+        "sex": "男",
+        "company": "福清市xxx、xxx信息",
+        "nation": "汉",
+        "birthday": "19551111",
+        "palce": "福清龙田",
+        "troops": "19771212",
+        "party": "19771212",
+        "education": "本科",
+        "school": "福建师范",
+        "health":"健康或良好",
+        "zhengzhi":"中国共产党党员",
+        "shenfenzheng":"11111111111111111111111x",
+        "zhuanchang":"唱歌",
+        "beiwang":"备忘1",
+        "beiyong1":"备用1",
+        "beiyong2":"备用2",
+        "zhiji":"处长",
+        "gerenshenfen":"xx处长",
+        "zhuangtai":"退休",
+        "zhicheng":"中级职称"
+    };
+    $scope.selectedIndex = 0;
+
+
+
+}]);
 
 
 

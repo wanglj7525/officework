@@ -2,8 +2,9 @@
 
 var app =  
 angular.module('app')   .constant('STATIC_PATH','/public/app/')
-    //.constant('SERVICE_URL','http://192.168.2.117:81')
-    .constant('SERVICE_URL','http://192.168.2.136:8080')
+    .constant('SERVICE_URL','http://192.168.2.117:81')
+    //.constant('SERVICE_URL','http://192.168.2.136:8080')
+    //.constant('SERVICE_URL','http://127.0.0.1:8080')
   .config(
     [        '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
     function ($controllerProvider,   $compileProvider,   $filterProvider,   $provide) {

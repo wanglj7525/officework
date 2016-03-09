@@ -190,6 +190,36 @@ table{
     background-color: #AFA8A8;
     color: #ffffff;
 }
+/*人员管理*/
+@media (min-width: 1400px) and (max-width: 1600px) {
+    .peoplemng{
+        margin-left: 70%;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .peoplemng{
+        margin-left: 60%;
+    }
+}
+@media (min-width: 1000px) and (max-width: 1200px) {
+    .peoplemng {
+        margin-left: 47%;
+    }
+}
+/*免职头像居中*/
+.deploy{
+    display: table;
+    width: 100%;
+}
+.deployframe{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.deploycontent{
+    display: inline-block;
+    
+}
 
 /*拟任职务*/
 .selectAdjust{

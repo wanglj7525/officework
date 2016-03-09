@@ -113,7 +113,7 @@ app.directive('pies', function($modal,$log) {
 						y:'top',
 						feature : {
 							mark : {show: false},
-							dataView : {show: false, readOnly: false},
+							dataView : {show: true, readOnly: false},
 							magicType: {
 								show: true,
 								type: ['funnel','pie'],
@@ -125,7 +125,7 @@ app.directive('pies', function($modal,$log) {
 									},
 								}
 							},
-							restore : {show: true},
+							restore : {show: false},
 							saveAsImage : {show: false},
 						}
 
@@ -327,7 +327,7 @@ app.directive('bars', function($modal,$log) {
 						y:'top',
 						feature : {
 							mark : {show: false},
-							dataView : {show: false, readOnly: false},
+							dataView : {show: true, readOnly: false},
 							magicType: {
 								show: true, 
 								type: ['funnel','pie'],
@@ -338,7 +338,7 @@ app.directive('bars', function($modal,$log) {
 									},
 								}
 							},
-							restore : {show: true},
+							restore : {show: false},
 							saveAsImage : {show: false},
 						}
 

@@ -1,0 +1,60 @@
+<div class="modal-header">
+	<div style="position: relative">
+		<span >
+			<h3 class="modal-title">修改用户</h3>
+		</span>
+	</div>
+</div>
+<div class="modal-body">
+	<form name="updateuserinfo" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+		<div class="form-group" ng-class="{ 'has-error' : updateuserinfo.name.$invalid && !updateuserinfo.name.$pristine }">
+			<label class="col-md-3 control-label">用户名</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n">
+					<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{ 'has-error' : updateuserinfo.username.$invalid && !updateuserinfo.username.$pristine }">
+			<label class="col-md-3 control-label">登录名</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n">
+					<input class="form-control" name="username" type="text" ng-model="newdata.username" required>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{ 'has-error' : updateuserinfo.password.$invalid && !updateuserinfo.password.$pristine }">
+			<label class="col-md-3 control-label">密码</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n">
+					<input class="form-control" name="password" type="password" ng-model="newdata.password" required>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" >
+			<label class="col-md-3 control-label">角色</label>
+			<div class="col-md-9 row">
+				<div  class=" m-l-n m-t-xs">
+					<div class="radio" style="display: inline">
+						<label class="i-checks">
+							<input type="radio" name="type" value="1" ng-model="newdata.roleid">
+							<i></i>
+							系统管理员
+						</label>
+					</div>
+					<div class="radio"  style="display: inline">
+						<label class="i-checks">
+							<input type="radio" name="type" value="2" ng-model="newdata.roleid" >
+							<i></i>
+							调配人员
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">取消</button>
+	<button class="btn btn-primary"  ng-disabled="updateuserinfo.$invalid" ng-click="ok()">确定</button>
+</div>

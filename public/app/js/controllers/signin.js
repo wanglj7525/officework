@@ -13,21 +13,31 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 					password : $scope.user.password
 				};
 				console.log(params);
-				// Try to login
-				$http.post('/rest/login', params).success(function(data) {
-					if (data.result == "success") {
-						//存储access_token
-						$localStorage.token=data.access_token;
-						$localStorage.user=data.info;
-						console.log($localStorage.user);
-						$state.go('app.worktip.list');
-					} else {
-						$scope.authError = 'Email or Password not right';
+
+				var data={
+					access_token:'123456',
+					info:{
+						role_id:'1'
 					}
-				}).error(function(data) {
-					alert(data);
-					$scope.authError = 'Server Error';
-				});
+				}
+				$localStorage.token=data.access_token;
+				$localStorage.user=data.info;
+				$state.go('app.worktip.list');
+				// Try to login
+				//$http.post('/rest/login', params).success(function(data) {
+				//	if (data.result == "success") {
+				//		//存储access_token
+				//		$localStorage.token=data.access_token;
+				//		$localStorage.user=data.info;
+				//		console.log($localStorage.user);
+				//		$state.go('app.worktip.list');
+				//	} else {
+				//		$scope.authError = 'Email or Password not right';
+				//	}
+				//}).error(function(data) {
+				//	alert(data);
+				//	$scope.authError = 'Server Error';
+				//});
 			};
 		} ]);
 

@@ -165,4 +165,55 @@ angular.module('app')
         }
 
     }
+}]).service('SettinguserService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+    return{
+        getUserList:function(){
+            var deferred=$q.defer();
+            var params=$.param({
+                access_token:  $localStorage.token
+            });
+            var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        addUser:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/sysuser/add';
+            var promise=$http.post(path, params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updateUser:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/sysuser/update?';
+            var promise=$http.put( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updatePassword:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/sysuser/uppsw?';
+            var promise=$http.put( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        }
+
+    }
 }])

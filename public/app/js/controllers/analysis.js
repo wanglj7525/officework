@@ -35,6 +35,7 @@ app.controller('analysisController',[ '$scope','$localStorage',
 		$scope.name1="年龄比例";
 		$scope.legendbar1 = [ "35岁及以下", "36-40岁", '41-45岁', '45-50岁', '51-55岁', '56岁以上' ];
 		$scope.databar1=[335,310,234,135,125,148];
+		$scope.databarforpie1=[{value:335,name:"35岁及以下"},{value:310,name:"36-40岁"},{value:234,name:"41-45岁"},{value:135,name:"45-50岁"},{value:125,name:"51-55岁"},{value:148,name:"56岁以上"}];
 		//$scope.legendpie1 = [ "35岁及以下xx:335", "36-40岁:310", '41-45岁:234', '45-50岁:135', '51-55岁:135', '56岁以上:148' ];
 		//$scope.datapie1 = [{value:335, name:'35岁及以下xx'},{value:310, name:'36-40岁'},{value:234, name:'41-45岁'},{value:135, name:'45-50岁'},{value:135, name:'51-55岁'},{value:148, name:'56岁以上'}];
 
@@ -45,12 +46,14 @@ app.controller('analysisController',[ '$scope','$localStorage',
 		$scope.name3="学历比例";
 		$scope.legendbar3 = [ "研究生", "大学本科", '大学专科' , '中专', '高中', '初中及以下'];
 		$scope.databar3=[335,510,452,123,45,44];
+		$scope.databarforpie3=[{value:335,name:"研究生"},{value:510,name:"大学本科"},{value:452,name:"大学专科"},{value:123,name:"中专"},{value:45,name:"高中"},{value:44,name:"初中及以下"}]
 		//$scope.legendpie3 = [ "研究生", "大学本科", '大学专科' , '中专', '高中', '初中及以下'];
 		//$scope.datapie3 = [{value:335, name:'研究生'},{value:510, name:'大学本科'},{value:294, name:'大学专科'},{value:235, name:'中专'},{value:135, name:'高中'},{value:348, name:'初中及以下'}];
 
 		$scope.name4="政治面貌比例";
 		$scope.legendbar4 = [ "中共党员", "民革", '民盟', '农工党', '九三学社', '台盟' ];
 		$scope.databar4=[523,432,42,52,554,23];
+		$scope.databarforpie4=[{value:523,name:"中共党员"},{value:432,name:"民革"},{value:42,name:"民盟"},{value:52,name:"农工党"},{value:554,name:"九三学社"},{value:23,name:"台盟"},]
 		//$scope.legendpie4 = [ "中共党员", "民革", '民盟', '农工党', '九三学社', '台盟' ];
 		//$scope.datapie4 = [{value:635, name:'中共党员'},{value:210, name:'民革'},{value:134, name:'民盟'},{value:135, name:'农工党'},{value:535, name:'九三学社'},{value:118, name:'台盟'}];
 		
@@ -58,7 +61,8 @@ app.controller('analysisController',[ '$scope','$localStorage',
 		$scope.config1={
 			names:$scope.name1,
 			legend:$scope.legendbar1,
-			data:$scope.databar1
+			data:$scope.databar1,
+			dataforpie:$scope.databarforpie1
 		}
 		
 		$scope.analysisDetail=function(){
@@ -73,12 +77,14 @@ app.controller('analysisController',[ '$scope','$localStorage',
 		$scope.config3={
 			names:$scope.name3,
 			legend:$scope.legendbar3,
-			data:$scope.databar3
+			data:$scope.databar3,
+			dataforpie:$scope.databarforpie3
 		}
 		$scope.config4={
 			names:$scope.name4,
 			legend:$scope.legendbar4,
-			data:$scope.databar4
+			data:$scope.databar4,
+			dataforpie:$scope.databarforpie4
 		}
 		
 	} ]);
@@ -97,7 +103,32 @@ app.directive('pies', function($modal,$log) {
 					// 提示框，鼠标悬浮交互时的信息提示
 					tooltip : {
 						show : true,
-						trigger : 'item'
+						trigger : 'item',
+						formatter: "{a} <br/>{b} : {c} ({d}%)"
+					},
+					toolbox: {
+						show : true,
+						orient:'horizontal',
+						x:'right',
+						y:'top',
+						feature : {
+							mark : {show: false},
+							dataView : {show: true, readOnly: false},
+							magicType: {
+								show: true,
+								type: ['funnel','pie'],
+								option:{
+									funnel:{
+										x:"30%",
+										width:"10%",
+										funnelAlign:"left",
+									},
+								}
+							},
+							restore : {show: false},
+							saveAsImage : {show: false},
+						}
+
 					},
 					// 图例
 					//legend : {
@@ -192,68 +223,144 @@ app.directive('bars', function($modal,$log) {
 				return color;
 			}
 			function showbar(){
-				var option = {
+				//var option = {
+				//	tooltip : {
+				//		show: true,
+				//		trigger: 'item'
+				//	},
+				//	//legend:{
+				//	//	data:$scope.config.legend
+				//	//},
+				//	toolbox: {
+				//		show : true,
+				//		orient:'horizontal',
+				//		x:'right',
+				//		y:'top',
+				//		feature : {
+				//			mark : {show: false},
+				//			dataView : {show: false, readOnly: false},
+				//			magicType: {
+				//				show: true,
+				//				type: ['bar'],
+				//			},
+				//			restore : {show: false},
+				//			saveAsImage : {show: false},
+				//			myTool: {
+				//				show: true,
+				//				title: '饼状图切换',
+				//				icon: 'public/app/img/pie.png',
+				//				onclick: function () {
+				//					var myChart = echarts.init(document.getElementById($scope.id),'macarons');
+				//					myChart.setOption(option2);
+				//				}
+				//			}
+				//		}
+				//		
+				//	},
+				//	calculable : true,
+				//	xAxis : [
+				//		{
+				//			type : 'category',
+				//			data : $scope.config.legend
+				//		}
+				//	],
+				//	grid: { // 控制图的大小，调整下面这些值就可以，
+				//		x:30,
+				//		y:40,
+				//		x2: 20,
+				//		y2: 30,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+				//	},
+				//	yAxis : [
+				//		{
+				//			type : 'value'
+				//		}
+				//	],
+				//
+				//	series : [
+				//		{
+				//			
+				//			name:$scope.config.names,
+				//			type:'bar',
+				//			barWidth: 15,                   // 系列级个性化，柱形宽度
+				//			itemStyle: {
+				//				normal: {                   // 系列级个性化，横向渐变填充
+				//					//borderRadius: 5,
+				//					color : (function (){
+				//						//return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).substr(-6);
+				//						return  getColorByRandom(colorList);
+				//						//var zrColor = require('zrender/tool/color');
+				//						//return zrColor.getLinearGradient(
+				//						//	0, 0, 1000, 0,
+				//						//	[[0, 'rgba(30,144,255,0.8)'],[1, 'rgba(138,43,226,0.8)']]
+				//						//)
+				//					})(),
+				//					label : {
+				//						show : true,
+				//						textStyle : {
+				//							fontSize : '20',
+				//							fontFamily : '微软雅黑',
+				//							fontWeight : 'bold'
+				//						}
+				//					}
+				//				}
+				//			},
+				//			data:$scope.config.data
+				//			//markLine : {
+				//			//	data : [
+				//			//		{type : 'average', name : '平均值'},
+				//			//		{type : 'max'},
+				//			//		{type : 'min'}
+				//			//	]
+				//			//}
+				//		}
+				//	]
+				//};
+				var option ={
 					tooltip : {
-						show: true,
-						trigger: 'item'
+						trigger: 'item',
+						formatter: "{a} <br/>{b} : {c} ({d}%)"
 					},
+					toolbox: {
+						show : true,
+						orient:'horizontal',
+						x:'right',
+						y:'top',
+						feature : {
+							mark : {show: false},
+							dataView : {show: true, readOnly: false},
+							magicType: {
+								show: true, 
+								type: ['funnel','pie'],
+								option:{
+									pie:{
+										radius : '55%',
+										center: ['60%', '60%'],
+									},
+								}
+							},
+							restore : {show: false},
+							saveAsImage : {show: false},
+						}
+
+					},
+					legend: {
+						orient : 'vertical',
+						x : 'left',
+						data:$scope.config.legend
+					},
+					
 					calculable : true,
-					xAxis : [
-						{
-							type : 'category',
-							data : $scope.config.legend
-						}
-					],
-					grid: { // 控制图的大小，调整下面这些值就可以，
-						x: 30,
-						y:20,
-						x2: 20,
-						y2: 30,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
-					},
-					yAxis : [
-						{
-							type : 'value'
-						}
-					],
 					series : [
 						{
 							name:$scope.config.names,
-							type:'bar',
-							barWidth: 15,                   // 系列级个性化，柱形宽度
-							itemStyle: {
-								normal: {                   // 系列级个性化，横向渐变填充
-									//borderRadius: 5,
-									color : (function (){
-										//return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).substr(-6);
-										return  getColorByRandom(colorList);
-										//var zrColor = require('zrender/tool/color');
-										//return zrColor.getLinearGradient(
-										//	0, 0, 1000, 0,
-										//	[[0, 'rgba(30,144,255,0.8)'],[1, 'rgba(138,43,226,0.8)']]
-										//)
-									})(),
-									label : {
-										show : true,
-										textStyle : {
-											fontSize : '20',
-											fontFamily : '微软雅黑',
-											fontWeight : 'bold'
-										}
-									}
-								}
-							},
-							data:$scope.config.data
-							//markLine : {
-							//	data : [
-							//		{type : 'average', name : '平均值'},
-							//		{type : 'max'},
-							//		{type : 'min'}
-							//	]
-							//}
+							type:'funnel',
+							x:"30%",
+							width:"10%",
+							funnelAlign:"left",
+							data:$scope.config.dataforpie
 						}
 					]
 				};
-
 				var myChart = echarts.init(document.getElementById($scope.id),'macarons');
 				myChart.setOption(option);
 				window.onresize = myChart.resize;

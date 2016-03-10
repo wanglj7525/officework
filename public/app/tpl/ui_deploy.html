@@ -82,7 +82,6 @@
 					<!--</accordion-group>-->
 				<!--</accordion>-->
 			<!--</div>-->
-
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">{{treeselected}}
@@ -94,24 +93,37 @@
 						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
 					<div >
-						<div ng-repeat="t in daweilist" class="row">
-							<div >
-								<div class="panel panel-card col-sm-4" ng-repeat="peoples in t.people">
+						<div ng-repeat="t in daweilist" >
+							<div class="deploy" ng-if="t.jibiename=='市长'">
+							<div class="deployframe"  >
+								<div class="panel panel-card deploycontent" ng-repeat="peoples in t.people">
 									<div class="item">
 										<img ng-click="showOneDetail(peoples.id)" src="{{peoples.img}}" class="w-full r-t" alt="Washed Out">
 									</div>
 									<div class="list-group">
-										<div class="list-group-item">{{peoples.name}}</div>
-										<div class="list-group-item">{{t.jibiename}}</div>
+										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}</div>
+										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{t.jibiename}}</div>
+										<div class="list-group-item" >
+											<button class="btn btn-info  w-full"  ng-click="removepeople(t.level,peoples)">免职</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+							<div class="row"  ng-if="t.jibiename=='副市长'">
+								<div class="panel col-md-4 panel-card " ng-repeat="peoples in t.people">
+									<div class="item">
+										<img ng-click="showOneDetail(peoples.id)" src="{{peoples.img}}" class="w-full r-t" alt="Washed Out">
+									</div>
+									<div class="list-group" style="text-align: center">
+										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}</div>
+										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{t.jibiename}}</div>
 										<div class="list-group-item">
 											<button class="btn btn-info  w-full"  ng-click="removepeople(t.level,peoples)">免职</button>
 										</div>
-
 									</div>
 								</div>
-
 							</div>
-
 						</div>
 					</div>
 
@@ -177,9 +189,9 @@
 									<div class="item">
 										<img ng-click="showOneDetail(t.id)" src="{{t.img}}" class="w-full r-t" alt="Washed Out">
 									</div>
-									<div class="">
-										<div class="list-group-item">{{t.name}}</div>
-										<div class="list-group-item">{{t.company}}</div>
+									<div style="text-align: center">
+										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{t.name}}</div>
+										<div class="list-group-item" style="padding: 0px">{{t.company}}</div>
 										<div class="list-group-item">
 											<button class="btn btn-info  w-full"  ng-click="selectpeople(t)">任职</button>
 										</div>

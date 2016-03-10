@@ -90,62 +90,54 @@
 <!--</table>-->
 <!--</div>-->
 
-<div>
+<div >
      <div  ng-controller="SetPeopleCtrl as vm" >
-          <script type="text/ng-template" id="saveAddPeopleModel.html">
-               <div ng-include="'/public/app/tpl/ui_peopleadd_modal.html'"></div>
+          <script type="text/ng-template" id="addzhiwuModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_zhiwu_modal.html'"></div>
+          </script>
+          <script type="text/ng-template" id="addzhichengModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_zhicheng_modal.html'"></div>
           </script>
           <script type="text/ng-template" id="saveUpdatePeopleModel.html">
                <div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>
           </script>
-          <div class="panel panel-default">
+          <div class="panel panel-default" ng-show="!isedit">
                <div class="panel-heading" style="position: relative">
                     <h4 class="col-md-9">人员管理</h4>
                     <div class="input-group col-md-2">
                          <span class="input-group-addon">搜索</span>
                          <input type="search" name="filter" class="form-control input-sm pull-right " ng-model="vm.dataTable.filter" ng-change="vm.dataTable.resetPaging()">
                     </div>
-                    <button ng-click="addpeople()" class="btn btn-add btn-href col-md-1"  >添加</button>
+                    <button ng-click="isedit=true" class="btn btn-add btn-href col-md-1"   >添加</button>
                </div>
                <div class="row form-inline">
-                    <div class="col-xs-6 angular-data-table">
-                         <!--<select name="pageSize" class="form-control input-sm" ng-model="vm.dataTable.pageSize">-->
-                         <!--<option value="10" ng-selected="true">10</option>-->
-                         <!--<option value="25">25</option>-->
-                         <!--<option value="50">50</option>-->
-                         <!--<option value="100">100</option>-->
-                         <!--</select>-->
-                         <!--<label for="pageSize" class="control-label">records per page</label>-->
-                    </div>
                     <div >
                          <table class="table table-bordered">
                               <thead>
                               <tr>
                                    <th ng-click="vm.dataTable.sort('name')">姓名</th>
-                                   <th ng-click="vm.dataTable.sort('company')">职务</th>
-                                   <th ng-click="vm.dataTable.sort('sex')">性别</th>
-                                   <th ng-click="vm.dataTable.sort('nation')">民族</th>
-                                   <th ng-click="vm.dataTable.sort('birthday')">出生</th>
                                    <th ng-click="vm.dataTable.sort('place')">籍贯</th>
-                                   <th ng-click="vm.dataTable.sort('troops')">入伍</th>
-                                   <th ng-click="vm.dataTable.sort('party')">入党</th>
+                                   <th ng-click="vm.dataTable.sort('birthday')">出生日期</th>
                                    <th ng-click="vm.dataTable.sort('education1')">学历</th>
-                                   <th ng-click="vm.dataTable.sort('school1')">学校</th>
+                                   <th ng-click="vm.dataTable.sort('company')">现任职务</th>
+                                   <th ng-click="vm.dataTable.sort('nation')">所属班子</th>
+                                   <th ng-click="vm.dataTable.sort('party')">入党时间</th>
+                                   <th ng-click="vm.dataTable.sort('school1')">毕业学校</th>
+                                   <th ng-click="vm.dataTable.sort('sex')">专业</th>
                                    <th>操作</th>
                               </tr>
                               </thead>
                               <tbody>
                               <tr  ng-repeat="project in vm.dataTable.filteredData = (vm.dataTable.data | filter:vm.dataTable.filter) | orderBy:vm.dataTable.sortColumn:vm.dataTable.sortDescending | startFrom:vm.dataTable.currentPageStart() | limitTo:vm.dataTable.pageSize">
                                    <td>{{project.name}}</td>
-                                   <td>{{project.company}}</td>
-                                   <td>{{project.sex}}</td>
-                                   <td>{{project.nation}}</td>
-                                   <td>{{project.birthday}}</td>
                                    <td>{{project.palce}}</td>
-                                   <td>{{project.troops}}</td>
-                                   <td>{{project.party}}</td>
+                                   <td>{{project.birthday}}</td>
                                    <td>{{project.education1}}</td>
+                                   <td>{{project.company}}</td>
+                                   <td>{{project.nation}}</td>
+                                   <td>{{project.party}}</td>
                                    <td>{{project.school1}}</td>
+                                   <td>{{project.sex}}</td>
                                    <td>
                                         <button ng-click="updatepeople(project)" type="button"  class="btn btn-href ">
                                              修改
@@ -172,6 +164,429 @@
                               </ul>
                          </div>
                     </div>
+               </div>
+          </div>
+          <div class="panel panel-default" ng-show="isedit">
+               <div class="panel-heading" style="position: relative">
+                    <button class="btn btn-info" ng-click="isedit=false">返回</button>
+                    <span style="margin-left: 20px">添加人员信息</span>
+               </div>
+               <!--<ng-include src="'/public/app/tpl/ui_setting_people_add_modal.html'" ></ng-include>-->
+               <div >
+                    <tabset class="tab-container addpeople">
+                         <tab>
+                              <tab-heading>
+                                   <h5 class="modal-title">基本信息</h5>
+                              </tab-heading>
+                              <div  flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form name="addPeopleform_1" class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-4">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.name.$invalid && !addPeopleform_1.name.$pristine }">
+                                                                 <label class="col-md-3 control-label">姓名</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthday.$invalid && !addPeopleform_1.birthday.$pristine }">
+                                                                 <label class="col-md-3 control-label">出生年月</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiguan.$invalid && !addPeopleform_1.jiguan.$pristine }">
+                                                                 <label class="col-md-3 control-label">籍贯</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiankang.$invalid && !addPeopleform_1.jiankang.$pristine }">
+                                                                 <label class="col-md-3 control-label">健康状况</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="jiankang" type="text" ng-model="newdata.jiankang" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zhiji.$invalid && !addPeopleform_1.zhiji.$pristine }">
+                                                                 <label class="col-md-3 control-label">职级</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="zhiji" type="text" ng-model="newdata.zhiji" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.shenfen.$invalid && !addPeopleform_1.shenfen.$pristine }">
+                                                                 <label class="col-md-3 control-label">个人身份</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="shenfen" type="text" ng-model="newdata.shenfen" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-md-4">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.xingbie.$invalid && !addPeopleform_1.xingbie.$pristine }">
+                                                                 <label class="col-md-3 control-label">性别</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="xingbie" type="text" ng-model="newdata.xingbie" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.minzu.$invalid && !addPeopleform_1.minzu.$pristine }">
+                                                                 <label class="col-md-3 control-label">民族</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="minzu" type="text" ng-model="newdata.minzu" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.chusheng.$invalid && !addPeopleform_1.chusheng.$pristine }">
+                                                                 <label class="col-md-3 control-label">出生地</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="chusheng" type="text" ng-model="newdata.chusheng" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zhiji.$invalid && !addPeopleform_1.zhiji.$pristine }">
+                                                                 <label class="col-md-3 control-label">政治面貌</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="zhiji" type="text" ng-model="newdata.zhiji" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zhuangtai.$invalid && !addPeopleform_1.zhuangtai.$pristine }">
+                                                                 <label class="col-md-3 control-label">人员状态</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="zhuangtai" type="text" ng-model="newdata.zhuangtai" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.shenfenzheng.$invalid && !addPeopleform_1.shenfenzheng.$pristine }">
+                                                                 <label class="col-md-3 control-label">身份证号</label>
+                                                                 <div class="col-md-9 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="shenfenzheng" type="text" ng-model="newdata.shenfenzheng" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-md-4">
+                                                            <div>
+                                                                 <input type="file" name="carpoolpic1" id="carpoolpic1"  onchange="changeImgadd(this)" style="width: 100%"/>
+                                                                 <img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{people.img}}" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>
+                                                                 <script>
+                                                                      var image = '';
+                                                                      function changeImgadd(file){
+                                                                           if(!file.files || !file.files[0]){
+                                                                                return;
+                                                                           }
+                                                                           var reader = new FileReader();
+                                                                           reader.onload = function(evt){
+                                                                                document.getElementById('prevadd').src = evt.target.result;
+                                                                                image = evt.target.result;
+                                                                           }
+                                                                           reader.readAsDataURL(file.files[0]);
+                                                                      }
+                                                                 </script>
+                                                                 <!--<div class="m-b">-->
+                                                                 <!--请选择照片-->
+                                                                 <!--<input type="file" id="fileInput" ng-model="selectphoto" />-->
+                                                                 <!--</div>-->
+                                                                 <!--<div class="hbox hbox-auto-xs">-->
+                                                                 <!--<div class="col">-->
+                                                                 <!--<div class="inline bg-white wrapper-sm b-a">-->
+                                                                 <!--<div class="bg-light" style="height: 100px;width: 100px">-->
+                                                                 <!--<img ng-src="{{myImage}}" />-->
+                                                                 <!--</div>-->
+                                                                 <!--</div>-->
+                                                                 <!--</div>-->
+                                                                 <!--</div>-->
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.gongzuo.$invalid && !addPeopleform_1.gongzuo.$pristine }">
+                                                                 <label class="col-md-4 control-label">参加工作日期</label>
+                                                                 <div class="col-md-8 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="gongzuo" type="text" ng-model="newdata.gongzuo" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zuzhi.$invalid && !addPeopleform_1.zuzhi.$pristine }">
+                                                                 <label class="col-md-4 control-label">参加组织日期</label>
+                                                                 <div class="col-md-8 row">
+                                                                      <div  class=" m-l-n">
+                                                                           <input class="form-control" name="zuzhi" type="text" ng-model="newdata.zuzhi" required>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+
+                                                  <div class="row">
+                                                       <div class="form-group" >
+                                                            <label class="col-md-1 control-label">专长</label>
+                                                            <div class="col-md-11 ">
+                                                                 <div  class=" m-l-n">
+                                                                      <textarea rows="2" class="form-control" name="zhuanchang" ng-model="newdata.zhuanchang" ></textarea>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                             <div class="row">
+                                                  <button class="btn btn-default"  ng-click="back_people()">取消</button>
+                                                  <button class="btn btn-primary"  ng-click="saveJiben()">保存</button>
+                                                  <!--ng-disabled="addPeopleform_1.$invalid"-->
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">现任职务</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="" layout="column" >
+                                        <div class="panel panel-default">
+                                             <div class="panel-heading" style="position: relative">职务管理
+                                                  <button ng-click="addzhiwu(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
+                                             </div>
+                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                                  <thead>
+                                                  <tr>
+                                                       <th>职务名称</th>
+                                                       <th>职务列表</th>
+                                                       <th>职务统计类别</th>
+                                                       <th>职级</th>
+                                                       <th>任职状态</th>
+                                                       <th>批准任职时间</th>
+                                                       <th>操作</th>
+                                                  </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                  <!--<tr ng-repeat="row in daima.list" >-->
+                                                  <!--<td>{{row.ano}}</td>-->
+                                                  <!--<td>{{row.dz}}</td>-->
+                                                  <!--<td>{{row.jc}}</td>-->
+                                                  <!--<td>-->
+                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
+                                                  <!--修改-->
+                                                  <!--</button>-->
+                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
+                                                  <!--删除-->
+                                                  <!--</button>-->
+                                                  <!--</td>-->
+                                                  <!--</tr>-->
+                                                  </tbody>
+                                             </table>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">职称</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div  layout="column" >
+                                        <div class="panel panel-default">
+                                             <div class="panel-heading" style="position: relative">职称管理
+                                                  <button ng-click="addzhicheng(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
+                                             </div>
+                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                                  <thead>
+                                                  <tr>
+                                                       <th>序号</th>
+                                                       <th>技术任职资格职称</th>
+                                                       <th>获得资格日期</th>
+                                                       <th>聘任时间</th>
+                                                       <th>级别</th>
+                                                       <th>批准任职时间</th>
+                                                       <th>批准任职时间</th>
+                                                       <th>操作</th>
+                                                  </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                  <!--<tr ng-repeat="row in daima.list" >-->
+                                                  <!--<td>{{row.ano}}</td>-->
+                                                  <!--<td>{{row.dz}}</td>-->
+                                                  <!--<td>{{row.jc}}</td>-->
+                                                  <!--<td>-->
+                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
+                                                  <!--修改-->
+                                                  <!--</button>-->
+                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
+                                                  <!--删除-->
+                                                  <!--</button>-->
+                                                  <!--</td>-->
+                                                  <!--</tr>-->
+                                                  </tbody>
+                                             </table>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">学历</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-12 form-group">
+                                                            <label class="col-md-3 control-label">学历：</label>
+                                                            <div class="col-md-9">
+                                                                 <input class=" form-control" value="{{onemessage.education}}">
+                                                            </div>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">工资奖惩</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-12 form-group">
+                                                            <label class="col-md-12 ">2011年工资奖惩：无</label>
+                                                            <label class="col-md-12 ">2012年工资奖惩：无</label>
+                                                            <label class="col-md-12 ">2013年工资奖惩：无</label>
+                                                            <label class="col-md-12 ">2014年工资奖惩：无</label>
+                                                            <label class="col-md-12 ">2015年工资奖惩：工作优秀，奖励1000元</label>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">年度考核</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-12 form-group">
+                                                            <label class="col-md-12 ">2011年度考核：优秀</label>
+                                                            <label class="col-md-12 ">2012年度考核：优秀</label>
+                                                            <label class="col-md-12 ">2013年度考核：优秀</label>
+                                                            <label class="col-md-12 ">2014年度考核：优秀</label>
+                                                            <label class="col-md-12 ">2015年度考核：优秀</label>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">家庭成员</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-12 form-group">
+										<pre>xm1，男，1，1955年07月生，福清龙田人，1，1974年12月参加工作，高中学历。
+    1974.12 -- 1976.05  步兵267团2连战士
+    1976.05 -- 1977.03  步兵267团1营2连副班长
+    1977.03 -- 1978.11  步兵261团2连9班班长
+    1978.11 -- 1979.11  步兵261团1营2连1排排长
+    1979.11 -- 1981.08  步兵261团1营3连副政治指导员
+    1981.08 -- 1983.05  步兵第261团政治处副连职群工干事
+    1983.05 -- 1983.08  步兵第261团政治处正连职群工干事    1983.08 -- 1986.06  步兵第261团1营1连
+                        政治指导员
+    1986.06 -- 1990.05  福清县江镜镇政府办公室干事
+    1990.05 -- 1991.01  福清市江镜镇政府办公室副主任
+    1990.11 -- 1995.08  福清市江镜镇政府副镇长
+    1995.08 -- 1996.06  福清市江镜镇党委副书记
+    1996.06 -- 1998.09  福清市沙埔镇党委副书记、镇长
+    1998.09 -- 1999.01  福清市沙埔镇党委副书记、镇长、人大主席
+    1999.01 -- 2000.12  福清市沙埔镇党委书记、人大主席    2000.12 -- 2004.12  福清市三山镇党委党
+                        委书记
+    2004.12 -- 2006.07  福清市环境保护局局长    2006.07 --   .      福清市纪委副书记、监察局局长
+
+										</pre>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">基本信息</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-12 form-group">
+                                                            <label class="col-md-12 ">父亲：</label>
+                                                            <label class="col-md-12 ">母亲：</label>
+                                                            <label class="col-md-12 ">孩子：</label>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                         <tab  ng-show="showelse">
+                              <tab-heading>
+                                   <h5 class="modal-title">照片</h5>
+                              </tab-heading>
+                              <div flex>
+                                   <div class="wrapper" layout="column" >
+                                        <div >
+                                             <form class="form-horizontal">
+                                                  <div class="row">
+                                                       <div class="col-md-12 form-group">
+                                                            <img src="/public/app/img/a1.jpg" class="w-full r-t" alt="Washed Out">
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </tab>
+                    </tabset>
                </div>
           </div>
      </div>

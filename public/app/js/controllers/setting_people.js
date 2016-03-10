@@ -96,6 +96,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
         $scope.showelse=true;
     }
 
+    $scope.all_config = {};
+
     //添加职务
     $scope.addzhiwu=function(peopleid){
         var modalzwaddInstance = $modal.open({

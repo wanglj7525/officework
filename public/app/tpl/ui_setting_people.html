@@ -672,22 +672,18 @@
                                                        </div>
                                                   </div>
                                                   <div class="row">
-                                                       <div class="form-group" >
+                                                       <div class="form-group">
                                                             <label class="col-md-1 control-label">个人简历</label>
                                                             <div class="col-md-11 ">
-                                                                 <div  class=" m-l-n">
-                                                                      <!--<ueditor config="editorConfig" ng-model="content">-->
-                                                                           <!--<p><span style="font-size: 36px;">大字</span><span style="color: rgb(255, 0, 0);">颜色</span></p>-->
-
-                                                                           <!--<p>来点动画试试<img src="http://img.baidu.com/hi/jx2/j_0013.gif"/></p>-->
-
-                                                                      <!--</ueditor>-->
-                                                                 </div>
+                                                                 <script type="text/html" style="margin:auto;height:300px;"  ng-model="all_text" meta-umeditor
+                                                                         meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历"></script>
+                                                                 <!--<div class="model">-->
+                                                                      <!--<div ng-bind="all_text"></div>-->
+                                                                 <!--</div>-->
                                                             </div>
                                                        </div>
                                                   </div>
-
-                                             </form>
+                                                  </form>
                                              <div class="row">
                                                   <button class="btn btn-primary"  ng-click="saveJiben()">保存简历</button>
                                                   <!--ng-disabled="addPeopleform_1.$invalid"-->

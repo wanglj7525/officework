@@ -117,13 +117,25 @@
                <div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>
           </script>
           <div class="panel panel-default" ng-show="!isedit">
-               <div class="panel-heading" style="position: relative">
-                    <h4 class="col-md-9">人员管理</h4>
-                    <div class="input-group col-md-2">
-                         <span class="input-group-addon">搜索</span>
-                         <input type="search" name="filter" class="form-control input-sm pull-right " ng-model="vm.dataTable.filter" ng-change="vm.dataTable.resetPaging()">
+               <!--<div class="panel-heading" style="position: relative">-->
+                    <!--<h4 class="col-md-9">人员管理</h4>-->
+                    <!--<div class="input-group col-md-2">-->
+                         <!--<span class="input-group-addon">搜索</span>-->
+                         <!--<input type="search" name="filter" class="form-control input-sm pull-right " ng-model="vm.dataTable.filter" ng-change="vm.dataTable.resetPaging()">-->
+                    <!--</div>-->
+                    <!--<button ng-click="isedit=true" class="btn btn-add btn-href col-md-1"   >添加</button>-->
+               <!--</div>-->
+               <div class="row panel-heading" style="position: relative">
+                    <div class="form-inline">
+                         <label for="inputtt" style="margin-bottom: 0px"><span>人员管理</span></label>
+                         <div class="peoplemng form-group ">
+                              <div class="input-group">
+                                   <span class="input-group-addon">搜索</span>
+                                   <input id="inputtt" type="search" name="filter" class="form-control" ng-model="vm.dataTable.filter" ng-change="vm.dataTable.resetPaging()">
+                              </div>
+                         </div>
+                         <button ng-click="isedit=true" class="btn btn-href">添加</button>
                     </div>
-                    <button ng-click="isedit=true" class="btn btn-add btn-href col-md-1"   >添加</button>
                </div>
                <div class="row form-inline">
                     <div >

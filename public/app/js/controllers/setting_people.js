@@ -165,6 +165,176 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
+    //添加学历
+    $scope.addxueli=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addxueliModel.html',
+            controller: 'ModalAddxueliInstanceCtrl',
+            size: 'md'
+        });
+        modalzwaddInstance.result.then(function (zhicheng) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
+    //添加学历
+    $scope.addxuewei=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addxueweiModel.html',
+            controller: 'ModalAddxueweiInstanceCtrl',
+            size: 'md'
+        });
+        modalzwaddInstance.result.then(function (zhicheng) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
+    //添加学历
+    $scope.addjiangcheng=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addjiangchengModel.html',
+            controller: 'ModalAddjiangchengInstanceCtrl',
+            size: 'md'
+        });
+        modalzwaddInstance.result.then(function (zhicheng) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
+    //添加学历
+    $scope.addkaohe=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addkaoheModel.html',
+            controller: 'ModalAddkaoheInstanceCtrl',
+            size: 'md'
+        });
+        modalzwaddInstance.result.then(function (zhicheng) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
+    //添加家庭成员
+    $scope.addjiating=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addjiatingModel.html',
+            controller: 'ModalAddjiatingInstanceCtrl',
+            size: 'md'
+        });
+        modalzwaddInstance.result.then(function (zhicheng) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
 
     var vm = this;
     //var path='/public/app/api/message';
@@ -232,6 +402,56 @@ app.controller('ModalAddzhiwuInstanceCtrl', ['$scope', '$modalInstance',function
     };
 }]);
 app.controller('ModalAddzhichengInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalAddxueliInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalAddxueweiInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalAddjiangchengInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalAddkaoheInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalAddjiatingInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
     $scope.zws={};
     $scope.ok = function () {
         $modalInstance.close($scope.zws);

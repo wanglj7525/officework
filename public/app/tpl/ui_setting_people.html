@@ -92,8 +92,11 @@
 
 <div >
      <div  ng-controller="SetPeopleCtrl as vm" >
-          <script type="text/ng-template" id="saveAddPeopleModel.html">
-               <div ng-include="'/public/app/tpl/ui_peopleadd_modal.html'"></div>
+          <script type="text/ng-template" id="addzhiwuModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_zhiwu_modal.html'"></div>
+          </script>
+          <script type="text/ng-template" id="addzhichengModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_zhicheng_modal.html'"></div>
           </script>
           <script type="text/ng-template" id="saveUpdatePeopleModel.html">
                <div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>
@@ -360,7 +363,7 @@
                                    <div class="" layout="column" >
                                         <div class="panel panel-default">
                                              <div class="panel-heading" style="position: relative">职务管理
-                                                  <button ng-click="addDaima(daima.catalog_id)"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
+                                                  <button ng-click="addzhiwu(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
                                              </div>
                                              <table st-table="daima.childlist"  class="table table-bordered">
                                                   <thead>
@@ -399,19 +402,20 @@
                                    <h5 class="modal-title">职称</h5>
                               </tab-heading>
                               <div flex>
-                                   <div class="wrapper" layout="column" >
+                                   <div  layout="column" >
                                         <div class="panel panel-default">
-                                             <div class="panel-heading" style="position: relative">职务管理
-                                                  <button ng-click="addDaima(daima.catalog_id)"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
+                                             <div class="panel-heading" style="position: relative">职称管理
+                                                  <button ng-click="addzhicheng(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
                                              </div>
                                              <table st-table="daima.childlist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>职务名称</th>
-                                                       <th>职务列表</th>
-                                                       <th>职务统计类别</th>
-                                                       <th>职级</th>
-                                                       <th>任职状态</th>
+                                                       <th>序号</th>
+                                                       <th>技术任职资格职称</th>
+                                                       <th>获得资格日期</th>
+                                                       <th>聘任时间</th>
+                                                       <th>级别</th>
+                                                       <th>批准任职时间</th>
                                                        <th>批准任职时间</th>
                                                        <th>操作</th>
                                                   </tr>

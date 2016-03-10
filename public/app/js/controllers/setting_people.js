@@ -95,6 +95,77 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
     $scope.saveJiben=function(){
         $scope.showelse=true;
     }
+
+    //添加职务
+    $scope.addzhiwu=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addzhiwuModel.html',
+            controller: 'ModalAddzhiwuInstanceCtrl',
+            size: 'lg'
+        });
+        modalzwaddInstance.result.then(function (zhiwu) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
+
+    //添加职称
+    $scope.addzhicheng=function(peopleid){
+        var modalzwaddInstance = $modal.open({
+            templateUrl: 'addzhichengModel.html',
+            controller: 'ModalAddzhichengInstanceCtrl',
+            size: 'md'
+        });
+        modalzwaddInstance.result.then(function (zhicheng) {
+            //var params=$.param({
+            //    tree_id:  treeid,
+            //    name:  zw.name,
+            //    num:  zw.num,
+            //    order:zw.rank,
+            //    access_token:$localStorage.token
+            //});
+            ////调用后台保存 成功后修改页面
+            //SeetingtreeService.addPosition(params).then(
+            //    function (res) {
+            //        console.log(res);
+            //        if(res.data.code==200){
+            //            $scope.editzw.push(res.data.info);
+            //        }else{
+            //            alert(res.data.msg);
+            //        }
+            //
+            //    },
+            //    function (rej) {
+            //        console.log(rej);
+            //    }
+            //);
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }
+
     var vm = this;
     //var path='/public/app/api/message';
     //$http.get(path).then(function(response){
@@ -150,7 +221,26 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
         });
     }
 }]);
+app.controller('ModalAddzhiwuInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
 
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalAddzhichengInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.zws={};
+    $scope.ok = function () {
+        $modalInstance.close($scope.zws);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
 app.controller('addPeopleController',['$scope', '$http', '$state', function($scope, $http, $state){
     //上传头像
     $scope.myImage='';

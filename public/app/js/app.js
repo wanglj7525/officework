@@ -18,5 +18,6 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
     'ngMaterial',
-    'meta.umeditor'
+    'meta.umeditor',
+    'tm.pagination'
 ]);

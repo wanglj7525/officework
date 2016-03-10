@@ -84,7 +84,7 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage','peoplelistservice', function($scope,$http,$modal,$log,TableDatePage,peoplelistservice){
+app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage','peoplelistservice','SettingpeopleService', function($scope,$http,$modal,$log,TableDatePage,peoplelistservice,SettingpeopleService){
     $scope.isedit=false;
     $scope.showelse=false;
     //取消
@@ -338,7 +338,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
         });
     }
 
-    var vm = this;
     //var path='/public/app/api/message';
     //$http.get(path).then(function(response){
     //    vm.projects = response.data.info;
@@ -347,15 +346,44 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
     //},function(response){
     //    return response;
     //});
-    
+    //分页获取数据
+    var getMessageImageList = function () {
+    	var postData = $.param({
+            name:$scope.searhname,
+    		pageNo: $scope.paginationConf.currentPage,
+    		pageSize: $scope.paginationConf.itemsPerPage
+    	});
+        $scope.paginationConf.totalItems = 265;
+        //SettingpeopleService.getPeopleList(postData).then(
+    	//	function (res) {
+    	//		console.log(res);
+    	//		if(res.data.code==200){
+    	//			$scope.paginationConf.totalItems = res.data.totalElements;
+    	//			$scope.peoplelist = res.data.info;
+    	//		}else{
+    	//			alert(res.data.msg);
+    	//		}
+        //
+    	//	},
+    	//	function (rej) {
+    	//		console.log(rej);
+    	//	}
+    	//)
+    }
+    //配置分页基本参数
+    $scope.paginationConf = {
+    	currentPage: 1,
+    	itemsPerPage: 10
+    };
+    ///***************************************************************
+    // 当页码和页面记录数发生变化时监控后台查询
+    // 如果把currentPage和itemsPerPage分开监控的话则会触发两次后台事件。
+    // ***************************************************************/
+    $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
   
     peoplelistservice.getData().then(
         function (res) {
-            vm.projects = res.data.info;
-            vm.dataTable =new TableDatePage(vm.projects);
-            return vm;
-            //$scope.peoplelist = res.data.info;
-            //$scope.itemsByPage=10;
+            $scope.peoplelist = res.data.info;
         },
         function (rej) {
             console.log(rej);

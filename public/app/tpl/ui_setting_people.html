@@ -139,34 +139,34 @@
                </div>
                <div class="row form-inline">
                     <div >
-                         <table class="table table-bordered">
+                         <table st-table="peoplelist" class="table table-bordered">
                               <thead>
                               <tr>
-                                   <th ng-click="vm.dataTable.sort('name')">姓名</th>
-                                   <th ng-click="vm.dataTable.sort('place')">籍贯</th>
-                                   <th ng-click="vm.dataTable.sort('birthday')">出生日期</th>
-                                   <th ng-click="vm.dataTable.sort('education1')">学历</th>
-                                   <th ng-click="vm.dataTable.sort('company')">现任职务</th>
-                                   <th ng-click="vm.dataTable.sort('nation')">所属班子</th>
-                                   <th ng-click="vm.dataTable.sort('party')">入党时间</th>
-                                   <th ng-click="vm.dataTable.sort('school1')">毕业学校</th>
-                                   <th ng-click="vm.dataTable.sort('sex')">专业</th>
+                                   <th>姓名</th>
+                                   <th>籍贯</th>
+                                   <th>出生日期</th>
+                                   <th>学历</th>
+                                   <th>现任职务</th>
+                                   <th>所属班子</th>
+                                   <th>入党时间</th>
+                                   <th>毕业学校</th>
+                                   <th>专业</th>
                                    <th>操作</th>
                               </tr>
                               </thead>
                               <tbody>
-                              <tr  ng-repeat="project in vm.dataTable.filteredData = (vm.dataTable.data | filter:vm.dataTable.filter) | orderBy:vm.dataTable.sortColumn:vm.dataTable.sortDescending | startFrom:vm.dataTable.currentPageStart() | limitTo:vm.dataTable.pageSize">
-                                   <td>{{project.name}}</td>
-                                   <td>{{project.palce}}</td>
-                                   <td>{{project.birthday}}</td>
-                                   <td>{{project.education1}}</td>
-                                   <td>{{project.company}}</td>
-                                   <td>{{project.nation}}</td>
-                                   <td>{{project.party}}</td>
-                                   <td>{{project.school1}}</td>
-                                   <td>{{project.sex}}</td>
+                              <tr  ng-repeat="people in peoplelist">
+                                   <td>{{people.name}}</td>
+                                   <td>{{people.palce}}</td>
+                                   <td>{{people.birthday}}</td>
+                                   <td>{{people.education1}}</td>
+                                   <td>{{people.company}}</td>
+                                   <td>{{people.nation}}</td>
+                                   <td>{{people.party}}</td>
+                                   <td>{{people.school1}}</td>
+                                   <td>{{people.sex}}</td>
                                    <td>
-                                        <button ng-click="updatepeople(project)" type="button"  class="btn btn-href ">
+                                        <button ng-click="updatepeople(people)" type="button"  class="btn btn-href ">
                                              修改
                                         </button>
                                         <button type="button"  class="btn btn-href ">
@@ -177,20 +177,61 @@
                               </tbody>
                          </table>
                     </div>
-                    <!--<div class="col-xs-6">-->
-                    <!--&lt;!&ndash;<p>显示 {{vm.dataTable.currentPageStart()}} 到 {{vm.dataTable.currentPageEnd()}} 共 {{vm.projects.length}} 条数据</p>&ndash;&gt;-->
-                    <!--</div>-->
-                    <div class="col-xs-12">
-                         <div >
-                              <ul class="pagination" style="margin-left: 30%;">
-                                   <li class="prev" ng-class="{ disabled: vm.dataTable.onFirstPage()}"><a href="#" ng-click="vm.dataTable.previous()">上一页</a></li>
-                                   <li ng-repeat-start="page in vm.dataTable.pages()" ng-repeat-end ng-class="{active: vm.dataTable.currentPage === page - 1}">
-                                        <a ng-click="vm.dataTable.goToPage(page)">{{page}}</a>
-                                   </li>
-                                   <li class="next" ng-class="{ disabled: vm.dataTable.onLastPage()}"><a href="#" ng-click="vm.dataTable.next()">下一页</a></li>
-                              </ul>
-                         </div>
+                    <div class="row">
+                         <tm-pagination conf="paginationConf"></tm-pagination>
                     </div>
+                         <!--<table class="table table-bordered">-->
+                              <!--<thead>-->
+                              <!--<tr>-->
+                                   <!--<th ng-click="vm.dataTable.sort('name')">姓名</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('place')">籍贯</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('birthday')">出生日期</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('education1')">学历</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('company')">现任职务</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('nation')">所属班子</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('party')">入党时间</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('school1')">毕业学校</th>-->
+                                   <!--<th ng-click="vm.dataTable.sort('sex')">专业</th>-->
+                                   <!--<th>操作</th>-->
+                              <!--</tr>-->
+                              <!--</thead>-->
+                              <!--<tbody>-->
+                              <!--<tr  ng-repeat="project in vm.dataTable.filteredData = (vm.dataTable.data | filter:vm.dataTable.filter) | orderBy:vm.dataTable.sortColumn:vm.dataTable.sortDescending | startFrom:vm.dataTable.currentPageStart() | limitTo:vm.dataTable.pageSize">-->
+                                   <!--<td>{{project.name}}</td>-->
+                                   <!--<td>{{project.palce}}</td>-->
+                                   <!--<td>{{project.birthday}}</td>-->
+                                   <!--<td>{{project.education1}}</td>-->
+                                   <!--<td>{{project.company}}</td>-->
+                                   <!--<td>{{project.nation}}</td>-->
+                                   <!--<td>{{project.party}}</td>-->
+                                   <!--<td>{{project.school1}}</td>-->
+                                   <!--<td>{{project.sex}}</td>-->
+                                   <!--<td>-->
+                                        <!--<button ng-click="updatepeople(project)" type="button"  class="btn btn-href ">-->
+                                             <!--修改-->
+                                        <!--</button>-->
+                                        <!--<button type="button"  class="btn btn-href ">-->
+                                             <!--删除-->
+                                        <!--</button>-->
+                                   <!--</td>-->
+                              <!--</tr>-->
+                              <!--</tbody>-->
+                         <!--</table>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="col-xs-6">&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<p>显示 {{vm.dataTable.currentPageStart()}} 到 {{vm.dataTable.currentPageEnd()}} 共 {{vm.projects.length}} 条数据</p>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--<div class="col-xs-12">-->
+                         <!--<div >-->
+                              <!--<ul class="pagination" style="margin-left: 30%;">-->
+                                   <!--<li class="prev" ng-class="{ disabled: vm.dataTable.onFirstPage()}"><a href="#" ng-click="vm.dataTable.previous()">上一页</a></li>-->
+                                   <!--<li ng-repeat-start="page in vm.dataTable.pages()" ng-repeat-end ng-class="{active: vm.dataTable.currentPage === page - 1}">-->
+                                        <!--<a ng-click="vm.dataTable.goToPage(page)">{{page}}</a>-->
+                                   <!--</li>-->
+                                   <!--<li class="next" ng-class="{ disabled: vm.dataTable.onLastPage()}"><a href="#" ng-click="vm.dataTable.next()">下一页</a></li>-->
+                              <!--</ul>-->
+                         <!--</div>-->
+                    <!--</div>-->
                </div>
           </div>
           <div class="panel panel-default" ng-show="isedit">
@@ -686,8 +727,8 @@
                                                   <div class="row">
                                                        <div class="form-group">
                                                             <label class="col-md-1 control-label">个人简历</label>
-                                                            <div class="col-md-11 ">
-                                                                 <script type="text/html" style="margin:auto;height:300px;"  ng-model="all_text" meta-umeditor
+                                                            <div class="col-md-11">
+                                                                 <script type="text/html" style="margin:auto;height:300px;width:700px" ng-style=""  ng-model="all_text" meta-umeditor
                                                                          meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历"></script>
                                                                  <!--<div class="model">-->
                                                                       <!--<div ng-bind="all_text"></div>-->

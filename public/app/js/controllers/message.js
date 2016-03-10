@@ -13,14 +13,50 @@
       $modalInstance.dismiss('cancel');
     };
   }]);
-  app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','messageservice',
-		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,messageservice) {
+  app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','UIMessageService','messageservice',
+		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,UIMessageService,messageservice) {
 			$scope.treeselected=$localStorage.treeselect;
 			console.log("信息浏览左树："+$scope.treeselected);
 			$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 				$scope.treeselected=$localStorage.treeselect;
 				console.log("信息浏览左树变换："+$scope.treeselected);
 			});
+
+			////分页获取数据
+			//var getMessageImageList = function () {
+			//	var postData = $.param({
+			//		pageNo: $scope.paginationConf.currentPage,
+			//		pageSize: $scope.paginationConf.itemsPerPage
+			//	});
+			//	UIMessageService.getMessageList(postData).then(
+			//		function (res) {
+			//			console.log(res);
+			//			if(res.data.code==200){
+			//				$scope.paginationConf.totalItems = res.data.totalElements;
+			//				$scope.imgs = res.data.info;
+			//			}else{
+			//				alert(res.data.msg);
+			//			}
+            //
+			//		},
+			//		function (rej) {
+			//			console.log(rej);
+			//		}
+			//	)
+			//}
+			////配置分页基本参数
+			//$scope.paginationConf = {
+			//	currentPage: 1,
+			//	itemsPerPage: 10
+			//};
+			///***************************************************************
+			// 当页码和页面记录数发生变化时监控后台查询
+			// 如果把currentPage和itemsPerPage分开监控的话则会触发两次后台事件。
+			// ***************************************************************/
+			//$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
+
+
+
             $scope.itemsByPage=10;
 			//获取人员信息
 			messageservice.getData().then(
@@ -70,6 +106,7 @@
 		        $log.info('Modal dismissed at: ' + new Date());
 		      });
 			};
+
 
 
 		} ]);

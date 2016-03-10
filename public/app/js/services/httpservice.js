@@ -1,5 +1,6 @@
 angular.module('app')
 .service('SeetingtreeService',['$q','$http','SERVICE_URL','$localStorage',function($q,$http,SERVICE_URL,$localStorage){
+    //单位树管理
     return{
         getTreeList:function(id){
             var deferred=$q.defer();
@@ -100,6 +101,7 @@ angular.module('app')
         }
     }
 }]).service('SettingdaimaService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+    //代码管理
     return{
         getCatalogList:function(){
             var deferred=$q.defer();
@@ -166,6 +168,7 @@ angular.module('app')
 
     }
 }]).service('SettinguserService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+    //用户管理
     return{
         getUserList:function(){
             var deferred=$q.defer();
@@ -207,6 +210,72 @@ angular.module('app')
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/sysuser/uppsw?';
             var promise=$http.put( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        }
+
+    }
+}]).service('SettingpeopleService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+    //用户管理
+    return{
+        getPeopleList:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/getUser?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        }
+        //addUser:function(params){
+        //    var deferred=$q.defer();
+        //    var path=SERVICE_URL+'/setting/sysuser/add';
+        //    var promise=$http.post(path, params).then(function(response){
+        //        return response;
+        //    },function(response){
+        //        console.log(response);
+        //        return response;
+        //    });
+        //    return promise;
+        //},
+        //updateUser:function(params){
+        //    var deferred=$q.defer();
+        //    var path=SERVICE_URL+'/setting/sysuser/update?';
+        //    var promise=$http.put( path+ params).then(function(response){
+        //        return response;
+        //    },function(response){
+        //        console.log(response);
+        //        return response;
+        //    });
+        //    return promise;
+        //},
+        //updatePassword:function(params){
+        //    var deferred=$q.defer();
+        //    var path=SERVICE_URL+'/setting/sysuser/uppsw?';
+        //    var promise=$http.put( path+ params).then(function(response){
+        //        return response;
+        //    },function(response){
+        //        console.log(response);
+        //        return response;
+        //    });
+        //    return promise;
+        //}
+
+    }
+}]).service('UIMessageService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+    //信息浏览
+    return{
+        getMessageList:function(params){
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var path='/public/app/api/message?';
+            var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);

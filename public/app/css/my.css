@@ -375,12 +375,12 @@ table{
         margin-top: 0px;
     }
 }
-@media (min-width: 768px) and (max-width: 890px) {
+@media (min-width: 768px) and (max-width: 891px) {
     #header,#headerLayout{
         margin-top: 102px;
     }
 }
-@media (min-width: 891px) and (max-width: 964px) {
+@media (min-width: 892px) and (max-width: 964px) {
     #header,#headerLayout{
         margin-top: 50px;
     }
@@ -396,13 +396,13 @@ table{
         margin-top: 50px;
     }
 }
-@media (min-width: 1119px) and (max-width: 1147px) {
+@media (min-width: 1119px) and (max-width: 1210px) {
     #header,#headerLayout{
-        margin-top: 0px;
+        margin-top: 50px;
     }
 }
 
-@media (min-width: 1148px) and (max-width: 1262px) {
+@media (min-width: 1210px) and (max-width: 1262px) {
     #header,#headerLayout{
         margin-top: 0px;
     }

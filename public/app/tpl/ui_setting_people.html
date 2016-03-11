@@ -180,12 +180,14 @@
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiguan.$invalid && !addPeopleform_1.jiguan.$pristine }">
                                                                  <label class="col-md-3 control-label">籍贯</label>
                                                                  <div class="col-md-9 ">
+                                                                      <div  class=" m-l-n">
                                                                       <ui-select ng-model="jiguan" theme="bootstrap">
                                                                            <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
                                                                            <ui-select-choices repeat="item in address | filter: $select.search">
                                                                                 <div ng-bind-html="item.name | highlight: $select.search"></div>
                                                                            </ui-select-choices>
                                                                       </ui-select>
+                                                                           </div>
                                                                            <!--<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>-->
                                                                  </div>
                                                             </div>
@@ -193,7 +195,12 @@
                                                                  <label class="col-md-3 control-label">健康状况</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="jiankang" type="text" ng-model="newdata.jiankang" required>
+                                                                           <ui-select ng-model="jiankang" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                                <ui-select-choices repeat="item in jiankanglist | filter: $select.search">
+                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                </ui-select-choices>
+                                                                           </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -219,7 +226,12 @@
                                                                  <label class="col-md-3 control-label">性别</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="xingbie" type="text" ng-model="newdata.xingbie" required>
+                                                                           <ui-select ng-model="xingbie" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                                <ui-select-choices repeat="item in sexlist | filter: $select.search">
+                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                </ui-select-choices>
+                                                                           </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -227,7 +239,12 @@
                                                                  <label class="col-md-3 control-label">民族</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="minzu" type="text" ng-model="newdata.minzu" required>
+                                                                           <ui-select ng-model="minzu" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                                <ui-select-choices repeat="item in minzulist | filter: $select.search">
+                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                </ui-select-choices>
+                                                                           </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -235,7 +252,12 @@
                                                                  <label class="col-md-3 control-label">出生地</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="chusheng" type="text" ng-model="newdata.chusheng" required>
+                                                                           <ui-select ng-model="chusheng" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                                <ui-select-choices repeat="item in address | filter: $select.search">
+                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                </ui-select-choices>
+                                                                           </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>

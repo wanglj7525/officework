@@ -144,7 +144,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
             //if(res.data.code==200){
                 $scope.sexlist=res.data.sex;
                 $scope.address=res.data.address;
-                console.log($scope.address);
+                $scope.minzulist=res.data.minzus;
+            $scope.jiankanglist=res.data.jiankangs;
             //}
         },
         function(rej){

@@ -133,7 +133,7 @@ angular.module('app')
               .state('app.setting.people',{
                   url:'/people',
                   templateUrl:STATIC_PATH+'tpl/ui_setting_people.html',
-                  resolve:load(['xeditable',STATIC_PATH + 'js/controllers/setting_people.js']),
+                  resolve:load(['ui.select',STATIC_PATH + 'js/controllers/setting_people.js']),
                   controller:function($scope,$state){
                       $scope.state = $state;
                   }

@@ -1,5 +1,5 @@
 angular.module('app')
- .directive('autocomplete',function(Reasons){
+ .directive('autocompletes',function(Reasons){
         return {
             restrict: "A",
             require:"?ngModel",

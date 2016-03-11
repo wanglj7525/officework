@@ -84,19 +84,73 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage','peoplelistservice','SettingpeopleService', function($scope,$http,$modal,$log,TableDatePage,peoplelistservice,SettingpeopleService){
+app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','TableDatePage','peoplelistservice','SettingpeopleService', function($scope,$http,$modal,$log,$debounce,TableDatePage,peoplelistservice,SettingpeopleService){
     $scope.isedit=false;
     $scope.showelse=false;
     //取消
     $scope.back_people=function(){
         $scope.isedit=false;
     }
+    //分页获取数据
+    var getMessageImageList = function () {
+        var postData = $.param({
+            name:$scope.searchtext,
+            pageNo: $scope.paginationConf.currentPage,
+            pageSize: $scope.paginationConf.itemsPerPage
+        });
+        SettingpeopleService.getPeopleList(postData).then(
+        	function (res) {
+        		console.log(res);
+        		if(res.data.code==200){
+        			$scope.paginationConf.totalItems = res.data.info.allRow;
+        			$scope.peoplelist = res.data.info.list;
+        		}else{
+        			alert(res.data.msg);
+        		}
+
+        	},
+        	function (rej) {
+        		console.log(rej);
+        	}
+        )
+    }
+    //配置分页基本参数
+    $scope.paginationConf = {
+        currentPage: 1,
+        itemsPerPage: 10
+    };
+    ///***************************************************************
+    // 当页码和页面记录数发生变化时监控后台查询
+    // 如果把currentPage和itemsPerPage分开监控的话则会触发两次后台事件。
+    // ***************************************************************/
+    $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
+    //自动搜索
+    $scope.$watch('searchtext', function (newValue, oldValue) {
+        if (newValue === oldValue) { return; }
+        $debounce(getMessageImageList, 800);
+    }, true);
+
+
     //保存基本信息
     $scope.saveJiben=function(){
         $scope.showelse=true;
     }
 
     $scope.all_config = {};
+
+    //性别
+    SettingpeopleService.getSexList().then(
+        function(res){
+            //if(res.data.code==200){
+                $scope.sexlist=res.data.sex;
+                $scope.address=res.data.address;
+                console.log($scope.address);
+            //}
+        },
+        function(rej){
+
+        }
+    );
 
     //添加职务
     $scope.addzhiwu=function(peopleid){
@@ -346,49 +400,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','TableDatePage'
     //},function(response){
     //    return response;
     //});
-    //分页获取数据
-    var getMessageImageList = function () {
-    	var postData = $.param({
-            name:$scope.searhname,
-    		pageNo: $scope.paginationConf.currentPage,
-    		pageSize: $scope.paginationConf.itemsPerPage
-    	});
-        $scope.paginationConf.totalItems = 265;
-        //SettingpeopleService.getPeopleList(postData).then(
-    	//	function (res) {
-    	//		console.log(res);
-    	//		if(res.data.code==200){
-    	//			$scope.paginationConf.totalItems = res.data.totalElements;
-    	//			$scope.peoplelist = res.data.info;
-    	//		}else{
-    	//			alert(res.data.msg);
-    	//		}
-        //
-    	//	},
-    	//	function (rej) {
-    	//		console.log(rej);
-    	//	}
-    	//)
-    }
-    //配置分页基本参数
-    $scope.paginationConf = {
-    	currentPage: 1,
-    	itemsPerPage: 10
-    };
-    ///***************************************************************
-    // 当页码和页面记录数发生变化时监控后台查询
-    // 如果把currentPage和itemsPerPage分开监控的话则会触发两次后台事件。
-    // ***************************************************************/
-    $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
-  
-    peoplelistservice.getData().then(
-        function (res) {
-            $scope.peoplelist = res.data.info;
-        },
-        function (rej) {
-            console.log(rej);
-        }
-    );
 
     $scope.addpeople=function(){
         var modaltreeInstance = $modal.open({

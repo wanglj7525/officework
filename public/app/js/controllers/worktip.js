@@ -53,6 +53,7 @@ app.controller('WorktipFormController',
 app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams',  function($scope, $localStorage,UIworktipservice,$stateParams) {
 	//切换单位树 请求新的数据
 	$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+		if(newValue===oldValue) return;
 		var postData = $.param({
 			tree_id:$localStorage.tree_uuid,
 			category:$stateParams.pid,

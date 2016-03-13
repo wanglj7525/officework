@@ -244,8 +244,31 @@ angular.module('app')
                 return response;
             });
             return promise;
+        },
+        getZhiwuList: function () {
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/user/getUser?';
+            var path='/public/app/api/zhiwulist';
+            var promise=$http.get(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getZhichengList: function () {
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/user/getUser?';
+            var path='/public/app/api/zhicheng';
+            var promise=$http.get(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
         }
-
     }
 }]).service('UIMessageService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
     //信息浏览

@@ -5,7 +5,7 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
 	<form name="addPeoplezhiwuform" class="form-horizontal">
 		<div class="row">
 			<div class="">
@@ -13,7 +13,12 @@
 					<label class="col-md-4 control-label">技术任职资格职称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.leibie">
+								<ui-select-match  placeholder="请选择技术任职资格职称">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in zhicheng | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -21,7 +26,7 @@
 					<label class="col-md-4 control-label">获得资格日期</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+							<input class="form-control" name="getdate" type="date" ng-model="zhicheng.getdate" required>
 						</div>
 					</div>
 				</div>
@@ -29,7 +34,7 @@
 					<label class="col-md-4 control-label">聘任时间</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
+							<input class="form-control" name="pinrengdate" type="date" ng-model="zhicheng.date" required>
 						</div>
 					</div>
 				</div>
@@ -37,7 +42,12 @@
 					<label class="col-md-4 control-label">级别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiankang" type="text" ng-model="newdata.jiankang" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.leibie">
+								<ui-select-match  placeholder="请选择级别">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in zhichengjibie | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>

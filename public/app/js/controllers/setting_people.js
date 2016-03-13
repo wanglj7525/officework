@@ -47,7 +47,9 @@
 //        });
 //    };
 //}]);
-
+app.controller('DatepickerDemoCtrl', ['$scope', function($scope) {
+   
+}])
 app.controller('ModalAddPeopleInstanceCtrl', ['$scope', '$modalInstance','editableOptions','editableThemes', function($scope, $modalInstance, editableOptions, editableThemes){
     editableThemes.bs3.inputClass = 'input-sm';
     editableThemes.bs3.buttonsClass = 'btn-sm';
@@ -132,35 +134,67 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
 
 
     //保存基本信息
+    $scope.user={}
     $scope.saveJiben=function(){
         $scope.showelse=true;
+        alert($scope.user.jiguan["name"]);
     }
 
     $scope.all_config = {};
 
-    //性别
+    //基本信息
     SettingpeopleService.getSexList().then(
         function(res){
             //if(res.data.code==200){
                 $scope.sexlist=res.data.sex;
                 $scope.address=res.data.address;
                 $scope.minzulist=res.data.minzus;
-            $scope.jiankanglist=res.data.jiankangs;
+                $scope.jiankanglist=res.data.jiankangs;
+                $scope.zhijilist=res.data.zhijis;
+                $scope.zhengzhilist=res.data.zhengzhis;
+                $scope.zhuangtailist=res.data.zhuangtais;
             //}
         },
         function(rej){
-
         }
     );
-
+    //添加职务
+    SettingpeopleService.getZhiwuList().then(
+        function(res){
+            //if(res.data.code==200){
+            $scope.tongjileibie=res.data.tongjileibie;
+            $scope.renzhizhuangtai=res.data.zhuangtai;
+            $scope.jigou=res.data.jigou;
+            $scope.lishu=res.data.lishu;
+            $scope.jigouleibie=res.data.jigouleibie;
+            $scope.zhiwuleibie=res.data.leibie;
+            $scope.zhiwuzhiji=res.data.zhiji;
+            $scope.jigoujibie=res.data.jibie;
+            //}
+        },
+        function(rej){
+        }
+    );
+    
+    //职称
+    SettingpeopleService.getZhichengList().then(
+        function(res){
+            //if(res.data.code==200){
+            $scope.zhicheng=res.data.zhicheng;
+            $scope.zhichengjibie=res.data.zhichengjibie;
+            //}
+        },
+        function(rej){
+        }
+    );
     //时间控件
     $scope.today = function() {
-        $scope.birthday = new Date();
+        $scope.dt = new Date();
     };
     $scope.today();
 
     $scope.clear = function () {
-        $scope.birthday = null;
+        $scope.dt = null;
     };
 
     // Disable weekend selection
@@ -187,12 +221,9 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
     };
 
     $scope.initDate = new Date('2016-15-20');
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
-
-
-
-
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy-MM-dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[1];
+    
     //添加职务
     $scope.addzhiwu=function(peopleid){
         var modalzwaddInstance = $modal.open({

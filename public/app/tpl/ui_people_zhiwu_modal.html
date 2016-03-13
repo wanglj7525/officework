@@ -5,7 +5,7 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
 	<form name="addPeoplezhiwuform" class="form-horizontal">
 		<div class="row">
 			<div class="col-md-6">
@@ -13,7 +13,7 @@
 					<label class="col-md-4 control-label">职务名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+							<input class="form-control" name="name" type="text" ng-model="zhiwu.name" required>
 						</div>
 					</div>
 				</div>
@@ -21,7 +21,12 @@
 					<label class="col-md-4 control-label">职务统计类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.tongjileibie">
+								<ui-select-match  placeholder="请选择职务统计类别">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in zhiwuleibie | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -29,7 +34,12 @@
 					<label class="col-md-4 control-label">任职状态</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.zhuangtai">
+								<ui-select-match  placeholder="请选择任职状态">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in renzhizhuangtai | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -45,7 +55,12 @@
 					<label class="col-md-4 control-label">任职机构名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="zhiji" type="text" ng-model="newdata.zhiji" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.jigou">
+								<ui-select-match  placeholder="请选择任职机构">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in jigou | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -53,7 +68,12 @@
 					<label class="col-md-4 control-label">任职机构隶属</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="shenfen" type="text" ng-model="newdata.shenfen" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.lishu">
+								<ui-select-match  placeholder="请选择任职机构隶属">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in lishu | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -61,7 +81,12 @@
 					<label class="col-md-4 control-label">任职机构性质类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="xingbie" type="text" ng-model="newdata.xingbie" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.jigouleibie">
+								<ui-select-match  placeholder="请选择任职机构性质属性类别">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in jigouleibie | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -71,7 +96,12 @@
 					<label class="col-md-4 control-label">职务类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="xingbie" type="text" ng-model="newdata.xingbie" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.leibie">
+								<ui-select-match  placeholder="请选择职务类别">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in zhiwuleibie | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -79,7 +109,12 @@
 					<label class="col-md-4 control-label">职级</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="minzu" type="text" ng-model="newdata.minzu" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.zhiji">
+								<ui-select-match  placeholder="请选择职级">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in zhiwuzhiji | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -87,7 +122,7 @@
 					<label class="col-md-4 control-label">批准任职时间</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="chusheng" type="text" ng-model="newdata.chusheng" required>
+							<input class="form-control" name="renzhidate" type="date" ng-model="zhiwu.pizhundate" required>
 						</div>
 					</div>
 				</div>
@@ -95,7 +130,7 @@
 					<label class="col-md-4 control-label">批准免职时间</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="zhiji" type="text" ng-model="newdata.zhiji" required>
+							<input class="form-control" name="mainzhidate" type="text" ng-model="zhuwu.mian" required>
 						</div>
 					</div>
 				</div>
@@ -111,7 +146,12 @@
 					<label class="col-md-4 control-label">任职机构级别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="shenfenzheng" type="text" ng-model="newdata.shenfenzheng" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.jigoujibie">
+								<ui-select-match  placeholder="请选择任职机构级别">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item in jigoujibie | filter: $select.search">
+									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>

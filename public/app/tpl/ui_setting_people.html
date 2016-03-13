@@ -159,11 +159,16 @@
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.shenfen.$invalid && !addPeopleform_1.shenfen.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.personal.$invalid && !addPeopleform_1.personal.$pristine }">
                                                                  <label class="col-md-3 control-label">个人身份</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="shenfen" type="text" ng-model="user.shenfen" required>
+                                                                           <ui-select ng-model="user.personal" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+                                                                                <ui-select-choices repeat="item in personallist | filter: $select.search">
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
+                                                                                </ui-select-choices>
+                                                                           </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -246,7 +251,7 @@
                                                        <div class="col-md-4">
                                                             <div>
                                                                  <input type="file" name="carpoolpic1" id="carpoolpic1"  onchange="changeImgadd(this)" style="width: 100%"/>
-                                                                 <img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{people.head_pic}}" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>
+                                                                 <img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{user.head_pic}}" ng-model="user.head_pic" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>
                                                                  <script>
                                                                       var image = '';
                                                                       function changeImgadd(file){
@@ -303,7 +308,7 @@
                                                             <label class="col-md-1 control-label">专长</label>
                                                             <div class="col-md-11 ">
                                                                  <div  class=" m-l-n">
-                                                                      <textarea rows="2" class="form-control" name="zhuanchang" ng-model="user.zhuanchang" ></textarea>
+                                                                      <textarea rows="2" class="form-control" name="speciaty" ng-model="user.speciaty" ></textarea>
                                                                  </div>
                                                             </div>
                                                        </div>

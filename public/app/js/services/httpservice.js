@@ -244,6 +244,28 @@ angular.module('app')
             });
             return promise;
         },
+        updateBase:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/basicInfo/update?';
+            var promise=$http.put( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        addBase:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/basicInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         getSexList: function () {
             var deferred=$q.defer();
             //var path=SERVICE_URL+'/setting/user/getUser?';

@@ -121,7 +121,8 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage','$debounce','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService', function($scope,$http,$modal,$log,$localStorage,$debounce,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService){
+app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$localStorage','$debounce','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService',
+    function($scope,$http,$filter,$modal,$log,$localStorage,$debounce,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService){
     $scope.isedit=false;
     $scope.showelse=false;
     //取消
@@ -164,30 +165,33 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage'
         $debounce(getMessageImageList, 800);
     }, true);
 
+    //性别
+    SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+    //地址
+    SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+    //民族
+    SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
+    //健康
+    SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
+    //职级
+    SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+    //政治面貌
+    SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+    //人员状态
+    SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+    //个人身份
+    SettingdaimaService.getCodagetList("FJ06").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
+
 //添加用户
     $scope.addp=function(){
-       $scope.isedit=true;
+        $scope.user={};
+        $scope.isedit=true;
         $scope.showelse=false;
         $scope.showtitle="添加用户";
-        $scope.user={};
-        //性别
-        SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
-        //地址
-        SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
-        //民族
-        SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
-        //健康
-        SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
-        //职级
-        SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
-        //政治面貌
-        SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
-        //人员状态
-        SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
     }
 //修改用户
     $scope.updatepeople=function(people){
-        console.log(people);
+        $scope.user={};
         $scope.isedit=true;
         $scope.showelse=true;
         $scope.showtitle="修改用户";
@@ -200,8 +204,66 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage'
             function(res){
                 if(res.data.code==200){
                     $scope.user=res.data.info;
-
-                    $scope.user.political_status.selected="中国共产党党员";
+                    //下拉列表默认显示值
+                    if($scope.user.jiguan||$scope.user.birthplace){
+                        for(var i=0;i<$scope.address.length;i++){
+                            if($scope.user.birthplace==$scope.address[i].ano){
+                                $scope.user.birthplace=$scope.address[i];
+                            }
+                            if($scope.user.jiguan==$scope.address[i].ano){
+                                $scope.user.jiguan=$scope.address[i];
+                            }
+                        }
+                    }
+                    if($scope.user.person_status){
+                        for(var i=0;i<$scope.zhuangtailist.length;i++){
+                            if($scope.user.person_status==$scope.zhuangtailist[i].ano){
+                                $scope.user.person_status=$scope.zhuangtailist[i];
+                            }
+                        }
+                    }
+                    if($scope.user.personal){
+                        for(var i=0;i<$scope.personallist.length;i++){
+                            if($scope.user.personal==$scope.personallist[i].ano){
+                                $scope.user.personal=$scope.personallist[i];
+                            }
+                        }
+                    }
+                    if($scope.user.rank){
+                        for(var i=0;i<$scope.zhijilist.length;i++){
+                            if($scope.user.rank==$scope.zhijilist[i].ano){
+                                $scope.user.rank=$scope.zhijilist[i];
+                            }
+                        }
+                    }
+                    if($scope.user.health){
+                        for(var i=0;i<$scope.jiankanglist.length;i++){
+                            if($scope.user.health==$scope.jiankanglist[i].ano){
+                                $scope.user.health=$scope.jiankanglist[i];
+                            }
+                        }
+                    }
+                    if($scope.user.political_status){
+                        for(var i=0;i<$scope.zhengzhilist.length;i++){
+                            if($scope.user.political_status==$scope.zhengzhilist[i].ano){
+                                $scope.user.political_status=$scope.zhengzhilist[i];
+                            }
+                        }
+                    }
+                    if($scope.user.sex){
+                        for(var i=0;i<$scope.sexlist.length;i++){
+                            if($scope.user.sex==$scope.sexlist[i].ano){
+                                $scope.user.sex=$scope.sexlist[i];
+                            }
+                        }
+                    }
+                    if( $scope.user.nation){
+                        for(var i=0;i<$scope.minzulist.length;i++){
+                            if($scope.user.nation==$scope.minzulist[i].ano){
+                                $scope.user.nation=$scope.minzulist[i];
+                            }
+                        }
+                    }
                 }else{
                     alert(res.data.msg);
                 }
@@ -209,28 +271,77 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage'
                 console.log(rej);
             }
         )
-        //性别
-        SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
-        //地址
-        SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
-        //民族
-        SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
-        //健康
-        SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
-        //职级
-        SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
-        //政治面貌
-        SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
-        //人员状态
-        SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
-
     }
 
     //保存基本信息
     $scope.saveJiben=function(){
         $scope.showelse=true;
-        alert($scope.user.jiguan["name"]);
-        alert($scope.user.birthday);
+        if($scope.user.person_id){
+            var postData = $.param({
+                person_id:$scope.user.person_id,
+                head_pic:$scope.user.head_pic,
+                name:$scope.user.name,
+                sex:$scope.user.sex["ano"],
+                birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
+                birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
+                jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
+                nation:$scope.user.nation?$scope.user.nation["ano"]:"",
+                health:$scope.user.health?$scope.user.health["ano"]:"",
+                work_date:$filter("date")($scope.user.work_date, "yyyyMMdd"),
+                political_status:$scope.user.political_status?$scope.user.political_status["ano"]:"",
+                organ_date:$filter("date")($scope.user.organ_date, "yyyyMMdd"),
+                card_id:$scope.user.card_id,
+                //specialty:$scope.user.specialty["ano"],
+                rank:$scope.user.rank?$scope.user.rank["ano"]:"",
+                person_status:$scope.user.person_status?$scope.user.person_status["ano"]:"",
+                personal:$scope.user.personal?$scope.user.personal["ano"]:"",
+                specialty:$scope.user.specialty,
+                info_source:"",
+                alternatives1:"",
+                alternatives2:"",
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.updateBase(postData).then(
+                function(res){
+                    alert(res.data.msg);
+                },
+                function(rej){
+
+                }
+            )
+        }else{
+            var postData = $.param({
+                head_pic:$scope.user.head_pic,
+                name:$scope.user.name,
+                sex:$scope.user.sex["ano"],
+                birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
+                birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
+                jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
+                nation:$scope.user.nation?$scope.user.nation["ano"]:"",
+                health:$scope.user.health?$scope.user.health["ano"]:"",
+                work_date:$filter("date")($scope.user.work_date, "yyyyMMdd"),
+                political_status:$scope.user.political_status?$scope.user.political_status["ano"]:"",
+                organ_date:$filter("date")($scope.user.organ_date, "yyyyMMdd"),
+                card_id:$scope.user.card_id,
+                //specialty:$scope.user.specialty["ano"],
+                rank:$scope.user.rank?$scope.user.rank["ano"]:"",
+                person_status:$scope.user.person_status?$scope.user.person_status["ano"]:"",
+                personal:$scope.user.personal?$scope.user.personal["ano"]:"",
+                specialty:$scope.user.specialty,
+                info_source:"",
+                alternatives1:"",
+                alternatives2:"",
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.addBase(postData).then(
+                function(res){
+                    alert(res.data.msg);
+                },
+                function(rej){
+
+                }
+            )
+        }
     }
 
     $scope.all_config = {};

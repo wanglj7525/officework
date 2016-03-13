@@ -18,7 +18,28 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'reasonli
 	$scope.tolist = tolist;
 	$scope.zhiwei = {
 		'id': 1
-	}
+	};
+
+	$scope.people = [
+		{ name: 'Adam',      email: 'adam@email.com',      age: 12, country: 'United States' },
+		{ name: 'Amalie',    email: 'amalie@email.com',    age: 12, country: 'Argentina' },
+		{ name: 'Estefanía', email: 'estefania@email.com', age: 21, country: 'Argentina' },
+		{ name: 'Adrian',    email: 'adrian@email.com',    age: 21, country: 'Ecuador' },
+		{ name: 'Wladimir',  email: 'wladimir@email.com',  age: 30, country: 'Ecuador' },
+		{ name: 'Samantha',  email: 'samantha@email.com',  age: 30, country: 'United States' },
+		{ name: 'Nicole',    email: 'nicole@email.com',    age: 43, country: 'Colombia' },
+		{ name: 'Natasha',   email: 'natasha@email.com',   age: 54, country: 'Ecuador' },
+		{ name: 'Michael',   email: 'michael@email.com',   age: 15, country: 'Colombia' },
+		{ name: 'Nicolás',   email: 'nicolas@email.com',    age: 43, country: 'Colombia' }
+	];
+	$scope.deployresaons=["a","b","c","d","f","e","r"];
+	var i= 2,j=12;
+	$scope.adddeploy=[{"id":1,"func":"addmoredeploy()","buttonname":"添加"}];
+	$scope.addmoredeploy=function(){
+
+		$scope.adddeploy.push({"id":i,"func":"delmoredeploy()","buttonname":"删除"});
+		i++;j++
+	};
 
 	$scope.ok = function () {
 		$modalInstance.close($scope.zhiwei.id);
@@ -54,6 +75,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			);
 		});
+
 		//点击头像查看个人信息
 		$scope.selectparam=[];
 		$scope.status = {
@@ -134,6 +156,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			}
 		);
 		$scope.reasonlist=[{"id":"1","reason":"工作调动原因一"},{"id":"2","reason":"工作调动原因2"},{"id":"3","reason":"工作调动原因3"}];
+		$scope.tree1=[{"id":"1","place":"福清市"},{"id":"2","place":"闽侯县"},{"id":"3","place":"晋安区"}];
 		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"副局长"}];
 		$scope.selectpeople=function(people){
 			var modaldeployInstance = $modal.open({

@@ -95,7 +95,7 @@ angular.module('app')
               .state('app.deploy',{
                   url:'/deploy',
                   templateUrl: STATIC_PATH + 'tpl/ui_deploy.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/deploy.js'])
+                  resolve: load(['ui.select',STATIC_PATH + 'js/controllers/deploy.js'])
               })
               .state('app.setting',{
                   abstract: true,

@@ -26,14 +26,6 @@
                <div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>
           </script>
           <div class="panel panel-default" ng-show="!isedit">
-               <!--<div class="panel-heading" style="position: relative">-->
-                    <!--<h4 class="col-md-9">人员管理</h4>-->
-                    <!--<div class="input-group col-md-2">-->
-                         <!--<span class="input-group-addon">搜索</span>-->
-                         <!--<input type="search" name="filter" class="form-control input-sm pull-right " ng-model="vm.dataTable.filter" ng-change="vm.dataTable.resetPaging()">-->
-                    <!--</div>-->
-                    <!--<button ng-click="isedit=true" class="btn btn-add btn-href col-md-1"   >添加</button>-->
-               <!--</div>-->
                <div class="row panel-heading" style="position: relative">
                     <div class="form-inline">
                          <label for="inputtt" style="margin-bottom: 0px"><span>人员管理</span></label>
@@ -43,7 +35,7 @@
                                    <input id="inputtt" type="search"  class="form-control" ng-model="searchtext" >
                               </div>
                          </div>
-                         <button ng-click="isedit=true" class="btn btn-href">添加</button>
+                         <button ng-click="addp()" class="btn btn-href">添加</button>
                     </div>
                </div>
                <div class="row form-inline">
@@ -89,64 +81,12 @@
                     <div class="row">
                          <tm-pagination conf="paginationConf"></tm-pagination>
                     </div>
-                         <!--<table class="table table-bordered">-->
-                              <!--<thead>-->
-                              <!--<tr>-->
-                                   <!--<th ng-click="vm.dataTable.sort('name')">姓名</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('place')">籍贯</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('birthday')">出生日期</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('education1')">学历</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('company')">现任职务</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('nation')">所属班子</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('party')">入党时间</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('school1')">毕业学校</th>-->
-                                   <!--<th ng-click="vm.dataTable.sort('sex')">专业</th>-->
-                                   <!--<th>操作</th>-->
-                              <!--</tr>-->
-                              <!--</thead>-->
-                              <!--<tbody>-->
-                              <!--<tr  ng-repeat="project in vm.dataTable.filteredData = (vm.dataTable.data | filter:vm.dataTable.filter) | orderBy:vm.dataTable.sortColumn:vm.dataTable.sortDescending | startFrom:vm.dataTable.currentPageStart() | limitTo:vm.dataTable.pageSize">-->
-                                   <!--<td>{{project.name}}</td>-->
-                                   <!--<td>{{project.palce}}</td>-->
-                                   <!--<td>{{project.birthday}}</td>-->
-                                   <!--<td>{{project.education1}}</td>-->
-                                   <!--<td>{{project.company}}</td>-->
-                                   <!--<td>{{project.nation}}</td>-->
-                                   <!--<td>{{project.party}}</td>-->
-                                   <!--<td>{{project.school1}}</td>-->
-                                   <!--<td>{{project.sex}}</td>-->
-                                   <!--<td>-->
-                                        <!--<button ng-click="updatepeople(project)" type="button"  class="btn btn-href ">-->
-                                             <!--修改-->
-                                        <!--</button>-->
-                                        <!--<button type="button"  class="btn btn-href ">-->
-                                             <!--删除-->
-                                        <!--</button>-->
-                                   <!--</td>-->
-                              <!--</tr>-->
-                              <!--</tbody>-->
-                         <!--</table>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;<div class="col-xs-6">&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;<p>显示 {{vm.dataTable.currentPageStart()}} 到 {{vm.dataTable.currentPageEnd()}} 共 {{vm.projects.length}} 条数据</p>&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--<div class="col-xs-12">-->
-                         <!--<div >-->
-                              <!--<ul class="pagination" style="margin-left: 30%;">-->
-                                   <!--<li class="prev" ng-class="{ disabled: vm.dataTable.onFirstPage()}"><a href="#" ng-click="vm.dataTable.previous()">上一页</a></li>-->
-                                   <!--<li ng-repeat-start="page in vm.dataTable.pages()" ng-repeat-end ng-class="{active: vm.dataTable.currentPage === page - 1}">-->
-                                        <!--<a ng-click="vm.dataTable.goToPage(page)">{{page}}</a>-->
-                                   <!--</li>-->
-                                   <!--<li class="next" ng-class="{ disabled: vm.dataTable.onLastPage()}"><a href="#" ng-click="vm.dataTable.next()">下一页</a></li>-->
-                              <!--</ul>-->
-                         <!--</div>-->
-                    <!--</div>-->
                </div>
           </div>
           <div class="panel panel-default" ng-show="isedit">
                <div class="panel-heading" style="position: relative">
                     <button class="btn btn-info" ng-click="isedit=false">返回</button>
-                    <span style="margin-left: 20px">添加人员信息</span>
+                    <span style="margin-left: 20px">{{showtitle}}</span>
                </div>
                <!--<ng-include src="'/public/app/tpl/ui_setting_people_add_modal.html'" ></ng-include>-->
                <div >
@@ -184,36 +124,36 @@
                                                                  <div class="col-md-9 ">
                                                                       <div  class=" m-l-n">
                                                                       <ui-select theme="bootstrap"  ng-model="user.jiguan">
-                                                                           <ui-select-match  placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select-match  placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                            <ui-select-choices repeat="item in address | filter: $select.search">
-                                                                                <div  ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                <div  ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                            </ui-select-choices>
                                                                       </ui-select>
                                                                            </div>
                                                                            <!--<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>-->
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiankang.$invalid && !addPeopleform_1.jiankang.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.health.$invalid && !addPeopleform_1.health.$pristine }">
                                                                  <label class="col-md-3 control-label">健康状况</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.jiankang" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.health" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in jiankanglist | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zhiji.$invalid && !addPeopleform_1.zhiji.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.rank.$invalid && !addPeopleform_1.rank.$pristine }">
                                                                  <label class="col-md-3 control-label">职级</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.zhiji" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.rank" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in zhijilist | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
@@ -229,76 +169,76 @@
                                                             </div>
                                                        </div>
                                                        <div class="col-md-4">
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.xingbie.$invalid && !addPeopleform_1.xingbie.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.sex.$invalid && !addPeopleform_1.sex.$pristine }">
                                                                  <label class="col-md-3 control-label">性别</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.xingbie" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.sex" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in sexlist | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.minzu.$invalid && !addPeopleform_1.minzu.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.nation.$invalid && !addPeopleform_1.nation.$pristine }">
                                                                  <label class="col-md-3 control-label">民族</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.minzu" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.nation" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in minzulist | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.chusheng.$invalid && !addPeopleform_1.chusheng.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthplace.$invalid && !addPeopleform_1.birthplace.$pristine }">
                                                                  <label class="col-md-3 control-label">出生地</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.chusheng" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.birthplace" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in address | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zhiji.$invalid && !addPeopleform_1.zhiji.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.political_status.$invalid && !addPeopleform_1.political_status.$pristine }">
                                                                  <label class="col-md-3 control-label">政治面貌</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.zhengzhi" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.political_status" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in zhengzhilist | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zhuangtai.$invalid && !addPeopleform_1.zhuangtai.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.person_status.$invalid && !addPeopleform_1.person_status.$pristine }">
                                                                  <label class="col-md-3 control-label">人员状态</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="user.zhuangtai" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>
+                                                                           <ui-select ng-model="user.person_status" theme="bootstrap">
+                                                                                <ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
                                                                                 <ui-select-choices repeat="item in zhuangtailist | filter: $select.search">
-                                                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                                     <div ng-bind-html="item.dz | highlight: $select.search"></div>
                                                                                 </ui-select-choices>
                                                                            </ui-select>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.shenfenzheng.$invalid && !addPeopleform_1.shenfenzheng.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.card_id.$invalid && !addPeopleform_1.card_id.$pristine }">
                                                                  <label class="col-md-3 control-label">身份证号</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="shenfenzheng" type="text" ng-model="user.shenfenzheng" required>
+                                                                           <input class="form-control" name="card_id" type="text" ng-model="user.card_id" required>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -306,7 +246,7 @@
                                                        <div class="col-md-4">
                                                             <div>
                                                                  <input type="file" name="carpoolpic1" id="carpoolpic1"  onchange="changeImgadd(this)" style="width: 100%"/>
-                                                                 <img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{people.img}}" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>
+                                                                 <img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{people.head_pic}}" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>
                                                                  <script>
                                                                       var image = '';
                                                                       function changeImgadd(file){
@@ -335,21 +275,21 @@
                                                                  <!--</div>-->
                                                                  <!--</div>-->
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.gongzuo.$invalid && !addPeopleform_1.gongzuo.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.work_date.$invalid && !addPeopleform_1.work_date.$pristine }">
                                                                  <label class="col-md-4 control-label">参加工作日期</label>
                                                                       <div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
                                                                            <div  class="input-group">
-                                                                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.canjiagongzuo" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.work_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                                                                            <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                                            </span>
                                                                            </div>
                                                                       </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zuzhi.$invalid && !addPeopleform_1.zuzhi.$pristine }">
+                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.organ_date.$invalid && !addPeopleform_1.organ_date.$pristine }">
                                                                  <label class="col-md-4 control-label">参加组织日期</label>
                                                                  <div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
                                                                       <div  class="input-group">
-                                                                           <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.canjiazuzhi" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                                           <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.organ_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                                                                            <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                                            </span>
                                                                       </div>

@@ -121,7 +121,7 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','TableDatePage','peoplelistservice','SettingpeopleService', function($scope,$http,$modal,$log,$debounce,TableDatePage,peoplelistservice,SettingpeopleService){
+app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage','$debounce','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService', function($scope,$http,$modal,$log,$localStorage,$debounce,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService){
     $scope.isedit=false;
     $scope.showelse=false;
     //取消
@@ -133,7 +133,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
         var postData = $.param({
             name:$scope.searchtext,
             pageNo: $scope.paginationConf.currentPage,
-            pageSize: $scope.paginationConf.itemsPerPage
+            pageSize: $scope.paginationConf.itemsPerPage,
+            access_token:$localStorage.token
         });
         SettingpeopleService.getPeopleList(postData).then(
         	function (res) {
@@ -156,10 +157,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
         currentPage: 1,
         itemsPerPage: 10
     };
-    ///***************************************************************
-    // 当页码和页面记录数发生变化时监控后台查询
-    // 如果把currentPage和itemsPerPage分开监控的话则会触发两次后台事件。
-    // ***************************************************************/
     $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
     //自动搜索
     $scope.$watch('searchtext', function (newValue, oldValue) {
@@ -167,9 +164,69 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
         $debounce(getMessageImageList, 800);
     }, true);
 
+//添加用户
+    $scope.addp=function(){
+       $scope.isedit=true;
+        $scope.showelse=false;
+        $scope.showtitle="添加用户";
+        $scope.user={};
+        //性别
+        SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+        //地址
+        SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+        //民族
+        SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
+        //健康
+        SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
+        //职级
+        SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+        //政治面貌
+        SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+        //人员状态
+        SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+    }
+//修改用户
+    $scope.updatepeople=function(people){
+        console.log(people);
+        $scope.isedit=true;
+        $scope.showelse=true;
+        $scope.showtitle="修改用户";
+
+        var postData = $.param({
+            person_id:people.id,
+            access_token:$localStorage.token
+        });
+        SettingpeopleService.getPeopleBase(postData).then(
+            function(res){
+                if(res.data.code==200){
+                    $scope.user=res.data.info;
+
+                    $scope.user.political_status.selected="中国共产党党员";
+                }else{
+                    alert(res.data.msg);
+                }
+            },function(rej){
+                console.log(rej);
+            }
+        )
+        //性别
+        SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+        //地址
+        SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+        //民族
+        SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
+        //健康
+        SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
+        //职级
+        SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+        //政治面貌
+        SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+        //人员状态
+        SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+
+    }
 
     //保存基本信息
-    $scope.user={}
     $scope.saveJiben=function(){
         $scope.showelse=true;
         alert($scope.user.jiguan["name"]);
@@ -178,22 +235,22 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
 
     $scope.all_config = {};
 
-    //基本信息
-    SettingpeopleService.getSexList().then(
-        function(res){
-            //if(res.data.code==200){
-                $scope.sexlist=res.data.sex;
-                $scope.address=res.data.address;
-                $scope.minzulist=res.data.minzus;
-                $scope.jiankanglist=res.data.jiankangs;
-                $scope.zhijilist=res.data.zhijis;
-                $scope.zhengzhilist=res.data.zhengzhis;
-                $scope.zhuangtailist=res.data.zhuangtais;
-            //}
-        },
-        function(rej){
-        }
-    );
+    ////基本信息
+    //SettingpeopleService.getSexList().then(
+    //    function(res){
+    //        //if(res.data.code==200){
+    //            $scope.sexlist=res.data.sex;
+    //            $scope.address=res.data.address;
+    //            $scope.minzulist=res.data.minzus;
+    //            $scope.jiankanglist=res.data.jiankangs;
+    //            $scope.zhijilist=res.data.zhijis;
+    //            $scope.zhengzhilist=res.data.zhengzhis;
+    //            $scope.zhuangtailist=res.data.zhuangtais;
+    //        //}
+    //    },
+    //    function(rej){
+    //    }
+    //);
     //添加职务
     SettingpeopleService.getZhiwuList().then(
         function(res){
@@ -475,36 +532,36 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
     //    return response;
     //});
 
-    $scope.addpeople=function(){
-        var modaltreeInstance = $modal.open({
-            templateUrl: 'saveAddPeopleModel.html',
-            controller: 'ModalAddPeopleInstanceCtrl',
-            size: 'lg'
-        });
-        modaltreeInstance.result.then(function (name) {
-            //vm.projects.push();
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-    }
+    //$scope.addpeople=function(){
+    //    var modaltreeInstance = $modal.open({
+    //        templateUrl: 'saveAddPeopleModel.html',
+    //        controller: 'ModalAddPeopleInstanceCtrl',
+    //        size: 'lg'
+    //    });
+    //    modaltreeInstance.result.then(function (name) {
+    //        //vm.projects.push();
+    //    }, function () {
+    //        $log.info('Modal dismissed at: ' + new Date());
+    //    });
+    //}
     
-    $scope.updatepeople=function(people){
-        var modaltreeInstance = $modal.open({
-            templateUrl: 'saveUpdatePeopleModel.html',
-            controller: 'ModalUpdatePeopleInstanceCtrl',
-            size: 'lg',
-            resolve:{
-                people:function(){
-                    return people;
-                }
-            }
-        });
-        modaltreeInstance.result.then(function () {
-            //vm.projects.push();
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-    }
+    //$scope.updatepeople=function(people){
+    //    var modaltreeInstance = $modal.open({
+    //        templateUrl: 'saveUpdatePeopleModel.html',
+    //        controller: 'ModalUpdatePeopleInstanceCtrl',
+    //        size: 'lg',
+    //        resolve:{
+    //            people:function(){
+    //                return people;
+    //            }
+    //        }
+    //    });
+    //    modaltreeInstance.result.then(function () {
+    //        //vm.projects.push();
+    //    }, function () {
+    //        $log.info('Modal dismissed at: ' + new Date());
+    //    });
+    //}
 }]);
 app.controller('ModalAddzhiwuInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
     $scope.zws={};

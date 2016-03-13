@@ -5,7 +5,7 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
 	<form name="addPeoplexueliform" class="form-horizontal">
 		<div class="row">
 			<div class="">
@@ -13,7 +13,12 @@
 					<label class="col-md-4 control-label">机关正处工资级别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+							<ui-select ng-model="jiangcheng.jibie" theme="bootstrap">
+								<ui-select-match placeholder="请选择工资级别">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in gongzijibie | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -21,7 +26,12 @@
 					<label class="col-md-4 control-label">机关正处工资档次</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+							<ui-select ng-model="jiangcheng.dangci" theme="bootstrap">
+								<ui-select-match placeholder="请选择工资档次">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in gongzidangci | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -29,7 +39,7 @@
 					<label class="col-md-4 control-label">事业五级管理薪级</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
+							<input class="form-control" name="jiangcheng.xiji" type="text" ng-model="newdata.jiguan" required>
 						</div>
 					</div>
 				</div>
@@ -37,7 +47,7 @@
 					<label class="col-md-4 control-label">奖惩说明</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<textarea rows="2" class="form-control" name="zhuanchang" ng-model="newdata.zhuanchang" ></textarea>
+							<textarea rows="2" class="form-control" name="zhuanchang" ng-model="jiangcheng.shuoming" ></textarea>
 						</div>
 					</div>
 				</div>

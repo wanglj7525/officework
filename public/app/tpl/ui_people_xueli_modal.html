@@ -5,7 +5,7 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
 	<form name="addPeoplexueliform" class="form-horizontal">
 		<div class="row">
 			<div class="col-md-6">
@@ -13,7 +13,12 @@
 					<label class="col-md-4 control-label">学历</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+							<ui-select ng-model="xueli.xueli" theme="bootstrap">
+								<ui-select-match placeholder="请选择学历">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in xueli | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -27,9 +32,11 @@
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.jiguan.$invalid && !addPeoplexueliform.jiguan.$pristine }">
 					<label class="col-md-4 control-label">毕业日期</label>
-					<div class="col-md-8 row">
-						<div  class=" m-l-n">
-							<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
+					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+						<div  class="input-group">
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="xueli.biye" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -39,7 +46,12 @@
 					<label class="col-md-4 control-label">学历类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+							<ui-select ng-model="xueli.leibie" theme="bootstrap">
+								<ui-select-match placeholder="请选择学位类别">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in xueweileibie | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -55,7 +67,12 @@
 					<label class="col-md-4 control-label">统计标识</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
+							<ui-select ng-model="xueli.tongji" theme="bootstrap">
+								<ui-select-match placeholder="请选择">{{$select.selected.value}}</ui-select-match>
+								<ui-select-choices repeat="item in xuanze | filter: $select.search">
+									<div ng-bind-html="item.value | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>

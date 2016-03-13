@@ -5,7 +5,7 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
 	<form name="addPeoplexueliform" class="form-horizontal">
 		<div class="row">
 			<div class="">
@@ -13,7 +13,12 @@
 					<label class="col-md-4 control-label">学位</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+							<ui-select ng-model="xuewei.xuewei" theme="bootstrap">
+								<ui-select-match placeholder="请选择学位">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in xuewei | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -21,7 +26,12 @@
 					<label class="col-md-4 control-label">学位类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+							<ui-select ng-model="kaocha.leibie" theme="bootstrap">
+								<ui-select-match placeholder="请选择学位类别">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in xueweileibie | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>

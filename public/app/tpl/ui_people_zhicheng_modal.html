@@ -13,10 +13,10 @@
 					<label class="col-md-4 control-label">技术任职资格职称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.leibie">
-								<ui-select-match  placeholder="请选择技术任职资格职称">{{$select.selected.name}}</ui-select-match>
-								<ui-select-choices repeat="item in zhicheng | filter: $select.search">
-									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.zige">
+								<ui-select-match  placeholder="请选择技术任职资格职称">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in jishurenzhizige | filter: $select.search">
+									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
@@ -42,10 +42,10 @@
 					<label class="col-md-4 control-label">级别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.leibie">
-								<ui-select-match  placeholder="请选择级别">{{$select.selected.name}}</ui-select-match>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.jibie">
+								<ui-select-match  placeholder="请选择级别">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in zhichengjibie | filter: $select.search">
-									<div  ng-bind-html="item.name | highlight: $select.search"></div>
+									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>

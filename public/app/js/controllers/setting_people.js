@@ -76,7 +76,7 @@ app.controller('DatepickerDemoCtrl', ['$scope', function($scope) {
 
     $scope.dateOptions = {
         formatYear: 'yy',
-        startingDay: 1,
+        startingDay: 0,
         class: 'datepicker'
     };
 
@@ -173,6 +173,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$debounce','Ta
     $scope.saveJiben=function(){
         $scope.showelse=true;
         alert($scope.user.jiguan["name"]);
+        alert($scope.user.birthday);
     }
 
     $scope.all_config = {};

@@ -173,7 +173,7 @@
                                                                  <label class="col-md-3 control-label">出生年月</label>
                                                                  <div class="col-md-9" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
                                                                       <div  class="input-group">
-                                                                           <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.borthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                                           <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                                                                            <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                                            </span>
                                                                       </div>
@@ -337,17 +337,21 @@
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.gongzuo.$invalid && !addPeopleform_1.gongzuo.$pristine }">
                                                                  <label class="col-md-4 control-label">参加工作日期</label>
-                                                                 <div class="col-md-8 row">
-                                                                      <div  class=" m-l-n">
-                                                                           <input class="form-control" name="gongzuo" type="text" ng-model="user.gongzuo" required>
+                                                                      <div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+                                                                           <div  class="input-group">
+                                                                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.canjiagongzuo" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                           </span>
+                                                                           </div>
                                                                       </div>
-                                                                 </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.zuzhi.$invalid && !addPeopleform_1.zuzhi.$pristine }">
                                                                  <label class="col-md-4 control-label">参加组织日期</label>
-                                                                 <div class="col-md-8 row">
-                                                                      <div  class=" m-l-n">
-                                                                           <input class="form-control" name="zuzhi" type="text" ng-model="user.zuzhi" required>
+                                                                 <div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+                                                                      <div  class="input-group">
+                                                                           <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.canjiazuzhi" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                           </span>
                                                                       </div>
                                                                  </div>
                                                             </div>

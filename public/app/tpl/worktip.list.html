@@ -16,22 +16,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in worktiptable | filter: {pid:pid}" >
+            <tr ng-repeat="row in worktiptable" >
+                <!--| filter: {pid:pid}-->
                 <td ng-bind="$index+1">1</td>
-                <td>{{row.fenlei}}</td>
-                <td>{{row.diqu}}</td>
-                <td >{{row.tishi}}</td>
-                <td >{{row.beizhu}}</td>
+                <td>{{row.tree_name}}</td>
+                <td>{{row.num}}</td>
+                <td >{{row.messages}}</td>
+                <td >{{row.messages}}</td>
                 <td class="lastTd">
                     <button type="button" ui-sref="app.deploy" class="btn btn-href btn-default">
-                        {{row.caozuo}}
+                        班子调配
                     </button>
                 </td>
             </tr>
             </tbody>
-            <tfoot>
-
-            </tfoot>
         </table>
+        <div class="row">
+            <tm-pagination conf="paginationConf"></tm-pagination>
+        </div>
     </div>
 </div>

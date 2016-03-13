@@ -9,6 +9,8 @@ app.controller('AbnTestController',[ '$rootScope','$scope', '$http', '$state','$
         //if ((_ref = branch.data) != null ? _ref.description : void 0) {
         //    return $scope.output += '(' + branch.data.description + ')';
         //}
+
+        $localStorage.tree_uuid=branch.uuid;
         $localStorage.treeselect=$scope.output;
         //TODO
     };

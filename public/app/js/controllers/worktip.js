@@ -11,70 +11,6 @@ app.controller('WorktipFormController',
 			$scope.treeselected=$localStorage.treeselect;
 			console.log("工作提示左树变换："+$scope.treeselected);
 		});
-		//var  tree, treedata_avm;
-		//$scope.my_tree_handler = function(branch) {
-		//	var _ref;
-		//	$scope.output = branch.label;
-		//	if ((_ref = branch.data) != null ? _ref.description : void 0) {
-		//		return $scope.output += '(' + branch.data.description + ')';
-		//	}
-		//	console.log($scope.output);
-		//	if($scope.output=="市委班子"){
-		//		//worktipservice2.getData().then(
-		//		//	function (res) {
-		//		//		$scope.tipinfo = res.data.info
-		//		//	},
-		//		//	function (rej) {
-		//		//		console.log(rej);
-		//		//	}
-		//		//);
-		//		$scope.pid = 0;
-		//		worktiplistservice2.getData().then(
-		//			function (res) {
-		//				$scope.worktiptable = res.data.info;
-		//			},
-		//			function (rej) {
-		//				console.log(rej);
-		//			}
-		//		);
-		//		$scope.itemsByPage=10;
-		//	}else{
-		//		//worktipservice.getData().then(
-		//		//	function (res) {
-		//		//		$scope.tipinfo = res.data.info
-		//		//	},
-		//		//	function (rej) {
-		//		//		console.log(rej);
-		//		//	}
-		//		//);
-		//		$scope.pid = 0;
-		//		worktiplistservice.getData().then(
-		//			function (res) {
-		//				$scope.worktiptable = res.data.info;
-		//			},
-		//			function (rej) {
-		//				console.log(rej);
-		//			}
-		//		);
-		//		$scope.itemsByPage=10;
-		//	}
-        //
-		//	//TODO
-		//};
-		//$scope.my_data = [];
-		//$scope.doing_async = true;
-		//treeservice.getData().then(
-		//	function (res) {
-		//		$scope.my_data = res.data.info
-		//		$scope.doing_async = false;
-		//		//tree.expand_all();
-		//	},
-		//	function (rej) {
-		//		console.log(rej);
-		//	}
-		//);
-		////$scope.my_data=treedata_avm;
-		//$scope.my_tree = tree = {};
 		worktipservice.getData().then(
 			function (res) {
 				$scope.tipinfo = res.data.info
@@ -114,17 +50,66 @@ app.controller('WorktipFormController',
 			$scope.tipinfo.splice(idx,1);
 		}
 	} ]);
-app.controller('WorktipListCtrl', ['$scope', 'worktiplistservice', '$stateParams',  function($scope, worktiplistservice,$stateParams) {
-	$scope.pid = $stateParams.pid;
-	worktiplistservice.getData().then(
-		function (res) {
-			$scope.worktiptable = res.data.info;
-		},
-		function (rej) {
-			console.log(rej);
-		}
-	);
-	$scope.itemsByPage=10;
+app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams',  function($scope, $localStorage,UIworktipservice,$stateParams) {
+	//切换单位树 请求新的数据
+	$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+		if(newValue===oldValue) return;
+		var postData = $.param({
+			tree_id:$localStorage.tree_uuid,
+			category:$stateParams.pid,
+			pageNo: $scope.paginationConf.currentPage,
+			pageSize: $scope.paginationConf.itemsPerPage
+		});
+		UIworktipservice.getworktipList(postData).then(
+			function (res) {
+				console.log(res);
+				if(res.data.code==200){
+					$scope.paginationConf.totalItems = res.data.info.allRow;
+					$scope.worktiptable = res.data.info.list;
+				}else{
+					alert(res.data.msg);
+				}
+
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		)
+	});
+	//分页获取数据
+	var getWorktipList = function () {
+		var postData = $.param({
+			tree_id:$localStorage.tree_uuid,
+			category:$stateParams.pid,
+			pageNo: $scope.paginationConf.currentPage,
+			pageSize: $scope.paginationConf.itemsPerPage
+		});
+		UIworktipservice.getworktipList(postData).then(
+			function (res) {
+				console.log(res);
+				if(res.data.code==200){
+					$scope.paginationConf.totalItems = res.data.info.allRow;
+					$scope.worktiptable = res.data.info.list;
+				}else{
+					alert(res.data.msg);
+				}
+
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		)
+	}
+	//配置分页基本参数
+	$scope.paginationConf = {
+		currentPage: 1,
+		itemsPerPage: 10
+	};
+	///***************************************************************
+	// 当页码和页面记录数发生变化时监控后台查询
+	// 如果把currentPage和itemsPerPage分开监控的话则会触发两次后台事件。
+	// ***************************************************************/
+	$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getWorktipList);
 }]);
 app.controller('WorktipEditCtrl', ['$scope', 'worktipservice',  function($scope, worktipservice) {
 	//worktipservice.getData().then(

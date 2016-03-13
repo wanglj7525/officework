@@ -287,7 +287,48 @@ angular.module('app')
         }
 
     }
-}]).factory('$debounce', ['$rootScope', '$browser', '$q', '$exceptionHandler',
+}]).service('UIworktipservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
+    //工作提示
+    return{
+        getworktipList:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/worktip/list?';
+            //var path='/public/app/api/worktip';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        }
+    }
+}] ).service('UIanalysisservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
+    //班子分析
+    return{
+        getanalysis:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/worktip/chart?';
+            //var path='/public/app/api/worktip';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        },
+        getanalysisdetail:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/worktip/chartdetails?';
+            //var path='/public/app/api/worktip';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        }
+    }
+}] ).factory('$debounce', ['$rootScope', '$browser', '$q', '$exceptionHandler',
         function($rootScope,   $browser,   $q,   $exceptionHandler) {
             // http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
             // adapted from angular's $timeout code

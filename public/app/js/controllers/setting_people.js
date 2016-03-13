@@ -164,26 +164,70 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage'
         $debounce(getMessageImageList, 800);
     }, true);
 
+    //“是、否”选择
+    $scope.xuanze=[{"id":1,"value":"是"},{"id":2,"value":"否"}];
+    //性别
+    SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+    //地址
+    SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+    //民族
+    SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
+    //健康
+    SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
+    //职级
+    SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+    //政治面貌
+    SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+    //人员状态
+    SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+    //家庭关系
+    SettingdaimaService.getCodagetList("GB4761").then(function(res){ $scope.jiatingguanxi=res.data.info.list;},function(rej){});
+    //人员现状
+    SettingdaimaService.getCodagetList("ZB56").then(function(res){ $scope.renyuanxianzhuang=res.data.info.list;},function(rej){});
+    //考察类别
+    SettingdaimaService.getCodagetList("ZB17").then(function(res){ $scope.kaochaleibie=res.data.info.list;},function(rej){});
+    //考察结论
+    SettingdaimaService.getCodagetList("ZB18").then(function(res){ $scope.kaochajielun=res.data.info.list;},function(rej){});
+    //公务员工资级别
+    SettingdaimaService.getCodagetList("ZBB90").then(function(res){ $scope.gongzijibie=res.data.info.list;},function(rej){});
+    //工资档次
+    SettingdaimaService.getCodagetList("ZB53").then(function(res){ $scope.gongzidangci=res.data.info.list;},function(rej){});
+    //学位
+    SettingdaimaService.getCodagetList("GB6864").then(function(res){ $scope.xuewei=res.data.info.list;},function(rej){});
+    //学历
+    SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xueli=res.data.info.list;},function(rej){});
+    //学历学位类别
+    SettingdaimaService.getCodagetList("ZBB89").then(function(res){ $scope.xueweileibie=res.data.info.list;},function(rej){});
+    //技术任职资格职称
+    SettingdaimaService.getCodagetList("GB8561").then(function(res){ $scope.jishurenzhizige=res.data.info.list;},function(rej){});
+    //职称级别
+    SettingdaimaService.getCodagetList("ZBB51").then(function(res){ $scope.zhichengjibie=res.data.info.list;},function(rej){});
+    //职务类别
+    SettingdaimaService.getCodagetList("ZBB91").then(function(res){ $scope.zhiwuleibie=res.data.info.list;},function(rej){});
+    //职务职级
+    SettingdaimaService.getCodagetList("ZB09").then(function(res){ $scope.zhiwuzhiji=res.data.info.list;},function(rej){});
+    //任职状态
+    SettingdaimaService.getCodagetList("ZB14").then(function(res){ $scope.renzhizhuangtai=res.data.info.list;},function(rej){});
+    //职务统计类别
+    SettingdaimaService.getCodagetList("FJ12403").then(function(res){ $scope.zhiwutongjileibie=res.data.info.list;},function(rej){});
+    //任职机构代码
+    SettingdaimaService.getCodagetList("ZB02").then(function(res){ $scope.renzhijigoudaima=res.data.info.list;},function(rej){});
+    //任职机构隶属
+    SettingdaimaService.getCodagetList("GB12404").then(function(res){ $scope.renzhijigoulishu=res.data.info.list;},function(rej){});
+    //任职机构名称
+    SettingdaimaService.getCodagetList("ZB02").then(function(res){ $scope.renzhijigoumingcheng=res.data.info.list;},function(rej){});
+    //任职机构级别
+    SettingdaimaService.getCodagetList("ZB03").then(function(res){ $scope.renzhijigoujibie=res.data.info.list;},function(rej){});
+    //任职机构性质类别
+    SettingdaimaService.getCodagetList("ZB04").then(function(res){ $scope.renzhijigouxingzhi=res.data.info.list;},function(rej){});
+
 //添加用户
     $scope.addp=function(){
        $scope.isedit=true;
         $scope.showelse=false;
         $scope.showtitle="添加用户";
         $scope.user={};
-        //性别
-        SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
-        //地址
-        SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
-        //民族
-        SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
-        //健康
-        SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
-        //职级
-        SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
-        //政治面貌
-        SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
-        //人员状态
-        SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+        
     }
 //修改用户
     $scope.updatepeople=function(people){
@@ -229,8 +273,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage'
     //保存基本信息
     $scope.saveJiben=function(){
         $scope.showelse=true;
-        alert($scope.user.jiguan["name"]);
-        alert($scope.user.birthday);
     }
 
     $scope.all_config = {};
@@ -280,7 +322,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$modal','$log','$localStorage'
         function(rej){
         }
     );
-    //时间控件
 
     
     //添加职务

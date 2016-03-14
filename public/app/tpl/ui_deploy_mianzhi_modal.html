@@ -7,63 +7,27 @@
 
   </div>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-controller="deployCtrl">
   <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
     <div class="form-group">
       <label class="col-md-2 control-label">调配原因</label>
       <div class="col-md-10 row">
         <div  class=" m-l-n">
-          <input  class="tags form-control" ng-model="deploy.mianzhireason" type="text" name="country" id="autocomplete-dynamic">
-          <script src="/public/app/js/jquery.autocomplete.js"></script>
-          <script type="text/javascript">
-            var adjustReason = {
-              "1": "1贪污问题",
-              "2": "1受贿问题",
-              "3": "1工作得力",
-              "4": "1内部推荐",
-              "5": "1作风优良",
-              "6": "1违反党纪",
-              "7": "1aaaabbbb",
-              "8": "1ccddeef",
-              "9": "1ab",
-              "10": "1ac",
-              "11": "1ad",
-            }
-            var adjustNumber = {
-              "1": "11",
-              "2": "12",
-              "3": "13",
-              "4": "14",
-              "5": "144",
-              "6": "55",
-              "7": "66",
-              "8": "77",
-              "9": "99",
-              "10": "22",
-              "11": "11",
-            }
-            $(function () {
-              var countriesArray = $.map(adjustReason, function (value, key) { return { value: value, data: key }; });
-              $('#autocomplete-dynamic').autocomplete({
-                lookup: countriesArray
-              });
-            });
-          </script>
           <!--<select required="" class="form-control" ng-model="deploy.reason" ng-options=" a.reason for a in reasonlist">-->
           <!--&lt;!&ndash;<option value="">省</option>&ndash;&gt;-->
           <!--</select>-->
-          <!--<div class="dropdown" dropdown  >-->
-            <!--<input autocomplete="" class="tags form-control" ng-model="deploy.mianzhireason" type="text" required  />-->
-            <!--&lt;!&ndash;<input  class="tags form-control" ng-model="row.reason" type="text" required />&ndash;&gt;-->
-            <!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
-              <!--<span class="caret"  ></span>-->
-            <!--</div>-->
-            <!--<ul  class="dropdown-menu" role="menu" style="width: 100%;" ng-if="1">-->
-              <!--<li ng-repeat="p in reasons" ng-class="{active:row.reason==p.reason}"  >-->
-                <!--<a href="javascript:void(0)" ng-click="row.reason=p.reason">{{p.reason}}</a>-->
-              <!--</li>-->
-            <!--</ul>-->
-          <!--</div>-->
+          <div class="dropdown" dropdown >
+            <input autocomplete="" class="tags form-control" ng-model="deploy.reason" type="text" required />
+            <!--<input  class="tags form-control" ng-model="row.reason" type="text" required />-->
+            <div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
+              <span class="caret"  ></span>
+            </div>
+            <ul  class="dropdown-menu" role="menu" style="width: 100%;" ng-if="1">
+              <li ng-repeat="p in reasons" ng-class="{active:deploy.reason==p.reason}"  >
+                <a href="javascript:void(0)" ng-click="deploy.reason=p.reason">{{p.reason}}</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

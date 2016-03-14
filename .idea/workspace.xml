@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/api/search" afterPath="$PROJECT_DIR$/public/app/api/search" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.js" afterPath="$PROJECT_DIR$/public/app/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/message.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/message.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" afterPath="$PROJECT_DIR$/public/app/js/directives/appdirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/services/service.js" afterPath="$PROJECT_DIR$/public/app/js/services/service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_message.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" afterPath="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +65,8 @@
       <file leaf-file-name="message.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/js/controllers/message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14507042">
-              <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.78732395">
+              <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -608,12 +601,6 @@
       <option name="number" value="Default" />
       <updated>1455966441221</updated>
     </task>
-    <task id="LOCAL-00011" summary="点击跳转到班子调配">
-      <created>1456213531275</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1456213531275</updated>
-    </task>
     <task id="LOCAL-00012" summary="合并">
       <created>1456284192262</created>
       <option name="number" value="00012" />
@@ -902,7 +889,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457923333739</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="信息浏览">
+      <created>1457932433709</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1457932433709</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -940,7 +933,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="系统设置 菜单选中状态" />
     <MESSAGE value="避免未登录用户直接输入路由地址来跳转到登陆界面地址" />
     <MESSAGE value="根据权限 判断显示隐藏菜单" />
     <MESSAGE value="系统设置 单位树添加 职位管理" />
@@ -965,7 +957,8 @@
     <MESSAGE value="基本信息修改" />
     <MESSAGE value="基本信息添加修改" />
     <MESSAGE value="班子分析" />
-    <option name="LAST_COMMIT_MESSAGE" value="班子分析" />
+    <MESSAGE value="信息浏览" />
+    <option name="LAST_COMMIT_MESSAGE" value="信息浏览" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1385,8 +1378,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14507042">
-          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.78732395">
+          <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -139,7 +139,6 @@
 						if (res.data.code == 200) {
 							$scope.resumeinfo={};
 							$scope.resumeinfo=res.data.info[0];
-							$scope.all_text=$scope.resumeinfo.resume;
 						}
 					},
 					function(rej){

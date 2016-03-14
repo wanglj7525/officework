@@ -129,14 +129,14 @@
                     </div>
 
                 </div>
-                <div class="panel panel-default" ng-show="isdetail">
+                <div class="row panel panel-default" ng-show="isdetail">
                     <div class="panel-heading" style="position: relative">
                         <button class="btn btn-info" ng-click="isdetail=false">返回</button>
                         <span style="margin-left: 20px">人员信息详情</span>
                     </div>
                     <!--<ng-include src="'/public/app/tpl/ui_setting_people_add_modal.html'" ></ng-include>-->
                     <div >
-                        <tabset class="tab-container">
+                        <tabset class="tab-container addpeople">
                             <tab>
                                 <tab-heading>
                                     <h5 class="modal-title">基本信息</h5>
@@ -144,7 +144,7 @@
                                 <div  flex>
                                     <div class="" layout="column" >
                                         <div >
-                                            <form name="addPeopleform_1" class="form-horizontal">
+                                            <form name="addPeopleform_1" class="form-horizontal" style="width: 99%">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
@@ -469,7 +469,7 @@
                                 <div  flex>
                                     <div class="" layout="column" >
                                         <div >
-                                            <form name="addPeopleform_2" class="form-horizontal">
+                                            <form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -520,8 +520,10 @@
                                                     <div class="form-group">
                                                         <label class="col-md-1 control-label">个人简历</label>
                                                         <div class="col-md-11">
-                                                            <script type="text/html" style="margin:auto;height:300px;width:800px" ng-style=""  ng-model="all_text"  meta-umeditor
-                                                                    meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历" ></script>
+                                                            <pre ng-bind="resumeinfo.resume"></pre>
+                                                            <!--<div ng-bind-html="resumeinfo.resume"></div>-->
+                                                            <!--<script type="text/html" style="margin:auto;height:300px;width:800px" ng-style=""  ng-model="all_text"  meta-umeditor-->
+                                                                    <!--meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历" ></script>-->
                                                         </div>
                                                     </div>
                                                 </div>

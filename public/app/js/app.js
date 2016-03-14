@@ -19,5 +19,6 @@ angular.module('app', [
     'pascalprecht.translate',
     'ngMaterial',
     'meta.umeditor',
-    'tm.pagination'
+    'tm.pagination',
+    'ngFileUpload'
 ]);

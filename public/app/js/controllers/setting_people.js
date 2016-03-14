@@ -121,8 +121,8 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$localStorage','$debounce','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService',
-    function($scope,$http,$filter,$modal,$log,$localStorage,$debounce,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService){
+app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$localStorage','$debounce','Upload','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService',
+    function($scope,$http,$filter,$modal,$log,$localStorage,$debounce,Upload,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService){
         $scope.isedit=false;
         $scope.showelse=false;
         //取消
@@ -312,6 +312,28 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     console.log(rej);
                 }
             )
+        }
+
+        $scope.uploadphoto = function (file) {
+            console.log(file);
+            Upload.base64DataUrl(file).then(function(urls){
+                console.log(urls);
+            });
+            //Upload.upload({
+            //    url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+            //    data: {
+            //        file: Upload.dataUrltoBlob(dataUrl, name)
+            //    },
+            //}).then(function (response) {
+            //    $timeout(function () {
+            //        $scope.result = response.data;
+            //    });
+            //}, function (response) {
+            //    if (response.status > 0) $scope.errorMsg = response.status
+            //        + ': ' + response.data;
+            //}, function (evt) {
+            //    $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
+            //});
         }
 
         //保存基本信息

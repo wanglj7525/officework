@@ -132,7 +132,12 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         //分页获取数据
         var getMessageImageList = function () {
             var postData = $.param({
-                name:$scope.searchtext,
+                keyword:$scope.searchtext,
+                ranks:'',
+                sexs:'',
+                political_statuses:'',
+                edu_levels:'',
+                ages:'',
                 pageNo: $scope.paginationConf.currentPage,
                 pageSize: $scope.paginationConf.itemsPerPage,
                 access_token:$localStorage.token
@@ -141,8 +146,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 function (res) {
                     console.log(res);
                     if(res.data.code==200){
-                        $scope.paginationConf.totalItems = res.data.info.allRow;
-                        $scope.peoplelist = res.data.info.list;
+                        $scope.paginationConf.totalItems = res.data.info.totalElements;
+                        $scope.peoplelist = res.data.info.elements;
                     }else{
                         alert(res.data.msg);
                     }

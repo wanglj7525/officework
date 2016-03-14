@@ -245,6 +245,94 @@ angular.module('app')
             });
             return promise;
         },
+        getPeoplepostinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/postInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getPeopletitleinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/titleInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getEduinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/eduInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getDegreeinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/degreeInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getjiangchenginfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/jiangchengInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getexaminfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/examInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getresumeInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resumeInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getfamilyInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/familyInfo?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         updateBase:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/basicInfo/update?';

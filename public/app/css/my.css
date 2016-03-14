@@ -115,6 +115,7 @@ thead{
     color: #ffffff !important;
     background-color: #2E7BC9;
     border-color: #2E7BC9;
+    margin-top: 2px;
 }
 .btn-href:hover,
 .btn-href:focus,

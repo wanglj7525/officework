@@ -13,34 +13,30 @@ app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', functi
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'reasonlist','tolist',function($scope, $modalInstance,reasonlist,tolist) {
+app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'reasonlist','tolist','SeetingtreeService',function($scope, $modalInstance,reasonlist,tolist,SeetingtreeService) {
 	$scope.reasonlist = reasonlist;
 	$scope.tolist = tolist;
 	$scope.zhiwei = {
 		'id': 1
 	};
-
-	$scope.people = [
-		{ name: 'Adam',      email: 'adam@email.com',      age: 12, country: 'United States' },
-		{ name: 'Amalie',    email: 'amalie@email.com',    age: 12, country: 'Argentina' },
-		{ name: 'Estefanía', email: 'estefania@email.com', age: 21, country: 'Argentina' },
-		{ name: 'Adrian',    email: 'adrian@email.com',    age: 21, country: 'Ecuador' },
-		{ name: 'Wladimir',  email: 'wladimir@email.com',  age: 30, country: 'Ecuador' },
-		{ name: 'Samantha',  email: 'samantha@email.com',  age: 30, country: 'United States' },
-		{ name: 'Nicole',    email: 'nicole@email.com',    age: 43, country: 'Colombia' },
-		{ name: 'Natasha',   email: 'natasha@email.com',   age: 54, country: 'Ecuador' },
-		{ name: 'Michael',   email: 'michael@email.com',   age: 15, country: 'Colombia' },
-		{ name: 'Nicolás',   email: 'nicolas@email.com',    age: 43, country: 'Colombia' }
-	];
-	$scope.deployresaons=["a","b","c","d","f","e","r"];
-	var i= 2,j=12;
-	$scope.adddeploy=[{"id":1,"func":"addmoredeploy()","buttonname":"添加"}];
-	$scope.addmoredeploy=function(){
-
-		$scope.adddeploy.push({"id":i,"func":"delmoredeploy()","buttonname":"删除"});
-		i++;j++
-	};
-
+	$scope.reasons=[{"id":1,"reason":"原因一"},{"id":2,"reason":"原因二"},{"id":3,"reason":"原因三"}]
+	
+	SeetingtreeService.getTreeList().then(function(res){
+		$scope.people = res.data.info;
+		//$scope.people = res.data.info.nodes
+	})
+	
+	//var i= 2,j=12;
+	//$scope.adddeploy=[{"id":1,"func":"addmoredeploy()","buttonname":"添加"}];
+	//$scope.addmoredeploy=function(){
+    //
+	//	$scope.adddeploy.push({"id":i,"func":"delmoredeploy()","buttonname":"删除"});
+	//	i++;j++
+	//};
+	
+ 	$scope.addmoredeploy=function(){
+	}
+	
 	$scope.ok = function () {
 		$modalInstance.close($scope.zhiwei.id);
 	};
@@ -160,7 +156,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"副局长"}];
 		$scope.selectpeople=function(people){
 			var modaldeployInstance = $modal.open({
-				templateUrl: 'selectPeopleModel.html',
+				templateUrl: 'selectrenzhiPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
 				size: 'md',
 				resolve: {
@@ -189,7 +185,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			console.log(which-1);
 			var indexs=which-1;
 			var modaldeployInstance = $modal.open({
-				templateUrl: 'selectPeopleModel.html',
+				templateUrl: 'selectmianzhiPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
 				size: 'md',
 				resolve: {

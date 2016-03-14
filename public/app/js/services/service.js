@@ -211,7 +211,7 @@ angular.module('app')
 	return{
 		getData:function(id){
 			var deferred=$q.defer();
-			var path='/public/app/api/searchlist';
+			var path='/public/app/api/search';
 			if (id) {
 				path+='';
 			};

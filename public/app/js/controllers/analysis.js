@@ -32,19 +32,6 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 		)
 	}
 	$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getanalysislist);
-	//$scope.charts = [
-	//	{ id:1,img:'/public/app/img/a0.jpg', name:'张三1' ,sex:"男",company:"福清市xxx、xxx信息1",nation:"汉",birthday:"196511",palce:"福清龙田",troops:"197712",party:"191212",education:"本科",school:"福建师范"},
-	//	{ id:2,img:'/public/app/img/a1.jpg', name:'张三2' ,sex:"男",company:"福清市xxx、xxx信息2",nation:"汉",birthday:"195411",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},
-	//	{ id:3,img:'/public/app/img/a2.jpg', name:'张三3' ,sex:"男",company:"福清市xxx、xxx信息3",nation:"汉",birthday:"195711",palce:"福清龙田",troops:"191212",party:"197712",education:"本科",school:"福建师范"},
-	//	{ id:4,img:'/public/app/img/a3.jpg', name:'张三4' ,sex:"女",company:"福清市xxx、xxx信息4",nation:"汉",birthday:"195311",palce:"福清龙田",troops:"197212",party:"197212",education:"本科",school:"福建师范"},
-	//	{ id:5,img:'/public/app/img/a4.jpg', name:'张三5' ,sex:"男",company:"福清市xxx、xxx信息5",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"191212",party:"197712",education:"本科",school:"福建师范"},
-	//	{ id:6,img:'/public/app/img/a5.jpg', name:'张三6' ,sex:"男",company:"福清市xxx、xxx信息6",nation:"汉",birthday:"195011",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},
-	//	{ id:7,img:'/public/app/img/a6.jpg', name:'张三7' ,sex:"男",company:"福清市xxx、xxx信息7",nation:"汉",birthday:"197511",palce:"福清龙田",troops:"197712",party:"197212",education:"本科",school:"福建师范"},
-	//	{ id:8,img:'/public/app/img/a7.jpg', name:'张三8' ,sex:"男",company:"福清市xxx、xxx信息8",nation:"汉",birthday:"198511",palce:"福清龙田",troops:"191212",party:"171212",education:"本科",school:"福建师范"},
-	//	{ id:9,img:'/public/app/img/a8.jpg', name:'张三9' ,sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195411",palce:"福清龙田",troops:"197712",party:"197712",education:"本科",school:"福建师范"},
-	//	{ id:10,img:'/public/app/img/a9.jpg', name:'张三10',sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197212",party:"191212",education:"本科",school:"福建师范" },
-	//	{ id:11,img:'/public/app/img/a0.jpg', name:'张三1' ,sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},
-	//	{ id:12,img:'/public/app/img/a1.jpg', name:'张三2' ,sex:"女",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197712",party:"197212",education:"本科",school:"福建师范"}];
 	$scope.ok = function () {
 		$modalInstance.close();
 	};
@@ -82,9 +69,20 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 									legend:legendbar,
 									data:databar,
 									dataforpie:databarforpie
+								};
+								$scope.config11={
+									names:name,
+									legend:legendbar,
+									data:databar,
+									dataforpie:databarforpie
 								}
 							}else if(name==2){
 								$scope.config2={
+									names:name,
+									legend:legendbar,
+									data:databar,
+									dataforpie:databarforpie
+								};$scope.config22={
 									names:name,
 									legend:legendbar,
 									data:databar,
@@ -96,9 +94,21 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 									legend:legendbar,
 									data:databar,
 									dataforpie:databarforpie
+								};
+								$scope.config33={
+									names:name,
+									legend:legendbar,
+									data:databar,
+									dataforpie:databarforpie
 								}
 							}else if(name==4){
 								$scope.config4={
+									names:name,
+									legend:legendbar,
+									data:databar,
+									dataforpie:databarforpie
+								};
+								$scope.config44={
 									names:name,
 									legend:legendbar,
 									data:databar,
@@ -116,64 +126,6 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 				)
 			}
 		});
-		//for(var i=1;i<=4;i++){
-		//	var postData = $.param({
-		//		tree_id:$localStorage.tree_uuid,
-		//		type:i,
-		//		access_token:$localStorage.token
-		//	});
-		//	UIanalysisservice.getanalysis(postData).then(
-		//		function (res) {
-		//			if(res.data.code==200){
-		//				var legendbar=[];
-		//				var databar=[];
-		//				var name=res.data.info.title.value;
-		//				var databarforpie=res.data.info.list;
-		//				var lengthshow=res.data.info.list.length;
-		//				for(var j=0;j<lengthshow;j++){
-		//					legendbar.push(databarforpie[j].name);
-		//					databar.push(databarforpie[j].value);
-		//				}
-		//				if(i==1){
-		//					$scope.config1={
-		//						names:name,
-		//						legend:legendbar,
-		//						data:databar,
-		//						dataforpie:databarforpie
-		//					}
-		//				}else if(i==2){
-		//					$scope.config2={
-		//						names:name,
-		//						legend:legendbar,
-		//						data:databar,
-		//						dataforpie:databarforpie
-		//					}
-		//					console.log($scope.config2);
-		//				}else if(i==3){
-		//					$scope.config3={
-		//						names:name,
-		//						legend:legendbar,
-		//						data:databar,
-		//						dataforpie:databarforpie
-		//					}
-		//				}else if(i==4){
-		//					$scope.config4={
-		//						names:name,
-		//						legend:legendbar,
-		//						data:databar,
-		//						dataforpie:databarforpie
-		//					}
-		//				}
-		//			}else{
-		//				alert(res.data.msg);
-		//			}
-		//
-		//		},
-		//		function (rej) {
-		//			console.log(rej);
-		//		}
-		//	)
-		//}
 
 		$scope.selectTab=true;
 		////$scope.name1="年龄比例";
@@ -259,28 +211,11 @@ app.directive('pies', function($modal,$log) {
 						feature : {
 							mark : {show: false},
 							dataView : {show: false, readOnly: false},
-							magicType: {
-								show: true,
-								type: ['funnel','pie'],
-								option:{
-									funnel:{
-										x:"30%",
-										width:"10%",
-										funnelAlign:"left",
-									},
-								}
-							},
 							restore : {show: false},
 							saveAsImage : {show: false},
 						}
 
 					},
-					// 图例
-					//legend : {
-					//	orient : 'horizontal',
-					//	x : 'left',
-					//	data :$scope.config.legend
-					//},
 					calculable : true,
 					// 数据内容数组
 					series : [
@@ -367,57 +302,52 @@ app.directive('bars', function($modal,$log) {
 		template: '<div style="width:400px;height:300px;"></div>',
 		replace : true,
 		link : function($scope, element, attrs, controller) {
-			var colorList = ["#2F0000","#CE0000","#004B97","#6C3365","#007500","#3A006F","#930093","#548C00","#977C00","#A23400"];
-			function getColorByRandom(colorList){
-				var colorIndex = Math.floor(Math.random()*colorList.length);
-				var color = colorList[colorIndex];
-				colorList.splice(colorIndex,1);
-				return color;
-			}
+		
 			function showbar(){
-				var option ={
+				
+				var option = {
 					tooltip : {
-						trigger: 'item',
-						formatter: "{a} <br/>{b} : {c} ({d}%)"
+						trigger: 'axis'
 					},
-					toolbox: {
-						show : true,
-						orient:'horizontal',
-						x:'right',
-						y:'top',
-						feature : {
-							mark : {show: false},
-							dataView : {show: false, readOnly: false},
-							magicType: {
-								show: true,
-								type: ['funnel','pie'],
-								option:{
-									pie:{
-										radius : '55%',
-										center: ['50%', '60%'],
-									},
-								}
-							},
-							restore : {show: false},
-							saveAsImage : {show: false},
-						}
-
-					},
-					//legend: {
-					//	orient : 'vertical',
-					//	x : 'left',
-					//	data:$scope.config.legend
-					//},
-
 					calculable : true,
+					xAxis : [
+						{
+							type : 'category',
+							data : $scope.config.legend
+						}
+					],
+					yAxis : [
+						{
+							type : 'value'
+						}
+					],
 					series : [
 						{
 							name:$scope.config.names,
-							type:'funnel',
-							x:"30%",
-							width:"10%",
-							funnelAlign:"left",
-							data:$scope.config.dataforpie
+							type:'bar',
+							data:$scope.config.data,
+							//markPoint : {
+							//	data : [
+							//		{type : 'max', name: '最大值'},
+							//		{type : 'min', name: '最小值'}
+							//	]
+							//},
+							//markLine : {
+							//	data : [
+							//		{type : 'average', name: '平均值'}
+							//	]
+							//}
+							itemStyle:{
+								normal: {
+									color: 	function getColorByRandom(colorList){
+										var colorList = ["#2EC7C9","#B6A2DE","#5AB1EF","#FFB980","#D87A80","#8D98B3"];
+										var colorIndex = Math.floor(Math.random()*colorList.length);
+										var color = colorList[colorIndex];
+										colorList.splice(colorIndex,1);
+										return color;
+									}
+								}
+							}
 						}
 					]
 				};

@@ -20,7 +20,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 			});
 		//方案审核
 		$scope.fanganshenhe=function(){
-			alert(模态框)
+			alert("模态框")
 		}
 			//获取调配原因
 			adjustreason.getData().then(

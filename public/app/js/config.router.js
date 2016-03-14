@@ -85,7 +85,7 @@ angular.module('app')
               .state('app.adjust', {
                   url: '/adjust/{id}',
                   templateUrl: STATIC_PATH + 'tpl/ui_adjust.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjust.js'])
+                  resolve: load(['ui.select',STATIC_PATH + 'js/controllers/adjust.js'])
               })
               .state('app.analysis',{
                   url:'/analysis',

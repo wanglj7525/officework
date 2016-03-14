@@ -2,23 +2,33 @@
 <div class="modal-header" >
     <div style="position: relative">
 		<span >
-			<h3 class="modal-title">添加调配原因</h3>
+			<h3 class="modal-title">修改调整方案</h3>
 		</span>
     </div>
 </div>
 <div class="modal-body">
     <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
         <div class="form-group">
-            <label class="col-md-3 control-label">调配方案名称</label>
+            <label class="col-md-3 control-label">拟任职务</label>
             <div class="col-md-9 row">
                 <div  class=" m-l-n">
-                    <input class="form-control" type="text" id="reasontitle" >
+                    <ui-select ng-model="adjust.zhiwu" theme="bootstrap" ng-controller="adjustdetailController">
+                        <ui-select-match placeholder="请选择拟任职务">{{$select.selected.company }}</ui-select-match>
+                        <ui-select-choices repeat="item in companylist | filter: $select.search">
+                            <div ng-bind-html="item.company  | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
             </div>
-            <label class="col-md-3 control-label">调配方案详情</label>
+            <label class="col-md-3 control-label">调配原因</label>
             <div class="col-md-9 row">
                 <div  class=" m-l-n">
-                    <textarea class="form-control" type="text" id="reasondetail">{{testtext}}</textarea>
+                    <ui-select ng-model="adjust.yuanyin" theme="bootstrap" ng-controller="adjustdetailController">
+                        <ui-select-match placeholder="请选择调配原因">{{$select.selected.reason}}</ui-select-match>
+                        <ui-select-choices repeat="item in reasons | filter: $select.search">
+                            <div ng-bind-html="item.reason  | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
             </div>
         </div>

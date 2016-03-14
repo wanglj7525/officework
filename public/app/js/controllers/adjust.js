@@ -39,7 +39,6 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 
 		$scope.id = $stateParams.id;
 		$scope.addReason= function (e) {
-			if (e.keyCode==13){
 				var modalReasonInstance = $modal.open({
 					templateUrl: 'adjustReasonModel.html',
 					controller: 'analysisReasonController',
@@ -56,12 +55,17 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			}
-			}
-		adjustdetailservice.getData().then(
+		var postData = $.param({
+			tree_id:1,
+			access_token:$localStorage.token
+		});
+		adjustdetailservice.getAdjustList(postData).then(
 			function (res) {
+				//处理获得的数据
 				$scope.adjusttable = res.data.info
 			},
 			function (rej) {
+				//获取数据失败处理
 				console.log(rej);
 			}
 		);

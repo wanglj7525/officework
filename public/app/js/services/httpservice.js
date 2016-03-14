@@ -219,7 +219,8 @@ angular.module('app')
         }
 
     }
-}]).service('SettingpeopleService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+}])
+    .service('SettingpeopleService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
     //用户管理
     return{
         getPeopleList:function(params){
@@ -391,7 +392,8 @@ angular.module('app')
             return promise;
         }
     }
-}]).service('UIMessageService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+}])
+    .service('UIMessageService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
     //信息浏览
     return{
         getMessageList:function(params){
@@ -523,4 +525,34 @@ angular.module('app')
             };
 
             return debounce;
-        }]);
+        }])
+    .service('adjustdetailservice',['$q','$http','SERVICE_URL','$localStorage',function($q,$http,SERVICE_URL,$localStorage){
+    //单位树管理
+    return{
+        //getAdjustList:function(id){
+        //    var deferred=$q.defer();
+        //    var params=$.param({
+        //        access_token:  $localStorage.token
+        //    });
+        //    var path=SERVICE_URL+'/adjust/list?tree_id=1';
+        //    var promise=$http.get(path+params).then(function(response){
+        //        return response;
+        //    },function(response){
+        //        console.log(response);
+        //        return response;
+        //    });
+        //    return promise;
+        //},
+        getAdjustList:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/list?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+    }
+}])

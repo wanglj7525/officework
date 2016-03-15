@@ -1,9 +1,8 @@
 'use strict';
-app.controller('analysisReasonController', ['$scope', '$modalInstance', 'items',function($scope, $modalInstance,items) {
+app.controller('analysisReasonController', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+	$scope.adjust={}
 		$scope.ok = function () {
-			$scope.reasontitle= $("#reasontitle").val();
-			$scope.reasondetail= $("#reasondetail").val();
-			$modalInstance.close($scope.reasontitle,$scope.reasondetail);
+			$modalInstance.close($scope.adjust);
 	};
 
 	$scope.cancel = function () {
@@ -11,8 +10,10 @@ app.controller('analysisReasonController', ['$scope', '$modalInstance', 'items',
 	};
 }]);
 app.controller('fanganshenheModel',['$scope','$modalInstance',function($scope,$modalInstance){
+	$scope.saveadjust={}
 		$scope.ok=function(){
-			$modalInstance.close();
+			//alert("保存方案")
+			$modalInstance.close($scope.saveadjust);
 		}
 		$scope.cancel=function(){
 			$modalInstance.dismiss('cancel');
@@ -34,48 +35,77 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 				controller: 'fanganshenheModel',
 				size:'md',
 			});
-			modalfanganInstance.result.then(function () {
+			modalfanganInstance.result.then(function (saveadjust) {
+				var postData = $.param({
+					name:saveadjust.name,
+					note:saveadjust.reason
+				});
+				adjustdetailservice.saveadjust(postData).then(function(){
+					
+				})
 			}, function () {
 
 			});
 		}
-			//获取调配原因
-			adjustreason.getData().then(
-				function (res) {
-					$scope.reasons = res.data.info
-				},
-				function (rej) {
-					console.log(rej);
-				}
-			);
+		var zhiwei = $.param({
+			tree_id:$localStorage.tree_uuid
+		});
+		adjustdetailservice.getzhiweiList(zhiwei).then(
+			function (res) {
+				$scope.companylist = res.data.info;
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
+		adjustdetailservice.getreasonList().then(
+			function (res) {
+				$scope.adjustreason = res.data.info;
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
 
-
-			$scope.userState = '';
-
-			$scope.companylist = [
-				{company:'局长',id:'1'},
-				{company:'副局长',id:'2'}
-			];
-
-
+		$scope.userState = '';
 		$scope.id = $stateParams.id;
-		$scope.updateReason= function (e) {
-				var modalReasonInstance = $modal.open({
+		
+		//修改原因
+		$scope.updateReason= function (data) {
+			var modalReasonInstance = $modal.open({
 					templateUrl: 'adjustReasonModel.html',
 					controller: 'analysisReasonController',
-					size: 'md',
-					resolve: {
-						items: function () {
-							return $scope.reasondetail;
-						}
-					}
+					size: 'md'
 				});
-				modalReasonInstance.result.then(function (reasonTitleValue,reasonDetailValue) {
-					$scope.reasons.push({"id":1,"title":reasonTitleValue,"detail":reasonDetailValue});
+				modalReasonInstance.result.then(function (adjust) {
+					var postData = $.param({
+						id: data.id,
+						//tree_id:353165011,
+						tobe_post_id: adjust.zhiwu["id"],
+						reason: adjust.yuanyin["dz"]
+						//access_token: $localStorage.token
+					});
+					
+					adjustdetailservice.getadjustFix(postData).then(
+						function (res) {
+							if(res.data.code==200){
+								data.reason=adjust.yuanyin["dz"];
+								data.tobe_post=adjust.zhiwu['name'];
+								//angular.copy($scope.newdata,data);
+								console.log($scope.newdata);
+							}else{
+								alert(res.data.msg);
+							}
+
+						}
+					);
 				}, function () {
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			}
+		
+		
+		//删除原因
 		$scope.delReason= function (e) {
 			var postData = $.param({
 				id:e.id,
@@ -125,14 +155,14 @@ app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','$loc
 									console.log("调整一览左树变换："+$scope.treeselected);
 								});
 				//获取调配原因
-				adjustreason.getData().then(
-				function (res) {
-					$scope.reasons = res.data.info
-				 },
-					function (rej) {
-						console.log(rej);
-					}
-				);
+				//adjustreason.getData().then(
+				//function (res) {
+				//	$scope.reasons = res.data.info
+				// },
+				//	function (rej) {
+				//		console.log(rej);
+				//	}
+				//);
 				
 				//获取人员信息
 				adjustlistservice.getData().then(

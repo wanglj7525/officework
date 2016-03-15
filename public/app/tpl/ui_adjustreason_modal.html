@@ -13,9 +13,9 @@
             <div class="col-md-9 row">
                 <div  class=" m-l-n">
                     <ui-select ng-model="adjust.zhiwu" theme="bootstrap" ng-controller="adjustdetailController">
-                        <ui-select-match placeholder="请选择拟任职务">{{$select.selected.company }}</ui-select-match>
+                        <ui-select-match placeholder="请选择拟任职务">{{$select.selected.name }}</ui-select-match>
                         <ui-select-choices repeat="item in companylist | filter: $select.search">
-                            <div ng-bind-html="item.company  | highlight: $select.search"></div>
+                            <div ng-bind-html="item.name  | highlight: $select.search"></div>
                         </ui-select-choices>
                     </ui-select>
                 </div>
@@ -24,9 +24,9 @@
             <div class="col-md-9 row">
                 <div  class=" m-l-n">
                     <ui-select ng-model="adjust.yuanyin" theme="bootstrap" ng-controller="adjustdetailController">
-                        <ui-select-match placeholder="请选择调配原因">{{$select.selected.reason}}</ui-select-match>
-                        <ui-select-choices repeat="item in reasons | filter: $select.search">
-                            <div ng-bind-html="item.reason  | highlight: $select.search"></div>
+                        <ui-select-match placeholder="请选择调配原因">{{$select.selected.dz}}</ui-select-match>
+                        <ui-select-choices repeat="item in adjustreason | filter: $select.search">
+                            <div ng-bind-html="item.dz  | highlight: $select.search"></div>
                         </ui-select-choices>
                     </ui-select>
                 </div>

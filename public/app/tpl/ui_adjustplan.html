@@ -13,7 +13,9 @@
 	<div class="workBgColor col-padding col-md-10"  ng-style="{height:showheight}" style="overflow-y: auto">
 		<div class="panel panel-default" >
 			<!--ng-repeat="row in plandetail "-->
-			<div class="panel-heading">{{plandetail.name}}</div>
+			<div class="panel-heading" style="position: relative">{{plandetail.name}}
+				<button ng-click="deletaplan(plandetail)"  class="btn btn-add btn-href" style="width: 150px;">删除</button>
+			</div>
 			<div class="panel-body">
 				<div class="list-group">
 					<div class="list-group-item">

@@ -432,7 +432,7 @@ angular.module('app')
         }
 
     }
-}]).service('UIworktipservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
+}]).service('UIworktipservice', ['$q','$http','$localStorage','SERVICE_URL', function($q,$http,$localStorage,SERVICE_URL){
     //工作提示
     return{
         getworktipList:function(params){
@@ -445,7 +445,33 @@ angular.module('app')
                 return response;
             });
             return promise;
-        }
+        },
+        getworkcategory:function(){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/worktip/category';
+            var promise=$http.get(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        //getcategoryList:function(catalog_id){
+        //    var deferred=$q.defer();
+        //    var params=$.param({
+        //        catalog_id:catalog_id,
+        //        access_token:  $localStorage.token
+        //    });
+        //    var path=SERVICE_URL+'/setting/code/getList?';
+        //    var promise=$http.get(path+params).then(function(response){
+        //        return response;
+        //    },function(response){
+        //        console.log(response);
+        //        return response;
+        //    });
+        //    return promise;
+        //},
     }
 }] ).service('UIanalysisservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
     //班子分析

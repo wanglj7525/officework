@@ -3,7 +3,7 @@
 /* Controllers */
 // signin controller
 app.controller('WorktipFormController',
-	['$scope','$localStorage','worktiplistservice2','worktiplistservice','worktipservice',function($scope,$localStorage, worktiplistservice2,worktiplistservice,worktipservice) {
+	['$scope','$localStorage','worktiplistservice2','worktiplistservice','UIworktipservice',function($scope,$localStorage, worktiplistservice2,worktiplistservice,UIworktipservice) {
 		$scope.isedit=false;
 		$scope.treeselected=$localStorage.treeselect;
 		console.log("工作提示左树："+$scope.treeselected);
@@ -11,36 +11,36 @@ app.controller('WorktipFormController',
 			$scope.treeselected=$localStorage.treeselect;
 			console.log("工作提示左树变换："+$scope.treeselected);
 		});
-		worktipservice.getData().then(
+		//worktipservice.getData().then(
+		//	function (res) {
+		//		$scope.tipinfo1 = res.data.info
+		//	},
+		//	function (rej) {
+		//		console.log(rej);
+		//	}
+		//);
+	
+		UIworktipservice.getworkcategory().then(
 			function (res) {
-				$scope.tipinfo = res.data.info
+				$scope.tipinfo = res.data.info.list;
 			},
 			function (rej) {
 				console.log(rej);
 			}
-		);
-
-		//添加标签
-		$scope.addtip=function(){
-			console.log($scope.name);
-			$scope.tipinfo.push({"id":"22","name":$scope.name});
-			//$scope.tipinfo=[];
-		}
-		
-		//删除查询语句
-		$scope.delCondition= function() {
-			alert(1111);
-		}
-		
-		//添加查询语句
-		$scope.addCondition=function(){
-			var $form_add=$("<div class='form-group'><label class='col-lg-2'><select name='guanxi' class='col-lg-2 form-control form-inline addluoji'><option value='AND'>AND</option><option value='OR'>OR</option></select></label><div class='col-lg-9 form-inline ' style='margin-left: 10px;'><span class='addziduan'>字段：</span><select name='ziduan' class='form-control'> <option value='zhiji'>职级</option><option value='xingbie'>性别</option><option value='xueli'>学历</option><option value='zhengzhi'>政治面貌</option> <option value='zhengzhi'>年龄</option></select><span class='addguanxi'>关系：</span><select name='guanxi' class='form-control'><option value='='>等于</option><option value='>'>大于</option><option value='<'>小于</option></select><span class='addzhi'>值：</span><input type='text' class='form-control' placeholder='请输入自定义的值'> <button type='button' class='btn btn-default btn-md' onclick='$(this).parent().parent().remove()'><span class='glyphicon glyphicon-minus-sign'></span></button> </div></div>");
-			var $parent =$("#formList");
-			$parent.after($form_add);
-		}
-		
-		$scope.clickleft=function(){
+		)
+		$scope.clickleft=function(item){
+			//alert(item.id);
 			$scope.isedit=false;
+			var postData = $.param({
+				tree_id:$localStorage.tree_uuid,
+				marker_id:item.id
+			});
+			UIworktipservice.getworktipList(postData).then(
+				function(res){
+					$scope.worktiptable = res.data.info.list;
+				}
+			)
+			
 		}
 		$scope.updatetip=function(tip){
 			console.log(tip);
@@ -75,6 +75,7 @@ app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice',
 				console.log(rej);
 			}
 		)
+	
 	});
 	//分页获取数据
 	var getWorktipList = function () {

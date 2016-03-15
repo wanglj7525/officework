@@ -76,20 +76,23 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			}
-		var postData = $.param({
-			tree_id:1,
-			access_token:$localStorage.token
-		});
-		adjustdetailservice.getAdjustList(postData).then(
-			function (res) {
-				//处理获得的数据
-				$scope.adjusttable = res.data.info
-			},
-			function (rej) {
-				//获取数据失败处理
-				console.log(rej);
-			}
-		);
+		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue) {
+			var postData = $.param({
+				tree_id: $localStorage.tree_uuid,
+				//tree_id:353165011,
+				access_token: $localStorage.token
+			});
+			adjustdetailservice.getAdjustList(postData).then(
+				function (res) {
+					//处理获得的数据
+					$scope.adjusttable = res.data.info
+				},
+				function (rej) {
+					//获取数据失败处理
+					console.log(rej);
+				}
+			);
+		})
 	}
 ]);
 app.controller('adjustController',[ '$scope', '$http', '$state','$timeout','$localStorage','adjustlistservice','adjustreason',

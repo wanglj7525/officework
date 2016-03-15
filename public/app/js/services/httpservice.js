@@ -267,6 +267,9 @@ angular.module('app')
             });
             return promise;
         },
+        /**
+         * 现任职务 查询 添加 删除 修改
+         * **/
         getPeoplepostinfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/postInfo?';
@@ -278,6 +281,20 @@ angular.module('app')
             });
             return promise;
         },
+        addPeoplepostinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/postInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 职称 查询 添加 删除 修改
+         * **/
         getPeopletitleinfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/titleInfo?';
@@ -289,6 +306,20 @@ angular.module('app')
             });
             return promise;
         },
+        addPeopletitleinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/titleInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 学历 查询 添加 删除 修改
+         * **/
         getEduinfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/eduInfo?';
@@ -300,6 +331,20 @@ angular.module('app')
             });
             return promise;
         },
+        addEduinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/eduInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 学位 查询 添加 删除 修改
+         * **/
         getDegreeinfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/degreeInfo?';
@@ -311,6 +356,20 @@ angular.module('app')
             });
             return promise;
         },
+        addDegreeinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/degreeInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 奖惩记录 查询 添加 删除 修改
+         * **/
         getjiangchenginfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/jiangchengInfo?';
@@ -322,6 +381,20 @@ angular.module('app')
             });
             return promise;
         },
+        addjiangchenginfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/jiangchengInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 年度考查 查询 添加 删除 修改
+         * **/
         getexaminfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/examInfo?';
@@ -333,6 +406,20 @@ angular.module('app')
             });
             return promise;
         },
+        addexaminfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/examInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 简历
+         * **/
         getresumeInfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/resumeInfo?';
@@ -344,6 +431,9 @@ angular.module('app')
             });
             return promise;
         },
+        /**
+         * 家庭成员 查询 添加 删除 修改
+         * **/
         getfamilyInfo:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/familyInfo?';
@@ -355,6 +445,20 @@ angular.module('app')
             });
             return promise;
         },
+        addfamilyInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/familyInfo/add?';
+            var promise=$http.post( path+ params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        /**
+         * 基本信息
+         * **/
         updateBase:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/basicInfo/update?';

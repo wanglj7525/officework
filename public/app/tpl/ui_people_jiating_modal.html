@@ -5,85 +5,75 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body"  ng-controller="SetPeopleCtrl as vm">
-	<form name="addPeoplexueliform" class="form-horizontal">
+<div class="modal-body" >
+	<form name="addPeoplejiatingform" class="form-horizontal">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.name.$invalid && !addPeoplexueliform.name.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiatingform.family_name.$invalid && !addPeoplejiatingform.family_name.$pristine }">
 					<label class="col-md-4 control-label">人员姓名</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiatingname" type="text" ng-model="jiating.name" required>
+							<input class="form-control" name="family_name" type="text" ng-model="jiating.family_name" required>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.birthday.$invalid && !addPeoplexueliform.birthday.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiatingform.family_birthday.$invalid && !addPeoplejiatingform.family_birthday.$pristine }">
 					<label class="col-md-4 control-label">出生日期</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="jiating.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="jiating.family_birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.jiguan.$invalid && !addPeoplexueliform.jiguan.$pristine }">
-					<label class="col-md-4 control-label">人员职务</label>
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiatingform.family_org_name.$invalid && !addPeoplejiatingform.family_org_name.$pristine }">
+					<label class="col-md-4 control-label">工作单位</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiatingzhiwu" type="text" ng-model="jiating.zhiwu" required>
+							<input class="form-control" name="family_org_name" type="text" ng-model="jiating.family_org_name" required>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.name.$invalid && !addPeoplexueliform.name.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiatingform.renationship_number.$invalid && !addPeoplejiatingform.renationship_number.$pristine }">
 					<label class="col-md-4 control-label">与该人关系</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select ng-model="jiating.guanxi" theme="bootstrap">
+							<ui-select ng-model="jiating.renationship_number" theme="bootstrap">
 								<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in jiatingguanxi | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.jiatingguanxi | filter: $select.search">
 									<div ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.birthday.$invalid && !addPeoplexueliform.birthday.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiatingform.family_poli.$invalid && !addPeoplejiatingform.family_poli.$pristine }">
 					<label class="col-md-4 control-label">政治面貌</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select ng-model="jiating.zhengzhi" theme="bootstrap">
+							<ui-select ng-model="jiating.family_poli" theme="bootstrap">
 								<ui-select-match placeholder="请选择政治面貌">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in zhengzhilist | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.zhengzhilist | filter: $select.search">
 									<div ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.jiguan.$invalid && !addPeoplexueliform.jiguan.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiatingform.family_status.$invalid && !addPeoplejiatingform.family_status.$pristine }">
 					<label class="col-md-4 control-label">人员现状</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select ng-model="jiating.xianzhuang" theme="bootstrap">
+							<ui-select ng-model="jiating.family_status" theme="bootstrap">
 								<ui-select-match placeholder="请选择人员现状">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in renyuanxianzhuang | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.renyuanxianzhuang | filter: $select.search">
 									<div ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.jiguan.$invalid && !addPeoplexueliform.jiguan.$pristine }">
-				<label class="col-md-2 control-label">工作单位</label>
-				<div class="col-md-10 row">
-					<div  class=" m-l-n">
-						<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>
 					</div>
 				</div>
 			</div>
@@ -93,5 +83,5 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">取消</button>
-	<button class="btn btn-primary"  ng-disabled="addPeoplexueliform.$invalid"  ng-click="ok()">确定</button>
+	<button class="btn btn-primary"  ng-disabled="addPeoplejiatingform.$invalid"  ng-click="ok()">确定</button>
 </div>

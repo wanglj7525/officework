@@ -5,85 +5,72 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
+<div class="modal-body">
 	<form name="addPeoplezhiwuform" class="form-horizontal">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.name.$invalid && !addPeoplezhiwuform.name.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.post_name.$invalid && !addPeoplezhiwuform.post_name.$pristine }">
 					<label class="col-md-4 control-label">职务名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="name" type="text" ng-model="zhiwu.name" required>
+							<input class="form-control" name="post_name" type="text" ng-model="zhiwu.post_name" required>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.birthday.$invalid && !addPeoplezhiwuform.birthday.$pristine }">
-					<label class="col-md-4 control-label">职务统计类别</label>
-					<div class="col-md-8 row">
-						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.tongjileibie">
-								<ui-select-match  placeholder="请选择职务统计类别">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in zhiwuleibie | filter: $select.search">
-									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
-								</ui-select-choices>
-							</ui-select>
-						</div>
-					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.jiguan.$invalid && !addPeoplezhiwuform.jiguan.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.work_status.$invalid && !addPeoplezhiwuform.work_status.$pristine }">
 					<label class="col-md-4 control-label">任职状态</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.zhuangtai">
+							<ui-select theme="bootstrap" name="work_status" required=""  ng-model="zhiwu.work_status">
 								<ui-select-match  placeholder="请选择任职状态">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in renzhizhuangtai | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.renzhizhuangtai | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.jiankang.$invalid && !addPeoplezhiwuform.jiankang.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.working_number.$invalid && !addPeoplezhiwuform.working_number.$pristine }">
 					<label class="col-md-4 control-label">批准任职文号</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="jiankang" type="text" ng-model="newdata.jiankang" required>
+							<input class="form-control" name="working_number" type="text" ng-model="zhiwu.working_number" required>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.zhiji.$invalid && !addPeoplezhiwuform.zhiji.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">任职机构名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.jigou">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_name">
 								<ui-select-match  placeholder="请选择任职机构">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in renzhijigoumingcheng | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.renzhijigoumingcheng | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.shenfen.$invalid && !addPeoplezhiwuform.shenfen.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">任职机构隶属</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.lishu">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_membership">
 								<ui-select-match  placeholder="请选择任职机构隶属">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in renzhijigoulishu | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.renzhijigoulishu | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.xingbie.$invalid && !addPeoplezhiwuform.xingbie.$pristine }">
+				<div class="form-group">
 					<label class="col-md-4 control-label">任职机构性质类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.jigouleibie">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_type">
 								<ui-select-match  placeholder="请选择任职机构性质属性类别">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in renzhijigouxingzhi | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.renzhijigouxingzhi | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
@@ -92,37 +79,37 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.xingbie.$invalid && !addPeoplezhiwuform.xingbie.$pristine }">
+				<div class="form-group">
 					<label class="col-md-4 control-label">职务类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.leibie">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.post_category">
 								<ui-select-match  placeholder="请选择职务类别">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in zhiwuleibie | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.zhiwuleibie | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.minzu.$invalid && !addPeoplezhiwuform.minzu.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">职级</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.zhiji">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.rank">
 								<ui-select-match  placeholder="请选择职级">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in zhiwuzhiji | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.zhijilist | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.chusheng.$invalid && !addPeoplezhiwuform.chusheng.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">批准任职时间</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.renzhi" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.working_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
@@ -132,7 +119,7 @@
 					<label class="col-md-4 control-label">批准免职时间</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.mianzhi" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.depose_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
@@ -142,7 +129,12 @@
 					<label class="col-md-4 control-label">任职机构代码</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="zhuangtai" type="text" ng-model="newdata.zhuangtai" required>
+							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_id">
+								<ui-select-match  placeholder="请选择任职机构代码">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in elementSelect.renzhijigoudaima | filter: $select.search">
+									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -150,9 +142,9 @@
 					<label class="col-md-4 control-label">任职机构级别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.jigoujibie">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_level">
 								<ui-select-match  placeholder="请选择任职机构级别">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in renzhijigoujibie | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.renzhijigoujibie | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
@@ -163,7 +155,7 @@
 					<label class="col-md-4 control-label">现任职级时间</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.zhiji" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.rank_time" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
@@ -172,16 +164,6 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="form-group" >
-				<label class="col-md-3 control-label">原单位及职务</label>
-				<div class="col-md-9 ">
-					<div  class=" m-l-n">
-						<textarea rows="2" class="form-control" name="zhuanchang" ng-model="newdata.zhuanchang" ></textarea>
-					</div>
-				</div>
-			</div>
-		</div>
 
 	</form>
 </div>

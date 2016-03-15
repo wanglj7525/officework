@@ -59,7 +59,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 
 
 		$scope.id = $stateParams.id;
-		$scope.addReason= function (e) {
+		$scope.updateReason= function (e) {
 				var modalReasonInstance = $modal.open({
 					templateUrl: 'adjustReasonModel.html',
 					controller: 'analysisReasonController',
@@ -75,6 +75,27 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 				}, function () {
 					$log.info('Modal dismissed at: ' + new Date());
 				});
+			}
+		$scope.delReason= function (e) {
+			var postData = $.param({
+				id:e.id,
+			});
+			adjustdetailservice.delAdjustList(postData).then(
+				function (res) {
+					if(res.data.code==200){
+						for(var i=0; i<$scope.adjusttable.length; i++){
+							if($scope.adjusttable[i].id==e.id){
+								$scope.adjusttable.splice(i,1);
+							}
+						}
+					}else{
+						alert(res.data.msg);
+					}
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
 			}
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue) {
 			var postData = $.param({

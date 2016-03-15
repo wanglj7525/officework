@@ -616,5 +616,27 @@ angular.module('app')
             });
             return promise;
         },
+        delAdjustList:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/delete?';
+            var promise=$http.delete(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updateAdjustList:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/update?';
+            var promise=$http.put(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
     }
 }])

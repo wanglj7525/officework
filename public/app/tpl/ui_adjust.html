@@ -33,9 +33,12 @@
 							<td>
 							{{row.reason}}
 							</td>
-							<td style="width: 10%;text-align: center">
-								<button type="button" ng-click="addReason()" class="btn btn-href ">
+							<td style="width: 15%;">
+								<button type="button" ng-click="updateReason(row)" class="btn btn-href ">
 									修改
+								</button>
+								<button type="button" ng-click="delReason(row)" class="btn btn-href ">
+									删除
 								</button>
 							</td>
 							<!--<select class="addReasonClass selectAdjust ">-->

@@ -328,11 +328,11 @@
                                              <div class="panel-heading" style="position: relative">职务管理
                                                   <button ng-click="addzhiwu(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="postinfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
                                                        <th>职务名称</th>
-                                                       <th>职务列表</th>
+                                                       <th>职务类别</th>
                                                        <th>职务统计类别</th>
                                                        <th>职级</th>
                                                        <th>任职状态</th>
@@ -341,19 +341,22 @@
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in postinfolist" >
+                                                       <td>{{row.post_name}}</td>
+                                                       <td>{{row.post_category}}</td>
+                                                       <td>{{row.post_statistics_category}}</td>
+                                                       <td>{{row.rank}}</td>
+                                                       <td>{{row.work_status}}</td>
+                                                       <td>{{row.working_date | date:'yyyy-MM-dd'}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>
@@ -370,33 +373,31 @@
                                              <div class="panel-heading" style="position: relative">职称管理
                                                   <button ng-click="addzhicheng(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="titleinfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>序号</th>
                                                        <th>技术任职资格职称</th>
                                                        <th>获得资格日期</th>
                                                        <th>聘任时间</th>
                                                        <th>级别</th>
-                                                       <th>批准任职时间</th>
-                                                       <th>批准任职时间</th>
                                                        <th>操作</th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in titleinfolist" >
+                                                       <td>{{row.title_name}}</td>
+                                                       <td>{{row.get_date | date:'yyyy-MM-dd'}}</td>
+                                                       <td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>
+                                                       <td>{{row.level}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>
@@ -413,10 +414,9 @@
                                              <div class="panel-heading" style="position: relative">学历管理
                                                   <button ng-click="addxueli(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="eduinfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>序号</th>
                                                        <th>学历</th>
                                                        <th>学历类别</th>
                                                        <th>毕业日期</th>
@@ -426,19 +426,21 @@
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in eduinfolist" >
+                                                       <td>{{row.edu_level}}</td>
+                                                       <td>{{row.edu_category}}</td>
+                                                       <td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>
+                                                       <td>{{row.school_name}}</td>
+                                                       <td>{{row.profession_name}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>
@@ -455,10 +457,9 @@
                                              <div class="panel-heading" style="position: relative">学位管理
                                                   <button ng-click="addxuewei(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="degreeinfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>序号</th>
                                                        <th>学位</th>
                                                        <th>学位类别</th>
                                                        <th>学位授予单位</th>
@@ -466,19 +467,19 @@
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in degreeinfolist" >
+                                                       <td>{{row.degree_name}}</td>
+                                                       <td>{{row.degree_category}}</td>
+                                                       <td>{{row.school_name}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>
@@ -495,7 +496,7 @@
                                              <div class="panel-heading" style="position: relative">奖惩记录管理
                                                   <button ng-click="addjiangcheng(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加奖惩记录</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="jiangchenginfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
                                                        <th>奖惩说明</th>
@@ -506,19 +507,20 @@
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in jiangchenginfolist" >
+                                                       <td>{{row.explanation}}</td>
+                                                       <td>{{row.wage_level}}</td>
+                                                       <td>{{row.wage_grade}}</td>
+                                                       <td>{{row.wage_level_2}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>
@@ -535,10 +537,9 @@
                                              <div class="panel-heading" style="position: relative">年度考核管理
                                                   <button ng-click="addkaohe(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加年度考核</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="examinfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>序号</th>
                                                        <th>考察类别</th>
                                                        <th>考查时间</th>
                                                        <th>考查结论类别</th>
@@ -546,19 +547,19 @@
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in examinfolist" >
+                                                       <td>{{row.exa_category}}</td>
+                                                       <td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>
+                                                       <td>{{row.exa_result}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>
@@ -572,14 +573,14 @@
                               <div  flex>
                                    <div class="" layout="column" >
                                         <div >
-                                             <form name="addPeopleform_2" class="form-horizontal">
+                                             <form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
                                                   <div class="row">
                                                        <div class="col-md-6">
                                                             <div class="form-group">
                                                                  <label class="col-md-3 control-label">首任正处长职时间</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="name" type="text" ng-model="newdata.name" required>
+                                                                           <input class="form-control" name="name" type="text"  value="{{resumeinfo.first_director_time | date:'yyyy-MM-dd'}}"  disabled>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -587,7 +588,7 @@
                                                                  <label class="col-md-3 control-label">部队正团时间</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+                                                                           <input class="form-control" name="birthday" type="text"  value="{{resumeinfo.tuan_time | date:'yyyy-MM-dd'}}" disabled>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -595,7 +596,7 @@
                                                                  <label class="col-md-3 control-label">转业时间</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+                                                                           <input class="form-control" name="birthday" type="text" value="{{resumeinfo.zhuanye_time | date:'yyyy-MM-dd'}}" disabled>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -605,20 +606,15 @@
                                                                  <label class="col-md-3 control-label">是否军转干部</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <ui-select ng-model="jianli.zhuangan" theme="bootstrap">
-                                                                                <ui-select-match placeholder="请选择">{{$select.selected.value}}</ui-select-match>
-                                                                                <ui-select-choices repeat="item in xuanze | filter: $select.search">
-                                                                                     <div ng-bind-html="item.value | highlight: $select.search"></div>
-                                                                                </ui-select-choices>
-                                                                           </ui-select>
+                                                                           <input class="form-control" name="birthday" type="text" value="{{resumeinfo.is_exchange}}" disabled>
                                                                       </div>
                                                                  </div>
                                                             </div>
-                                                            <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.minzu.$invalid && !addPeopleform_1.minzu.$pristine }">
+                                                            <div class="form-group" >
                                                                  <label class="col-md-3 control-label">部队副师时间</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
-                                                                           <input class="form-control" name="minzu" type="text" ng-model="newdata.minzu" required>
+                                                                           <input class="form-control" name="minzu" type="text" value="{{resumeinfo.fushi_time | date:'yyyy-MM-dd'}}" disabled>
                                                                       </div>
                                                                  </div>
                                                             </div>
@@ -628,15 +624,14 @@
                                                        <div class="form-group">
                                                             <label class="col-md-1 control-label">个人简历</label>
                                                             <div class="col-md-11">
-                                                                 <script type="text/html" style="margin:auto;height:300px;width:700px" ng-style=""  ng-model="all_text" meta-umeditor
-                                                                         meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历"></script>
-                                                                 <!--<div class="model">-->
-                                                                      <!--<div ng-bind="all_text"></div>-->
-                                                                 <!--</div>-->
+                                                                 <pre ng-bind="resumeinfo.resume"></pre>
+                                                                 <!--<div ng-bind-html="resumeinfo.resume"></div>-->
+                                                                 <!--<script type="text/html" style="margin:auto;height:300px;width:800px" ng-style=""  ng-model="all_text"  meta-umeditor-->
+                                                                 <!--meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历" ></script>-->
                                                             </div>
                                                        </div>
                                                   </div>
-                                                  </form>
+                                             </form>
                                              <div class="row">
                                                   <button class="btn btn-primary"  ng-click="saveJiben()">保存简历</button>
                                                   <!--ng-disabled="addPeopleform_1.$invalid"-->
@@ -655,30 +650,37 @@
                                              <div class="panel-heading" style="position: relative">家庭成员管理
                                                   <button ng-click="addjiating(peopleid)"  class="btn btn-add btn-href" style="width: 150px;">添加家庭成员</button>
                                              </div>
-                                             <table st-table="daima.childlist"  class="table table-bordered">
+                                             <table st-table="familyInfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>序号</th>
-                                                       <th>考察类别</th>
-                                                       <th>考查时间</th>
-                                                       <th>考查结论类别</th>
+                                                       <th>人员姓名</th>
+                                                       <th>与该人关系</th>
+                                                       <th>人员出生日期</th>
+                                                       <th>人员工作单位</th>
+                                                       <th>政治面貌</th>
+                                                       <th>人员职务</th>
+                                                       <th>人员现状</th>
                                                        <th>操作</th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <!--<tr ng-repeat="row in daima.list" >-->
-                                                  <!--<td>{{row.ano}}</td>-->
-                                                  <!--<td>{{row.dz}}</td>-->
-                                                  <!--<td>{{row.jc}}</td>-->
-                                                  <!--<td>-->
-                                                  <!--<button type="button" ng-click="updatedaima(daima.catalog_id,row)" class="btn btn-href ">-->
-                                                  <!--修改-->
-                                                  <!--</button>-->
-                                                  <!--<button type="button" ng-click="deletedaima($index,row,daima.catalog_id)"  class="btn btn-href ">-->
-                                                  <!--删除-->
-                                                  <!--</button>-->
-                                                  <!--</td>-->
-                                                  <!--</tr>-->
+                                                  <tr ng-repeat="row in familyInfolist" >
+                                                       <td>{{row.family_name}}</td>
+                                                       <td>{{row.renatinship_name}}</td>
+                                                       <td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
+                                                       <td>{{row.family_org_name}}</td>
+                                                       <td>{{row.family_poli}}</td>
+                                                       <td>{{row.family_post}}</td>
+                                                       <td>{{row.family_status}}</td>
+                                                       <td>
+                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                                 修改
+                                                            </button>
+                                                            <button type="button"  class="btn btn-href ">
+                                                                 删除
+                                                            </button>
+                                                       </td>
+                                                  </tr>
                                                   </tbody>
                                              </table>
                                         </div>

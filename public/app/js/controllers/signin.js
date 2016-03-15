@@ -2,70 +2,41 @@
 
 /* Controllers */
 // signin controller
-app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStorage',
-		function($scope, $http, $state,$localStorage) {
+app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStorage','SettinguserService',
+		function($scope, $http, $state,$localStorage,SettinguserService) {
 			$scope.user = {};
 			$scope.authError = null;
 			$scope.login = function() {
 				$scope.authError = null;
-				var params = {
-					email : $scope.user.email,
+				var params=$.param({
+					username : $scope.user.username,
 					password : $scope.user.password
-				};
-				console.log(params);
-
-				var data={
-					access_token:'123456',
-					info:{
-						role_id:'1',
-						id:'402882f5535a038b01535a0531b40003'
+				});
+				SettinguserService.loginservice(params).then(
+					function(res){
+						if(res.data.code==200){
+							//存储access_token
+							$localStorage.token=res.data.info.access_token;
+							$localStorage.user=res.data.info;
+							$state.go('app.worktip.list');
+						}else {
+							$scope.authError = '用户名或者密码错误';
+						}
+					},
+					function(rej){
+						$scope.authError = '服务器异常';
 					}
-				}
-				$localStorage.token=data.access_token;
-				$localStorage.user=data.info;
-				$state.go('app.worktip.list');
-				// Try to login
-				//$http.post('/rest/login', params).success(function(data) {
-				//	if (data.result == "success") {
-				//		//存储access_token
-				//		$localStorage.token=data.access_token;
-				//		$localStorage.user=data.info;
-				//		console.log($localStorage.user);
-				//		$state.go('app.worktip.list');
-				//	} else {
-				//		$scope.authError = 'Email or Password not right';
+				);
+
+				//var data={
+				//	access_token:'123456',
+				//	info:{
+				//		role_id:'1',
+				//		id:'402882f5535a038b01535a0531b40003'
 				//	}
-				//}).error(function(data) {
-				//	alert(data);
-				//	$scope.authError = 'Server Error';
-				//});
+				//}
+				//$localStorage.token=data.access_token;
+				//$localStorage.user=data.info;
+				//$state.go('app.worktip.list');
 			};
 		} ]);
-
-//app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStorage','SERVICE_URL',
-//	function($scope, $http, $state,$localStorage,SERVICE_URL) {
-//		$scope.user = {};
-//		$scope.authError = null;
-//		$scope.login = function() {
-//			$scope.authError = null;
-//			var params = {
-//				username : $scope.user.email,
-//				password : $scope.user.password
-//			};
-//			// Try to login
-//			$http.post(SERVICE_URL+'/loginService/login', params).success(function(data) {
-//				if (data.result == "success") {
-//					//存储access_token
-//					$localStorage.token=data.access_token;
-//					$localStorage.user=data.info;
-//					console.log($localStorage.user);
-//					$state.go('app.worktip.list');
-//				} else {
-//					$scope.authError = 'Email or Password not right';
-//				}
-//			}).error(function(data) {
-//				alert(data);
-//				$scope.authError = 'Server Error';
-//			});
-//		};
-//	} ]);

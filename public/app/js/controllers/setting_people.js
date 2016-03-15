@@ -248,6 +248,95 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 person_id:people.id,
                 access_token:$localStorage.token
             });
+            //家庭成员
+            SettingpeopleService.getfamilyInfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.familyInfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //简历
+            SettingpeopleService.getresumeInfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.resumeinfo={};
+                        $scope.resumeinfo=res.data.info[0];
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //年度考核
+            SettingpeopleService.getexaminfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.examinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //奖惩记录
+            SettingpeopleService.getjiangchenginfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.jiangchenginfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //学位
+            SettingpeopleService.getDegreeinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.degreeinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //学历
+            SettingpeopleService.getEduinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.eduinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //职称
+            SettingpeopleService.getPeopletitleinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.titleinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+            //现任职务
+            SettingpeopleService.getPeoplepostinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.postinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
             SettingpeopleService.getPeopleBase(postData).then(
                 function(res){
                     if(res.data.code==200){

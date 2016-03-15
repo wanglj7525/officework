@@ -89,6 +89,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		SettingdaimaService.getCodagetList("ZB06").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
 		//人员状态
 		SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+		//学历
+		SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
 
 		searchservice.getData().then(
 			function (res) {

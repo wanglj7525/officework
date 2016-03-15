@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <div style="position: relative">
+		<span >
+			<h3 class="modal-title">方案审核</h3>
+		</span>
+    </div>
+</div>
+<div class="modal-body" ng-controller="adjustdetailController">
+    <form name="addtreeform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+        <div class="form-group">
+            <label class="col-md-2 control-label">方案名称</label>
+            <div class="col-md-10 row">
+                <div  class=" m-l-n">
+                    <input class="form-control" name="name" type="text" ng-model="saveadjust.name" required >
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">调整原因</label>
+            <div class="col-md-10 row">
+                <div  class=" m-l-n">
+                    <input class="form-control" name="name" type="text" ng-model="saveadjust.reason" required >
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">保存</button>
+</div>

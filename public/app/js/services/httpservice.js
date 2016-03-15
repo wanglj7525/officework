@@ -780,5 +780,49 @@ angular.module('app')
             });
             return promise;
         },
+        getreasonList:function(){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/reason?';
+            var promise=$http.get(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getzhiweiList:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/tree/position/getlist?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getadjustFix:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/update?';
+            var promise=$http.put(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        saveadjust:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjustplan/save?';
+            var promise=$http.post(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        }
     }
 }])

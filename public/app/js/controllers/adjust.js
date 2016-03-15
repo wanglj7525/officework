@@ -10,6 +10,14 @@ app.controller('analysisReasonController', ['$scope', '$modalInstance', 'items',
 		$modalInstance.dismiss('cancel');
 	};
 }]);
+app.controller('fanganshenheModel',['$scope','$modalInstance',function($scope,$modalInstance){
+		$scope.ok=function(){
+			$modalInstance.close();
+		}
+		$scope.cancel=function(){
+			$modalInstance.dismiss('cancel');
+		}
+}])
 app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout','$stateParams','$modal','$log','$localStorage','adjustdetailservice','adjustreason',
 	function($scope, $http, $state, $timeout,$stateParams,$modal,$log,$localStorage,adjustdetailservice,adjustreason) {
 			$scope.treeselected=$localStorage.treeselect;
@@ -20,7 +28,16 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 			});
 		//方案审核
 		$scope.fanganshenhe=function(){
-			alert("模态框")
+			//alert("模态框")
+			var modalfanganInstance=$modal.open({
+				templateUrl:'ui_fanganshenheModel.html',
+				controller: 'fanganshenheModel',
+				size:'md',
+			});
+			modalfanganInstance.result.then(function () {
+			}, function () {
+
+			});
 		}
 			//获取调配原因
 			adjustreason.getData().then(

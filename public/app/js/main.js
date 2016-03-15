@@ -48,9 +48,21 @@ angular.module('app')
         console.log($scope.showheight);
         //退出
         $scope.logout=function(){
-          $localStorage.token='0';
-          //delete  $localStorage.treeselect;
-          $state.go("access.signin");
+          var params=$.param({
+            username : $localStorage.user.username
+          });
+          SettinguserService.logoutservice(params).then(
+              function(res){
+                $localStorage.token='0';
+                //delete  $localStorage.treeselect;
+                $state.go("access.signin");
+              },
+              function(rej){
+                $localStorage.token='0';
+                //delete  $localStorage.treeselect;
+                $state.go("access.signin");
+              }
+          );
         }
         /*切换单位树*/
         $scope.treeToggle=function(){
@@ -65,9 +77,9 @@ angular.module('app')
           });
           modaluserInstance.result.then(function (newdata) {
             var params=$.param({
-              id: $localStorage.user.id,
-              oldpassword:newdata.oldpassword,
-              password:  newdata.password,
+              //id: $localStorage.user.id,
+              //oldpassword:newdata.oldpassword,
+              //password:  newdata.password,
               access_token:$localStorage.token
             });
             //调用后台保存 成功后重新登录

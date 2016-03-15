@@ -228,10 +228,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         SettingdaimaService.getCodagetList("ZB03").then(function(res){ $scope.renzhijigoujibie=res.data.info.list;},function(rej){});
         //任职机构性质类别
         SettingdaimaService.getCodagetList("ZB04").then(function(res){ $scope.renzhijigouxingzhi=res.data.info.list;},function(rej){});
-        //任职原因
-        SettingdaimaService.getCodagetList("ZB12").then(function(res){ $scope.renzhireason=res.data.info.list;},function(rej){});
-        //免职原因
-        SettingdaimaService.getCodagetList("ZB16").then(function(res){ $scope.mianzhireason=res.data.info.list;},function(rej){});
 
 
 //添加用户

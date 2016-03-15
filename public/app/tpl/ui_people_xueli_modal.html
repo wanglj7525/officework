@@ -5,74 +5,48 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body" ng-controller="SetPeopleCtrl as vm">
+<div class="modal-body" >
 	<form name="addPeoplexueliform" class="form-horizontal">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.name.$invalid && !addPeoplexueliform.name.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.edu_level.$invalid && !addPeoplexueliform.edu_level.$pristine }">
 					<label class="col-md-4 control-label">学历</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select ng-model="xueli.xueli" theme="bootstrap">
+							<ui-select ng-model="xueli.edu_level" theme="bootstrap">
 								<ui-select-match placeholder="请选择学历">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in xueli | filter: $select.search">
+								<ui-select-choices repeat="item in elementSelect.xuellist | filter: $select.search">
 									<div ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.birthday.$invalid && !addPeoplexueliform.birthday.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.school_name.$invalid && !addPeoplexueliform.school_name.$pristine }">
 					<label class="col-md-4 control-label">学校名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
-						</div>
-					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.jiguan.$invalid && !addPeoplexueliform.jiguan.$pristine }">
-					<label class="col-md-4 control-label">毕业日期</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
-						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="xueli.biye" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-							</span>
+							<input class="form-control" name="school_name" type="text" ng-model="xueli.school_name" required>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.name.$invalid && !addPeoplexueliform.name.$pristine }">
-					<label class="col-md-4 control-label">学历类别</label>
-					<div class="col-md-8 row">
-						<div  class=" m-l-n">
-							<ui-select ng-model="xueli.leibie" theme="bootstrap">
-								<ui-select-match placeholder="请选择学位类别">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in xueweileibie | filter: $select.search">
-									<div ng-bind-html="item.dz | highlight: $select.search"></div>
-								</ui-select-choices>
-							</ui-select>
-						</div>
-					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.birthday.$invalid && !addPeoplexueliform.birthday.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.profession_name.$invalid && !addPeoplexueliform.profession_name.$pristine }">
 					<label class="col-md-4 control-label">专业名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="birthday" type="text" ng-model="newdata.birthday" required>
+							<input class="form-control" name="profession_name" type="text" ng-model="xueli.profession_name" required>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.jiguan.$invalid && !addPeoplexueliform.jiguan.$pristine }">
-					<label class="col-md-4 control-label">统计标识</label>
-					<div class="col-md-8 row">
-						<div  class=" m-l-n">
-							<ui-select ng-model="xueli.tongji" theme="bootstrap">
-								<ui-select-match placeholder="请选择">{{$select.selected.value}}</ui-select-match>
-								<ui-select-choices repeat="item in xuanze | filter: $select.search">
-									<div ng-bind-html="item.value | highlight: $select.search"></div>
-								</ui-select-choices>
-							</ui-select>
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.greduation_date.$invalid && !addPeoplexueliform.greduation_date.$pristine }">
+					<label class="col-md-4 control-label">毕业日期</label>
+					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+						<div  class="input-group">
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="xueli.greduation_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+							</span>
 						</div>
 					</div>
 				</div>

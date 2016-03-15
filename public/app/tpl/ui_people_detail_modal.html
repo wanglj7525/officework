@@ -162,7 +162,7 @@
 								<tr>
 									<th>职务名称</th>
 									<th>职务类别</th>
-									<th>职务统计类别</th>
+									<!--<th>职务统计类别</th>-->
 									<th>职级</th>
 									<th>任职状态</th>
 									<th>批准任职时间</th>
@@ -172,7 +172,7 @@
 								<tr ng-repeat="row in postinfolist" >
 									<td>{{row.post_name}}</td>
 									<td>{{row.post_category}}</td>
-									<td>{{row.post_statistics_category}}</td>
+									<!--<td>{{row.post_statistics_category}}</td>-->
 									<td>{{row.rank}}</td>
 									<td>{{row.work_status}}</td>
 									<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>
@@ -195,16 +195,16 @@
 								<tr>
 									<th>技术任职资格职称</th>
 									<th>获得资格日期</th>
-									<th>聘任时间</th>
-									<th>级别</th>
+									<!--<th>聘任时间</th>-->
+									<!--<th>级别</th>-->
 								</tr>
 								</thead>
 								<tbody>
 								<tr ng-repeat="row in titleinfolist" >
 									<td>{{row.title_name}}</td>
 									<td>{{row.get_date | date:'yyyy-MM-dd'}}</td>
-									<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>
-									<td>{{row.level}}</td>
+									<!--<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>-->
+									<!--<td>{{row.level}}</td>-->
 								</tr>
 								</tbody>
 							</table>
@@ -223,7 +223,7 @@
 								<thead>
 								<tr>
 									<th>学历</th>
-									<th>学历类别</th>
+									<!--<th>学历类别</th>-->
 									<th>毕业日期</th>
 									<th>学校名称</th>
 									<th>专业</th>
@@ -232,7 +232,7 @@
 								<tbody>
 								<tr ng-repeat="row in eduinfolist" >
 									<td>{{row.edu_level}}</td>
-									<td>{{row.edu_category}}</td>
+									<!--<td>{{row.edu_category}}</td>-->
 									<td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>
 									<td>{{row.school_name}}</td>
 									<td>{{row.profession_name}}</td>
@@ -254,14 +254,14 @@
 								<thead>
 								<tr>
 									<th>学位</th>
-									<th>学位类别</th>
+									<!--<th>学位类别</th>-->
 									<th>学位授予单位</th>
 								</tr>
 								</thead>
 								<tbody>
 								<tr ng-repeat="row in degreeinfolist" >
 									<td>{{row.degree_name}}</td>
-									<td>{{row.degree_category}}</td>
+									<!--<td>{{row.degree_category}}</td>-->
 									<td>{{row.school_name}}</td>
 								</tr>
 								</tbody>
@@ -334,52 +334,52 @@
 					<div class="" layout="column" >
 						<div >
 							<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-md-3 control-label">首任正处长职时间</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="name" type="text"  value="{{resumeinfo.first_director_time | date:'yyyy-MM-dd'}}"  disabled>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" >
-											<label class="col-md-3 control-label">部队正团时间</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="birthday" type="text"  value="{{resumeinfo.tuan_time | date:'yyyy-MM-dd'}}" disabled>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" >
-											<label class="col-md-3 control-label">转业时间</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="birthday" type="text" value="{{resumeinfo.zhuanye_time | date:'yyyy-MM-dd'}}" disabled>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group" >
-											<label class="col-md-3 control-label">是否军转干部</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="birthday" type="text" value="{{resumeinfo.is_exchange}}" disabled>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" >
-											<label class="col-md-3 control-label">部队副师时间</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="minzu" type="text" value="{{resumeinfo.fushi_time | date:'yyyy-MM-dd'}}" disabled>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<!--<div class="row">-->
+									<!--<div class="col-md-6">-->
+										<!--<div class="form-group">-->
+											<!--<label class="col-md-3 control-label">首任正处长职时间</label>-->
+											<!--<div class="col-md-9 row">-->
+												<!--<div  class=" m-l-n">-->
+													<!--<input class="form-control" name="name" type="text"  value="{{resumeinfo.first_director_time | date:'yyyy-MM-dd'}}"  disabled>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="form-group" >-->
+											<!--<label class="col-md-3 control-label">部队正团时间</label>-->
+											<!--<div class="col-md-9 row">-->
+												<!--<div  class=" m-l-n">-->
+													<!--<input class="form-control" name="birthday" type="text"  value="{{resumeinfo.tuan_time | date:'yyyy-MM-dd'}}" disabled>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="form-group" >-->
+											<!--<label class="col-md-3 control-label">转业时间</label>-->
+											<!--<div class="col-md-9 row">-->
+												<!--<div  class=" m-l-n">-->
+													<!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.zhuanye_time | date:'yyyy-MM-dd'}}" disabled>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+									<!--<div class="col-md-6">-->
+										<!--<div class="form-group" >-->
+											<!--<label class="col-md-3 control-label">是否军转干部</label>-->
+											<!--<div class="col-md-9 row">-->
+												<!--<div  class=" m-l-n">-->
+													<!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.is_exchange}}" disabled>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="form-group" >-->
+											<!--<label class="col-md-3 control-label">部队副师时间</label>-->
+											<!--<div class="col-md-9 row">-->
+												<!--<div  class=" m-l-n">-->
+													<!--<input class="form-control" name="minzu" type="text" value="{{resumeinfo.fushi_time | date:'yyyy-MM-dd'}}" disabled>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
 								<div class="row">
 									<div class="form-group">
 										<label class="col-md-1 control-label">个人简历</label>
@@ -411,7 +411,7 @@
 									<th>人员出生日期</th>
 									<th>人员工作单位</th>
 									<th>政治面貌</th>
-									<th>人员职务</th>
+									<!--<th>人员职务</th>-->
 									<th>人员现状</th>
 								</tr>
 								</thead>
@@ -422,7 +422,7 @@
 									<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
 									<td>{{row.family_org_name}}</td>
 									<td>{{row.family_poli}}</td>
-									<td>{{row.family_post}}</td>
+									<!--<td>{{row.family_post}}</td>-->
 									<td>{{row.family_status}}</td>
 								</tr>
 								</tbody>

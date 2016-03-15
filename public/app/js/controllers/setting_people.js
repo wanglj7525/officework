@@ -440,7 +440,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     person_id:$scope.user.person_id,
                     head_pic:$scope.user.head_pic,
                     name:$scope.user.name,
-                    sex:$scope.user.sex["ano"],
+                    sex:$scope.user.sex?$scope.user.sex["ano"]:"",
                     birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
                     birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
                     jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
@@ -472,7 +472,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 var postData = $.param({
                     head_pic:$scope.user.head_pic,
                     name:$scope.user.name,
-                    sex:$scope.user.sex["ano"],
+                    sex:$scope.user.sex?$scope.user.sex["ano"]:"",
                     birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
                     birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
                     jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",

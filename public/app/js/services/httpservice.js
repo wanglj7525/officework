@@ -221,7 +221,7 @@ angular.module('app')
     }
 }])
     .service('SettingpeopleService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
-    //用户管理
+    //人员管理
     return{
         getPeopleList:function(params){
             var deferred=$q.defer();
@@ -443,6 +443,20 @@ angular.module('app')
             var deferred=$q.defer();
             var path=SERVICE_URL+'/worktip/chartdetails?';
             //var path='/public/app/api/worktip';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        }
+    }
+}] ).service('UIDeployservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
+    //班子调配
+    return{
+        getOneDeploy:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/unit?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){

@@ -4,6 +4,7 @@
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.js" afterPath="$PROJECT_DIR$/public/app/js/config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" />
     </list>
     <ignored path="officwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/js/config.js">
+      <file leaf-file-name="ui_setting_people.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10298103">
-              <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+            <state vertical-scroll-proportion="-0.6785714">
+              <caret line="587" column="103" selection-start-line="587" selection-start-column="93" selection-end-line="587" selection-end-column="103" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpservice.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/js/services/httpservice.js">
+      <file leaf-file-name="setting_people.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting_people.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="566" column="23" selection-start-line="566" selection-start-column="23" selection-end-line="566" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.61382115">
+              <caret line="946" column="27" selection-start-line="946" selection-start-column="27" selection-end-line="946" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -109,13 +110,13 @@
         <option value="$PROJECT_DIR$/public/app/tpl/ui_people_jiating_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_people_detail_modal.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" />
         <option value="$PROJECT_DIR$/public/app/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/blocks/material.header.html" />
         <option value="$PROJECT_DIR$/public/app/js/services/httpservice.js" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/adjustplan.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_adjustplan.html" />
         <option value="$PROJECT_DIR$/public/app/js/config.js" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" />
       </list>
     </option>
   </component>
@@ -387,12 +388,6 @@
       <created>1455966441221</created>
       <option name="number" value="Default" />
       <updated>1455966441221</updated>
-    </task>
-    <task id="LOCAL-00015" summary="班子调配 弹出框选择单位">
-      <created>1456306805806</created>
-      <option name="number" value="00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1456306805806</updated>
     </task>
     <task id="LOCAL-00016" summary="合并调整">
       <created>1456493510445</created>
@@ -682,22 +677,28 @@
       <option name="project" value="LOCAL" />
       <updated>1458038169279</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="合并">
+      <created>1458038866305</created>
+      <option name="number" value="00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1458038866305</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.196875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32724902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -720,7 +721,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="班子调配修改结构" />
     <MESSAGE value="切换菜单 点击左树 获取所选中的左树值" />
     <MESSAGE value="调配方案 人员管理 修改" />
     <MESSAGE value="班子调配" />
@@ -745,7 +745,8 @@
     <MESSAGE value="搜索条件 学历" />
     <MESSAGE value="调整方案" />
     <MESSAGE value="调整方案 删除 使用接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整方案 删除 使用接口" />
+    <MESSAGE value="合并" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -971,6 +972,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.515493">
           <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -978,6 +982,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18732394">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -985,6 +992,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20985915">
           <caret line="35" column="70" selection-start-line="35" selection-start-column="70" selection-end-line="35" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -999,6 +1007,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49615976">
           <caret line="17" column="87" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,6 +1015,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.9642856">
           <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1020,22 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="243" column="22" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="587" column="103" selection-start-line="587" selection-start-column="93" selection-end-line="587" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting_people.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="564" column="0" selection-start-line="564" selection-start-column="0" selection-end-line="564" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1134,7 +1130,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/services/httpservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.4105691">
           <caret line="566" column="23" selection-start-line="566" selection-start-column="23" selection-end-line="566" selection-end-column="23" />
           <folding />
         </state>
@@ -1142,8 +1138,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10298103">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.5406504">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_people.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6785714">
+          <caret line="587" column="103" selection-start-line="587" selection-start-column="93" selection-end-line="587" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting_people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61382115">
+          <caret line="946" column="27" selection-start-line="946" selection-start-column="27" selection-end-line="946" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -536,6 +536,44 @@ angular.module('app')
         }
 
     }
+}]) .service('UIAdjustplanService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
+    //调整方案
+    return{
+        getAdjustplanList:function(){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjustplan/list';
+            var promise=$http.get(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getAdjustplanDetail:function(id){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjustplan/get?id='+id;
+            var promise=$http.get(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        delAdjustPlan:function(id){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjustplan/delete?id='+id;
+            var promise=$http.delete(path).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+
+    }
 }]).service('UIworktipservice', ['$q','$http','$localStorage','SERVICE_URL', function($q,$http,$localStorage,SERVICE_URL){
     //工作提示
     return{

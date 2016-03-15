@@ -142,20 +142,23 @@ angular.module('app')
               })
               // 调整方案
               .state('app.adjustplan', {
-                  abstract: true,
+                  //abstract: true,
                   url: '/adjustplan',
                   templateUrl: STATIC_PATH + 'tpl/ui_adjustplan.html',
+                  controller:function($scope,$state){
+                      $scope.state = $state;
+                  },
                   // use resolve to load other dependences
                   resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js'])
               })
-              .state('app.adjustplan.detail', {
-                  url: '/detail/{id}',
-                  templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js']),
-                  controller:function($scope,$state){
-                      $scope.state = $state;
-                  }
-              })
+              //.state('app.adjustplan.detail', {
+              //    url: '/detail/{id}',
+              //    templateUrl: STATIC_PATH + 'tpl/ui_plandetail.html',
+              //    resolve: load(['smart-table',STATIC_PATH + 'js/controllers/adjustplan.js']),
+              //    controller:function($scope,$state){
+              //        $scope.state = $state;
+              //    }
+              //})
               .state('access', {
                   url: '/access',
                   template: '<div ui-view style="height: 100%" flex  class="blue-900"></div>'

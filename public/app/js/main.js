@@ -10,7 +10,7 @@ angular.module('app')
           $rootScope.Auth=Auth;
           //避免未登录用户直接输入路由地址来跳转到登录界面地址
           console.log("切换路由--"+toState.name+"--"+$localStorage.token);
-          if(toState.name=='app.adjustplan.detail'||toState.name=='app.setting.tree'){
+          if(toState.name=='app.adjustplan'||toState.name=='app.setting.tree'){
             $scope.isshowtree=false;
             $scope.hassearch=false;
           }else if(toState.name=='app.message'){

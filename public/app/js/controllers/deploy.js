@@ -174,6 +174,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
+		//免职
 		$scope.removepeople=function(which,people){
 			console.log(which-1);
 			var indexs=which-1;
@@ -189,6 +190,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
+		//保存班子
 		$scope.savedeploy=function(){
 			var modalsaveInstance = $modal.open({
 				templateUrl: 'savePeopleModel.html',
@@ -202,6 +204,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			});
 		}
 
+		//查看详情
 		$scope.showOneDetail=function(people){
 
 			$scope.isdetail=true;

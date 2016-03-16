@@ -1,52 +1,4 @@
 'use strict';
-//app.controller('SetPeopleCtrl',['$rootScope','$state','$scope','messageservice',function($rootScope,$state,$scope,messageservice){
-//    $scope.messagetabletab = [
-//        { id:1,img:'/public/app/img/a0.jpg', name:'张三1' ,sex:"男",company:"福清市xxx、xxx信息1",nation:"汉",birthday:"196511",palce:"福清龙田",troops:"197712",party:"191212",education:"本科",school:"福建师范"},
-//        { id:2,img:'/public/app/img/a1.jpg', name:'张三2' ,sex:"男",company:"福清市xxx、xxx信息2",nation:"汉",birthday:"195411",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},
-//        { id:3,img:'/public/app/img/a2.jpg', name:'张三3' ,sex:"男",company:"福清市xxx、xxx信息3",nation:"汉",birthday:"195711",palce:"福清龙田",troops:"191212",party:"197712",education:"本科",school:"福建师范"},
-//        { id:4,img:'/public/app/img/a3.jpg', name:'张三4' ,sex:"女",company:"福清市xxx、xxx信息4",nation:"汉",birthday:"195311",palce:"福清龙田",troops:"197212",party:"197212",education:"本科",school:"福建师范"},
-//        { id:5,img:'/public/app/img/a4.jpg', name:'张三5' ,sex:"男",company:"福清市xxx、xxx信息5",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"191212",party:"197712",education:"本科",school:"福建师范"},
-//        { id:6,img:'/public/app/img/a5.jpg', name:'张三6' ,sex:"男",company:"福清市xxx、xxx信息6",nation:"汉",birthday:"195011",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},
-//        { id:7,img:'/public/app/img/a6.jpg', name:'张三7' ,sex:"男",company:"福清市xxx、xxx信息7",nation:"汉",birthday:"197511",palce:"福清龙田",troops:"197712",party:"197212",education:"本科",school:"福建师范"},
-//        { id:8,img:'/public/app/img/a7.jpg', name:'张三8' ,sex:"男",company:"福清市xxx、xxx信息8",nation:"汉",birthday:"198511",palce:"福清龙田",troops:"191212",party:"171212",education:"本科",school:"福建师范"},
-//        { id:9,img:'/public/app/img/a8.jpg', name:'张三9' ,sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195411",palce:"福清龙田",troops:"197712",party:"197712",education:"本科",school:"福建师范"},
-//        { id:10,img:'/public/app/img/a9.jpg', name:'张三10',sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197212",party:"191212",education:"本科",school:"福建师范" },
-//        { id:11,img:'/public/app/img/a0.jpg', name:'张三1' ,sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197212",party:"197712",education:"本科",school:"福建师范"},
-//        { id:12,img:'/public/app/img/a1.jpg', name:'张三2' ,sex:"女",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195511",palce:"福清龙田",troops:"197712",party:"197212",education:"本科",school:"福建师范"},
-//        {id:21,img:'/public/app/img/a10.jpg', name:'张三11' ,sex:"男",company:"福清市xxx、xxx信息",nation:"汉",birthday:"195111",palce:"福清龙田",troops:"191212",party:"197712",education:"本科",school:"福建师范"}];
-//
-//    messageservice.getData().then(
-//        function (res) {
-//            $scope.peoplelist = res.data.info;
-//            $scope.itemsByPage=10;
-//        },
-//        function (rej) {
-//            console.log(rej);
-//        }
-//    );
-//}]);
-//app.controller('testController',['Resource', function (service) {
-//
-//    var ctrl = this;
-//
-//    this.displayed = [];
-//
-//    this.callServer = function callServer(tableState) {
-//
-//        ctrl.isLoading = true;
-//
-//        var pagination = tableState.pagination;
-//
-//        var start = pagination.start || 0;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
-//        var number = pagination.number || 10;  // Number of entries showed per page.
-//
-//        service.getPage(start, number, tableState).then(function (result) {
-//            ctrl.displayed = result.data;
-//            tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
-//            ctrl.isLoading = false;
-//        });
-//    };
-//}]);
 app.controller('DatepickerDemoCtrl', ['$scope', function($scope) {
     $scope.today = function() {
         $scope.dt = new Date();
@@ -175,7 +127,10 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         //性别
         SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
         //地址
-        SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+        SettingdaimaService.getCodagetList("ZB01").then(function(res){
+            $scope.address=res.data.info.list;
+            $scope.elementSelect.address=$scope.address
+        },function(rej){});
         //民族
         SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
         //健康
@@ -267,11 +222,11 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             $scope.renzhijigoulishu=res.data.info.list;
             $scope.elementSelect.renzhijigoulishu=$scope.renzhijigoulishu
         },function(rej){});
-        //任职机构名称
-        SettingdaimaService.getCodagetList("ZB02").then(function(res){
-            $scope.renzhijigoumingcheng=res.data.info.list;
-            $scope.elementSelect.renzhijigoumingcheng=$scope.renzhijigoumingcheng
-        },function(rej){});
+        ////任职机构名称
+        //SettingdaimaService.getCodagetList("ZB02").then(function(res){
+        //    $scope.renzhijigoumingcheng=res.data.info.list;
+        //    $scope.elementSelect.renzhijigoumingcheng=$scope.renzhijigoumingcheng
+        //},function(rej){});
         //任职机构级别
         SettingdaimaService.getCodagetList("ZB03").then(function(res){
             $scope.renzhijigoujibie=res.data.info.list;
@@ -579,19 +534,29 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             modalzwaddInstance.result.then(function (zhiwu) {
                 var params=$.param({
                     person_id:  $scope.user.person_id,
-                    organization_name:zhiwu.organization_name?zhiwu.organization_name['ano']:"",
+                    organization_name:zhiwu.organization_id?zhiwu.organization_id['dz']:"",
+                    location:zhiwu.location?zhiwu.location['ano']:"",
                     organization_id:zhiwu.organization_id?zhiwu.organization_id['ano']:"",
                     organization_membership:zhiwu.organization_membership?zhiwu.organization_membership['ano']:"",
                     organization_level:zhiwu.organization_level?zhiwu.organization_level['ano']:"",
                     organization_type:zhiwu.organization_type?zhiwu.organization_type['ano']:"",
                     post_name:zhiwu.post_name,
+                    //职务统计类别 去掉
+                    post_statistics_category:"",
                     post_category:zhiwu.post_category?zhiwu.post_category['ano']:"",
                     rank:zhiwu.rank?zhiwu.rank['ano']:"",
+                    post_oder:zhiwu.post_oder,
+                    post_all_oder:zhiwu.post_all_oder,
                     working_date:$filter("date")(zhiwu.working_date, "yyyyMMdd"),
                     working_number:zhiwu.working_number,
                     work_status:zhiwu.work_status?zhiwu.work_status['ano']:"",
                     depose_date:$filter("date")(zhiwu.depose_date, "yyyyMMdd"),
                     rank_time:$filter("date")(zhiwu.rank_time, "yyyyMMdd"),
+                    //原单位及职务
+                    ex_unit_post:"",
+                    //统计标识ZBB81
+                    statistics_logo:"",
+                    no:0,
                     access_token:$localStorage.token
                 });
                 SettingpeopleService.addPeoplepostinfo(params).then(

@@ -38,13 +38,39 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-group" >
-					<label class="col-md-4 control-label">任职机构名称</label>
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.zhuangtai.$invalid && !addPeoplezhiwuform.zhuangtai.$pristine }">
+					<label class="col-md-4 control-label">任职机构</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_name">
-								<ui-select-match  placeholder="请选择任职机构">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in elementSelect.renzhijigoumingcheng | filter: $select.search">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_id">
+								<ui-select-match  placeholder="请选择任职机构代码">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in elementSelect.renzhijigoudaima | filter: $select.search">
+									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
+						</div>
+					</div>
+				</div>
+				<!--<div class="form-group" >-->
+					<!--<label class="col-md-4 control-label">任职机构名称</label>-->
+					<!--<div class="col-md-8 row">-->
+						<!--<div  class=" m-l-n">-->
+							<!--<ui-select theme="bootstrap"  ng-model="zhiwu.organization_name">-->
+								<!--<ui-select-match  placeholder="请选择任职机构">{{$select.selected.dz}}</ui-select-match>-->
+								<!--<ui-select-choices repeat="item in elementSelect.renzhijigoumingcheng | filter: $select.search">-->
+									<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
+								<!--</ui-select-choices>-->
+							<!--</ui-select>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<div class="form-group" >
+					<label class="col-md-4 control-label">任职机构所属地</label>
+					<div class="col-md-8 row">
+						<div  class=" m-l-n">
+							<ui-select theme="bootstrap"  ng-model="zhiwu.location">
+								<ui-select-match  placeholder="请选择任职机构所属地">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in elementSelect.address | filter: $select.search">
 									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
 								</ui-select-choices>
 							</ui-select>
@@ -125,19 +151,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.zhuangtai.$invalid && !addPeoplezhiwuform.zhuangtai.$pristine }">
-					<label class="col-md-4 control-label">任职机构代码</label>
-					<div class="col-md-8 row">
-						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.organization_id">
-								<ui-select-match  placeholder="请选择任职机构代码">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in elementSelect.renzhijigoudaima | filter: $select.search">
-									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
-								</ui-select-choices>
-							</ui-select>
-						</div>
-					</div>
-				</div>
+
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.shenfenzheng.$invalid && !addPeoplezhiwuform.shenfenzheng.$pristine }">
 					<label class="col-md-4 control-label">任职机构级别</label>
 					<div class="col-md-8 row">
@@ -158,6 +172,22 @@
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhiwu.rank_time" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group"  ng-class="{ 'has-error' : addPeoplezhiwuform.post_oder.$invalid && !addPeoplezhiwuform.post_oder.$pristine }">
+					<label class="col-md-4 control-label">多职务主次序号</label>
+					<div class="col-md-8 row">
+						<div  class=" m-l-n">
+							<input class="form-control" name="post_oder" type="number" ng-model="zhiwu.post_oder" required >
+						</div>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhiwuform.post_all_oder.$invalid && !addPeoplezhiwuform.post_all_oder.$pristine }">
+					<label class="col-md-4 control-label">集体内排列顺序</label>
+					<div class="col-md-8 row">
+						<div  class=" m-l-n">
+							<input class="form-control" name="post_all_oder" type="number" ng-model="zhiwu.post_all_oder" required>
 						</div>
 					</div>
 				</div>

@@ -33,14 +33,31 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservice','UIworktipservice',
 	function($scope,$localStorage,UIanalysisservice,UIworktipservice) {
 		//切换单位树 请求新的数据
+	
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+			var postData1 = $.param({
+				tree_id:$localStorage.tree_uuid,
+				category:0
+			});
+			UIworktipservice.getworktipList(postData1).then(
+				function (res) {
+					console.log(res);
+					if(res.data.code==200){
+						$scope.worktiptable1 = res.data.info;
+					}else{
+						//alert(res.data.msg);
+					}
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			)
 			for(var i=1;i<=4;i++){
 				var postData = $.param({
 					tree_id:$localStorage.tree_uuid,
 					type:i,
 					access_token:$localStorage.token
 				});
-
 				UIanalysisservice.getanalysis(postData).then(
 					function (res) {
 						if(res.data.code==200){

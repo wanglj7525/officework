@@ -54,7 +54,8 @@ angular.module('app')
           SettinguserService.logoutservice(params).then(
               function(res){
                 $localStorage.token='0';
-                //delete  $localStorage.treeselect;
+                delete  $localStorage.treeselect;
+                delete  $localStorage.tree_uuid;
                 $state.go("access.signin");
               },
               function(rej){

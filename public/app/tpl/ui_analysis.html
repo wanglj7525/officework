@@ -119,19 +119,9 @@
                         <button ui-sref="app.deploy" class="btn btn-add btn-href ">班子调整</button>
                     </div>
                     <div class="panel-body" style="padding: 0px">
-                        <div class=" list-group"  style="display:inline;">
-                            <div class="list-group-item">
-                                <span>年龄比例不协调，需要进行班子调整</span>
-
-                            </div>
-                            <div class="list-group-item">
-                                <span>年龄比例不协调，需要进行班子调整</span>
-                            </div>
-                            <div class="list-group-item">性别比例不协调，需要进行班子调整
-                            </div>
-                            <div class="list-group-item">学历比例不协调，需要进行班子调整
-                            </div>
-                            <div class="list-group-item">党派比例不协调，需要进行班子调整
+                        <div class=" list-group"  style="display:inline;" ng-repeat="row in worktiptable">
+                            <div class="list-group-item" >
+                                <span>{{worktiptable.messages}}</span>
                             </div>
                         </div>
                     </div>

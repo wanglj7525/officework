@@ -1,26 +1,16 @@
 'use strict';
 
 app.controller('analysisChartsController', ['$scope', '$modalInstance','$localStorage', 'title','type','UIanalysisservice',function($scope, $modalInstance,$localStorage,title,type,UIanalysisservice) {
-	//配置分页基本参数
-	$scope.paginationConf = {
-		currentPage: 1,
-		itemsPerPage: 10
-	};
-	//分页获取数据
-	var getanalysislist = function () {
 		var postData = $.param({
 			tree_id:$localStorage.tree_uuid,
 			type:type,
 			title:title,
-			pageNo: $scope.paginationConf.currentPage,
-			pageSize: $scope.paginationConf.itemsPerPage,
 			access_token:$localStorage.token
 		});
 		UIanalysisservice.getanalysisdetail(postData).then(
 			function (res) {
 				console.log(res);
 				if(res.data.code==200){
-					$scope.paginationConf.totalItems = res.data.info.allRow;
 					$scope.charts = res.data.info.list;
 				}else{
 					alert(res.data.msg);
@@ -30,8 +20,8 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 				console.log(rej);
 			}
 		)
-	}
-	$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getanalysislist);
+	
+	//$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getanalysislist);
 	$scope.ok = function () {
 		$modalInstance.close();
 	};
@@ -40,8 +30,8 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservice',
-	function($scope,$localStorage,UIanalysisservice) {
+app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservice','UIworktipservice',
+	function($scope,$localStorage,UIanalysisservice,UIworktipservice) {
 		//切换单位树 请求新的数据
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			for(var i=1;i<=4;i++){
@@ -201,7 +191,7 @@ app.directive('pies', function($modal,$log) {
 					tooltip : {
 						show : true,
 						trigger : 'item',
-						formatter: "{a} <br/>{b} : {c} ({d}%)"
+						formatter: "{b} : {c}人 ({d}%)"
 					},
 					toolbox: {
 						show : true,
@@ -304,16 +294,18 @@ app.directive('bars', function($modal,$log) {
 		link : function($scope, element, attrs, controller) {
 		
 			function showbar(){
-				
 				var option = {
 					tooltip : {
-						trigger: 'axis'
+						formatter: "{b} : {c}人"
 					},
 					calculable : true,
 					xAxis : [
 						{
+							axisLabel: {
+								rotate: 60,
+							},
 							type : 'category',
-							data : $scope.config.legend
+							data : $scope.config.legend,
 						}
 					],
 					yAxis : [

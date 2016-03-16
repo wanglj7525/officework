@@ -21,25 +21,10 @@
 						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
 					<div  class="deploy" >
-						<!--<div class="deployframe"  >-->
-						<!--<div class="panel panel-card deploycontent" ng-repeat="peoples in daweilist">-->
-						<!--<div class="item">-->
-						<!--<img ng-click="showOneDetail(peoples)" src="{{peoples.imgurl?peoples.imgurl:'/public/app/img/a.png'}}"  class="w-full r-t" alt="Washed Out">-->
-						<!--</div>-->
-						<!--<div class="list-group">-->
-						<!--<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}</div>-->
-						<!--<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>-->
-						<!--<div class="list-group-item" >-->
-						<!--<button class="btn btn-info  w-full"  ng-click="removepeople(t.level,peoples)">免职</button>-->
-						<!--</div>-->
-						<!--</div>-->
-						<!--</div>-->
-						<!--</div>-->
-						<div ng-repeat="t in daweilist.row" >
-
-							<div class="deploy" ng-if="t==daweilist.row[0]">
+						<!--<div ng-repeat="t in daweilist.row" >-->
+							<div class="deploy" ng-if="level_1">
 								<div class="deployframe"  >
-									<div class="panel panel-card deploycontent" ng-repeat="peoples in t.column">
+									<div class="panel panel-card deploycontent" style="width: 30%" ng-repeat="peoples in level_1">
 										<div class="item">
 											<img ng-click="showOneDetail(peoples.person_id)" src="{{peoples.imgurl?peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
 										</div>
@@ -53,8 +38,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="row"  ng-if="t!=daweilist.row[0]">
-								<div class="panel col-md-4 panel-card " ng-repeat="peoples in t.people">
+							<div class="row"  ng-if="level_2">
+								<div class="panel col-md-4 panel-card " ng-repeat="peoples in level_2">
 									<div class="item">
 										<img ng-click="showOneDetail(peoples.person_id)" src="{{peoples.imgurl?peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
 									</div>
@@ -67,7 +52,54 @@
 									</div>
 								</div>
 							</div>
+						<div class="row"  ng-if="level_3">
+							<div class="panel col-md-4 panel-card " ng-repeat="peoples in level_3">
+								<div class="item">
+									<img ng-click="showOneDetail(peoples.person_id)" src="{{peoples.imgurl?peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
+								</div>
+								<div class="list-group" style="text-align: center" ng-show="peoples.state">
+									<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}</div>
+									<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>
+									<div class="list-group-item" >
+										<button class="btn btn-info  w-full"  ng-click="removepeople(peoples)">免职</button>
+									</div>
+								</div>
+							</div>
 						</div>
+						<!--</div>-->
+
+						<!--<div ng-repeat="t in daweilist.row" >-->
+							<!--<div class="deploy" ng-if="t.rank==1">-->
+								<!--<div class="deployframe"  >-->
+									<!--<div class="panel panel-card deploycontent" style="width: 30%" ng-repeat="peoples in t.column">-->
+										<!--<div class="item">-->
+											<!--<img ng-click="showOneDetail(peoples.person_id)" src="{{peoples.imgurl?peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">-->
+										<!--</div>-->
+										<!--<div class="list-group" ng-show="peoples.state">-->
+											<!--<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}</div>-->
+											<!--<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>-->
+											<!--<div class="list-group-item" >-->
+												<!--<button class="btn btn-info  w-full"  ng-click="removepeople(peoples)">免职</button>-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<div class="row"  ng-if="t.rank!=1">-->
+								<!--<div class="panel col-md-4 panel-card " ng-repeat="peoples in t.column">-->
+									<!--<div class="item">-->
+										<!--<img ng-click="showOneDetail(peoples.person_id)" src="{{peoples.imgurl?peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">-->
+									<!--</div>-->
+									<!--<div class="list-group" style="text-align: center" ng-show="peoples.state">-->
+										<!--<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}</div>-->
+										<!--<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>-->
+										<!--<div class="list-group-item" >-->
+											<!--<button class="btn btn-info  w-full"  ng-click="removepeople(peoples)">免职</button>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
 					</div>
 
 				</div>

@@ -29,7 +29,6 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 		$scope.analysis = function () {
 			$scope.hasanalysis=true;
 			$scope.hasresult=true;
-			$scope.analysis_result="正在分析...";
 			var postData = $.param({
 				person_id:people.id,
 				unit_id:$localStorage.tree_uuid,
@@ -46,12 +45,12 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 							$scope.noresult="空";
 						}
 					}else{
-						$scope.hasresult=flase;
+						$scope.hasresult=false;
 						$scope.noresult="分析失败";
 					}
 				},
 				function (rej) {
-					$scope.hasresult=flase;
+					$scope.hasresult=false;
 					$scope.noresult="分析失败";
 					console.log(rej);
 				}
@@ -65,8 +64,8 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 			$modalInstance.dismiss('cancel');
 		};
 	}]);
-app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','SettingdaimaService','UIDeployservice',
-	function($scope, $modalInstance,$localStorage,SettingdaimaService,UIDeployservice) {
+app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','SettingdaimaService','UIDeployservice','people',
+	function($scope, $modalInstance,$localStorage,SettingdaimaService,UIDeployservice,people) {
 		$scope.hasanalysis=false;
 
 		//免职原因
@@ -75,14 +74,13 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 		$scope.deploy = {};
 
 		//调用分析接口
-		$scope.analysis = function () {
+		$scope.analysis_mianzhi = function () {
 			$scope.hasanalysis=true;
 			$scope.hasresult=true;
-			$scope.analysis_result="正在分析...";
 			var postData = $.param({
 				person_id:people.id,
 				unit_id:$localStorage.tree_uuid,
-				position_id:$scope.deploy.zhiwei['id'],
+				position_id:people.post_id,
 				operate_type:2,
 				access_token:$localStorage.token
 			});
@@ -95,12 +93,12 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 							$scope.noresult="空";
 						}
 					}else{
-						$scope.hasresult=flase;
+						$scope.hasresult=false;
 						$scope.noresult="分析失败";
 					}
 				},
 				function (rej) {
-					$scope.hasresult=flase;
+					$scope.hasresult=false;
 					$scope.noresult="分析失败";
 					console.log(rej);
 				}
@@ -124,6 +122,10 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance', function($
 }]);
 app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
 	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
+		$scope.level_1=[];
+		$scope.level_2=[];
+		$scope.level_3=[];
+
 		$scope.treeselected=$localStorage.treeselect;
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
@@ -133,7 +135,54 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			});
 			UIDeployservice.getOneDeploy(postData).then(
 				function(res){
+					//班子成员
 					$scope.daweilist = res.data.info;
+
+					////班子职务列表
+					//var select_tree = $.param({
+					//	tree_id:$localStorage.tree_uuid
+					//});
+					//adjustdetailservice.getzhiweiList(select_tree).then(
+					//	function (res) {
+					//		$scope.companylist = res.data.info;
+					//	},
+					//	function (rej) {
+					//		console.log(rej);
+					//	}
+					//);
+					//$scope.banzi={};
+                    //
+					////根据班子职务 定义人员列表
+					//for(var i=0;i<$scope.companylist.length;i++){
+					//	$scope.peo=[];
+					//	$scope.banzi.post_rank=$scope.companylist.post_rank;
+					//	if($scope.daweilist){
+					//		for(var i=0;i<$scope.daweilist.row.length;i++){
+					//			if($scope.daweilist.row[i].rank==1){
+					//				$scope.level_1=$scope.daweilist.row[i].column;
+					//			}else if($scope.daweilist.row[i].rank==2){
+					//				$scope.level_2=$scope.daweilist.row[i].column;
+					//			}else if($scope.daweilist.row[i].rank==3){
+					//				$scope.level_3=$scope.daweilist.row[i].column;
+					//			}
+					//		}
+					//	}
+					//	$scope.banzi.peo=$scope.peo;
+					//}
+					$scope.level_1=[];
+					$scope.level_2=[];
+					$scope.level_3=[];
+					if($scope.daweilist){
+						for(var i=0;i<$scope.daweilist.row.length;i++){
+							if($scope.daweilist.row[i].rank==1){
+								$scope.level_1=$scope.daweilist.row[i].column;
+							}else if($scope.daweilist.row[i].rank==2){
+								$scope.level_2=$scope.daweilist.row[i].column;
+							}else if($scope.daweilist.row[i].rank==3){
+								$scope.level_3=$scope.daweilist.row[i].column;
+							}
+						}
+					}
 				},
 				function (rej) {
 					console.log(rej);
@@ -239,12 +288,65 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					}
 				}
 			});
-			modaldeployInstance.result.then(function (zhiwei) {
-				var indexs=zhiwei-1;
-
-				if($scope.daweilist[indexs].people.indexOf(people)==-1){
-					$scope.daweilist[indexs].people.push(people);
+			modaldeployInstance.result.then(function (deploy) {
+				console.log(deploy.zhiwei['post_rank']);
+				var newpeople={
+					post_rank:deploy.zhiwei['post_rank'],
+					person_id:people.id,
+					name:people.name,
+					state:true,
+					post_name:deploy.zhiwei['name'],
+					post_id:deploy.zhiwei['id'],
+					imgurl:''
 				}
+				if($scope.level_1[0].post_rank==deploy.zhiwei['post_rank']){
+					for(var j=0;j<$scope.level_1.length;j++){
+						if($scope.level_1[j].person_id==people.id){
+							return
+						}
+					}
+					$scope.level_1.push(newpeople);
+				}
+
+				if($scope.level_2[0].post_rank==deploy.zhiwei['post_rank']){
+					for(var j=0;j<$scope.level_2.length;j++){
+						if($scope.level_2[j].person_id==people.id){
+							return
+						}
+					}
+					$scope.level_2.push(newpeople);
+				}
+
+				if($scope.level_3[0].post_rank==deploy.zhiwei['post_rank']){
+					for(var j=0;j<$scope.level_3.length;j++){
+						if($scope.level_3[j].person_id==people.id){
+							return
+						}
+					}
+					$scope.level_3.push(newpeople);
+				}
+
+
+				//if($scope.daweilist){
+				//	for(var i=0;i<$scope.daweilist.row.length;i++){
+				//		if($scope.daweilist.row[i].rank==1){
+				//			$scope.level_1=$scope.daweilist.row[i].column;
+				//		}else if($scope.daweilist.row[i].rank==2){
+				//			$scope.level_2=$scope.daweilist.row[i].column;
+				//		}else if($scope.daweilist.row[i].rank==3){
+				//			$scope.level_3=$scope.daweilist.row[i].column;
+				//		}
+				//	}
+				//}
+
+				//for(var i=0;i<$scope.daweilist.row.length();i++){
+				//	if($scope.daweilist[i])
+				//}
+				//var indexs=zhiwei-1;
+                //
+				//if($scope.daweilist[indexs].people.indexOf(people)==-1){
+				//	$scope.daweilist[indexs].people.push(people);
+				//}
 				//if($scope.daweilist[0].peoples.indexOf(people)==-1){
 				//	$scope.daweilist[0].peoples.push(people);
 				//}
@@ -253,13 +355,18 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			});
 		}
 		//免职
-		$scope.removepeople=function(which,people){
-			console.log(which-1);
-			var indexs=which-1;
+		$scope.removepeople=function(people){
+			//console.log(which-1);
+			//var indexs=which-1;
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectmianzhiPeopleModel.html',
 				controller: 'ModalMianzhiDeployInstanceCtrl',
-				size: 'md'
+				size: 'md',
+				resolve:{
+					people:function(){
+						return people;
+					}
+				}
 			});
 			modaldeployInstance.result.then(function () {
 				$scope.daweilist[indexs].people.splice($scope.daweilist[indexs].people.indexOf(people),1);

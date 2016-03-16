@@ -26,39 +26,45 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 		})
 
 		//调用分析接口
-	$scope.analysis = function () {
-		$scope.hasanalysis=true;
-		$scope.analysis_result="正在分析...";
-		var postData = $.param({
-			person_id:people.id,
-			unit_id:$localStorage.tree_uuid,
-			position_id:$scope.deploy.zhiwei['id'],
-			operate_type:1,
-			access_token:$localStorage.token
-		});
-		UIDeployservice.getPeopleAnalysis(postData).then(
-			function(res){
-				console.log(res);
-				if(res.data.code==200){
-					$scope.analysis_result = res.data.info.messages;
-				}else{
-					$scope.analysis_result="分析失败";
+		$scope.analysis = function () {
+			$scope.hasanalysis=true;
+			$scope.hasresult=true;
+			$scope.analysis_result="正在分析...";
+			var postData = $.param({
+				person_id:people.id,
+				unit_id:$localStorage.tree_uuid,
+				position_id:$scope.deploy.zhiwei['id'],
+				operate_type:1,
+				access_token:$localStorage.token
+			});
+			UIDeployservice.getPeopleAnalysis(postData).then(
+				function(res){
+					if(res.data.msg=="操作成功"){
+						$scope.analysis_result = eval(res.data.data.tipsList);
+						if($scope.analysis_result.length==0){
+							$scope.hasresult=false;
+							$scope.noresult="空";
+						}
+					}else{
+						$scope.hasresult=flase;
+						$scope.noresult="分析失败";
+					}
+				},
+				function (rej) {
+					$scope.hasresult=flase;
+					$scope.noresult="分析失败";
+					console.log(rej);
 				}
-			},
-			function (rej) {
-				$scope.analysis_result="分析失败";
-				console.log(rej);
-			}
-		);
-	};
-	$scope.ok = function () {
-		$modalInstance.close($scope.deploy);
-	};
+			);
+		};
+		$scope.ok = function () {
+			$modalInstance.close($scope.deploy);
+		};
 
-	$scope.cancel = function () {
-		$modalInstance.dismiss('cancel');
-	};
-}]);
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
 app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','SettingdaimaService','UIDeployservice',
 	function($scope, $modalInstance,$localStorage,SettingdaimaService,UIDeployservice) {
 		$scope.hasanalysis=false;
@@ -71,6 +77,7 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 		//调用分析接口
 		$scope.analysis = function () {
 			$scope.hasanalysis=true;
+			$scope.hasresult=true;
 			$scope.analysis_result="正在分析...";
 			var postData = $.param({
 				person_id:people.id,
@@ -81,16 +88,21 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 			});
 			UIDeployservice.getPeopleAnalysis(postData).then(
 				function(res){
-					console.log(res);
-					if(res.data.code==200){
-						$scope.analysis_result = res.data.info.messages;
+					if(res.data.msg=="操作成功"){
+						$scope.analysis_result = eval(res.data.data.tipsList);
+						if($scope.analysis_result.length==0){
+							$scope.hasresult=false;
+							$scope.noresult="空";
+						}
 					}else{
-						$scope.analysis_result="分析失败";
+						$scope.hasresult=flase;
+						$scope.noresult="分析失败";
 					}
 				},
 				function (rej) {
+					$scope.hasresult=flase;
+					$scope.noresult="分析失败";
 					console.log(rej);
-					$scope.analysis_result="分析失败";
 				}
 			);
 		};
@@ -215,7 +227,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		};
 		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', $scope.searchPeoples);
 
-
 		//任职
 		$scope.selectpeople=function(people){
 			var modaldeployInstance = $modal.open({
@@ -266,6 +277,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			});
 			modalsaveInstance.result.then(function () {
 				//调用调配接口
+
+
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

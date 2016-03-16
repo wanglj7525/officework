@@ -29,7 +29,14 @@
       <label class="col-md-2 control-label">分析结果</label>
       <div class="col-md-10 row">
         <div  class=" m-l-n">
-          <label ng-bind="analysis_result"></label>
+          <div class=" list-group"  style="display:inline;">
+            <div class="list-group-item" ng-repeat="result in analysis_result track by $index">
+              <span>{{result}}</span>
+            </div>
+            <div class="list-group-item" ng-if="!hasresult">
+              <span>{{noresult}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

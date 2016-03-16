@@ -3,8 +3,6 @@
 		<span >
 			<h3 class="modal-title">调配详情</h3>
 		</span>
-
-
   </div>
 </div>
 <div class="modal-body" ng-controller="deployCtrl">
@@ -13,18 +11,14 @@
       <label class="col-md-2 control-label">调配原因</label>
       <div class="col-md-10 row">
         <div  class=" m-l-n">
-          <!--<select required="" class="form-control" ng-model="deploy.reason" ng-options=" a.reason for a in reasonlist">-->
-          <!--&lt;!&ndash;<option value="">省</option>&ndash;&gt;-->
-          <!--</select>-->
           <div class="dropdown" dropdown >
-            <input autocomplete="" class="tags form-control" ng-model="deploy.reason" type="text" required />
-            <!--<input  class="tags form-control" ng-model="row.reason" type="text" required />-->
+            <input autocompletes="" class="tags form-control" ng-model="deploy.reason" type="text" loaddata="{{mianzhilist | filter: { dz:deploy.reason} }}" required />
             <div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
               <span class="caret"  ></span>
             </div>
-            <ul  class="dropdown-menu" role="menu" style="width: 100%;" ng-if="1">
-              <li ng-repeat="p in reasons" ng-class="{active:deploy.reason==p.reason}"  >
-                <a href="javascript:void(0)" ng-click="deploy.reason=p.reason">{{p.reason}}</a>
+            <ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
+              <li ng-repeat="p in mianzhilist" ng-class="{active:deploy.reason==p.dz}"  >
+                <a href="javascript:void(0)" ng-click="deploy.reason=p.dz">{{p.dz}}</a>
               </li>
             </ul>
           </div>
@@ -32,7 +26,6 @@
       </div>
     </div>
   </form>
-
 </div>
 <div class="modal-footer">
   <button class="btn btn-default" ng-click="cancel()">取消</button>

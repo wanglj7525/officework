@@ -1,52 +1,46 @@
 'use strict';
-app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
-	$scope.items = items;
-	$scope.selected = {
-		item: $scope.items[0]
-	};
+app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','adjustdetailservice','SettingdaimaService',
+	function($scope, $modalInstance,$localStorage,adjustdetailservice,SettingdaimaService) {
+		//任职原因
+		SettingdaimaService.getCodagetList("ZB12").then(function(res){
+			$scope.renzhilist=res.data.info.list;
+		},function(rej){});
+		var select_tree = $.param({
+			tree_id:$localStorage.tree_uuid
+		});
+		adjustdetailservice.getzhiweiList(select_tree).then(
+			function (res) {
+				$scope.companylist = res.data.info;
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
+	$scope.deploy = {};
 
 	$scope.ok = function () {
-		$modalInstance.close($scope.selected.item);
+		$modalInstance.close($scope.deploy);
 	};
 
 	$scope.cancel = function () {
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance', 'reasonlist','tolist','SeetingtreeService',function($scope, $modalInstance,reasonlist,tolist,SeetingtreeService) {
-	$scope.reasonlist = reasonlist;
-	$scope.tolist = tolist;
-	$scope.zhiwei = {
-		'id': 1
-	};
-	$scope.reasons=[{"id":1,"reason":"原因一"},{"id":2,"reason":"原因二"},{"id":3,"reason":"原因三"}]
-	
-	SeetingtreeService.getTreeList().then(function(res){
-		$scope.people = res.data.info;
-		//$scope.people = res.data.info.nodes
-	})
-	
-	//var i= 2,j=12;
-	//$scope.adddeploy=[{"id":1,"func":"addmoredeploy()","buttonname":"添加"}];
-	//$scope.addmoredeploy=function(){
-    //
-	//	$scope.adddeploy.push({"id":i,"func":"delmoredeploy()","buttonname":"删除"});
-	//	i++;j++
-	//};
-	
- 	$scope.addmoredeploy=function(){
-	}
-	
-	$scope.ok = function () {
-		$modalInstance.close($scope.zhiwei.id);
-	};
+app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','SettingdaimaService',
+	function($scope, $modalInstance,$localStorage,SettingdaimaService) {
+		//免职原因
+		SettingdaimaService.getCodagetList("ZB16").then(function(res){
+			$scope.mianzhilist=res.data.info.list;},function(rej){});
+		$scope.deploy = {};
+		$scope.ok = function () {
+			$modalInstance.close($scope.deploy);
+		};
 
-	$scope.cancel = function () {
-		$modalInstance.dismiss('cancel');
-	};
-}]);
-app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist', function($scope, $modalInstance,adjustlist) {
-	$scope.adjustlist=adjustlist;
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
+app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance', function($scope, $modalInstance) {
 	$scope.ok = function () {
 		$modalInstance.close();
 	};
@@ -54,8 +48,8 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','adjustlist
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
-	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
+app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
+	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
 		$scope.treeselected=$localStorage.treeselect;
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
@@ -91,6 +85,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 		//学历
 		SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+		////任职原因
+		//SettingdaimaService.getCodagetList("ZB12").then(function(res){ $scope.renzhilist=res.data.info.list;},function(rej){});
+		////免职原因
+		//SettingdaimaService.getCodagetList("ZB16").then(function(res){ $scope.mianzhilist=res.data.info.list;},function(rej){});
 
 		searchservice.getData().then(
 			function (res) {
@@ -155,24 +153,13 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		};
 		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', $scope.searchPeoples);
 
-		$scope.items = ['item1', 'item2', 'item3'];
 
-		$scope.reasonlist=[{"id":"1","reason":"工作调动原因一"},{"id":"2","reason":"工作调动原因2"},{"id":"3","reason":"工作调动原因3"}];
-		$scope.tree1=[{"id":"1","place":"福清市"},{"id":"2","place":"闽侯县"},{"id":"3","place":"晋安区"}];
-		$scope.tolist=[{"id":"1","reason":"局长"},{"id":"2","reason":"副局长"}];
+		//任职
 		$scope.selectpeople=function(people){
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectrenzhiPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
-				size: 'md',
-				resolve: {
-					reasonlist: function () {
-						return $scope.reasonlist;
-					},
-					tolist:function(){
-						return $scope.tolist;
-					}
-				}
+				size: 'md'
 			});
 			modaldeployInstance.result.then(function (zhiwei) {
 				var indexs=zhiwei-1;
@@ -187,21 +174,14 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
+		//免职
 		$scope.removepeople=function(which,people){
 			console.log(which-1);
 			var indexs=which-1;
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectmianzhiPeopleModel.html',
-				controller: 'ModalDeployInstanceCtrl',
-				size: 'md',
-				resolve: {
-					reasonlist: function () {
-						return $scope.reasonlist;
-					},
-					tolist:function(){
-						return $scope.tolist;
-					}
-				}
+				controller: 'ModalMianzhiDeployInstanceCtrl',
+				size: 'md'
 			});
 			modaldeployInstance.result.then(function () {
 				$scope.daweilist[indexs].people.splice($scope.daweilist[indexs].people.indexOf(people),1);
@@ -210,25 +190,21 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
-		$scope.adjustlist=[{"id":"1","name":"方案一"},{"id":"1","name":"方案二"}];
+		//保存班子
 		$scope.savedeploy=function(){
-			console.log($scope.daweilist);
 			var modalsaveInstance = $modal.open({
 				templateUrl: 'savePeopleModel.html',
 				controller: 'SaveDeployInstanceCtrl',
-				size: 'md',
-				resolve: {
-					adjustlist: function () {
-						return $scope.adjustlist
-					}
-				}
+				size: 'sm'
 			});
 			modalsaveInstance.result.then(function () {
+				//调用调配接口
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
 
+		//查看详情
 		$scope.showOneDetail=function(people){
 
 			$scope.isdetail=true;
@@ -397,31 +373,3 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			)
 		};
 	} ]);
-app.controller('oneMessageXinxiController',['$scope', '$http', '$state', function($scope, $http, $state){
-	$scope.onemessage= {
-		"id": 1,
-		"img": "/public/app/img/a0.jpg",
-		"name": "张三1",
-		"sex": "男",
-		"company": "福清市xxx、xxx信息",
-		"nation": "汉",
-		"birthday": "19551111",
-		"palce": "福清龙田",
-		"troops": "19771212",
-		"party": "19771212",
-		"education": "本科",
-		"school": "福建师范",
-		"health":"健康或良好",
-		"zhengzhi":"中国共产党党员",
-		"shenfenzheng":"11111111111111111111111x",
-		"zhuanchang":"唱歌",
-		"beiwang":"备忘1",
-		"beiyong1":"备用1",
-		"beiyong2":"备用2",
-		"zhiji":"处长",
-		"gerenshenfen":"xx处长",
-		"zhuangtai":"退休",
-		"zhicheng":"中级职称"
-	};
-	$scope.selectedIndex = 0;
-}]);

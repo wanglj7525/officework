@@ -7,12 +7,13 @@ angular.module('app')
                 // Tasks.queryAllNames().success(function(data){
                 $(element).autocomplete({
                     source:function(request, response) {
-                        Reasons.queryReasonName(request.term).success(function(data) {
-                            response($.each(data.info, function(index, meta) {
-                                meta.value = meta.reason;
-                                meta.label = meta.reason;
+                        //console.log(eval(attrs.loaddata));
+                        //Reasons.queryReasonName(request.term).success(function(data) {
+                            response($.each(eval(attrs.loaddata), function(index, meta) {
+                                meta.value = meta.dz;
+                                meta.label = meta.dz;
                             }));
-                        })
+                        //})
                     },
                     select:function( event, ui ) {
                         scope.$apply(function() {

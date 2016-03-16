@@ -1,6 +1,7 @@
 'use strict';
-app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','adjustdetailservice','SettingdaimaService',
-	function($scope, $modalInstance,$localStorage,adjustdetailservice,SettingdaimaService) {
+app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','adjustdetailservice','SettingdaimaService','UIDeployservice','people',
+	function($scope, $modalInstance,$localStorage,adjustdetailservice,SettingdaimaService,UIDeployservice,people) {
+		$scope.hasanalysis=false;
 		//任职原因
 		SettingdaimaService.getCodagetList("ZB12").then(function(res){
 			$scope.renzhilist=res.data.info.list;
@@ -16,8 +17,40 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 				console.log(rej);
 			}
 		);
-	$scope.deploy = {};
+		$scope.deploy = {};
 
+		//职务变换 重新分析
+		$scope.$watch(function(){ return $scope.deploy.zhiwei},function(newValue,oldValue){
+			if(newValue===oldValue) return;
+			$scope.hasanalysis=false;
+		})
+
+		//调用分析接口
+	$scope.analysis = function () {
+		$scope.hasanalysis=true;
+		$scope.analysis_result="正在分析...";
+		var postData = $.param({
+			person_id:people.id,
+			unit_id:$localStorage.tree_uuid,
+			position_id:$scope.deploy.zhiwei['id'],
+			operate_type:1,
+			access_token:$localStorage.token
+		});
+		UIDeployservice.getPeopleAnalysis(postData).then(
+			function(res){
+				console.log(res);
+				if(res.data.code==200){
+					$scope.analysis_result = res.data.info.messages;
+				}else{
+					$scope.analysis_result="分析失败";
+				}
+			},
+			function (rej) {
+				$scope.analysis_result="分析失败";
+				console.log(rej);
+			}
+		);
+	};
 	$scope.ok = function () {
 		$modalInstance.close($scope.deploy);
 	};
@@ -26,12 +59,41 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','SettingdaimaService',
-	function($scope, $modalInstance,$localStorage,SettingdaimaService) {
+app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','SettingdaimaService','UIDeployservice',
+	function($scope, $modalInstance,$localStorage,SettingdaimaService,UIDeployservice) {
+		$scope.hasanalysis=false;
+
 		//免职原因
 		SettingdaimaService.getCodagetList("ZB16").then(function(res){
 			$scope.mianzhilist=res.data.info.list;},function(rej){});
 		$scope.deploy = {};
+
+		//调用分析接口
+		$scope.analysis = function () {
+			$scope.hasanalysis=true;
+			$scope.analysis_result="正在分析...";
+			var postData = $.param({
+				person_id:people.id,
+				unit_id:$localStorage.tree_uuid,
+				position_id:$scope.deploy.zhiwei['id'],
+				operate_type:2,
+				access_token:$localStorage.token
+			});
+			UIDeployservice.getPeopleAnalysis(postData).then(
+				function(res){
+					console.log(res);
+					if(res.data.code==200){
+						$scope.analysis_result = res.data.info.messages;
+					}else{
+						$scope.analysis_result="分析失败";
+					}
+				},
+				function (rej) {
+					console.log(rej);
+					$scope.analysis_result="分析失败";
+				}
+			);
+		};
 		$scope.ok = function () {
 			$modalInstance.close($scope.deploy);
 		};
@@ -159,7 +221,12 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectrenzhiPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
-				size: 'md'
+				size: 'md',
+				resolve:{
+					people:function(){
+						return people;
+					}
+				}
 			});
 			modaldeployInstance.result.then(function (zhiwei) {
 				var indexs=zhiwei-1;

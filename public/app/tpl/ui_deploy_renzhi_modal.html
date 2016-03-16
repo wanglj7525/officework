@@ -7,80 +7,33 @@
 
 	</div>
 </div>
-<div class="modal-body" ng-controller="deployCtrl">
+<div class="modal-body">
 	<form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
 		<div class="form-group" >
 			<label class="col-md-2 control-label">调配职务</label>
-			<div class="col-md-5 row">
-				<div  class=" m-l-n">
-					<ui-select ng-model="deploy.diqu" theme="bootstrap">
-						<ui-select-match placeholder="请选择地区...">{{$select.selected.name}}</ui-select-match>
-						<ui-select-choices repeat="item in people | filter: $select.search">
-							<div ng-bind-html="item.name| highlight: $select.search"></div>
-						</ui-select-choices>
-					</ui-select>
-				</div>
-			</div>
-			<div class="col-md-5 row">
+			<div class="col-md-10 ">
 				<div  class=" m-l-n">
 					<ui-select ng-model="deploy.zhiwei" theme="bootstrap">
 						<ui-select-match placeholder="请选择职位...">{{$select.selected.name}}</ui-select-match>
-						<ui-select-choices repeat="item in people | filter: $select.search">
+						<ui-select-choices repeat="item in companylist | filter: $select.search">
 							<div ng-bind-html="item.name| highlight: $select.search"></div>
 						</ui-select-choices>
 					</ui-select>
 				</div>
 			</div>
-			<!--<table class="table-responsive">-->
-				<!--<tr class="row" id="addmoredeploy">-->
-					<!--<td class="col-md-6" style="padding-left: 0px;padding-right: 0px" >-->
-						<!--<div style="width: 100%;display: inline-block" >-->
-									<!--<ui-select ng-model="adddeploy" theme="bootstrap">-->
-										<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>-->
-										<!--<ui-select-choices repeat="item in people | filter: $select.search">-->
-											<!--<div ng-bind-html="item.name| highlight: $select.search"></div>-->
-										<!--</ui-select-choices>-->
-									<!--</ui-select>-->
-							<!--&lt;!&ndash;<input type="text" list="pasta"  ng-model="add.moredeploy" class="form-control">&ndash;&gt;-->
-							<!--&lt;!&ndash;<datalist id="pasta" >&ndash;&gt;-->
-							<!--&lt;!&ndash;<option  ng-value="t.place" ng-repeat="t in tree1">{{t.place}}</option>&ndash;&gt;-->
-							<!--&lt;!&ndash;</datalist>&ndash;&gt;-->
-						<!--</div>-->
-						<!---->
-					<!--</td>-->
-					<!--&lt;!&ndash;<td class="col-md-1"><input type="button" class="btn btn-default left-button " ng-click="addmoredeploy()" value="添加"></td>&ndash;&gt;-->
-					<!--<td class="col-md-6" style="padding-left: 0px;padding-right: 0px">-->
-						<!--<div style="width: 100%;display: inline-block" >-->
-						<!--<ui-select ng-model="adddeploy" theme="bootstrap">-->
-							<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.name}}</ui-select-match>-->
-							<!--<ui-select-choices repeat="item in people | filter: $select.search">-->
-								<!--<div ng-bind-html="item.name| highlight: $select.search"></div>-->
-							<!--</ui-select-choices>-->
-						<!--</ui-select>-->
-						<!--&lt;!&ndash;<input type="text" list="pasta"  ng-model="add.moredeploy" class="form-control">&ndash;&gt;-->
-						<!--&lt;!&ndash;<datalist id="pasta" >&ndash;&gt;-->
-						<!--&lt;!&ndash;<option  ng-value="t.place" ng-repeat="t in tree1">{{t.place}}</option>&ndash;&gt;-->
-						<!--&lt;!&ndash;</datalist>&ndash;&gt;-->
-					<!--</div></td>-->
-				<!--</tr>-->
-			<!--</table>-->
 		</div>
 		<div class="form-group">
 			<label class="col-md-2 control-label">调配原因</label>
 			<div class="col-md-10 row">
 				<div  class=" m-l-n">
-					<!--<select required="" class="form-control" ng-model="deploy.reason" ng-options=" a.reason for a in reasonlist">-->
-						<!--&lt;!&ndash;<option value="">省</option>&ndash;&gt;-->
-					<!--</select>-->
 					<div class="dropdown" dropdown >
-						<input autocomplete="" class="tags form-control" ng-model="deploy.reason" type="text" required />
-						<!--<input  class="tags form-control" ng-model="row.reason" type="text" required />-->
+						<input autocompletes="" class="tags form-control" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required />
 						<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
 							<span class="caret"  ></span>
 						</div>
-						<ul  class="dropdown-menu" role="menu" style="width: 100%;" ng-if="1">
-							<li ng-repeat="p in reasons" ng-class="{active:deploy.reason==p.reason}"  >
-								<a href="javascript:void(0)" ng-click="deploy.reason=p.reason">{{p.reason}}</a>
+						<ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
+							<li ng-repeat="p in renzhilist" ng-class="{active:deploy.reason==p.dz}"  >
+								<a href="javascript:void(0)" ng-click="deploy.reason=p.dz">{{p.dz}}</a>
 							</li>
 						</ul>
 					</div>

@@ -1,13 +1,8 @@
-
-<div ng-controller="WorktipListCtrl">
-
+<div>
     <div class="panel panel-default">
-        <!--  <div class="panel-heading">工作提示
-         </div>  -->
         <table st-table="worktiptable"  class="table table-bordered">
             <thead>
             <tr>
-                <th ></th>
                 <th>分类</th>
                 <th width="15%">地区/单位</th>
                 <th>提示</th>
@@ -16,9 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in worktiptable" >
-                <!--| filter: {pid:pid}-->
-                <td ng-bind="$index+1">1</td>
+            <tr ng-repeat="row in worktiptable | filter: {category:pid}" >
                 <td>{{row.category}}</td>
                 <td>{{row.unit_name}}</td>
                 <td >{{row.msg}}</td>

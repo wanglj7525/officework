@@ -61,7 +61,7 @@ angular.module('app')
                   resolve: load([STATIC_PATH + 'js/controllers/message.js'])
               })
               .state('app.worktip', {
-                  abstract: true,
+                  //abstract: true,
                   url: '/worktip',
                   templateUrl: STATIC_PATH + 'tpl/ui_worktip.html',
                   // use resolve to load other dependences
@@ -71,11 +71,11 @@ angular.module('app')
               //    url: '/edit',
               //    templateUrl: STATIC_PATH + 'tpl/worktip.edit.html'
               //})
-              .state('app.worktip.list', {
-                  url: '/list/{pid}',
-                  templateUrl: STATIC_PATH + 'tpl/worktip.list.html',
-                  resolve: load(['smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
-              })
+              //.state('app.worktip.list', {
+              //    url: '/list/{pid}',
+              //    templateUrl: STATIC_PATH + 'tpl/worktip.list.html',
+              //    resolve: load(['smart-table',STATIC_PATH + 'js/controllers/worktip.js'])
+              //})
               //.state('app.adjust',{
               //    abstract: true,
               //    url:'/adjust',

@@ -18,7 +18,7 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 							//存储access_token
 							$localStorage.token=res.data.info.access_token;
 							$localStorage.user=res.data.info;
-							$state.go('app.worktip.list');
+							$state.go('app.worktip');
 						}else {
 							$scope.authError = '用户名或者密码错误';
 						}

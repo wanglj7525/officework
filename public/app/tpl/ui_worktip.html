@@ -1,35 +1,64 @@
 
 <div class="row hbox hbox-auto-xs hbox-auto-sm" ng-controller="WorktipListCtrl">
-    <!--<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix" >-->
-        <!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'"></nav>-->
-    <!--</div>-->
     <div class="md-right">
         <div class="col-md-3  bg-light dk b-r bg-auto col-padding" style="overflow-y: auto">
         <div class="" id="tipinfo-menu">
             <!--<div ng-click="isedit=true" class="btn markerManage btn-dark   font-bold">管理标签</div>-->
             <!--<hr class="markerHr"/>-->
             <ul class="treeMain nav nav-pills nav-stacked ">
-                <li ui-sref-active="active">
-                    <a ng-click="" ui-sref="app.worktip.list({pid:item.id})">
+                <li ng-class="{active: currentname == '全部'}" >
+                    <a   ng-click="selectcategory('','全部')">
                         全部
                     </a>
                 </li>
-                <li ng-repeat="item in tipinfo" ui-sref-active="active">
-                    <a  ng-click="clickleft(item)" ui-sref="app.worktip.list({pid:item.id})">
+                <li ng-class="{active: currentname == item.category_name}"  ng-repeat="item in tipinfo" >
+                    <a   ng-click="selectcategory(item.id,item.category_name)">
                         {{item.category_name}}
                     </a>
                 </li>
+                <!--<li ui-sref-active="active">-->
+                    <!--<a ui-sref="app.worktip.list({pid:''})">-->
+                        <!--全部-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li ng-repeat="item in tipinfo" ui-sref-active="active">-->
+                    <!--<a ui-sref="app.worktip.list({pid:item.id})">-->
+                        <!--{{item.category_name}}-->
+                    <!--</a>-->
+                <!--</li>-->
             </ul>
         </div>
     </div>
-    <!--<div class="workBgColor col-md-9" style="">-->
-    <!--<div ui-view ></div>-->
-
-    <!--</div>-->
-    <!--</div>-->
-
     <div class=" col-padding workBgColor col-md-9" ng-style="{height:showheight}" style="overflow-y: auto">
-        <div ui-view ></div>
+        <div>
+            <div class="panel panel-default">
+                <table st-table="worktiptable"  class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>分类</th>
+                        <th width="15%">地区/单位</th>
+                        <th>提示</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in worktiptable | filter: {category:pid}" >
+                        <td>{{row.category}}</td>
+                        <td>{{row.unit_name}}</td>
+                        <td >{{row.msg}}</td>
+                        <td >{{row.msg}}</td>
+                        <td class="lastTd">
+                            <button type="button" ui-sref="app.deploy" class="btn btn-href btn-default">
+                                班子调配
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--<div ui-view ></div>-->
         <!--<div ng-show="!isedit" ui-view ></div>-->
         <!--<div ng-show="isedit">-->
             <!--<div class="panel panel-default">-->

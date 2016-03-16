@@ -653,6 +653,16 @@ angular.module('app')
                 return response;
             });
             return promise;
+        },
+        getPeopleAnalysis:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/analysis/analysisBeforeChange?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
         }
     }
 }] ).factory('$debounce', ['$rootScope', '$browser', '$q', '$exceptionHandler',

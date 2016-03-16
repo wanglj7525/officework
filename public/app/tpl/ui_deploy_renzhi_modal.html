@@ -8,12 +8,12 @@
 	</div>
 </div>
 <div class="modal-body">
-	<form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-		<div class="form-group" >
+	<form name="renzhiform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+		<div class="form-group"  ng-class="{ 'has-error' : renzhiform.zhiwei.$invalid && !renzhiform.zhiwei.$pristine }">
 			<label class="col-md-2 control-label">调配职务</label>
 			<div class="col-md-10 ">
 				<div  class=" m-l-n">
-					<ui-select ng-model="deploy.zhiwei" theme="bootstrap">
+					<ui-select name="zhiwei" ng-model="deploy.zhiwei" theme="bootstrap" required>
 						<ui-select-match placeholder="请选择职位...">{{$select.selected.name}}</ui-select-match>
 						<ui-select-choices repeat="item in companylist | filter: $select.search">
 							<div ng-bind-html="item.name| highlight: $select.search"></div>
@@ -22,12 +22,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group"  ng-class="{ 'has-error' : renzhiform.reason.$invalid && !renzhiform.reason.$pristine }">
 			<label class="col-md-2 control-label">调配原因</label>
 			<div class="col-md-10 row">
 				<div  class=" m-l-n">
 					<div class="dropdown" dropdown >
-						<input autocompletes="" class="tags form-control" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required />
+						<input autocompletes="" class="tags form-control" name="reason" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required />
 						<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
 							<span class="caret"  ></span>
 						</div>
@@ -40,10 +40,26 @@
 				</div>
 			</div>
 		</div>
+		<div class="form-group" ng-show="hasanalysis">
+			<label class="col-md-2 control-label">分析结果</label>
+			<div class="col-md-10 row">
+				<div  class=" m-l-n">
+					<div class=" list-group"  style="display:inline;">
+						<div class="list-group-item" ng-repeat="result in analysis_result track by $index">
+							<span>{{result}}</span>
+						</div>
+						<div class="list-group-item" ng-if="!hasresult">
+							<span>{{noresult}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</form>
 	
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">取消</button>
-	<button class="btn btn-primary" ng-click="ok()">确定</button>
+	<button class="btn btn-primary"  ng-disabled="renzhiform.$invalid" ng-click="analysis()" ng-show="!hasanalysis">分析</button>
+	<button class="btn btn-primary" ng-click="ok()" ng-show="hasanalysis">确定</button>
 </div>

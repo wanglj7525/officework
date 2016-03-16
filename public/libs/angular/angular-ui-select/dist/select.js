@@ -179,9 +179,9 @@
     ctrl.clickTriggeredSelect = false;
     ctrl.$filter = $filter;
 
-    ctrl.isEmpty = function() {
-      return angular.isUndefined(ctrl.selected) || ctrl.selected === null || ctrl.selected === '';
-    };
+    //ctrl.isEmpty = function() {
+    //  return angular.isUndefined(ctrl.selected) || ctrl.selected === null || ctrl.selected === '';
+    //};
 
     var _searchInput = $element.querySelectorAll('input.ui-select-search');
     if (_searchInput.length !== 1) {

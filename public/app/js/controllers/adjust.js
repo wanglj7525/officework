@@ -37,6 +37,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 			});
 			modalfanganInstance.result.then(function (saveadjust) {
 				var postData = $.param({
+					tree_id:$localStorage.tree_uuid,
 					name:saveadjust.name,
 					note:saveadjust.reason
 				});

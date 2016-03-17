@@ -112,7 +112,43 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 			$modalInstance.dismiss('cancel');
 		};
 	}]);
-app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance', function($scope, $modalInstance) {
+app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_ids','OutPerson_ids','$localStorage', function($scope, $modalInstance,InPerson_ids,OutPerson_ids,$localStorage) {
+
+	$scope.hasanalysis=false;
+	$scope.analysis_tijiao = function () {
+		$scope.hasanalysis=true;
+		$scope.hasresult=true;
+		//调用分析接口
+		var postData = $.param({
+			unit_id:$localStorage.tree_uuid,
+			//任职id
+			InPerson_ids:InPerson_ids.join(","),
+			//免职id
+			OutPerson_ids:OutPerson_ids.join(","),
+			access_token:$localStorage.token
+		});
+		UIDeployservice.getTijiaoBanziAnalysis(postData).then(
+			function(res){
+				if(res.data.msg=="操作成功"){
+					$scope.analysis_result = eval(res.data.data.tipsList);
+					if($scope.analysis_result.length==0){
+						$scope.hasresult=false;
+						$scope.noresult="空";
+					}
+				}else{
+					$scope.hasresult=false;
+					$scope.noresult="分析失败";
+				}
+			},
+			function (rej) {
+				$scope.hasresult=false;
+				$scope.noresult="分析失败";
+				console.log(rej);
+			}
+		);
+	}
+
+
 	$scope.ok = function () {
 		$modalInstance.close();
 	};
@@ -122,6 +158,40 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance', function($
 }]);
 app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
 	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
+
+//		var json={};
+//		json.in=[];
+//		json.out=[];
+//		for(var i=0;i<=4;i++){
+//			var people={
+//				"name":"姓名"+i,
+//				"sex":"女",
+//				"age":"12"
+//			}
+//			json.in.push(people);
+//		}
+//		for(var i=0;i<=2;i++){
+//			var people={
+//				"name":"姓名"+i,
+//				"sex":"男",
+//				"age":"15"
+//			}
+//			json.out.push(people);
+//		}
+//		console.log(json);
+//		var postData = $.param({
+//			json:JSON.stringify(json)
+//		});
+//UIDeployservice.test(postData).then(
+//	function(res){
+//
+//	}
+//	,function(rej){
+//
+//	}
+//)
+		$scope.InPerson_ids=[];
+		$scope.OutPerson_ids=[];
 
 		$scope.treeselected=$localStorage.treeselect;
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
@@ -134,6 +204,32 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				function(res){
 					//班子成员
 					$scope.daweilist = res.data.info;
+
+					if($scope.daweilist){
+						//需要分析班子成员，标注出 需要交流的人员
+						var params=$.param({
+							unit_id:$localStorage.tree_uuid,
+							access_token:$localStorage.token
+						});
+						UIDeployservice.getBanziAnalysis(params).then(
+							function(res){
+								if(res.data.msg=="操作成功"){
+									for(var j=0;j<$scope.daweilist.row.length;j++){
+										for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
+											if(res.data.data.person_ids.indexOf($scope.daweilist.row[j].column[i].person_id)!=-1){
+												$scope.daweilist.row[j].column[i].needChange=true;
+											}else{
+												$scope.daweilist.row[j].column[i].needChange=false;
+											}
+										}
+									}
+								}
+							},
+							function(rej){
+								console.log(rej);
+							}
+						);
+					}
 				},
 				function (rej) {
 					console.log(rej);
@@ -248,7 +344,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					state:'true',
 					post_name:deploy.zhiwei['name'],
 					post_id:deploy.zhiwei['id'],
-					imgurl:people.imgurl
+					imgurl:people.imgurl,
+					needChange:false
 				}
 
 				/**
@@ -289,6 +386,16 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 								//没有空职位，直接在人员后面追加
 								$scope.daweilist.row[j].column.push(newpeople);
 							}
+
+							//任职id列表 如果任职id列表中没有该id 则添加
+							if($scope.InPerson_ids.indexOf(newpeople.person_id)==-1){
+								$scope.InPerson_ids.push(newpeople.person_id);
+							}
+							//免职id列表 如果免职id列表中有该id 则删除
+							if($scope.OutPerson_ids.indexOf(newpeople.person_id)!=-1){
+								$scope.OutPerson_ids.splice($scope.OutPerson_ids.indexOf(newpeople.person_id),1);
+							}
+							console.log($scope.InPerson_ids+"---"+$scope.OutPerson_ids);
 						}
 					}
 				}
@@ -298,8 +405,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		}
 		//免职
 		$scope.removepeople=function(people){
-			//console.log(which-1);
-			//var indexs=which-1;
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectmianzhiPeopleModel.html',
 				controller: 'ModalMianzhiDeployInstanceCtrl',
@@ -344,6 +449,18 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							//原来是超编的情况下 免职 直接删除该人即可
 							$scope.daweilist.row[j].column.splice(delete_index,1);
 						}
+
+						//免职id列表 如果免职id列表中没有该id 则添加
+						if($scope.OutPerson_ids.indexOf(people.person_id)==-1){
+							$scope.OutPerson_ids.push(people.person_id);
+						}
+						//任职id列表 如果任职id列表中有该id 则删除
+						console.log($scope.InPerson_ids.indexOf(people.person_id));
+						if($scope.InPerson_ids.indexOf(people.person_id)!=-1){
+							$scope.InPerson_ids.splice($scope.InPerson_ids.indexOf(people.person_id),1);
+						}
+
+						console.log($scope.InPerson_ids+"---"+$scope.OutPerson_ids);
 					}
 				}
 			}, function () {
@@ -355,10 +472,17 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			var modalsaveInstance = $modal.open({
 				templateUrl: 'savePeopleModel.html',
 				controller: 'SaveDeployInstanceCtrl',
-				size: 'sm'
+				size: 'sm',
+				resolve:{
+					InPerson_ids:function(){
+						return InPerson_ids;
+					},
+					OutPerson_ids:function(){
+						return OutPerson_ids;
+					}
+				}
 			});
 			modalsaveInstance.result.then(function () {
-				//调用调配接口
 
 
 			}, function () {

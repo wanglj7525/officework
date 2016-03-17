@@ -3,9 +3,9 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','$modal','$log','Auth','SettinguserService',
-      function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,$modal,$log,Auth,SettinguserService) {
-
+    .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','$modal','$log','Auth','SettinguserService','SERVICE_URL',
+      function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,$modal,$log,Auth,SettinguserService,SERVICE_URL) {
+        $rootScope.imageurl=SERVICE_URL;
         $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
           $rootScope.Auth=Auth;
           //避免未登录用户直接输入路由地址来跳转到登录界面地址

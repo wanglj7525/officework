@@ -31,9 +31,23 @@
 							二. 调整方案
 						</div>
 						<div class="list-group-item-text">
-							<ul class="list-group">
-								<li class="list-group-item" ng-repeat="row in plandetail.list">{{row.name}},现任{{row.now_post}},拟任{{row.tobe_post}}，原因{{row.reason}}</li>
-							</ul>
+							<table class="table">
+								<tr>
+									<td>姓名</td>
+									<td>现任</td>
+									<td>拟任</td>
+									<td>调整原因</td>
+								</tr>
+								<tr ng-repeat="row in plandetail.list">
+									<td>{{row.name}}</td>
+									<td>{{row.now_post}}</td>
+									<td>{{row.tobe_post}}</td>
+									<td>{{row.reason}}</td>
+								</tr>
+							</table>
+							<!--<ul class="list-group">-->
+								<!--<li class="list-group-item" ng-repeat="row in plandetail.list">{{row.name}},现任:{{row.now_post}},拟任:{{row.tobe_post}}，原因:{{row.reason}}</li>-->
+							<!--</ul>-->
 						</div>
 
 					</div>

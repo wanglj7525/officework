@@ -111,7 +111,7 @@
 			//配置分页基本参数
 			$scope.paginationConf = {
 				currentPage: 1,
-				itemsPerPage: 10
+				itemsPerPage: 12
 			};
 			$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
 			$scope.$watch('treeselected', getMessageImageList);

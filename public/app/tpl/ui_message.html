@@ -4,7 +4,7 @@
                     <accordion close-others="oneAtATime">
                         <accordion-group is-open="status.open" class="b-info">
                             <accordion-heading class="btn-info">
-                                设置查询条件 <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>
+                                <b>设置查询条件</b> <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>
                             </accordion-heading>
                             <div class="vbox">
                                 <div class="" >
@@ -68,25 +68,6 @@
                     </accordion>
                     <tabset class="tab-container " >
                         <!-- 默认选中第二个 active="selectTab"-->
-                        <tab heading="按头像查看" class="blue-500">
-                            <div class="row" >
-                                <div ng-repeat="people in messagetabletab">
-                                    <div class="col-sm-2">
-                                        <div class="panel panel-card">
-                                            <div class="item">
-                                                <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
-                                            </div>
-                                            <div class="wrapper">
-                                                <h4>
-                                                    {{people.name}}
-                                                </h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </tab>
                         <tab heading="按花名册查看"  class="blue-500" >
                             <div class="row">
                                 <table st-table="messagetabletab"  class="table table-bordered table-striped">
@@ -119,6 +100,26 @@
                                 </table>
                             </div>
                         </tab>
+                        <tab heading="按头像查看" class="blue-500">
+                            <div class="row" >
+                                <div ng-repeat="people in messagetabletab">
+                                    <div class="col-sm-2">
+                                        <div class="panel panel-card">
+                                            <div class="item">
+                                                <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
+                                            </div>
+                                            <div class="wrapper" style="text-align: center">
+                                                <h4>
+                                                    {{people.name}}
+                                                </h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </tab>
+                       
 
                     </tabset>
                     <div class="row">

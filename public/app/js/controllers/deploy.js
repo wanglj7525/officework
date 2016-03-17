@@ -122,9 +122,6 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance', function($
 }]);
 app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
 	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
-		$scope.level_1=[];
-		$scope.level_2=[];
-		$scope.level_3=[];
 
 		$scope.treeselected=$localStorage.treeselect;
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
@@ -137,52 +134,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				function(res){
 					//班子成员
 					$scope.daweilist = res.data.info;
-
-					////班子职务列表
-					//var select_tree = $.param({
-					//	tree_id:$localStorage.tree_uuid
-					//});
-					//adjustdetailservice.getzhiweiList(select_tree).then(
-					//	function (res) {
-					//		$scope.companylist = res.data.info;
-					//	},
-					//	function (rej) {
-					//		console.log(rej);
-					//	}
-					//);
-					//$scope.banzi={};
-                    //
-					////根据班子职务 定义人员列表
-					//for(var i=0;i<$scope.companylist.length;i++){
-					//	$scope.peo=[];
-					//	$scope.banzi.post_rank=$scope.companylist.post_rank;
-					//	if($scope.daweilist){
-					//		for(var i=0;i<$scope.daweilist.row.length;i++){
-					//			if($scope.daweilist.row[i].rank==1){
-					//				$scope.level_1=$scope.daweilist.row[i].column;
-					//			}else if($scope.daweilist.row[i].rank==2){
-					//				$scope.level_2=$scope.daweilist.row[i].column;
-					//			}else if($scope.daweilist.row[i].rank==3){
-					//				$scope.level_3=$scope.daweilist.row[i].column;
-					//			}
-					//		}
-					//	}
-					//	$scope.banzi.peo=$scope.peo;
-					//}
-					$scope.level_1=[];
-					$scope.level_2=[];
-					$scope.level_3=[];
-					if($scope.daweilist){
-						for(var i=0;i<$scope.daweilist.row.length;i++){
-							if($scope.daweilist.row[i].rank==1){
-								$scope.level_1=$scope.daweilist.row[i].column;
-							}else if($scope.daweilist.row[i].rank==2){
-								$scope.level_2=$scope.daweilist.row[i].column;
-							}else if($scope.daweilist.row[i].rank==3){
-								$scope.level_3=$scope.daweilist.row[i].column;
-							}
-						}
-					}
 				},
 				function (rej) {
 					console.log(rej);
@@ -289,67 +240,58 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			});
 			modaldeployInstance.result.then(function (deploy) {
-				console.log(deploy.zhiwei['post_rank']);
+				//右边人员信息和左边不一致 生成新的格式 添加到左边的model中
 				var newpeople={
 					post_rank:deploy.zhiwei['post_rank'],
 					person_id:people.id,
 					name:people.name,
-					state:true,
+					state:'true',
 					post_name:deploy.zhiwei['name'],
 					post_id:deploy.zhiwei['id'],
-					imgurl:''
+					imgurl:people.imgurl
 				}
-				if($scope.level_1[0].post_rank==deploy.zhiwei['post_rank']){
-					for(var j=0;j<$scope.level_1.length;j++){
-						if($scope.level_1[j].person_id==people.id){
-							return
+
+				/**
+				 * 1、循环班子成员，如果已有该人，不进行操作
+				 * 2、没有该人 在相应的职务上添加任职
+				 * 3、判断该职务上是否有state为false的 空位置，若有 将该位置替换
+				 */
+				var hasSamePeople=false;
+				//1
+				for(var j=0;j<$scope.daweilist.row.length;j++){
+					for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
+						if($scope.daweilist.row[j].column[i].person_id==people.id){
+							hasSamePeople=true;
+							alert("所选人员已经在该班子中任职");
+							return;
 						}
 					}
-					$scope.level_1.push(newpeople);
 				}
 
-				if($scope.level_2[0].post_rank==deploy.zhiwei['post_rank']){
-					for(var j=0;j<$scope.level_2.length;j++){
-						if($scope.level_2[j].person_id==people.id){
-							return
+				if(!hasSamePeople){
+					for(var j=0;j<$scope.daweilist.row.length;j++){
+						var hasFalsePeople=false;
+						var delete_index=0;
+						if($scope.daweilist.row[j].post_id==deploy.zhiwei['id']){
+							//3
+							for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
+								//2
+								if($scope.daweilist.row[j].column[i].state=='false'){
+									hasFalsePeople=true;
+									delete_index=i;
+									break;
+								}
+							}
+							if(hasFalsePeople){
+								//有空职位 移除 替换
+								$scope.daweilist.row[j].column.splice(delete_index,1,newpeople);
+							}else{
+								//没有空职位，直接在人员后面追加
+								$scope.daweilist.row[j].column.push(newpeople);
+							}
 						}
 					}
-					$scope.level_2.push(newpeople);
 				}
-
-				if($scope.level_3[0].post_rank==deploy.zhiwei['post_rank']){
-					for(var j=0;j<$scope.level_3.length;j++){
-						if($scope.level_3[j].person_id==people.id){
-							return
-						}
-					}
-					$scope.level_3.push(newpeople);
-				}
-
-
-				//if($scope.daweilist){
-				//	for(var i=0;i<$scope.daweilist.row.length;i++){
-				//		if($scope.daweilist.row[i].rank==1){
-				//			$scope.level_1=$scope.daweilist.row[i].column;
-				//		}else if($scope.daweilist.row[i].rank==2){
-				//			$scope.level_2=$scope.daweilist.row[i].column;
-				//		}else if($scope.daweilist.row[i].rank==3){
-				//			$scope.level_3=$scope.daweilist.row[i].column;
-				//		}
-				//	}
-				//}
-
-				//for(var i=0;i<$scope.daweilist.row.length();i++){
-				//	if($scope.daweilist[i])
-				//}
-				//var indexs=zhiwei-1;
-                //
-				//if($scope.daweilist[indexs].people.indexOf(people)==-1){
-				//	$scope.daweilist[indexs].people.push(people);
-				//}
-				//if($scope.daweilist[0].peoples.indexOf(people)==-1){
-				//	$scope.daweilist[0].peoples.push(people);
-				//}
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
@@ -369,8 +311,41 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			});
 			modaldeployInstance.result.then(function () {
-				$scope.daweilist[indexs].people.splice($scope.daweilist[indexs].people.indexOf(people),1);
-				//$scope.daweilist[0].peoples.splice($scope.daweilist[0].peoples.indexOf(people),1);
+				//生成缺编占位符
+				var newpeople={
+					post_rank:'',
+					person_id:'',
+					name:'',
+					state:'false',
+					post_name:'',
+					post_id:'',
+					imgurl:''
+				}
+
+				/**
+				 * 循环人员列表
+				 */
+				for(var j=0;j<$scope.daweilist.row.length;j++){
+					var delete_index=0;
+					//找到免职人所在的层次
+					if($scope.daweilist.row[j].post_id==people.post_id){
+						//找到免职人的 位置
+						for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
+							if($scope.daweilist.row[j].column[i].person_id==people.person_id){
+								delete_index=i;
+								break;
+							}
+						}
+
+						if($scope.daweilist.row[j].num>=$scope.daweilist.row[j].column.length){
+							//如果该职位 应有的人员数量 大于等于真实人员数量，需要用占位符替换该人
+							$scope.daweilist.row[j].column.splice(delete_index,1,newpeople);
+						}else{
+							//原来是超编的情况下 免职 直接删除该人即可
+							$scope.daweilist.row[j].column.splice(delete_index,1);
+						}
+					}
+				}
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
@@ -394,169 +369,172 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//查看详情
 		$scope.showOneDetail=function(people){
 
-			$scope.isdetail=true;
-			$scope.user={};
-			var postData = $.param({
-				person_id:people.id,
-				access_token:$localStorage.token
-			});
-			//家庭成员
-			SettingpeopleService.getfamilyInfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.familyInfolist=res.data.info;
-					}
-				},
-				function(rej){
+			if(people.id||people.person_id){
+				$scope.isdetail=true;
+				$scope.user={};
+				var postData = $.param({
+					person_id:people.id?people.id:people.person_id,
+					access_token:$localStorage.token
+				});
+				//家庭成员
+				SettingpeopleService.getfamilyInfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.familyInfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//简历
-			SettingpeopleService.getresumeInfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.resumeinfo={};
-						$scope.resumeinfo=res.data.info[0];
 					}
-				},
-				function(rej){
+				);
+				//简历
+				SettingpeopleService.getresumeInfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.resumeinfo={};
+							$scope.resumeinfo=res.data.info[0];
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//年度考核
-			SettingpeopleService.getexaminfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.examinfolist=res.data.info;
 					}
-				},
-				function(rej){
+				);
+				//年度考核
+				SettingpeopleService.getexaminfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.examinfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//奖惩记录
-			SettingpeopleService.getjiangchenginfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.jiangchenginfolist=res.data.info;
 					}
-				},
-				function(rej){
+				);
+				//奖惩记录
+				SettingpeopleService.getjiangchenginfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.jiangchenginfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//学位
-			SettingpeopleService.getDegreeinfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.degreeinfolist=res.data.info;
 					}
-				},
-				function(rej){
+				);
+				//学位
+				SettingpeopleService.getDegreeinfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.degreeinfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//学历
-			SettingpeopleService.getEduinfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.eduinfolist=res.data.info;
 					}
-				},
-				function(rej){
+				);
+				//学历
+				SettingpeopleService.getEduinfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.eduinfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//职称
-			SettingpeopleService.getPeopletitleinfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.titleinfolist=res.data.info;
 					}
-				},
-				function(rej){
+				);
+				//职称
+				SettingpeopleService.getPeopletitleinfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.titleinfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//现任职务
-			SettingpeopleService.getPeoplepostinfo(postData).then(
-				function(res){
-					if (res.data.code == 200) {
-						$scope.postinfolist=res.data.info;
 					}
-				},
-				function(rej){
+				);
+				//现任职务
+				SettingpeopleService.getPeoplepostinfo(postData).then(
+					function(res){
+						if (res.data.code == 200) {
+							$scope.postinfolist=res.data.info;
+						}
+					},
+					function(rej){
 
-				}
-			);
-			//基本信息
-			SettingpeopleService.getPeopleBase(postData).then(
-				function(res) {
-					if (res.data.code == 200) {
-						$scope.user = res.data.info;
-						//下拉列表默认显示值
-						if($scope.user.jiguan||$scope.user.birthplace){
-							for(var i=0;i<$scope.address.length;i++){
-								if($scope.user.birthplace==$scope.address[i].ano){
-									$scope.user.birthplace=$scope.address[i];
+					}
+				);
+				//基本信息
+				SettingpeopleService.getPeopleBase(postData).then(
+					function(res) {
+						if (res.data.code == 200) {
+							$scope.user = res.data.info;
+							//下拉列表默认显示值
+							if($scope.user.jiguan||$scope.user.birthplace){
+								for(var i=0;i<$scope.address.length;i++){
+									if($scope.user.birthplace==$scope.address[i].ano){
+										$scope.user.birthplace=$scope.address[i];
+									}
+									if($scope.user.jiguan==$scope.address[i].ano){
+										$scope.user.jiguan=$scope.address[i];
+									}
 								}
-								if($scope.user.jiguan==$scope.address[i].ano){
-									$scope.user.jiguan=$scope.address[i];
+							}
+							if($scope.user.person_status){
+								for(var i=0;i<$scope.zhuangtailist.length;i++){
+									if($scope.user.person_status==$scope.zhuangtailist[i].ano){
+										$scope.user.person_status=$scope.zhuangtailist[i];
+									}
+								}
+							}
+							if($scope.user.personal){
+								for(var i=0;i<$scope.personallist.length;i++){
+									if($scope.user.personal==$scope.personallist[i].ano){
+										$scope.user.personal=$scope.personallist[i];
+									}
+								}
+							}
+							if($scope.user.rank){
+								for(var i=0;i<$scope.zhijilist.length;i++){
+									if($scope.user.rank==$scope.zhijilist[i].ano){
+										$scope.user.rank=$scope.zhijilist[i];
+									}
+								}
+							}
+							if($scope.user.health){
+								for(var i=0;i<$scope.jiankanglist.length;i++){
+									if($scope.user.health==$scope.jiankanglist[i].ano){
+										$scope.user.health=$scope.jiankanglist[i];
+									}
+								}
+							}
+							if($scope.user.political_status){
+								for(var i=0;i<$scope.zhengzhilist.length;i++){
+									if($scope.user.political_status==$scope.zhengzhilist[i].ano){
+										$scope.user.political_status=$scope.zhengzhilist[i];
+									}
+								}
+							}
+							if($scope.user.sex){
+								for(var i=0;i<$scope.sexlist.length;i++){
+									if($scope.user.sex==$scope.sexlist[i].ano){
+										$scope.user.sex=$scope.sexlist[i];
+									}
+								}
+
+							}
+							if( $scope.user.nation){
+								for(var i=0;i<$scope.minzulist.length;i++){
+									if($scope.user.nation==$scope.minzulist[i].ano){
+										$scope.user.nation=$scope.minzulist[i];
+									}
 								}
 							}
 						}
-						if($scope.user.person_status){
-							for(var i=0;i<$scope.zhuangtailist.length;i++){
-								if($scope.user.person_status==$scope.zhuangtailist[i].ano){
-									$scope.user.person_status=$scope.zhuangtailist[i];
-								}
-							}
-						}
-						if($scope.user.personal){
-							for(var i=0;i<$scope.personallist.length;i++){
-								if($scope.user.personal==$scope.personallist[i].ano){
-									$scope.user.personal=$scope.personallist[i];
-								}
-							}
-						}
-						if($scope.user.rank){
-							for(var i=0;i<$scope.zhijilist.length;i++){
-								if($scope.user.rank==$scope.zhijilist[i].ano){
-									$scope.user.rank=$scope.zhijilist[i];
-								}
-							}
-						}
-						if($scope.user.health){
-							for(var i=0;i<$scope.jiankanglist.length;i++){
-								if($scope.user.health==$scope.jiankanglist[i].ano){
-									$scope.user.health=$scope.jiankanglist[i];
-								}
-							}
-						}
-						if($scope.user.political_status){
-							for(var i=0;i<$scope.zhengzhilist.length;i++){
-								if($scope.user.political_status==$scope.zhengzhilist[i].ano){
-									$scope.user.political_status=$scope.zhengzhilist[i];
-								}
-							}
-						}
-						if($scope.user.sex){
-							for(var i=0;i<$scope.sexlist.length;i++){
-								if($scope.user.sex==$scope.sexlist[i].ano){
-									$scope.user.sex=$scope.sexlist[i];
-								}
-							}
-
-						}
-						if( $scope.user.nation){
-							for(var i=0;i<$scope.minzulist.length;i++){
-								if($scope.user.nation==$scope.minzulist[i].ano){
-									$scope.user.nation=$scope.minzulist[i];
-								}
-							}
-						}
 					}
-				}
-			)
+				)
+			}
+
 		};
 	} ]);

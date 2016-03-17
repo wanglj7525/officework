@@ -74,7 +74,7 @@
                                     <div class="col-sm-2">
                                         <div class="panel panel-card">
                                             <div class="item">
-                                                <img  ng-click="showOneDetail(people)" src="{{people.imgurl?people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
+                                                <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
                                             </div>
                                             <div class="wrapper">
                                                 <h4>

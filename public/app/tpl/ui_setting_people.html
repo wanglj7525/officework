@@ -253,7 +253,7 @@
                                                                  <div class="button btn" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
                                                                       ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                                                       ngf-resize="{width: 100, height: 100}">请选择</div>
-                                                                 <img ngf-thumbnail="file || '/public/app/img/a.png'">
+                                                                 <img ngf-thumbnail="file || '/public/app/img/a.png'" style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}">
                                                                  <button ng-click="uploadphoto($file)">Submit</button>
                                                                  <!--<input type="file" name="carpoolpic1" id="carpoolpic1" accept="image/*" onchange="changeImgadd(this)" style="width: 100%"/>-->
                                                                  <!--<img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{user.head_pic}}" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>-->

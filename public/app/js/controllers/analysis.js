@@ -13,7 +13,7 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 				if(res.data.code==200){
 					$scope.charts = res.data.info.list;
 				}else{
-					alert(res.data.msg);
+					//alert(res.data.msg);
 				}
 			},
 			function (rej) {
@@ -123,7 +123,7 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 								}
 							}
 						}else{
-							alert(res.data.msg);
+							//alert(res.data.msg);
 						}
 
 					},

@@ -42,8 +42,8 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 					note:saveadjust.reason
 				});
 				console.log(postData);
-				adjustdetailservice.saveadjust(postData).then(function(){
-					
+				adjustdetailservice.saveadjust(postData).then(function(res){
+					console.log("baocunchenggon")
 				})
 			}, function () {
 

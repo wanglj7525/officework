@@ -32,17 +32,12 @@
 						</div>
 						<div class="list-group-item-text">
 							<table class="table">
-								<tr>
-									<td>姓名</td>
-									<td>现任</td>
-									<td>拟任</td>
-									<td>调整原因</td>
-								</tr>
+
 								<tr ng-repeat="row in plandetail.list">
-									<td>{{row.name}}</td>
-									<td>{{row.now_post}}</td>
-									<td>{{row.tobe_post}}</td>
-									<td>{{row.reason}}</td>
+									<td>姓名：{{row.name}}</td>
+									<td>现任：{{row.now_post}}</td>
+									<td>拟任：{{row.tobe_post}}</td>
+									<td>调整原因：{{row.reason}}</td>
 								</tr>
 							</table>
 							<!--<ul class="list-group">-->

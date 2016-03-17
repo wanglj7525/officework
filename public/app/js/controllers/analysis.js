@@ -319,7 +319,7 @@ app.directive('bars', function($modal,$log) {
 					xAxis : [
 						{
 							axisLabel: {
-								rotate: 60,
+								rotate: 30,
 							},
 							type : 'category',
 							data : $scope.config.legend,

@@ -13,7 +13,7 @@
 	<div class="workBgColor col-padding col-md-10"  ng-style="{height:showheight}" style="overflow-y: auto">
 		<div class="panel panel-default" >
 			<!--ng-repeat="row in plandetail "-->
-			<div class="panel-heading" style="position: relative">{{plandetail.name}}
+			<div class="panel-heading" style="position: relative">方案说明
 				<button ng-click="deletaplan(plandetail)"  class="btn btn-add btn-href" style="width: 150px;">删除</button>
 			</div>
 			<div class="panel-body">
@@ -23,7 +23,7 @@
 							一. 调整原因
 						</div>
 						<div class="list-group-item-text">
-							{{plandetail.reason}}
+							{{plandetail.schedule_reason}}
 						</div>
 					</div>
 					<div class="list-group-item">
@@ -32,7 +32,7 @@
 						</div>
 						<div class="list-group-item-text">
 							<ul class="list-group">
-								<li class="list-group-item" ng-repeat="one in row.planlist">{{one.name}},{{one.sex}},{{one.birthday}},現任{{one.company}},拟免{{one.company}}，拟任{{one.newcompany}}</li>
+								<li class="list-group-item" ng-repeat="row in plandetail.list">{{row.name}},现任{{row.now_post}},拟任{{row.tobe_post}}，原因{{row.reason}}</li>
 							</ul>
 						</div>
 

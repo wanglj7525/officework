@@ -9,6 +9,7 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 				UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
 					function(res){
 						$scope.plandetail=res.data.info;
+						console.log($scope.plandetail)
 					},
 					function(rej){
 						console.log(rej);
@@ -21,11 +22,13 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 		);
 
 		$scope.selectdplan=function(plan){
-			$scope.currentname=plan.name;
+			$scope.currentname=plan.id;
 			UIAdjustplanService.getAdjustplanDetail(plan.id).then(
 				function(res){
 					$scope.plandetail=res.data.info;
+					console.log($scope.plandetail)
 				},
+				
 				function(rej){
 					console.log(rej);
 				}

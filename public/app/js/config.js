@@ -49,6 +49,7 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
               },
               'response':function(response){
                   if(response.data.code&&response.data.code==403){
+                      console.log("access_token 失效");
                       $localStorage.token='0';
                       delete  $localStorage.treeselect;
                       delete  $localStorage.tree_uuid;

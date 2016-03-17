@@ -644,6 +644,16 @@ angular.module('app')
 }] ).service('UIDeployservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
     //班子调配
     return{
+        //test:function(params){
+        //    var deferred=$q.defer();
+        //    var path=SERVICE_URL+'/analysis/batchsave?';
+        //    var promise=$http.get(path+params).then(function(response){
+        //        return response;
+        //    },function(response){
+        //        return response;
+        //    });
+        //    return promise;
+        //},
         getOneDeploy:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/adjust/unit?';
@@ -657,6 +667,28 @@ angular.module('app')
         getPeopleAnalysis:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/analysis/analysisBeforeChange?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        },
+        //1.5 针对一个班子，分析提示需要交流的人员
+        getBanziAnalysis:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/analysis/analysisWhenUpdate?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        },
+        //1.7 调配方案保存前分析
+        getTijiaoBanziAnalysis:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/analysis/analysisBeforeSave?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){

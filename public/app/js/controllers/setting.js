@@ -47,8 +47,25 @@ app.controller('ModalDeleteZWInstanceCtrl', ['$scope', '$modalInstance', 'data',
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('ModalUpdateZWInstanceCtrl', ['$scope', '$modalInstance', 'newposition',function($scope, $modalInstance,newposition) {
+app.controller('ModalUpdateZWInstanceCtrl', ['$scope', '$modalInstance', 'newposition','elementSelect',function($scope, $modalInstance,newposition,elementSelect) {
     $scope.newposition = newposition;
+    $scope.elementSelect=elementSelect;
+
+    if($scope.newposition.post_rank){
+        for(var i=0;i< $scope.elementSelect.zhijilist.length;i++){
+            if($scope.newposition.post_rank==$scope.elementSelect.zhijilist[i].ano){
+                $scope.newposition.post_rank=$scope.elementSelect.zhijilist[i];
+            }
+        }
+    }
+    if($scope.newposition.post_category){
+        for(var i=0;i< $scope.elementSelect.zhiwuleibielist.length;i++){
+            if($scope.newposition.post_category==$scope.elementSelect.zhiwuleibielist[i].ano){
+                $scope.newposition.post_category=$scope.elementSelect.zhiwuleibielist[i];
+            }
+        }
+    }
+
     $scope.ok = function () {
         $modalInstance.close();
     };
@@ -57,8 +74,8 @@ app.controller('ModalUpdateZWInstanceCtrl', ['$scope', '$modalInstance', 'newpos
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
-    console.log($scope.zwname);
+app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance','elementSelect',function($scope, $modalInstance,elementSelect) {
+    $scope.elementSelect=elementSelect;
     $scope.zws={
         num:1,
         rank:1
@@ -71,7 +88,18 @@ app.controller('ModalAddZWInstanceCtrl', ['$scope', '$modalInstance',function($s
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$localStorage','SeetingtreeService',function($rootScope,$state,$scope,$modal,$log,$localStorage,SeetingtreeService){
+app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$localStorage','SeetingtreeService','SettingdaimaService',
+    function($rootScope,$state,$scope,$modal,$log,$localStorage,SeetingtreeService,SettingdaimaService ){
+        $scope.elementSelect={};
+        //职级
+    SettingdaimaService.getCodagetList("FJ09").then(function(res){
+        $scope.elementSelect.zhijilist=res.data.info.list
+    },function(rej){});
+    //职务类别
+    SettingdaimaService.getCodagetList("ZB42").then(function(res){
+        $scope.elementSelect.zhiwuleibielist=res.data.info.list
+    },function(rej){});
+
     SeetingtreeService.getTreeList().then(
         function (res) {
             $scope.treelist = res.data.info;
@@ -133,6 +161,9 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$l
             resolve: {
                 newposition: function () {
                     return  $scope.newposition;
+                },
+                elementSelect:function(){
+                    return $scope.elementSelect;
                 }
             }
         });
@@ -142,6 +173,8 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$l
                 name:  $scope.newposition.name,
                 num:  $scope.newposition.num,
                 order:$scope.newposition.rank,
+                post_rank:$scope.newposition.post_rank['ano'],
+                post_category:$scope.newposition.post_category['ano'],
                 access_token:$localStorage.token
             });
             //调用后台保存 成功后修改页面
@@ -203,7 +236,12 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$l
         var modalzwaddInstance = $modal.open({
             templateUrl: 'saveAddZWModel.html',
             controller: 'ModalAddZWInstanceCtrl',
-            size: 'md'
+            size: 'md' ,
+            resolve: {
+                elementSelect:function(){
+                    return $scope.elementSelect;
+                }
+            }
         });
         modalzwaddInstance.result.then(function (zw) {
             var params=$.param({
@@ -211,6 +249,8 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$l
                 name:  zw.name,
                 num:  zw.num,
                 order:zw.rank,
+                post_rank:zw.post_rank['ano'],
+                post_category:zw.post_category['ano'],
                 access_token:$localStorage.token
             });
             //调用后台保存 成功后修改页面

@@ -101,7 +101,7 @@ angular.module('app')
                   abstract: true,
                   url:'/setting',
                   templateUrl:STATIC_PATH+'tpl/ui_setting.html',
-                  resolve: load(['xeditable','smart-table'])
+                  resolve: load(['ui.select','xeditable','smart-table'])
               })
               .state('app.setting.tree',{
                   url:'/tree',

@@ -248,6 +248,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         }
 //修改用户
         $scope.updatepeople=function(people){
+
             $scope.user={};
             $scope.isedit=true;
             $scope.showelse=true;
@@ -420,27 +421,51 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             )
         }
 
-        $scope.uploadphoto = function (file) {
-            console.log(file);
-            Upload.base64DataUrl(file).then(function(urls){
-                console.log(urls);
-            });
-            //Upload.upload({
-            //    url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-            //    data: {
-            //        file: Upload.dataUrltoBlob(dataUrl, name)
-            //    },
-            //}).then(function (response) {
-            //    $timeout(function () {
-            //        $scope.result = response.data;
-            //    });
-            //}, function (response) {
-            //    if (response.status > 0) $scope.errorMsg = response.status
-            //        + ': ' + response.data;
-            //}, function (evt) {
-            //    $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
-            //});
-        }
+        // upload later on form submit or something similar
+        $scope.uploadphoto = function(file) {
+            if (file) {
+                //$scope.upload(file);
+                Upload.base64DataUrl(file).then(function(urls){
+                    console.log(urls);
+                });
+            }
+        };
+
+        //// upload on file select or drop
+        //$scope.upload = function (file) {
+        //    Upload.upload({
+        //        url: 'upload/url',
+        //        data: {file: file, 'username': $scope.username}
+        //    }).then(function (resp) {
+        //        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        //    }, function (resp) {
+        //        console.log('Error status: ' + resp.status);
+        //    }, function (evt) {
+        //        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        //        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        //    });
+        //};
+        //$scope.uploadphotod = function () {
+        //    console.log($scope.photo_people);
+        //    Upload.base64DataUrl($scope.photo_people).then(function(urls){
+        //        console.log(urls);
+        //    });
+        //    //Upload.upload({
+        //    //    url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+        //    //    data: {
+        //    //        file: Upload.dataUrltoBlob(dataUrl, name)
+        //    //    },
+        //    //}).then(function (response) {
+        //    //    $timeout(function () {
+        //    //        $scope.result = response.data;
+        //    //    });
+        //    //}, function (response) {
+        //    //    if (response.status > 0) $scope.errorMsg = response.status
+        //    //        + ': ' + response.data;
+        //    //}, function (evt) {
+        //    //    $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
+        //    //});
+        //}
 
 
 

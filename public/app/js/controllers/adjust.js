@@ -41,8 +41,9 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 					name:saveadjust.name,
 					note:saveadjust.reason
 				});
-				adjustdetailservice.saveadjust(postData).then(function(){
-					
+				console.log(postData);
+				adjustdetailservice.saveadjust(postData).then(function(res){
+					console.log("baocunchenggon")
 				})
 			}, function () {
 
@@ -71,7 +72,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 		$scope.userState = '';
 		$scope.id = $stateParams.id;
 		
-		//修改原因
+		//调整一览修改
 		$scope.updateReason= function (data) {
 			var modalReasonInstance = $modal.open({
 					templateUrl: 'adjustReasonModel.html',
@@ -83,17 +84,18 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 						id: data.id,
 						//tree_id:353165011,
 						tobe_post_id: adjust.zhiwu["id"],
-						reason: adjust.yuanyin["dz"]
+						reason: adjust.yuanyin
 						//access_token: $localStorage.token
 					});
-					
+					console.log(adjust.zhiwu)
 					adjustdetailservice.getadjustFix(postData).then(
 						function (res) {
 							if(res.data.code==200){
-								data.reason=adjust.yuanyin["dz"];
+								data.reason=adjust.yuanyin;
 								data.tobe_post=adjust.zhiwu['name'];
+								console.log(data.tobe_post);
 								//angular.copy($scope.newdata,data);
-								console.log($scope.newdata);
+								//console.log($scope.newdata);
 							}else{
 								alert(res.data.msg);
 							}

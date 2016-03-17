@@ -5,10 +5,12 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 		UIAdjustplanService.getAdjustplanList().then(
 			function (res) {
 				$scope.planlist = res.data.info;
+				console.log($scope.planlist)
 				$scope.currentname=$scope.planlist[0].name;
 				UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
 					function(res){
 						$scope.plandetail=res.data.info;
+						console.log($scope.plandetail)
 					},
 					function(rej){
 						console.log(rej);
@@ -21,11 +23,14 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 		);
 
 		$scope.selectdplan=function(plan){
+			$scope.currentid=plan.id;
 			$scope.currentname=plan.name;
-			UIAdjustplanService.getAdjustplanDetail(plan.id).then(
+			UIAdjustplanService.getAdjustplanDetail($scope.currentid).then(
 				function(res){
 					$scope.plandetail=res.data.info;
+					console.log($scope.plandetail)
 				},
+				
 				function(rej){
 					console.log(rej);
 				}
@@ -33,7 +38,9 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 
 		}
 		$scope.deletaplan=function(plan){
-			UIAdjustplanService.delAdjustPlan(plan.id).then(
+			var deleconfirm = confirm("确定删除?");
+			if(deleconfirm==true){
+			UIAdjustplanService.delAdjustPlan($scope.currentid).then(
 				function(res){
 					if(res.data.code==200){
 						UIAdjustplanService.getAdjustplanList().then(
@@ -59,6 +66,7 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 					console.log(rej);
 				}
 			);
+			}
 		}
 	}
 ]);

@@ -42,14 +42,14 @@
 			$scope.status = {
 				open: false
 			};
-			searchservice.getData().then(
-				function (res) {
-					$scope.nianlinglist = res.data.info;
-				},
-				function (rej) {
-					console.log(rej);
-				}
-			);
+			//searchservice.getData().then(
+			//	function (res) {
+			//		$scope.nianlinglist = res.data.info;
+			//	},
+			//	function (rej) {
+			//		console.log(rej);
+			//	}
+			//);
 			$scope.searchPeople=function(){
 				console.log($scope.search.keywords);
 				var postData = $.param({
@@ -218,7 +218,6 @@
 					function(res) {
 						if (res.data.code == 200) {
 							$scope.user = res.data.info;
-
 							//下拉列表默认显示值
 							if($scope.user.jiguan||$scope.user.birthplace){
 								for(var i=0;i<$scope.address.length;i++){

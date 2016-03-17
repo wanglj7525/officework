@@ -20,15 +20,33 @@
                     </ui-select>
                 </div>
             </div>
+            <!--<label class="col-md-3 control-label">调配原因</label>-->
+            <!--<div class="col-md-9 row">-->
+                <!--<div  class=" m-l-n">-->
+                    <!--<ui-select ng-model="adjust.yuanyin" theme="bootstrap" ng-controller="adjustdetailController">-->
+                        <!--<ui-select-match placeholder="请选择调配原因">{{$select.selected.dz}}</ui-select-match>-->
+                        <!--<ui-select-choices repeat="item in adjustreason | filter: $select.search">-->
+                            <!--<div ng-bind-html="item.dz  | highlight: $select.search"></div>-->
+                        <!--</ui-select-choices>-->
+                    <!--</ui-select>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="form-group"  ng-class="{ 'has-error' : renzhiform.reason.$invalid && !renzhiform.reason.$pristine }">
             <label class="col-md-3 control-label">调配原因</label>
             <div class="col-md-9 row">
                 <div  class=" m-l-n">
-                    <ui-select ng-model="adjust.yuanyin" theme="bootstrap" ng-controller="adjustdetailController">
-                        <ui-select-match placeholder="请选择调配原因">{{$select.selected.dz}}</ui-select-match>
-                        <ui-select-choices repeat="item in adjustreason | filter: $select.search">
-                            <div ng-bind-html="item.dz  | highlight: $select.search"></div>
-                        </ui-select-choices>
-                    </ui-select>
+                    <div class="dropdown" dropdown  ng-controller="adjustdetailController">
+                        <input autocompletes="" class="tags form-control" name="adjust" ng-model="adjust.yuanyin" type="text" loaddata="{{adjustreason | filter: { dz:adjust.yuanyin} }}" required />
+                        <div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
+                            <span class="caret"  ></span>
+                        </div>
+                        <ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
+                            <li ng-repeat="p in adjustreason" ng-class="{active:adjust.yuanyin==p.dz}"  >
+                                <a href="javascript:void(0)" ng-click="adjust.yuanyin=p.dz">{{p.dz}}</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -255,24 +255,6 @@
                                                                       ngf-resize="{width: 100, height: 100}">请选择</div>
                                                                  <img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
                                                                  <!--<button  ng-click="uploadphoto()">Submit</button>-->
-                                                                 <!--<input type="file" name="carpoolpic1" id="carpoolpic1" accept="image/*" onchange="changeImgadd(this)" style="width: 100%"/>-->
-                                                                 <!--<img style="height: 200px;width: 200px" src="/public/app/img/a.png" ng-src="{{user.head_pic}}" class="w-full r-t img-responsive" alt="Washed Out" id="prevadd"></td>-->
-                                                                 <!--<button ng-click="upload()">Submit</button>-->
-                                                                 <!--<script>-->
-                                                                      <!--var image = '';-->
-                                                                      <!--function changeImgadd(file){-->
-                                                                           <!--if(!file.files || !file.files[0]){-->
-                                                                                <!--return;-->
-                                                                           <!--}-->
-                                                                           <!--var reader = new FileReader();-->
-                                                                           <!--reader.onload = function(evt){-->
-                                                                                <!--document.getElementById('prevadd').src = evt.target.result;-->
-                                                                                <!--document.getElementById('prevadd').attr("ng-src", evt.target.result);-->
-                                                                                <!--image = evt.target.result;-->
-                                                                           <!--}-->
-                                                                           <!--reader.readAsDataURL(file.files[0]);-->
-                                                                      <!--}-->
-                                                                 <!--</script>-->
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.work_date.$invalid && !addPeopleform_1.work_date.$pristine }">
                                                                  <label class="col-md-4 control-label">参加工作日期</label>

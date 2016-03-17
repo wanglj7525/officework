@@ -37,7 +37,7 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
     $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
       //$httpProvider.defaults.withCredentials = true;
-      $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
+      $httpProvider.interceptors.push(['$q','$injector', '$localStorage',function($q,$injector,$localStorage){
           return {
               'request': function (config) {
                   //请求添加token
@@ -47,10 +47,22 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
                   //}
                   return config;
               },
+              'response':function(response){
+                  if(response.data.code&&response.data.code==403){
+                      $localStorage.token='0';
+                      delete  $localStorage.treeselect;
+                      delete  $localStorage.tree_uuid;
+                      var stateService = $injector.get('$state');
+                      stateService.go("access.signin");
+                      return $q.reject(response);
+                  }
+                  return response;
+              },
               'responseError': function(response) {
+                  console.log("responseError==");
                   console.log(response);
                   if(response.status === 401 || response.status === 403) {
-                      $location.path('/404');
+                      $state.go("access.signin");
                       //TODO token过期 弹出登陆框 重新登录
                   }
                   return $q.reject(response);

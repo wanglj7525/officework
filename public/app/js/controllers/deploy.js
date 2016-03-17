@@ -191,8 +191,12 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 //
 //	}
 //)
+		//存储任职 离职人员id
 		$scope.InPerson_ids=[];
 		$scope.OutPerson_ids=[];
+		//存储任职 离职人员信息
+		$scope.InPerson={};
+		$scope.OutPerson={};
 
 		$scope.treeselected=$localStorage.treeselect;
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
@@ -391,10 +395,14 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							//任职id列表 如果任职id列表中没有该id 则添加
 							if($scope.InPerson_ids.indexOf(newpeople.person_id)==-1){
 								$scope.InPerson_ids.push(newpeople.person_id);
+								//任职人员信息
+								$scope.InPerson.push(newpeople);
 							}
 							//免职id列表 如果免职id列表中有该id 则删除
 							if($scope.OutPerson_ids.indexOf(newpeople.person_id)!=-1){
 								$scope.OutPerson_ids.splice($scope.OutPerson_ids.indexOf(newpeople.person_id),1);
+								//离职人员信息
+								$scope.OutPerson.splice($scope.OutPerson_ids.indexOf(newpeople.person_id),1);
 							}
 							console.log($scope.InPerson_ids+"---"+$scope.OutPerson_ids);
 						}
@@ -454,11 +462,15 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						//免职id列表 如果免职id列表中没有该id 则添加
 						if($scope.OutPerson_ids.indexOf(people.person_id)==-1){
 							$scope.OutPerson_ids.push(people.person_id);
+							//离职人员信息
+							$scope.OutPerson.push(people);
 						}
 						//任职id列表 如果任职id列表中有该id 则删除
 						console.log($scope.InPerson_ids.indexOf(people.person_id));
 						if($scope.InPerson_ids.indexOf(people.person_id)!=-1){
 							$scope.InPerson_ids.splice($scope.InPerson_ids.indexOf(people.person_id),1);
+							//任职人员信息
+							$scope.InPerson.splice($scope.InPerson_ids.indexOf(people.person_id),1);
 						}
 
 						console.log($scope.InPerson_ids+"---"+$scope.OutPerson_ids);

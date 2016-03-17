@@ -14,6 +14,7 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 				});
 				SettinguserService.loginservice(params).then(
 					function(res){
+						console.log(res);
 						if(res.data.code==200){
 							//存储access_token
 							$localStorage.token=res.data.info.access_token;

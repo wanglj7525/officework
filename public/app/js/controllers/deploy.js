@@ -112,7 +112,8 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 			$modalInstance.dismiss('cancel');
 		};
 	}]);
-app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_ids','OutPerson_ids','$localStorage', function($scope, $modalInstance,InPerson_ids,OutPerson_ids,$localStorage) {
+app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_ids','OutPerson_ids','$localStorage','UIDeployservice',
+	function($scope, $modalInstance,InPerson_ids,OutPerson_ids,$localStorage,UIDeployservice) {
 
 	$scope.hasanalysis=false;
 	$scope.analysis_tijiao = function () {
@@ -122,9 +123,9 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 		var postData = $.param({
 			unit_id:$localStorage.tree_uuid,
 			//任职id
-			InPerson_ids:InPerson_ids.join(","),
+			InPerson_ids:InPerson_ids?InPerson_ids.join(","):"",
 			//免职id
-			OutPerson_ids:OutPerson_ids.join(","),
+			OutPerson_ids:OutPerson_ids?OutPerson_ids.join(","):"",
 			access_token:$localStorage.token
 		});
 		UIDeployservice.getTijiaoBanziAnalysis(postData).then(
@@ -472,13 +473,13 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			var modalsaveInstance = $modal.open({
 				templateUrl: 'savePeopleModel.html',
 				controller: 'SaveDeployInstanceCtrl',
-				size: 'sm',
+				size: 'md',
 				resolve:{
 					InPerson_ids:function(){
-						return InPerson_ids;
+						return $scope.InPerson_ids;
 					},
 					OutPerson_ids:function(){
-						return OutPerson_ids;
+						return $scope.OutPerson_ids;
 					}
 				}
 			});

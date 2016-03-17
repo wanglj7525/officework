@@ -248,6 +248,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         }
 //修改用户
         $scope.updatepeople=function(people){
+
             $scope.user={};
             $scope.isedit=true;
             $scope.showelse=true;

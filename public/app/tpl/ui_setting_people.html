@@ -25,6 +25,9 @@
           <script type="text/ng-template" id="addjiatingModel.html">
                <div ng-include="'/public/app/tpl/ui_people_jiating_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="deleteModel.html">
+               <div ng-include="'/public/app/tpl/ui_setting_peoplesdelete_modal.html'"></div>
+          </script>
           <!--<script type="text/ng-template" id="saveUpdatePeopleModel.html">-->
                <!--<div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>-->
           <!--</script>-->
@@ -253,7 +256,7 @@
                                                        </div>
                                                        <div class="col-md-4">
                                                             <div>
-                                                                 <div class="button btn" ngf-select="uploadphoto($file)" ng-model="file" name="file" ngf-pattern="'image/*'"
+                                                                 <div class="button btn btn-default" ngf-select="uploadphoto($file)" ng-model="file" name="file" ngf-pattern="'image/*'"
                                                                       ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                                                                       ngf-resize="{width: 100, height: 100}">请选择</div>
                                                                  <img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
@@ -337,7 +340,7 @@
                                                             <button ng-click="updatezhiwu(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletezhiwu($index,row)"  class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>

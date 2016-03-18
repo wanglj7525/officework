@@ -13,7 +13,7 @@
 					<label class="col-md-4 control-label">职务名称</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="post_name" type="text" ng-model="newdata.post_name" required>
+							<input class="form-control" name="post_name" type="text" ng-model="newdata.post_name" ng-required="">
 						</div>
 					</div>
 				</div>
@@ -21,55 +21,55 @@
 					<label class="col-md-4 control-label">任职状态</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<div class="dropdown" dropdown >
-								<input autocompletes="" class="tags form-control" ng-model="newdata.work_status" name="location" type="text" loaddata="{{elementSelect.renzhizhuangtai | filter: { dz:newdata.work_status} }}" required />
-								<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
-									<span class="caret"  ></span>
-								</div>
-								<ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
-									<li ng-repeat="p in elementSelect.renzhizhuangtai" ng-class="{active:newdata.work_status==p.dz}"  >
-										<a href="javascript:void(0)" ng-click="newdata.work_status=p.dz">{{p.dz}}</a>
-									</li>
-								</ul>
-							</div>
-							<!--<ui-select theme="bootstrap" name="work_status" required=""  ng-model="newdata.work_status">-->
-								<!--<ui-select-match  placeholder="请选择任职状态">{{$select.selected.dz}}</ui-select-match>-->
-								<!--<ui-select-choices repeat="item in elementSelect.renzhizhuangtai | filter: $select.search">-->
-									<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
-								<!--</ui-select-choices>-->
-							<!--</ui-select>-->
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.work_status" name="location" type="text" loaddata="{{elementSelect.renzhizhuangtai | filter: { dz:newdata.work_status} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.renzhizhuangtai" ng-class="{active:newdata.work_status==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.work_status=p.dz;newdata.work_status_ano=p.ano;">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
+							<ui-select theme="bootstrap" name="work_status" ng-required=""  ng-model="newdata.work_status">
+								<ui-select-match  placeholder="请选择任职状态">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in elementSelect.renzhizhuangtai | filter: $select.search">
+									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.working_number.$invalid && !updatePeoplezhiwuform.working_number.$pristine }">
+				<div class="form-group">
 					<label class="col-md-4 control-label">批准任职文号</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="working_number" type="text" ng-model="newdata.working_number" required>
+							<input class="form-control" name="working_number" type="text" ng-model="newdata.working_number" >
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.zhuangtai.$invalid && !updatePeoplezhiwuform.zhuangtai.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">任职机构</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<div class="dropdown" dropdown >
-								<input autocompletes="" class="tags form-control" ng-model="newdata.organization_id" name="location" type="text" loaddata="{{elementSelect.renzhijigoudaima | filter: { dz:newdata.organization_id} }}" required />
-								<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
-									<span class="caret"  ></span>
-								</div>
-								<ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
-									<li ng-repeat="p in elementSelect.renzhijigoudaima" ng-class="{active:newdata.organization_id==p.dz}"  >
-										<a href="javascript:void(0)" ng-click="newdata.organization_id=p.dz">{{p.dz}}</a>
-									</li>
-								</ul>
-							</div>
-							<!--<ui-select theme="bootstrap"  ng-model="newdata.organization_id">-->
-								<!--<ui-select-match  placeholder="请选择任职机构代码">{{$select.selected.dz}}</ui-select-match>-->
-								<!--<ui-select-choices repeat="item in elementSelect.renzhijigoudaima | filter: $select.search">-->
-									<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
-								<!--</ui-select-choices>-->
-							<!--</ui-select>-->
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_id" name="location" type="text" loaddata="{{elementSelect.renzhijigoudaima | filter: { dz:newdata.organization_id} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.renzhijigoudaima" ng-class="{active:newdata.organization_id==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.organization_id=p.dz;newdata.organization_id_ano=p.ano;">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
+							<ui-select theme="bootstrap"  ng-model="newdata.organization_id">
+								<ui-select-match  placeholder="请选择任职机构代码">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in elementSelect.renzhijigoudaima | filter: $select.search">
+									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
 						</div>
 					</div>
 				</div>
@@ -78,13 +78,13 @@
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
 							<div class="dropdown" dropdown >
-								<input autocompletes="" class="tags form-control" ng-model="newdata.location" name="location" type="text" loaddata="{{elementSelect.address | filter: { dz:newdata.location} }}" required />
+								<input autocompletes="" class="tags form-control" ng-model="newdata.location" name="location" type="text" loaddata="{{elementSelect.address | filter: { dz:newdata.location} }}"  />
 								<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
 									<span class="caret"  ></span>
 								</div>
-								<ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
+								<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">
 									<li ng-repeat="p in elementSelect.address" ng-class="{active:newdata.location==p.dz}"  >
-										<a href="javascript:void(0)" ng-click="newdata.location=p.dz">{{p.dz}}</a>
+										<a href="javascript:void(0)" ng-click="newdata.location=p.dz;newdata.location_ano=p.ano">{{p.dz}}</a>
 									</li>
 								</ul>
 							</div>
@@ -101,6 +101,17 @@
 					<label class="col-md-4 control-label">任职机构隶属</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_membership" name="location" type="text" loaddata="{{elementSelect.renzhijigoulishu | filter: { dz:newdata.organization_membership} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.renzhijigoulishu" ng-class="{active:newdata.organization_membership==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.organization_membership=p.dz;newdata.organization_membership_ano=p.ano">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
 							<ui-select theme="bootstrap"  ng-model="newdata.organization_membership">
 								<ui-select-match  placeholder="请选择任职机构隶属">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in elementSelect.renzhijigoulishu | filter: $select.search">
@@ -114,6 +125,17 @@
 					<label class="col-md-4 control-label">任职机构性质类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_type" name="location" type="text" loaddata="{{elementSelect.renzhijigouxingzhi | filter: { dz:newdata.organization_type} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.renzhijigouxingzhi" ng-class="{active:newdata.organization_type==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.organization_type=p.dz;newdata.organization_type_ano=p.ano">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
 							<ui-select theme="bootstrap"  ng-model="newdata.organization_type">
 								<ui-select-match  placeholder="请选择任职机构性质属性类别">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in elementSelect.renzhijigouxingzhi | filter: $select.search">
@@ -129,6 +151,17 @@
 					<label class="col-md-4 control-label">职务类别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.post_category" name="location" type="text" loaddata="{{elementSelect.zhiwuleibie | filter: { dz:newdata.post_category} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.zhiwuleibie" ng-class="{active:newdata.post_category==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.post_category=p.dz;newdata.post_category_ano=p.ano">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
 							<ui-select theme="bootstrap"  ng-model="newdata.post_category">
 								<ui-select-match  placeholder="请选择职务类别">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in elementSelect.zhiwuleibie | filter: $select.search">
@@ -142,6 +175,17 @@
 					<label class="col-md-4 control-label">职级</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.rank" name="location" type="text" loaddata="{{elementSelect.zhijilist | filter: { dz:newdata.rank} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.zhijilist" ng-class="{active:newdata.rank==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.rank=p.dz;newdata.rank_ano=p.ano">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
 							<ui-select theme="bootstrap"  ng-model="newdata.rank">
 								<ui-select-match  placeholder="请选择职级">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in elementSelect.zhijilist | filter: $select.search">
@@ -155,27 +199,38 @@
 					<label class="col-md-4 control-label">批准任职时间</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.working_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.working_date" is-open="opened" datepicker-options="dateOptions"  close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.zhiji.$invalid && !updatePeoplezhiwuform.zhiji.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">批准免职时间</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.depose_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.depose_date" is-open="opened" datepicker-options="dateOptions" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.shenfenzheng.$invalid && !updatePeoplezhiwuform.shenfenzheng.$pristine }">
+				<div class="form-group">
 					<label class="col-md-4 control-label">任职机构级别</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
+							<!--<div class="dropdown" dropdown >-->
+								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_level" name="location" type="text" loaddata="{{elementSelect.renzhijigoujibie | filter: { dz:newdata.organization_level} }}" required />-->
+								<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+									<!--<span class="caret"  ></span>-->
+								<!--</div>-->
+								<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+									<!--<li ng-repeat="p in elementSelect.renzhijigoujibie" ng-class="{active:newdata.organization_level==p.dz}"  >-->
+										<!--<a href="javascript:void(0)" ng-click="newdata.organization_level=p.dz;newdata.organization_level_ano=p.ano;">{{p.dz}}</a>-->
+									<!--</li>-->
+								<!--</ul>-->
+							<!--</div>-->
 							<ui-select theme="bootstrap"  ng-model="newdata.organization_level">
 								<ui-select-match  placeholder="请选择任职机构级别">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in elementSelect.renzhijigoujibie | filter: $select.search">
@@ -185,29 +240,29 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.shenfenzheng.$invalid && !updatePeoplezhiwuform.shenfenzheng.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">现任职级时间</label>
 					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
-							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.rank_time" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.rank_time" is-open="opened" datepicker-options="dateOptions"  close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
 						</div>
 					</div>
 				</div>
-				<div class="form-group"  ng-class="{ 'has-error' : updatePeoplezhiwuform.post_oder.$invalid && !updatePeoplezhiwuform.post_oder.$pristine }">
+				<div class="form-group" >
 					<label class="col-md-4 control-label">多职务主次序号</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="post_oder" type="number" ng-model="newdata.post_oder" required >
+							<input class="form-control" name="post_oder" type="number" ng-model="newdata.post_oder"  >
 						</div>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.post_all_oder.$invalid && !updatePeoplezhiwuform.post_all_oder.$pristine }">
+				<div class="form-group">
 					<label class="col-md-4 control-label">集体内排列顺序</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<input class="form-control" name="post_all_oder" type="number" ng-model="newdata.post_all_oder" required>
+							<input class="form-control" name="post_all_oder" type="number" ng-model="newdata.post_all_oder" >
 						</div>
 					</div>
 				</div>
@@ -219,5 +274,6 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">取消</button>
-	<button class="btn btn-primary"  ng-disabled="updatePeoplezhiwuform.$invalid"  ng-click="ok()">确定</button>
+	<button class="btn btn-primary"   ng-click="ok()">确定</button>
+	<!--ng-disabled="updatePeoplezhiwuform.$invalid"-->
 </div>

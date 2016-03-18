@@ -73,8 +73,8 @@ app.controller('ModalUpdatePeopleInstanceCtrl', ['$scope', '$modalInstance','peo
         $modalInstance.dismiss('cancel');
     };
 }]);
-app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$localStorage','$debounce','Upload','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService',
-    function($scope,$http,$filter,$modal,$log,$localStorage,$debounce,Upload,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService){
+app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$localStorage','$debounce','Upload','TableDatePage','peoplelistservice','SettingpeopleService','SettingdaimaService','SERVICE_URL',
+    function($scope,$http,$filter,$modal,$log,$localStorage,$debounce,Upload,TableDatePage,peoplelistservice,SettingpeopleService,SettingdaimaService,SERVICE_URL){
         $scope.isedit=false;
         $scope.showelse=false;
         //取消
@@ -199,12 +199,15 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         //职称级别
         SettingdaimaService.getCodagetList("ZBB51").then(function(res){ $scope.zhichengjibie=res.data.info.list;},function(rej){});
         //职务类别
-        SettingdaimaService.getCodagetList("ZBB91").then(function(res){
+        SettingdaimaService.getCodagetList("ZB42").then(function(res){
             $scope.zhiwuleibie=res.data.info.list;
             $scope.elementSelect.zhiwuleibie=$scope.zhiwuleibie
         },function(rej){});
         //职务职级
-        SettingdaimaService.getCodagetList("ZB09").then(function(res){ $scope.zhiwuzhiji=res.data.info.list;},function(rej){});
+        //SettingdaimaService.getCodagetList("ZB09").then(function(res){
+        //    $scope.zhiwuzhiji=res.data.info.list;
+        //    $scope.elementSelect.zhiwuzhiji=$scope.zhiwuzhiji
+        //},function(rej){});
         //任职状态
         SettingdaimaService.getCodagetList("ZB14").then(function(res){
             $scope.renzhizhuangtai=res.data.info.list;
@@ -217,8 +220,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             $scope.renzhijigoudaima=res.data.info.list;
             $scope.elementSelect.renzhijigoudaima=$scope.renzhijigoudaima
         },function(rej){});
-        //任职机构隶属
-        SettingdaimaService.getCodagetList("GB12404").then(function(res){
+        //任职机构隶属GB12404
+        SettingdaimaService.getCodagetList("ZB87").then(function(res){
             $scope.renzhijigoulishu=res.data.info.list;
             $scope.elementSelect.renzhijigoulishu=$scope.renzhijigoulishu
         },function(rej){});
@@ -425,49 +428,24 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         // upload later on form submit or something similar
         $scope.uploadphoto = function(file) {
             if (file) {
-                //$scope.upload(file);
                 Upload.base64DataUrl(file).then(function(urls){
-                    console.log(urls);
+                    var postData = $.param({
+                        fileType:"."+file.name.split('.')[file.name.split('.').length-1],
+                        head_pic:urls.split(',')[urls.split(',').length-1]
+                    });
+                    SettingpeopleService.savePhoto(postData).then(
+                        function(res){
+                            if(res.data.flag){
+                                $scope.user.head_pic=res.data.data.picPath;
+                            }
+                        },
+                        function(rej){
+
+                        }
+                    )
                 });
             }
         };
-
-        //// upload on file select or drop
-        //$scope.upload = function (file) {
-        //    Upload.upload({
-        //        url: 'upload/url',
-        //        data: {file: file, 'username': $scope.username}
-        //    }).then(function (resp) {
-        //        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        //    }, function (resp) {
-        //        console.log('Error status: ' + resp.status);
-        //    }, function (evt) {
-        //        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        //        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-        //    });
-        //};
-        //$scope.uploadphotod = function () {
-        //    console.log($scope.photo_people);
-        //    Upload.base64DataUrl($scope.photo_people).then(function(urls){
-        //        console.log(urls);
-        //    });
-        //    //Upload.upload({
-        //    //    url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-        //    //    data: {
-        //    //        file: Upload.dataUrltoBlob(dataUrl, name)
-        //    //    },
-        //    //}).then(function (response) {
-        //    //    $timeout(function () {
-        //    //        $scope.result = response.data;
-        //    //    });
-        //    //}, function (response) {
-        //    //    if (response.status > 0) $scope.errorMsg = response.status
-        //    //        + ': ' + response.data;
-        //    //}, function (evt) {
-        //    //    $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
-        //    //});
-        //}
-
 
 
         //保存基本信息
@@ -558,6 +536,14 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 }
             });
             modalzwaddInstance.result.then(function (zhiwu) {
+                //地区下拉框和其他不一样（因为数据量大 会卡顿）
+                if(!zhiwu.location_ano&&zhiwu.location){
+                    for(var i=0;i<$scope.elementSelect.address.length;i++){
+                        if(zhiwu.location==$scope.elementSelect.address[i].dz){
+                            zhiwu.location_ano=$scope.elementSelect.address[i].ano;
+                        }
+                    }
+                }
                 var params=$.param({
                     person_id:  $scope.user.person_id,
                     organization_name:zhiwu.organization_id?zhiwu.organization_id['dz']:"",
@@ -588,7 +574,21 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 SettingpeopleService.addPeoplepostinfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.postinfolist.push(res.data.info);
+                            var postData = $.param({
+                                person_id: $scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            //现任职务
+                            SettingpeopleService.getPeoplepostinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.postinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+                                    alert("更新失败");
+                                }
+                            );
                         }else{
                             alert("添加失败");
                         }
@@ -618,10 +618,19 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 }
             });
             modalzwaddInstance.result.then(function () {
+                //地区下拉框和其他不一样（因为数据量大 会卡顿）
+                if(!$scope.newdata.location_ano&&$scope.newdata.location){
+                    for(var i=0;i<$scope.elementSelect.address.length;i++){
+                        if($scope.newdata.location==$scope.elementSelect.address[i].dz){
+                            $scope.newdata.location_ano=$scope.elementSelect.address[i].ano;
+                        }
+                    }
+                }
                 var params=$.param({
+                    id:$scope.newdata.id,
                     person_id:  $scope.user.person_id,
                     organization_name:$scope.newdata.organization_id?$scope.newdata.organization_id['dz']:"",
-                    location:$scope.newdata.location?$scope.newdata.location['ano']:"",
+                    location:$scope.newdata.location_ano,//$scope.newdata.location?$scope.newdata.location['ano']:"",
                     organization_id:$scope.newdata.organization_id?$scope.newdata.organization_id['ano']:"",
                     organization_membership:$scope.newdata.organization_membership?$scope.newdata.organization_membership['ano']:"",
                     organization_level:$scope.newdata.organization_level?$scope.newdata.organization_level['ano']:"",
@@ -645,23 +654,68 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     no:0,
                     access_token:$localStorage.token
                 });
-                //SettingpeopleService.addPeoplepostinfo(params).then(
-                //    function(res){
-                //        if(res.data.code==200){
-                //            $scope.postinfolist.push(res.data.info);
-                //        }else{
-                //            alert("添加失败");
-                //        }
-                //    },
-                //    function(rej){
-                //
-                //    }
-                //)
+                SettingpeopleService.updatePeoplepostinfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            var postData = $.param({
+                                person_id: $scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            //现任职务
+                            SettingpeopleService.getPeoplepostinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.postinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+                                    alert("更新失败");
+                                }
+                            );
+                            //$scope.newdata.post_category=$scope.newdata.post_category['dz'];
+                            //$scope.newdata.post_category=$scope.newdata.post_category['dz'];
+                            //angular.copy($scope.newdata,zhiwu);
+                        }else{
+                            alert("修改失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
 
+        //删除职务
+        $scope.deletezhiwu=function(idx,zhiwu){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:zhiwu.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deletePeoplepostinfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.postinfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
         //添加职称
         $scope.addzhicheng=function(){
             var modalzwaddInstance = $modal.open({
@@ -896,11 +950,12 @@ app.controller('ModalAddzhiwuInstanceCtrl', ['$scope', '$modalInstance','element
 app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
     $scope.elementSelect=elementSelect;
     $scope.newdata=newdata;
+    console.log($scope.newdata);
 
     //任职状态
     if($scope.newdata.work_status){
         for(var i=0;i<$scope.elementSelect.renzhizhuangtai.length;i++){
-            if($scope.newdata.work_status==$scope.elementSelect.renzhizhuangtai[i].ano){
+            if($scope.newdata.work_status==$scope.elementSelect.renzhizhuangtai[i].dz){
                 $scope.newdata.work_status=$scope.elementSelect.renzhizhuangtai[i];
             }
         }
@@ -908,23 +963,24 @@ app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elem
     //任职机构
     if($scope.newdata.organization_id){
         for(var i=0;i<$scope.elementSelect.renzhijigoudaima.length;i++){
-            if($scope.newdata.organization_id==$scope.elementSelect.renzhijigoudaima[i].ano){
+            if($scope.newdata.organization_id==$scope.elementSelect.renzhijigoudaima[i].dz){
                 $scope.newdata.organization_id=$scope.elementSelect.renzhijigoudaima[i];
             }
         }
     }
-    //任职机构所属地
-    if($scope.newdata.location){
-        for(var i=0;i<$scope.elementSelect.address.length;i++){
-            if($scope.newdata.location==$scope.elementSelect.address[i].ano){
-                $scope.newdata.location=$scope.elementSelect.address[i];
-            }
-        }
-    }
+    ////任职机构所属地
+    //if($scope.newdata.location){
+    //    for(var i=0;i<$scope.elementSelect.address.length;i++){
+    //        if($scope.newdata.location==$scope.elementSelect.address[i].ano){
+    //            $scope.newdata.location=$scope.elementSelect.address[i];
+    //        }
+    //    }
+    //}
     //任职机构隶属
+    console.log("---"+$scope.newdata.organization_membership);
     if($scope.newdata.organization_membership){
         for(var i=0;i<$scope.elementSelect.renzhijigoulishu.length;i++){
-            if($scope.newdata.organization_membership==$scope.elementSelect.renzhijigoulishu[i].ano){
+            if($scope.newdata.organization_membership==$scope.elementSelect.renzhijigoulishu[i].dz){
                 $scope.newdata.organization_membership=$scope.elementSelect.renzhijigoulishu[i];
             }
         }
@@ -932,7 +988,7 @@ app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elem
     //任职机构性质类别
     if($scope.newdata.organization_type){
         for(var i=0;i<$scope.elementSelect.renzhijigouxingzhi.length;i++){
-            if($scope.newdata.organization_type==$scope.elementSelect.renzhijigouxingzhi[i].ano){
+            if($scope.newdata.organization_type==$scope.elementSelect.renzhijigouxingzhi[i].dz){
                 $scope.newdata.organization_type=$scope.elementSelect.renzhijigouxingzhi[i];
             }
         }
@@ -940,7 +996,7 @@ app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elem
     //职务类别
     if($scope.newdata.post_category){
         for(var i=0;i<$scope.elementSelect.zhiwuleibie.length;i++){
-            if($scope.newdata.post_category==$scope.elementSelect.zhiwuleibie[i].ano){
+            if($scope.newdata.post_category==$scope.elementSelect.zhiwuleibie[i].dz){
                 $scope.newdata.post_category=$scope.elementSelect.zhiwuleibie[i];
             }
         }
@@ -948,7 +1004,7 @@ app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elem
     //职级
     if($scope.newdata.rank){
         for(var i=0;i<$scope.elementSelect.zhijilist.length;i++){
-            if($scope.newdata.rank==$scope.elementSelect.zhijilist[i].ano){
+            if($scope.newdata.rank==$scope.elementSelect.zhijilist[i].dz){
                 $scope.newdata.rank=$scope.elementSelect.zhijilist[i];
             }
         }
@@ -956,7 +1012,7 @@ app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elem
     //任职机构级别
     if($scope.newdata.organization_level){
         for(var i=0;i<$scope.elementSelect.renzhijigoujibie.length;i++){
-            if($scope.newdata.organization_level==$scope.elementSelect.renzhijigoujibie[i].ano){
+            if($scope.newdata.organization_level==$scope.elementSelect.renzhijigoujibie[i].dz){
                 $scope.newdata.organization_level=$scope.elementSelect.renzhijigoujibie[i];
             }
         }
@@ -1029,6 +1085,15 @@ app.controller('ModalAddjiatingInstanceCtrl',['$scope', '$modalInstance','elemen
     $scope.jiating={};
     $scope.ok = function () {
         $modalInstance.close($scope.jiating);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalDeleteInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

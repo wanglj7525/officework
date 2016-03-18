@@ -2,8 +2,8 @@
 
 var app =  
 angular.module('app')   .constant('STATIC_PATH','/public/app/')
-    .constant('SERVICE_URL','http://192.168.2.117:81')
-    //.constant('SERVICE_URL','http://192.168.2.136:8080')
+    //.constant('SERVICE_URL','http://192.168.2.117:81')
+    .constant('SERVICE_URL','http://192.168.2.136:8080')
     //.constant('SERVICE_URL','http://192.168.2.136:8080')
     //.constant('SERVICE_URL','http://192.168.2.108:81')
   .config(
@@ -56,6 +56,10 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
                       var stateService = $injector.get('$state');
                       stateService.go("access.signin");
                       return $q.reject(response);
+                  }else{
+                      if(response.data&&response.data.info&&response.data.info.access_token){
+                          $localStorage.token=response.data.info.access_token;
+                      }
                   }
                   return response;
               },

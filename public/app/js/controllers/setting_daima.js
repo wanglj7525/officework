@@ -6,6 +6,7 @@ app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','$modal','$log','$
         function (res) {
             $scope.daimalist = res.data.info;
             $scope.currentname=$scope.daimalist[0].name;
+            $scope.currenthzms=$scope.daimalist[0].hzms;
             SettingdaimaService.getCodagetList($scope.daimalist[0].name).then(
                 function(res){
                     $scope.daima=res.data.info;
@@ -23,9 +24,11 @@ app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','$modal','$log','$
     //选择代码目录
     $scope.selectdaima=function(daima){
         $scope.currentname=daima.name;
+        $scope.currenthzms=daima.hzms;
         SettingdaimaService.getCodagetList(daima.name).then(
             function(res){
                 $scope.daima=res.data.info;
+                console.log($scope.daima)
             },
             function(rej){
                 console.log(rej);

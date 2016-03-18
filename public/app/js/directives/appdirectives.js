@@ -10,7 +10,7 @@ angular.module('app')
                         //console.log(eval(attrs.loaddata));
                         //Reasons.queryReasonName(request.term).success(function(data) {
                             response($.each(eval(attrs.loaddata), function(index, meta) {
-                                meta.value = meta.dz;
+                                meta.value = meta.ano;
                                 meta.label = meta.dz;
                             }));
                         //})

@@ -601,6 +601,66 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
+        //修改职务
+        $scope.updatezhiwu=function(zhiwu){
+            $scope.newdata=angular.copy(zhiwu);
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'updatezhiwuModel.html',
+                controller: 'ModalUpdatezhiwuInstanceCtrl',
+                size: 'lg',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    },
+                    newdata: function () {
+                        return  $scope.newdata;
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function () {
+                var params=$.param({
+                    person_id:  $scope.user.person_id,
+                    organization_name:$scope.newdata.organization_id?$scope.newdata.organization_id['dz']:"",
+                    location:$scope.newdata.location?$scope.newdata.location['ano']:"",
+                    organization_id:$scope.newdata.organization_id?$scope.newdata.organization_id['ano']:"",
+                    organization_membership:$scope.newdata.organization_membership?$scope.newdata.organization_membership['ano']:"",
+                    organization_level:$scope.newdata.organization_level?$scope.newdata.organization_level['ano']:"",
+                    organization_type:$scope.newdata.organization_type?$scope.newdata.organization_type['ano']:"",
+                    post_name:$scope.newdata.post_name,
+                    //职务统计类别 去掉
+                    post_statistics_category:"",
+                    post_category:$scope.newdata.post_category?$scope.newdata.post_category['ano']:"",
+                    rank:$scope.newdata.rank?$scope.newdata.rank['ano']:"",
+                    post_oder:$scope.newdata.post_oder,
+                    post_all_oder:$scope.newdata.post_all_oder,
+                    working_date:$filter("date")($scope.newdata.working_date, "yyyyMMdd"),
+                    working_number:$scope.newdata.working_number,
+                    work_status:$scope.newdata.work_status?$scope.newdata.work_status['ano']:"",
+                    depose_date:$filter("date")($scope.newdata.depose_date, "yyyyMMdd"),
+                    rank_time:$filter("date")($scope.newdata.rank_time, "yyyyMMdd"),
+                    //原单位及职务
+                    ex_unit_post:"",
+                    //统计标识ZBB81
+                    statistics_logo:"",
+                    no:0,
+                    access_token:$localStorage.token
+                });
+                //SettingpeopleService.addPeoplepostinfo(params).then(
+                //    function(res){
+                //        if(res.data.code==200){
+                //            $scope.postinfolist.push(res.data.info);
+                //        }else{
+                //            alert("添加失败");
+                //        }
+                //    },
+                //    function(rej){
+                //
+                //    }
+                //)
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
 
         //添加职称
         $scope.addzhicheng=function(){
@@ -827,6 +887,82 @@ app.controller('ModalAddzhiwuInstanceCtrl', ['$scope', '$modalInstance','element
     $scope.zhiwu={};
     $scope.ok = function () {
         $modalInstance.close($scope.zhiwu);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalUpdatezhiwuInstanceCtrl', ['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+
+    //任职状态
+    if($scope.newdata.work_status){
+        for(var i=0;i<$scope.elementSelect.renzhizhuangtai.length;i++){
+            if($scope.newdata.work_status==$scope.elementSelect.renzhizhuangtai[i].ano){
+                $scope.newdata.work_status=$scope.elementSelect.renzhizhuangtai[i];
+            }
+        }
+    }
+    //任职机构
+    if($scope.newdata.organization_id){
+        for(var i=0;i<$scope.elementSelect.renzhijigoudaima.length;i++){
+            if($scope.newdata.organization_id==$scope.elementSelect.renzhijigoudaima[i].ano){
+                $scope.newdata.organization_id=$scope.elementSelect.renzhijigoudaima[i];
+            }
+        }
+    }
+    //任职机构所属地
+    if($scope.newdata.location){
+        for(var i=0;i<$scope.elementSelect.address.length;i++){
+            if($scope.newdata.location==$scope.elementSelect.address[i].ano){
+                $scope.newdata.location=$scope.elementSelect.address[i];
+            }
+        }
+    }
+    //任职机构隶属
+    if($scope.newdata.organization_membership){
+        for(var i=0;i<$scope.elementSelect.renzhijigoulishu.length;i++){
+            if($scope.newdata.organization_membership==$scope.elementSelect.renzhijigoulishu[i].ano){
+                $scope.newdata.organization_membership=$scope.elementSelect.renzhijigoulishu[i];
+            }
+        }
+    }
+    //任职机构性质类别
+    if($scope.newdata.organization_type){
+        for(var i=0;i<$scope.elementSelect.renzhijigouxingzhi.length;i++){
+            if($scope.newdata.organization_type==$scope.elementSelect.renzhijigouxingzhi[i].ano){
+                $scope.newdata.organization_type=$scope.elementSelect.renzhijigouxingzhi[i];
+            }
+        }
+    }
+    //职务类别
+    if($scope.newdata.post_category){
+        for(var i=0;i<$scope.elementSelect.zhiwuleibie.length;i++){
+            if($scope.newdata.post_category==$scope.elementSelect.zhiwuleibie[i].ano){
+                $scope.newdata.post_category=$scope.elementSelect.zhiwuleibie[i];
+            }
+        }
+    }
+    //职级
+    if($scope.newdata.rank){
+        for(var i=0;i<$scope.elementSelect.zhijilist.length;i++){
+            if($scope.newdata.rank==$scope.elementSelect.zhijilist[i].ano){
+                $scope.newdata.rank=$scope.elementSelect.zhijilist[i];
+            }
+        }
+    }
+    //任职机构级别
+    if($scope.newdata.organization_level){
+        for(var i=0;i<$scope.elementSelect.renzhijigoujibie.length;i++){
+            if($scope.newdata.organization_level==$scope.elementSelect.renzhijigoujibie[i].ano){
+                $scope.newdata.organization_level=$scope.elementSelect.renzhijigoujibie[i];
+            }
+        }
+    }
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

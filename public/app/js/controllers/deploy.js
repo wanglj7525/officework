@@ -431,8 +431,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					person_id:'',
 					name:'',
 					state:'false',
-					post_name:'',
-					post_id:'',
+					post_name:people.post_name,
+					post_id:people.post_id,
 					imgurl:''
 				}
 

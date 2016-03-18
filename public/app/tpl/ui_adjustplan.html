@@ -17,7 +17,7 @@
 				<button ng-click="deletaplan(plandetail)"  class="btn btn-add btn-href" style="width: 150px;">删除</button>
 			</div>
 			<div class="panel-body">
-				<div class="list-group">
+				<div class="list-group" ng-if="planlist.length">
 					<div class="list-group-item">
 						<div class="list-group-item-heading">
 							一. 调整原因
@@ -47,6 +47,7 @@
 
 					</div>
 				</div>
+				<div class="list-group" ng-if="!planlist.length">暂无方案</div>
 			</div>
 		</div>
 		<!--<div ui-view ></div>-->

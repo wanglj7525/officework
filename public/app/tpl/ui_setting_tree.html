@@ -91,7 +91,7 @@
                     <div class="panel-heading" style="position: relative">{{third.name}}
                          <button ng-click="addtree(3,third.uuid)" class="btn btn-add btn-href"  >添加</button>
                     </div>
-                    <table st-table="third.nodes"  class="table table-bordered ">
+                    <table st-table="third.nodes"  class="table table-bordered " ng-if="third.nodes.length">
                          <thead>
                          <tr>
                               <th>编码</th>

@@ -153,9 +153,9 @@
 					<h5 class="modal-title">现任职务</h5>
 				</tab-heading>
 				<div flex>
-					<div class="" layout="column" >
+					<div class="" layout="column" ng-if="postinfolist">
 						<div class="panel panel-default">
-							<table st-table="postinfolist"  class="table table-bordered">
+							<table st-table="postinfolist"  class="table table-bordered" >
 								<thead>
 								<tr>
 									<th>职务名称</th>
@@ -179,6 +179,7 @@
 							</table>
 						</div>
 					</div>
+					<div class="" layout="column" ng-if="!postinfolist">暂无现任职务</div>
 				</div>
 			</tab>
 			<tab  >
@@ -186,9 +187,9 @@
 					<h5 class="modal-title">职称</h5>
 				</tab-heading>
 				<div flex>
-					<div  layout="column" >
+					<div  layout="column" ng-if="titleinfolist">
 						<div class="panel panel-default">
-							<table st-table="titleinfolist"  class="table table-bordered">
+							<table st-table="titleinfolist"  class="table table-bordered" >
 								<thead>
 								<tr>
 									<th>技术任职资格职称</th>
@@ -208,6 +209,7 @@
 							</table>
 						</div>
 					</div>
+					<div class="" layout="column" ng-if="!titleinfolist">暂无职称</div>
 				</div>
 			</tab>
 			<tab  >
@@ -215,7 +217,7 @@
 					<h5 class="modal-title">学历</h5>
 				</tab-heading>
 				<div flex>
-					<div  layout="column" >
+					<div  layout="column" ng-if="eduinfolist" >
 						<div class="panel panel-default">
 							<table st-table="eduinfolist"  class="table table-bordered">
 								<thead>
@@ -239,6 +241,7 @@
 							</table>
 						</div>
 					</div>
+					<div  layout="column" ng-if="!eduinfolist">暂无学历</div>
 				</div>
 			</tab>
 			<tab  >
@@ -246,7 +249,7 @@
 					<h5 class="modal-title">学位</h5>
 				</tab-heading>
 				<div flex>
-					<div  layout="column" >
+					<div  layout="column" ng-if="!degreeinfolist">
 						<div class="panel panel-default">
 							<table st-table="degreeinfolist"  class="table table-bordered">
 								<thead>
@@ -266,6 +269,7 @@
 							</table>
 						</div>
 					</div>
+					<div  layout="column" ng-if="degreeinfolist">暂无学位</div>
 				</div>
 			</tab>
 			<tab  >
@@ -273,7 +277,7 @@
 					<h5 class="modal-title">奖惩记录</h5>
 				</tab-heading>
 				<div flex>
-					<div  layout="column" >
+					<div  layout="column" ng-if="degreeinfolist">
 						<div class="panel panel-default">
 							<table st-table="jiangchenginfolist"  class="table table-bordered">
 								<thead>
@@ -295,15 +299,17 @@
 							</table>
 						</div>
 					</div>
-				</div>
+					<div  layout="column" ng-if="!degreeinfolist"></div>
+
+					</div>
 			</tab>
 			<tab  >
 				<tab-heading>
 					<h5 class="modal-title">年度考核</h5>
 				</tab-heading>
 				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
+					<div  layout="column" ng-if="examinfolist">
+					<div class="panel panel-default">
 							<table st-table="examinfolist"  class="table table-bordered">
 								<thead>
 								<tr>
@@ -322,6 +328,7 @@
 							</table>
 						</div>
 					</div>
+					<div  layout="column" ng-if="!examinfolist"></div>
 				</div>
 			</tab>
 			<tab  >

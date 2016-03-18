@@ -1,7 +1,16 @@
 'use strict';
+app.controller('ModalDeleteAdjustInstanceCtrl', ['$scope', '$modalInstance' ,'item',function($scope, $modalInstance,item) {
+	
+	$scope.ok = function () {
+		$modalInstance.close(item);
+	};
 
-app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService',
-	function($scope, $http, $state, $timeout,UIAdjustplanService) {
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+}]);
+app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService','$modal',
+	function($scope, $http, $state, $timeout,UIAdjustplanService,$modal) {
 		UIAdjustplanService.getAdjustplanList().then(
 			function (res) {
 				$scope.planlist = res.data.info;
@@ -37,36 +46,45 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 			);
 
 		}
-		$scope.deletaplan=function(plan){
-			var deleconfirm = confirm("确定删除?");
-			if(deleconfirm==true){
-			UIAdjustplanService.delAdjustPlan($scope.currentid).then(
-				function(res){
-					if(res.data.code==200){
-						UIAdjustplanService.getAdjustplanList().then(
-							function (res) {
-								$scope.planlist = res.data.info;
-								$scope.currentname=$scope.planlist[0].name;
-								UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
-									function(res){
-										$scope.plandetail=res.data.info;
-									},
-									function(rej){
-										console.log(rej);
-									}
-								);
-							},
-							function (rej) {
-								console.log(rej);
-							}
-						);
-					}
-				},
-				function(rej){
-					console.log(rej);
+		$scope.deletaplan=function(plandetail){
+			console.log(plandetail)
+			var modaladjustdeleteInstance = $modal.open({
+				templateUrl: 'deleteAdjustModel.html',
+				controller: 'ModalDeleteAdjustInstanceCtrl',
+				size: 'sm',
+				resolve: {
+					item:function(){return plandetail.schedule_name}
 				}
-			);
-			}
+			});
+			modaladjustdeleteInstance.result.then(function (item) {
+				UIAdjustplanService.delAdjustPlan($scope.currentid).then(
+					function(res){
+						if(res.data.code==200){
+							UIAdjustplanService.getAdjustplanList().then(
+								function (res) {
+									$scope.planlist = res.data.info;
+									$scope.currentname=$scope.planlist[0].name;
+									UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
+										function(res){
+											$scope.plandetail=res.data.info;
+										},
+										function(rej){
+											console.log(rej);
+										}
+									);
+								},
+								function (rej) {
+									console.log(rej);
+								}
+							);
+						}
+					},
+					function(rej){
+						console.log(rej);
+					}
+				);
+			}, function () {
+			});
 		}
 	}
 ]);

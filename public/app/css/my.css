@@ -478,3 +478,17 @@ fieldset[disabled] .btn-mydefault.active {
     padding: 8px 5px;
     border-top: 1px solid #eaeff0;
 }
+.modal-dialog{
+    margin-top: 160px;
+}
+.modal-title{
+}
+.control-label{
+    text-align: left;
+}
+.secondtable{
+    background-color: #999;
+}
+.mytable>tbody>tr>td{
+    border: 0px;
+}

@@ -1,4 +1,7 @@
 <div class="col-padding row hbox hbox-auto-xs hbox-auto-sm" ng-controller="planController">
+	<script type="text/ng-template" id="deleteAdjustModel.html">
+		<div ng-include="'/public/app/tpl/ui_adjustplan_delete_modal.html'"></div>
+	</script>
 	<div class="leftNav col-md-2 col-padding bg-light dk b-r bg-auto" style="overflow-y: auto"><!--  style="position:fixed"  -->
 		<div class="" >
 			<ul class="nav nav-pills nav-stacked ">
@@ -17,7 +20,7 @@
 				<button ng-click="deletaplan(plandetail)"  class="btn btn-add btn-href" style="width: 150px;">删除</button>
 			</div>
 			<div class="panel-body">
-				<div class="list-group">
+				<div class="list-group" ng-if="planlist.length">
 					<div class="list-group-item">
 						<div class="list-group-item-heading">
 							一. 调整原因
@@ -47,6 +50,7 @@
 
 					</div>
 				</div>
+				<div class="list-group" ng-if="!planlist.length">暂无方案</div>
 			</div>
 		</div>
 		<!--<div ui-view ></div>-->

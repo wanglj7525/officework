@@ -7,13 +7,13 @@
 			<div ng-include="'/public/app/tpl/ui_fanganshenhe_modal.html'"></div>
 		</script>
 		<div >
-			<div class="row ">
+			<div class="row " ng-if="adjusttable">
 				<div class="panel panel-default">
-					<div class="panel-heading" style="position: relative">已选择的人员
+					<div class="panel-heading" style="position: relative">已调整的人员
 						<button type="submit" ng-click="fanganshenhe()" class="btn btn-add btn-href" style="width: 150px">方案审核</button>
 						<!--<button type="submit" ui-sref="app.adjustplan.detail({id:1})" ng-click="fanganshenhe()" class="btn btn-add btn-href" style="width: 150px">方案审核</button>-->
 					</div>
-					<table st-table="adjusttable"  class="table table-bordered">
+					<table st-table="adjusttable"  class="table table-bordered" >
 						<thead>
 						<tr>
 							<th>姓名</th>
@@ -71,9 +71,14 @@
 							<!--</script>-->
 						</tr>
 						</tbody>
-					</table>
+					</table >
 				</div>
-
+			</div>
+			<div class="row" ng-if="!adjusttable">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="position: relative">暂无调整信息
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

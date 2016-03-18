@@ -644,16 +644,16 @@ angular.module('app')
 }] ).service('UIDeployservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
     //班子调配
     return{
-        //test:function(params){
-        //    var deferred=$q.defer();
-        //    var path=SERVICE_URL+'/analysis/batchsave?';
-        //    var promise=$http.get(path+params).then(function(response){
-        //        return response;
-        //    },function(response){
-        //        return response;
-        //    });
-        //    return promise;
-        //},
+        deploySave:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/analysis/batchsave?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        },
         getOneDeploy:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/adjust/unit?';

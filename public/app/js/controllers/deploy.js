@@ -159,44 +159,12 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 }]);
 app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
 	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
-
-//		var json={};
-//		json.in=[];
-//		json.out=[];
-//		for(var i=0;i<=4;i++){
-//			var people={
-//				"name":"姓名"+i,
-//				"sex":"女",
-//				"age":"12"
-//			}
-//			json.in.push(people);
-//		}
-//		for(var i=0;i<=2;i++){
-//			var people={
-//				"name":"姓名"+i,
-//				"sex":"男",
-//				"age":"15"
-//			}
-//			json.out.push(people);
-//		}
-//		console.log(json);
-//		var postData = $.param({
-//			json:JSON.stringify(json)
-//		});
-//UIDeployservice.test(postData).then(
-//	function(res){
-//
-//	}
-//	,function(rej){
-//
-//	}
-//)
 		//存储任职 离职人员id
 		$scope.InPerson_ids=[];
 		$scope.OutPerson_ids=[];
 		//存储任职 离职人员信息
-		$scope.InPerson={};
-		$scope.OutPerson={};
+		$scope.InPerson=[];
+		$scope.OutPerson=[];
 
 		$scope.treeselected=$localStorage.treeselect;
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
@@ -330,6 +298,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 
 		//任职
 		$scope.selectpeople=function(people){
+			console.log(people);
 			var modaldeployInstance = $modal.open({
 				templateUrl: 'selectrenzhiPeopleModel.html',
 				controller: 'ModalDeployInstanceCtrl',
@@ -396,7 +365,15 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							if($scope.InPerson_ids.indexOf(newpeople.person_id)==-1){
 								$scope.InPerson_ids.push(newpeople.person_id);
 								//任职人员信息
-								$scope.InPerson.push(newpeople);
+								var p={
+									person_id:newpeople.person_id,
+									unit_id:$localStorage.tree_uuid,
+									adjust_type:2,
+									now_post_id:'',
+									tobe_post_id:deploy.zhiwei['id'],
+									reason:deploy.reason
+								}
+								$scope.InPerson.push(p);
 							}
 							//免职id列表 如果免职id列表中有该id 则删除
 							if($scope.OutPerson_ids.indexOf(newpeople.person_id)!=-1){
@@ -404,7 +381,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 								//离职人员信息
 								$scope.OutPerson.splice($scope.OutPerson_ids.indexOf(newpeople.person_id),1);
 							}
-							console.log($scope.InPerson_ids+"---"+$scope.OutPerson_ids);
+							console.log($scope.InPerson+"---"+$scope.OutPerson);
 						}
 					}
 				}
@@ -424,7 +401,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					}
 				}
 			});
-			modaldeployInstance.result.then(function () {
+			modaldeployInstance.result.then(function (deploy) {
 				//生成缺编占位符
 				var newpeople={
 					post_rank:'',
@@ -463,7 +440,15 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						if($scope.OutPerson_ids.indexOf(people.person_id)==-1){
 							$scope.OutPerson_ids.push(people.person_id);
 							//离职人员信息
-							$scope.OutPerson.push(people);
+							var p={
+								person_id:people.person_id,
+								unit_id:$localStorage.tree_uuid,
+								adjust_type:1,
+								now_post_id:people.post_id,
+								tobe_post_id:'',
+								reason:deploy.reason
+							}
+							$scope.OutPerson.push(p);
 						}
 						//任职id列表 如果任职id列表中有该id 则删除
 						console.log($scope.InPerson_ids.indexOf(people.person_id));
@@ -473,7 +458,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							$scope.InPerson.splice($scope.InPerson_ids.indexOf(people.person_id),1);
 						}
 
-						console.log($scope.InPerson_ids+"---"+$scope.OutPerson_ids);
+						console.log($scope.InPerson+"---"+$scope.OutPerson);
 					}
 				}
 			}, function () {
@@ -496,8 +481,28 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			});
 			modalsaveInstance.result.then(function () {
-
-
+				var json={
+					in:$scope.InPerson,
+					out:$scope.OutPerson
+				}
+				console.log(json);
+				var postData = $.param({
+					json:JSON.stringify(json),
+					access_token:$localStorage.token
+				});
+				UIDeployservice.deploySave(postData).then(
+					function(res){
+						console.log(res);
+						if(res.data.code==200){
+							$state.go('app.analysis');
+						}else{
+							alert(res.data.msg);
+						}
+					}
+					,function(rej){
+						console.log(rej);
+					})
+				console.log();
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

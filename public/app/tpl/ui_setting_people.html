@@ -4,6 +4,9 @@
           <script type="text/ng-template" id="addzhiwuModel.html">
                <div ng-include="'/public/app/tpl/ui_people_zhiwu_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="updatezhiwuModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_zhiwu_update_modal.html'"></div>
+          </script>
           <script type="text/ng-template" id="addzhichengModel.html">
                <div ng-include="'/public/app/tpl/ui_people_zhicheng_modal.html'"></div>
           </script>
@@ -284,7 +287,7 @@
                                                             <label class="col-md-1 control-label">专长</label>
                                                             <div class="col-md-11 ">
                                                                  <div  class=" m-l-n">
-                                                                      <textarea rows="2" class="form-control" name="speciaty" ng-model="user.speciaty" ></textarea>
+                                                                      <textarea rows="2" class="form-control" name="specialty" ng-model="user.specialty" ></textarea>
                                                                  </div>
                                                             </div>
                                                        </div>
@@ -331,7 +334,7 @@
                                                        <td>{{row.work_status}}</td>
                                                        <td>{{row.working_date | date:'yyyy-MM-dd'}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatezhiwu(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
                                                             <button type="button"  class="btn btn-href ">

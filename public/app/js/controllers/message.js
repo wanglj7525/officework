@@ -42,14 +42,14 @@
 			$scope.status = {
 				open: false
 			};
-			//searchservice.getData().then(
-			//	function (res) {
-			//		$scope.nianlinglist = res.data.info;
-			//	},
-			//	function (rej) {
-			//		console.log(rej);
-			//	}
-			//);
+			searchservice.getData().then(
+				function (res) {
+					$scope.nianlinglist = res.data.info;
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
 			$scope.searchPeople=function(){
 				console.log($scope.search.keywords);
 				var postData = $.param({
@@ -65,12 +65,13 @@
 				});
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
-						console.log(res);
+						console.log(res.data.info.totalElements);
 						if(res.data.code==200){
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
+							console.log( res.data.info.totalElements)
 						}else{
-							alert(res.data.msg);
+							//alert(res.data.msg);
 						}
 
 					},
@@ -94,12 +95,13 @@
 				});
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
-						console.log(res);
 						if(res.data.code==200){
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
+							console.log(res.data.info.totalElements);
+
 						}else{
-							alert(res.data.msg);
+							//alert(res.data.msg);
 						}
 
 					},

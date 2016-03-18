@@ -352,6 +352,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 function(res){
                     if(res.data.code==200){
                         $scope.user=res.data.info;
+                        //$scope.user_photo=$rootScope.imageurl+$scope.user.head_pic;
                         //下拉列表默认显示值
                         if($scope.user.jiguan||$scope.user.birthplace){
                             for(var i=0;i<$scope.address.length;i++){

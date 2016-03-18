@@ -35,8 +35,8 @@
                          <tr ng-repeat="row in treelist " >
                               <!--<td ng-bind="$index+1">1</td>-->
                               <td>{{row.code}}</td>
-                              <td><button class="btn btn-default w-full" ng-click="showsecond(row)"> {{row.name}}</button></td>
-                              <td>
+                              <td><button class="btn btn-mydefault w-full" ng-click="showsecond(row)"> {{row.name}}</button></td>
+                              <td class="mytd">
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
@@ -69,8 +69,8 @@
                          <tr ng-repeat="row in second.nodes " >
                               <!--<td ng-bind="$index+1">1</td>-->
                               <td>{{row.code}}</td>
-                              <td><button class="btn btn-default w-full" ng-click="showthird(row)"> {{row.name}}</button></td>
-                              <td>
+                              <td><button class="btn btn-mydefault w-full" ng-click="showthird(row)"> {{row.name}}</button></td>
+                              <td class="mytd">
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
@@ -103,8 +103,8 @@
                          <tr ng-repeat="row in third.nodes " >
                               <!--<td ng-bind="$index+1">1</td>-->
                               <td>{{row.code}}</td>
-                              <td><button class="btn btn-default w-full" ng-click="showfouth(row)"> {{row.name}}</button></td>
-                              <td>
+                              <td><button class="btn btn-mydefault w-full" ng-click="showfouth(row)"> {{row.name}}</button></td>
+                              <td class="mytd">
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>
@@ -125,7 +125,7 @@
                     <div class="panel-heading" style="position: relative">{{fouth.name}}
                          <button ng-click="addtree(4,fouth.uuid)" class="btn btn-add btn-href">添加</button>
                     </div>
-                    <table st-table="fouth.nodes"  class="table table-bordered ">
+                    <table st-table="fouth.nodes"  class="table table-bordered " >
                          <thead>
                          <tr>
                               <th>编码</th>
@@ -138,7 +138,7 @@
                               <!--<td ng-bind="$index+1">1</td>-->
                               <td>{{row.code}}</td>
                               <td>{{row.name}}</td>
-                              <td>
+                              <td class="mytd">
                                    <button  class="btn-padding btn btn-href " ng-click="updatetree(row)">
                                         修改
                                    </button>

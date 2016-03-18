@@ -36,7 +36,7 @@
 }
 
 .btn-padding{
-    padding: 0px;
+    padding: 5px;
 }
 .fixtop{
     position:fixed;
@@ -422,3 +422,59 @@ table{
     }
 }
 
+/*自定义按钮mydefault*/
+.btn-mydefault {
+    color: #58666e !important;
+    background-color: #fcfdfd;
+    background-color: #fff;
+    border-color: #dee5e7;
+    border-bottom-color: #d8e1e3;
+    -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+    box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+
+.btn-mydefault:hover,
+.btn-mydefault:focus,
+.btn-mydefault:active,
+.btn-mydefault.active,
+.open .dropdown-toggle.btn-default {
+    color: #ffffff !important;
+    background-color: #2E7BC9;
+    border-color: #c7d3d6;
+}
+
+.btn-mydefault:active,
+.btn-mydefault.active,
+.open .dropdown-toggle.btn-default {
+    background-image: none;
+}
+
+.btn-mydefault.disabled,
+.btn-mydefault[disabled],
+fieldset[disabled] .btn-mydefault,
+.btn-mydefault.disabled:hover,
+.btn-mydefault[disabled]:hover,
+fieldset[disabled] .btn-mydefault:hover,
+.btn-mydefault.disabled:focus,
+.btn-mydefault[disabled]:focus,
+fieldset[disabled] .btn-mydefault:focus,
+.btn-mydefault.disabled:active,
+.btn-mydefault[disabled]:active,
+fieldset[disabled] .btn-mydefault:active,
+.btn-mydefault.disabled.active,
+.btn-mydefault[disabled].active,
+fieldset[disabled] .btn-mydefault.active {
+    background-color: #fcfdfd;
+    border-color: #dee5e7;
+}
+
+.btn-mydefault.btn-bg {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+}
+
+/*自定义标签*/
+.table > tbody > tr > .mytd {
+    padding: 8px 5px;
+    border-top: 1px solid #eaeff0;
+}

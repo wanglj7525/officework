@@ -10,6 +10,9 @@
           <script type="text/ng-template" id="addzhichengModel.html">
                <div ng-include="'/public/app/tpl/ui_people_zhicheng_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="updatezhichengModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_zhicheng_update_modal.html'"></div>
+          </script>
           <script type="text/ng-template" id="addxueliModel.html">
                <div ng-include="'/public/app/tpl/ui_people_xueli_modal.html'"></div>
           </script>
@@ -378,7 +381,7 @@
                                                        <!--<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>-->
                                                        <!--<td>{{row.level}}</td>-->
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
                                                             <button type="button"  class="btn btn-href ">

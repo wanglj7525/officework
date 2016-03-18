@@ -339,6 +339,17 @@ angular.module('app')
             });
             return promise;
         },
+        updatePeopletitleinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/titleInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         /**
          * 学历 查询 添加 删除 修改
          * **/

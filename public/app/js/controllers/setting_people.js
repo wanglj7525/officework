@@ -733,14 +733,87 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     person_id:  $scope.user.person_id,
                     title_name:zhicheng.title_name?zhicheng.title_name['ano']:"",
                     get_date:$filter("date")(zhicheng.get_date, "yyyyMMdd"),
+                    appointment_date:"",
+                    level:"",
+                    no:0,
                     access_token:$localStorage.token
                 });
                 SettingpeopleService.addPeopletitleinfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.titleinfolist.push(res.data.info);
+                            //职称
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getPeopletitleinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.titleinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
                         }else{
                             alert("添加失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //修改职称
+        $scope.updatezhicheng=function(zhicheng){
+            $scope.newdata=angular.copy(zhicheng);
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'updatezhichengModel.html',
+                controller: 'ModalUpdatezhichengInstanceCtrl',
+                size: 'md',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    },
+                    newdata:function(){
+                        return  $scope.newdata;
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function () {
+                var params=$.param({
+                    id:$scope.newdata.id,
+                    person_id:  $scope.user.person_id,
+                    title_name:$scope.newdata.title_name?$scope.newdata.title_name['ano']:"",
+                    get_date:$filter("date")($scope.newdata.get_date, "yyyyMMdd"),
+                    appointment_date:"",
+                    level:"",
+                    no:0,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.updatePeopletitleinfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getPeopletitleinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.titleinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
+                        }else{
+                            alert("修改失败");
                         }
                     },
                     function(rej){
@@ -1030,6 +1103,25 @@ app.controller('ModalAddzhichengInstanceCtrl', ['$scope', '$modalInstance','elem
     $scope.zhicheng={};
     $scope.ok = function () {
         $modalInstance.close($scope.zhicheng);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalUpdatezhichengInstanceCtrl', ['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+    //职称
+    if($scope.newdata.title_name){
+        for(var i=0;i<$scope.elementSelect.jishurenzhizige.length;i++){
+            if($scope.newdata.title_name==$scope.elementSelect.jishurenzhizige[i].dz){
+                $scope.newdata.title_name=$scope.elementSelect.jishurenzhizige[i];
+            }
+        }
+    }
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

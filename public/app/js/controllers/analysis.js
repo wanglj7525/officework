@@ -223,7 +223,8 @@ app.directive('pies', function($modal,$log) {
 						}
 
 					},
-					calculable : true,
+					//禁止拖动
+					calculable : false,
 					// 数据内容数组
 					series : [
 						{
@@ -315,7 +316,8 @@ app.directive('bars', function($modal,$log) {
 					tooltip : {
 						formatter: "{b} : {c}人"
 					},
-					calculable : true,
+					//禁止拖动
+					calculable : false,
 					xAxis : [
 						{
 							axisLabel: {

@@ -16,6 +16,18 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 				$scope.planlist = res.data.info;
 				console.log($scope.planlist)
 				$scope.currentname=$scope.planlist[0].name;
+				$scope.currentid=$scope.planlist[0].id;
+					UIAdjustplanService.getAdjustplanDetail($scope.currentid).then(
+						function(res){
+							$scope.plandetail=res.data.info;
+							console.log($scope.plandetail)
+						},
+
+						function(rej){
+							console.log(rej);
+						}
+					);
+
 				UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
 					function(res){
 						$scope.plandetail=res.data.info;
@@ -25,6 +37,7 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 						console.log(rej);
 					}
 				);
+			
 			},
 			function (rej) {
 				console.log(rej);

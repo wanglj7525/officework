@@ -70,6 +70,25 @@
                     </accordion>
                     <tabset class="tab-container " >
                         <!-- 默认选中第二个 active="selectTab"-->
+                        <tab heading="按头像查看" class="blue-500">
+                            <div class="row" >
+                                <div ng-repeat="people in messagetabletab">
+                                    <div class="col-sm-2">
+                                        <div class="panel panel-card">
+                                            <div class="item">
+                                                <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
+                                            </div>
+                                            <div class="wrapper" style="text-align: center">
+                                                <h4>
+                                                    {{people.name}}
+                                                </h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </tab>
                         <tab heading="按花名册查看"  class="blue-500" >
                             <div class="row">
                                 <table st-table="messagetabletab"  class="table table-bordered table-striped">
@@ -100,25 +119,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </tab>
-                        <tab heading="按头像查看" class="blue-500">
-                            <div class="row" >
-                                <div ng-repeat="people in messagetabletab">
-                                    <div class="col-sm-2">
-                                        <div class="panel panel-card">
-                                            <div class="item">
-                                                <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
-                                            </div>
-                                            <div class="wrapper" style="text-align: center">
-                                                <h4>
-                                                    {{people.name}}
-                                                </h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
                         </tab>
                        

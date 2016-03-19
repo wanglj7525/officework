@@ -24,8 +24,8 @@
 			SettingdaimaService.getCodagetList("ZB06").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
 			//人员状态
 			SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
-			//学历GB4658
-			SettingdaimaService.getCodagetList("ZB64").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+			//学历
+			SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
 
 			$scope.selectparam=[];
 			//职级

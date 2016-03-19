@@ -480,6 +480,28 @@ angular.module('app')
             });
             return promise;
         },
+        updatejiangchenginfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/jiangchengInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        deletejiangchenginfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/jiangchengInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         /**
          * 年度考查 查询 添加 删除 修改
          * **/
@@ -505,6 +527,28 @@ angular.module('app')
             });
             return promise;
         },
+        updateexaminfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/examInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        deleteexaminfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/examInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         /**
          * 简历
          * **/
@@ -512,6 +556,28 @@ angular.module('app')
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/resumeInfo?';
             var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        addresumeInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resumeInfo/add';
+            var promise=$http.post( path, params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updateresumeInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resumeInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -537,6 +603,28 @@ angular.module('app')
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/familyInfo/add';
             var promise=$http.post( path,params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updatefamilyInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/familyInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        deletefamilyInfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/familyInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);

@@ -29,25 +29,27 @@
 											<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 										</div>
 										<div class="list-group">
-											<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">（应交流）</span></div>
+											<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}
+												<span ng-if="peoples.needChange" style="color: red">（应交流）</span>
+											</div>
 											<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>
 											<div class="list-group-item" >
-												<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'" ng-click="removepeople(peoples)">免职</button>
+												<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'" ng-click="removepeople(peoples)" style="padding: 0px">免职</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="row"  ng-if="t!=daweilist.row[0]">
-								<div class="panel col-md-4 panel-card " ng-repeat="peoples in  t.column">
+								<div class="panel col-lg-4 col-md-6 panel-card " ng-repeat="peoples in  t.column" style="height: 220px">
 									<div class="item">
 										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 									</div>
 									<div class="list-group" style="text-align: center">
-										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">（应交流）</span></div>
-										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>
+										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;padding: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">(应交流)</span></div>
+										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px;padding: 0px">{{peoples.post_name}}</div>
 										<div class="list-group-item" >
-											<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'"  ng-click="removepeople(peoples)">免职</button>
+											<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'"  ng-click="removepeople(peoples)" style="padding: 0px">免职</button>
 										</div>
 									</div>
 								</div>
@@ -86,26 +88,28 @@
 															</div>
 														</div>
 													</div>
-													<div class="form-group" style="margin-bottom: 0px" >
-														<label class="control-label">职级</label>
-														<input type="button" class="btn btn-default left-button " ng-repeat="zhiji in zhijilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhiji.dz}}" rank='{{zhiji.ano}}'>
-													</div>
-													<div class="form-group" style="margin-bottom: 0px" >
-														<label class="control-label">性别</label>
-														<input type="button" class="btn btn-default left-button " ng-repeat="sex in sexlist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{sex.dz}}" xingbie='{{sex.ano}}'>
-													</div>
-													<div class="form-group" style="margin-bottom: 0px" >
-														<label class="control-label">学历</label>
-														<input type="button" class="btn btn-default left-button " ng-repeat="xueli in xuelilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{xueli.dz}}" edulevel='{{xueli.ano}}'>
-													</div>
-													<div class="form-group" style="margin-bottom: 0px" >
-														<label class="control-label">政治面貌</label>
-														<input type="button" class="btn btn-default left-button " ng-repeat="zhengzhi in zhengzhilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhengzhi.dz}}" politicalstatus='{{zhengzhi.ano}}'>
-													</div>
-													<div class="form-group" style="margin-bottom: 0px" >
-														<label class="control-label">年龄</label>
-														<input type="button" class="btn btn-default left-button " ng-repeat="nianling in nianlinglist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{nianling.dz}}" age='{{nianling.ano}}'>
-													</div>
+													<table class="table mytable">
+													<tr class="form-group" style="margin-bottom: 0px" >
+														<td><label class="control-label">职级</label></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="zhiji in zhijilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhiji.dz}}" rank='{{zhiji.ano}}'></td>
+													</tr>
+													<tr class="form-group" style="margin-bottom: 0px" >
+														<td><label class="control-label">性别</label></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="sex in sexlist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{sex.dz}}" xingbie='{{sex.ano}}'></td>
+													</tr>
+													<tr class="form-group" style="margin-bottom: 0px" >
+														<td><label class="control-label">学历</label></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="xueli in xuelilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{xueli.dz}}" edulevel='{{xueli.ano}}'></td>
+													</tr>
+													<tr class="form-group" style="margin-bottom: 0px" >
+														<td><label class="control-label" style="white-space:nowrap">政治面貌</label></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="zhengzhi in zhengzhilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhengzhi.dz}}" politicalstatus='{{zhengzhi.ano}}'></td>
+													</tr>
+													<tr class="form-group" style="margin-bottom: 0px" >
+														<td><label class="control-label">年龄</label></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="nianling in nianlinglist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{nianling.dz}}" age='{{nianling.ano}}'></td>
+													</tr>
+													</table>
 													<div class="form-group">
 														<button type="submit"  ng-click="status.open = !status.open" class="btn w-full  btn-info font-bold">搜索</button>
 													</div>
@@ -119,18 +123,19 @@
 						<!--</div>-->
 						<!--</form>-->
 					</accordion-group>
+					</accordion>
 					<div class="panel panel-default">
 						<div class="panel-heading">搜索结果</div>
 						<div class="panel-body row">
 							<div class="row" >
 								<div ng-repeat="t in searchpeopleshow">
-									<div class="col-sm-2">
+									<div class="col-lg-2 col-md-4 col-sm-6">
 										<div class="panel panel-card">
 											<div class="item">
 												<img ng-click="showOneDetail(t)" onerror="javascript:this.src='/public/app/img/a.png';" src="{{t.imgurl?imageurl+t.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{t.name}}">
 											</div>
 											<div style="text-align: center">
-												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{t.name}}</div>
+												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;white-space:nowrap" >{{t.name}}</div>
 												<div class="list-group-item" style="padding: 0px">{{t.company}}</div>
 												<div class="list-group-item">
 													<button class="btn btn-info  w-full"  ng-click="selectpeople(t)" style="padding: 0px">任职</button>

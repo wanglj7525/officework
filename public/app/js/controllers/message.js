@@ -26,11 +26,7 @@
 			SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 			//学历
 			//SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
-			getxueliList.getxuewei().then(
-				function(res){
-					$scope.xuelilist=res.data.info
-			})
-
+			getxueliList.getxuewei().then(function(res){ $scope.xuelilist=res.data.info;},function(rej){});
 			$scope.selectparam=[];
 			//职级
 			$scope.rank=[];
@@ -75,7 +71,7 @@
 							$scope.messagetabletab = res.data.info.elements;
 							console.log( res.data.info.totalElements)
 						}else{
-							console.log(res.data.msg);
+							//alert(res.data.msg);
 						}
 
 					},
@@ -105,7 +101,7 @@
 							console.log(res.data.info.totalElements);
 
 						}else{
-							console.log(res.data.msg);
+							//alert(res.data.msg);
 						}
 
 					},

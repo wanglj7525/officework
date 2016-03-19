@@ -20,6 +20,19 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 							$localStorage.token=res.data.info.access_token;
 							$localStorage.user=res.data.info;
 							$state.go('app.worktip');
+							var params=$.param({
+								resource : 'setting',
+								access_token : $localStorage.token
+							});
+							SettinguserService.authservice(params).then(
+								function(res){
+									console.log(res);
+									$localStorage.user.setting=res.data.info;
+								},
+								function(rej){
+
+								}
+							)
 						}else {
 							$scope.authError = '用户名或者密码错误';
 						}

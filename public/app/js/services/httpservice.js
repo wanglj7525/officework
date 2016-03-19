@@ -181,6 +181,18 @@ angular.module('app')
             });
             return promise;
         },
+        authservice:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/security/isResourceAccessible?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+
         logoutservice:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/security/logout';

@@ -80,6 +80,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         //取消
         $scope.back_people=function(){
             $scope.isedit=false;
+            $scope.isadd=false;
+            $scope.showelse=false;
         }
         //分页获取数据
         var getMessageImageList = function () {
@@ -242,115 +244,35 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         },function(rej){});
 
 
+
 //添加用户
         $scope.addp=function(){
+
             $scope.user={};
-            $scope.isedit=true;
+            $scope.isadd=true;
             $scope.showelse=false;
             $scope.showtitle="添加用户";
+
+            $scope.familyInfolist=[];
+            $scope.resumeinfo=[];
+            $scope.examinfolist=[];
+            $scope.jiangchenginfolist=[];
+            $scope.degreeinfolist=[];
+            $scope.eduinfolist=[];
+            $scope.titleinfolist=[];
+            $scope.postinfolist=[];
         }
 //修改用户
         $scope.updatepeople=function(people){
-
+            $scope.updatepeopleelement=people;
             $scope.user={};
             $scope.isedit=true;
             $scope.showelse=true;
             $scope.showtitle="修改用户";
-
             var postData = $.param({
                 person_id:people.id,
                 access_token:$localStorage.token
             });
-            //家庭成员
-            SettingpeopleService.getfamilyInfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.familyInfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //简历
-            SettingpeopleService.getresumeInfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.resumeinfo={};
-                        $scope.resumeinfo=res.data.info[0];
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //年度考核
-            SettingpeopleService.getexaminfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.examinfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //奖惩记录
-            $scope.jiangchenginfolist=[];
-            SettingpeopleService.getjiangchenginfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.jiangchenginfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //学位
-            SettingpeopleService.getDegreeinfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.degreeinfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //学历
-            SettingpeopleService.getEduinfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.eduinfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //职称
-            SettingpeopleService.getPeopletitleinfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.titleinfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
-            //现任职务
-            SettingpeopleService.getPeoplepostinfo(postData).then(
-                function(res){
-                    if (res.data.code == 200) {
-                        $scope.postinfolist=res.data.info;
-                    }
-                },
-                function(rej){
-
-                }
-            );
             SettingpeopleService.getPeopleBase(postData).then(
                 function(res){
                     if(res.data.code==200){
@@ -360,10 +282,10 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                         if($scope.user.jiguan||$scope.user.birthplace){
                             for(var i=0;i<$scope.address.length;i++){
                                 if($scope.user.birthplace==$scope.address[i].ano){
-                                    $scope.user.birthplace=$scope.address[i];
+                                    $scope.user.birthplace=$scope.address[i].dz;
                                 }
                                 if($scope.user.jiguan==$scope.address[i].ano){
-                                    $scope.user.jiguan=$scope.address[i];
+                                    $scope.user.jiguan=$scope.address[i].dz;
                                 }
                             }
                         }
@@ -424,7 +346,144 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 }
             )
         }
+        //现任职务
+        $scope.getPostinfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getPeoplepostinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.postinfolist=res.data.info;
+                    }
+                },
+                function(rej){
 
+                }
+            );
+        }
+        //职称
+        $scope.getTitleinfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getPeopletitleinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.titleinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
+        //学历
+        $scope.getEduinfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getEduinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.eduinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
+        //学位
+        $scope.getDegreeinfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getDegreeinfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.degreeinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
+        //奖惩记录
+        $scope.getJiangchenginfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getjiangchenginfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.jiangchenginfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
+
+        //年度考核
+        $scope.getExaminfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getexaminfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.examinfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
+        //简历
+        $scope.getResumeinfo=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getresumeInfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.resumeinfo={};
+                        $scope.resumeinfo=res.data.info[0];
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
+        //家庭成员
+        $scope.getFamilyInfolist=function(){
+            var postData = $.param({
+                person_id:$scope.updatepeopleelement.id,
+                access_token:$localStorage.token
+            });
+            SettingpeopleService.getfamilyInfo(postData).then(
+                function(res){
+                    if (res.data.code == 200) {
+                        $scope.familyInfolist=res.data.info;
+                    }
+                },
+                function(rej){
+
+                }
+            );
+        }
         // upload later on form submit or something similar
         $scope.uploadphoto = function(file) {
             if (file) {
@@ -451,6 +510,23 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         //保存基本信息
         $scope.saveJiben=function(){
             $scope.showelse=true;
+
+            //地区下拉框和其他不一样（因为数据量大 会卡顿）
+            if(!$scope.user.jiguan_ano&&$scope.user.jiguan){
+                for(var i=0;i<$scope.address.length;i++){
+                    if($scope.user.jiguan==$scope.address[i].dz){
+                        $scope.user.jiguan_ano=$scope.address[i].ano;
+                    }
+                }
+            }
+            if(!$scope.user.birthplace_ano&&$scope.user.birthplace){
+                for(var i=0;i<$scope.address.length;i++){
+                    if($scope.user.birthplace==$scope.address[i].dz){
+                        $scope.user.birthplace_ano=$scope.address[i].ano;
+                    }
+                }
+            }
+
             if($scope.user.person_id){
                 //修改
                 var postData = $.param({
@@ -459,8 +535,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     name:$scope.user.name,
                     sex:$scope.user.sex?$scope.user.sex["ano"]:"",
                     birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
-                    birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
-                    jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
+                    birthplace:$scope.user.birthplace_ano,//?$scope.user.birthplace["ano"]:"",
+                    jiguan:$scope.user.jiguan_ano,//?$scope.user.jiguan["ano"]:"",
                     nation:$scope.user.nation?$scope.user.nation["ano"]:"",
                     health:$scope.user.health?$scope.user.health["ano"]:"",
                     work_date:$filter("date")($scope.user.work_date, "yyyyMMdd"),
@@ -486,13 +562,16 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     }
                 )
             }else{
+                console.log("添加用户");
                 var postData = $.param({
                     head_pic:$scope.user.head_pic,
                     name:$scope.user.name,
                     sex:$scope.user.sex?$scope.user.sex["ano"]:"",
                     birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
-                    birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
-                    jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
+                    birthplace:$scope.user.birthplace_ano,//?$scope.user.birthplace["ano"]:"",
+                    jiguan:$scope.user.jiguan_ano,//?$scope.user.jiguan["ano"]:"",
+                    //birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
+                    //jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
                     nation:$scope.user.nation?$scope.user.nation["ano"]:"",
                     health:$scope.user.health?$scope.user.health["ano"]:"",
                     work_date:$filter("date")($scope.user.work_date, "yyyyMMdd"),
@@ -511,6 +590,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 });
                 SettingpeopleService.addBase(postData).then(
                     function(res){
+                        $scope.user=res.data.info;
                         alert(res.data.msg);
                     },
                     function(rej){

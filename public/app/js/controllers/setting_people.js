@@ -521,6 +521,56 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         }
         //保存简历
         $scope.savejianli=function(){
+            if($scope.resumeinfo){
+                //修改
+                var params=$.param({
+                    id:$scope.resumeinfo.id,
+                    person_id:  $scope.user.person_id,
+                    resume:$scope.resumeinfo.resume,
+                    first_director_time:"",
+                    is_exchange:"",
+                    tuan_time:"",
+                    fushi_time:"",
+                    zhuanye_time:"",
+                    access_token:$localStorage.token
+                });
+
+                SettingpeopleService.updateresumeInfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                        }else{
+                            alert("保存失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+
+            }else{
+                //添加
+                var params=$.param({
+                    person_id:  $scope.user.person_id,
+                    resume:$scope.resumeinfo.resume,
+                    first_director_time:"",
+                    is_exchange:"",
+                    tuan_time:"",
+                    fushi_time:"",
+                    zhuanye_time:"",
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.addresumeInfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                        }else{
+                            alert("保存失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }
 
         }
         //添加职务
@@ -1144,7 +1194,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 var params=$.param({
                     person_id:  $scope.user.person_id,
                     wage_level:jiangcheng.wage_level?jiangcheng.wage_level['ano']:"",
-                    wage_grade:jiangcheng.wage_grade?jiangcheng.wage_grade['ano']:"",
+                    wage_grade:jiangcheng.wage_grade,
                     explanation:jiangcheng.explanation,
                     wage_level_2:jiangcheng.wage_level_2,
                     access_token:$localStorage.token
@@ -1152,7 +1202,20 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 SettingpeopleService.addjiangchenginfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.jiangchenginfolist.push(res.data.info);
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getjiangchenginfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.jiangchenginfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
                         }else{
                             alert("添加失败");
                         }
@@ -1161,6 +1224,89 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
 
                     }
                 )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //修改奖惩记录
+        $scope.updatejiangcheng=function(jiangcheng){
+            $scope.newdata=angular.copy(jiangcheng);
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'updatejiangchengModel.html',
+                controller: 'ModalUpdatejiangchengInstanceCtrl',
+                size: 'md',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    },
+                    newdata:function(){
+                        return $scope.newdata
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function () {
+                var params=$.param({
+                    id:jiangcheng.id,
+                    person_id:  $scope.user.person_id,
+                    wage_level:$scope.newdata.wage_level?$scope.newdata.wage_level['ano']:"",
+                    wage_grade:$scope.newdata.wage_grade,
+                    explanation:$scope.newdata.explanation,
+                    wage_level_2:$scope.newdata.wage_level_2,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.updatejiangchenginfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getjiangchenginfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.jiangchenginfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
+                        }else{
+                            alert("修改失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //删除奖惩记录
+        $scope.deletejiangcheng=function(idx,jiangcheng){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:jiangcheng.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deletejiangchenginfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.jiangchenginfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
@@ -1183,12 +1329,27 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     exa_category:kaocha.exa_category?kaocha.exa_category['ano']:"",
                     exa_result:kaocha.exa_result?kaocha.exa_result['ano']:"",
                     exa_date:$filter("date")(kaocha.exa_date, "yyyyMMdd"),
+                    no:0,
                     access_token:$localStorage.token
                 });
                 SettingpeopleService.addexaminfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.jiangchenginfolist.push(res.data.info);
+                            //年度考核
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getexaminfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.examinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
                         }else{
                             alert("添加失败");
                         }
@@ -1201,8 +1362,92 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
+        //修改年度考核
+        $scope.updatekaohe=function(kaohe){
+            $scope.newdata=angular.copy(kaohe);
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'updatekaoheModel.html',
+                controller: 'ModalUpdatekaoheInstanceCtrl',
+                size: 'md',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    },
+                    newdata:function(){
+                        return $scope.newdata
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function () {
+                var params=$.param({
+                    id:kaohe.id,
+                    person_id:  $scope.user.person_id,
+                    exa_category:$scope.newdata.exa_category?$scope.newdata.exa_category['ano']:"",
+                    exa_result:$scope.newdata.exa_result?$scope.newdata.exa_result['ano']:"",
+                    exa_date:$filter("date")($scope.newdata.exa_date, "yyyyMMdd"),
+                    no:0,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.updateexaminfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            //年度考核
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getexaminfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.examinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
+                        }else{
+                            alert("添加失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //删除年度考核
+        $scope.deletekaohe=function(idx,kaohe){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:kaohe.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deleteexaminfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.examinfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
         //添加家庭成员
-        $scope.addjiating=function(peopleid){
+        $scope.addjiating=function(){
             var modalzwaddInstance = $modal.open({
                 templateUrl: 'addjiatingModel.html',
                 controller: 'ModalAddjiatingInstanceCtrl',
@@ -1217,17 +1462,35 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 var params=$.param({
                     person_id:  $scope.user.person_id,
                     family_name:jiating.family_name,
+                    family_oder:0,
+                    renatinship_name:jiating.renationship_number?jiating.renationship_number['dz']:"",
                     renationship_number:jiating.renationship_number?jiating.renationship_number['ano']:"",
                     family_birthday:$filter("date")(jiating.family_birthday, "yyyyMMdd"),
                     family_org_name:jiating.family_org_name,
                     family_poli:jiating.family_poli?jiating.family_poli['ano']:"",
                     family_status:jiating.family_status?jiating.family_status['ano']:"",
+                    family_post:"",
+                    no:0,
                     access_token:$localStorage.token
                 });
-                SettingpeopleService.addexaminfo(params).then(
+                SettingpeopleService.addfamilyInfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.jiangchenginfolist.push(res.data.info);
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            //家庭成员
+                            SettingpeopleService.getfamilyInfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.familyInfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
                         }else{
                             alert("添加失败");
                         }
@@ -1236,6 +1499,96 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
 
                     }
                 )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //修改家庭成员
+        $scope.updatejiating=function(jiating){
+            $scope.newdata=angular.copy(jiating);
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'updatejiatingModel.html',
+                controller: 'ModalUpdatejiatingInstanceCtrl',
+                size: 'md',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    },
+                    newdata:function(){
+                        return $scope.newdata;
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function () {
+                var params=$.param({
+                    id:jiating.id,
+                    person_id:  $scope.user.person_id,
+                    family_name:$scope.newdata.family_name,
+                    family_oder:0,
+                    renatinship_name:$scope.newdata.renationship_number?$scope.newdata.renationship_number['dz']:"",
+                    renationship_number:$scope.newdata.renationship_number?$scope.newdata.renationship_number['ano']:"",
+                    family_birthday:$filter("date")($scope.newdata.family_birthday, "yyyyMMdd"),
+                    family_org_name:$scope.newdata.family_org_name,
+                    family_poli:$scope.newdata.family_poli?$scope.newdata.family_poli['ano']:"",
+                    family_status:$scope.newdata.family_status?$scope.newdata.family_status['ano']:"",
+                    family_post:"",
+                    no:0,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.updatefamilyInfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            //家庭成员
+                            SettingpeopleService.getfamilyInfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.familyInfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
+                        }else{
+                            alert("添加失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //删除家庭成员
+        $scope.deletejiating=function(idx,jiaitng){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:jiaitng.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deletefamilyInfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.familyInfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
@@ -1431,6 +1784,31 @@ app.controller('ModalAddjiangchengInstanceCtrl',  ['$scope', '$modalInstance','e
         $modalInstance.dismiss('cancel');
     };
 }]);
+app.controller('ModalUpdatejiangchengInstanceCtrl',  ['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+    if($scope.newdata.wage_level){
+        for(var i=0;i<$scope.elementSelect.gongzijibie.length;i++){
+            if($scope.newdata.wage_level==$scope.elementSelect.gongzijibie[i].dz){
+                $scope.newdata.wage_level=$scope.elementSelect.gongzijibie[i];
+            }
+        }
+    }
+    //if($scope.newdata.wage_grade){
+    //    for(var i=0;i<$scope.elementSelect.gongzidangci.length;i++){
+    //        if($scope.newdata.wage_grade==$scope.elementSelect.gongzidangci[i].dz){
+    //            $scope.newdata.wage_grade=$scope.elementSelect.gongzidangci[i];
+    //        }
+    //    }
+    //}
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
 app.controller('ModalAddkaoheInstanceCtrl',['$scope', '$modalInstance','elementSelect',function($scope, $modalInstance,elementSelect) {
     $scope.elementSelect=elementSelect;
     $scope.kaocha={};
@@ -1442,11 +1820,70 @@ app.controller('ModalAddkaoheInstanceCtrl',['$scope', '$modalInstance','elementS
         $modalInstance.dismiss('cancel');
     };
 }]);
+app.controller('ModalUpdatekaoheInstanceCtrl',['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+
+    if($scope.newdata.exa_category){
+        for(var i=0;i<$scope.elementSelect.kaochaleibie.length;i++){
+            if($scope.newdata.exa_category==$scope.elementSelect.kaochaleibie[i].dz){
+                $scope.newdata.exa_category=$scope.elementSelect.kaochaleibie[i];
+            }
+        }
+    }
+    if($scope.newdata.exa_result){
+        for(var i=0;i<$scope.elementSelect.kaochajielun.length;i++){
+            if($scope.newdata.exa_result==$scope.elementSelect.kaochajielun[i].dz){
+                $scope.newdata.exa_result=$scope.elementSelect.kaochajielun[i];
+            }
+        }
+    }
+
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
 app.controller('ModalAddjiatingInstanceCtrl',['$scope', '$modalInstance','elementSelect',function($scope, $modalInstance,elementSelect) {
     $scope.elementSelect=elementSelect;
     $scope.jiating={};
     $scope.ok = function () {
         $modalInstance.close($scope.jiating);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalUpdatejiatingInstanceCtrl',['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+    if($scope.newdata.renationship_number){
+        for(var i=0;i<$scope.elementSelect.jiatingguanxi.length;i++){
+            if($scope.newdata.renationship_number==$scope.elementSelect.jiatingguanxi[i].dz){
+                $scope.newdata.renationship_number=$scope.elementSelect.jiatingguanxi[i];
+            }
+        }
+    }
+    if($scope.newdata.family_poli){
+        for(var i=0;i<$scope.elementSelect.zhengzhilist.length;i++){
+            if($scope.newdata.family_poli==$scope.elementSelect.zhengzhilist[i].dz){
+                $scope.newdata.family_poli=$scope.elementSelect.zhengzhilist[i];
+            }
+        }
+    }
+    if($scope.newdata.family_status){
+        for(var i=0;i<$scope.elementSelect.renyuanxianzhuang.length;i++){
+            if($scope.newdata.family_status==$scope.elementSelect.renyuanxianzhuang[i].dz){
+                $scope.newdata.family_status=$scope.elementSelect.renyuanxianzhuang[i];
+            }
+        }
+    }
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

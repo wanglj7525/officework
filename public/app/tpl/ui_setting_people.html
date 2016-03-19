@@ -28,11 +28,20 @@
           <script type="text/ng-template" id="addjiangchengModel.html">
                <div ng-include="'/public/app/tpl/ui_people_jiangcheng_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="updatejiangchengModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_jiangcheng_update_modal.html'"></div>
+          </script>
           <script type="text/ng-template" id="addkaoheModel.html">
                <div ng-include="'/public/app/tpl/ui_people_kaohe_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="updatekaoheModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_kaohe_update_modal.html'"></div>
+          </script>
           <script type="text/ng-template" id="addjiatingModel.html">
                <div ng-include="'/public/app/tpl/ui_people_jiating_modal.html'"></div>
+          </script>
+          <script type="text/ng-template" id="updatejiatingModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_jiating_update_modal.html'"></div>
           </script>
           <script type="text/ng-template" id="deleteModel.html">
                <div ng-include="'/public/app/tpl/ui_setting_peoplesdelete_modal.html'"></div>
@@ -496,24 +505,24 @@
                                              <table st-table="jiangchenginfolist"  class="table table-bordered">
                                                   <thead>
                                                   <tr>
-                                                       <th>奖惩说明</th>
                                                        <th>机关正处工资级别</th>
                                                        <th>机关正处工资档次</th>
                                                        <th>事业五级管理薪级</th>
+                                                       <th width="50%">奖惩说明</th>
                                                        <th>操作</th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
                                                   <tr ng-repeat="row in jiangchenginfolist" >
-                                                       <td>{{row.explanation}}</td>
                                                        <td>{{row.wage_level}}</td>
                                                        <td>{{row.wage_grade}}</td>
                                                        <td>{{row.wage_level_2}}</td>
+                                                       <td width="50%">{{row.explanation}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatejiangcheng(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletejiangcheng($index,row)"  class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>
@@ -549,10 +558,10 @@
                                                        <td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>
                                                        <td>{{row.exa_result}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatekaohe(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletekaohe($index,row)"  class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>
@@ -574,7 +583,7 @@
                                                   <div class="row">
                                                        <div class="form-group">
                                                             <!--<label class="col-md-1 control-label">个人简历</label>-->
-                                                            <div class="">
+                                                            <div class="col-md-12">
                                                                  <textarea rows="20" class="form-control" name="speciaty" ng-model="resumeinfo.resume" ></textarea>
                                                                  <!--<pre ng-bind="resumeinfo.resume"></pre>-->
                                                             </div>
@@ -622,10 +631,10 @@
                                                        <!--<td>{{row.family_post}}</td>-->
                                                        <td>{{row.family_status}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatejiating(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletejiating($index,row)"  class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>

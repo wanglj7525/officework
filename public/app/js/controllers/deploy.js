@@ -157,18 +157,36 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice','getxueliList',
-	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice,getxueliList) {
+app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice','getxueliList','treeservice_new',
+	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice,getxueliList,treeservice_new) {
 		//存储任职 离职人员id
 		$scope.InPerson_ids=[];
 		$scope.OutPerson_ids=[];
 		//存储任职 离职人员信息
 		$scope.InPerson=[];
 		$scope.OutPerson=[];
-
+		$scope.my_data1 = [];
+		$scope.doing_async1 = true;
 		$scope.treeselected=$localStorage.treeselect;
+		
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
+			treeservice_new.getData().then(
+				function (res) {
+					//$scope.my_data2 = res.data.info;
+					for (var i=0 ;i<res.data.info.length;i++){
+						$scope.my_data1.push(res.data.info[i].name)
+						$scope.texttree=$scope.my_data1.indexOf($localStorage.treeselect);
+						$scope.texttree++;
+						console.log($scope.texttree)
+					}
+					$scope.doing_async1 = false;
+					//tree.expand_all();
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
 			var postData = $.param({
 				tree_id:$localStorage.tree_uuid,
 				access_token:$localStorage.token
@@ -177,7 +195,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				function(res){
 					//班子成员
 					$scope.daweilist = res.data.info;
-
 					if($scope.daweilist){
 						//需要分析班子成员，标注出 需要交流的人员
 						var params=$.param({
@@ -208,6 +225,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					console.log(rej);
 				}
 			);
+			
 		});
 		$scope.isdetail=false;
 		//性别

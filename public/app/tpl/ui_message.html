@@ -29,30 +29,23 @@
                                                             </div>
                                                         </div>
                                                         <table class="table mytable">
-                                                        <tr class="form-group" style="margin-bottom: 2px" >
-                                                            <td width="5%"><label class="control-label">职级</label></td>
+                                                        <tr class="form-group">
+                                                            <td><label class="control-label">职级</label></td>
                                                             <td><input type="button" class="btn btn-default left-button " ng-repeat="zhiji in zhijilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhiji.dz}}" rank='{{zhiji.ano}}'></td>
                                                         </tr>
-                                                        <tr class="form-group" style="margin-bottom: 2px" >
+                                                        <tr class="form-group" >
                                                             <td><label class="control-label">性别</label></td>
                                                             <td><input type="button" class="btn btn-default left-button " ng-repeat="sex in sexlist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{sex.dz}}" xingbie='{{sex.ano}}'></td>
                                                         </tr>
-                                                        <tr class="form-group" style="margin-bottom: 2px" >
+                                                        <tr class="form-group">
                                                             <td><label class="control-label">学历</label></td>
                                                             <td><input type="button" class="btn btn-default left-button " ng-repeat="xueli in xuelilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{xueli.dz}}" edulevel='{{xueli.ano}}'></td>
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="小学" edulevel='81'></td>-->
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="初中" edulevel='71'></td>-->
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="高中" edulevel='61'></td>-->
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="中专" edulevel='41'></td>-->
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="专科教育" edulevel='3'></td>-->
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="本科教育" edulevel='2'></td>-->
-                                                            <!--<td><input type="button" class="btn btn-default left-button "  ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="研究生教育" edulevel='1'>研究生毕业</td>-->
                                                         </tr>
-                                                        <tr class="form-group" style="margin-bottom: 2px" >
-                                                            <td><label class="control-label">政治面貌</label></td>
+                                                        <tr class="form-group" >
+                                                            <td><label class="control-label" style="white-space:nowrap">政治面貌</label></td>
                                                             <td><input type="button" class="btn btn-default left-button " ng-repeat="zhengzhi in zhengzhilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhengzhi.dz}}" politicalstatus='{{zhengzhi.ano}}'></td>
                                                         </tr>
-                                                        <tr class="form-group" style="margin-bottom: 2px" >
+                                                        <tr class="form-group" >
                                                             <td><label class="control-label">年龄</label></td>
                                                             <td><input type="button" class="btn btn-default left-button " ng-repeat="nianling in nianlinglist" ng-init="isSelected = false" ng-click="isSelected = !isSelected;"  selectbutton="isSelected" value="{{nianling.dz}}" age='{{nianling.ano}}'></td>
                                                         </tr>
@@ -62,7 +55,7 @@
                                                         <!--<input type="button" class="btn btn-default left-button " ng-repeat="selectitem in searchitem.selectitem" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{selectitem.name}}" selectparam='{{selectitem.id}}'>-->
                                                         <!--</div>-->
                                                         <div class="form-group">
-                                                            <button type="submit"  ng-click="peoplesearch()" class="btn w-full  btn-info font-bold">搜索</button>
+                                                            <button type="submit"  ng-click="status.open = !status.open" class="btn w-full  btn-info font-bold">搜索</button>
                                                         </div>
                                                     </form>
                                                 </div>

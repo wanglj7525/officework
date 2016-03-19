@@ -157,8 +157,8 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice',
-	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice) {
+app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice','getxueliList',
+	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice,getxueliList) {
 		//存储任职 离职人员id
 		$scope.InPerson_ids=[];
 		$scope.OutPerson_ids=[];
@@ -227,7 +227,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//人员状态
 		SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 		//学历
-		SettingdaimaService.getCodagetList("ZB64").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+		//SettingdaimaService.getCodagetList("ZB64").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+		getxueliList.getxuewei().then(function(res){ $scope.xuelilist=res.data.info;},function(rej){});
 		////任职原因
 		//SettingdaimaService.getCodagetList("ZB12").then(function(res){ $scope.renzhilist=res.data.info.list;},function(rej){});
 		////免职原因
@@ -260,7 +261,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			open: false,
 			leftopen:true
 		};
-		$scope.isdetail=false;
+		//$scope.isdetail=false;
 		$scope.searchPeoples=function(){
 			var postData = $.param({
 				keyword:$scope.search.keywords,

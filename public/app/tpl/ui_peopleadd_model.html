@@ -1,6 +1,6 @@
-<div >
-	<tabset class="tab-container addpeople">
-		<tab  class="active">
+<div>
+	<tabset  class="tab-container addpeople">
+		<tab active="true">
 			<tab-heading>
 				<h5 class="modal-title">基本信息</h5>
 			</tab-heading>
@@ -23,8 +23,8 @@
 										<div class="col-md-9" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 											<div  class="input-group">
 												<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                                           </span>
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
 											</div>
 										</div>
 									</div>
@@ -44,10 +44,10 @@
 													</ul>
 												</div>
 												<!--<ui-select theme="bootstrap"  ng-model="user.jiguan">-->
-													<!--<ui-select-match  placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
-													<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
-														<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
-													<!--</ui-select-choices>-->
+												<!--<ui-select-match  placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+												<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
+												<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
+												<!--</ui-select-choices>-->
 												<!--</ui-select>-->
 											</div>
 											<!--<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>-->
@@ -136,10 +136,10 @@
 													</ul>
 												</div>
 												<!--<ui-select ng-model="user.birthplace" theme="bootstrap">-->
-													<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
-													<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
-														<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
-													<!--</ui-select-choices>-->
+												<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+												<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
+												<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+												<!--</ui-select-choices>-->
 												<!--</ui-select>-->
 											</div>
 										</div>
@@ -192,8 +192,8 @@
 										<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 											<div  class="input-group">
 												<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.work_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                                           </span>
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
 											</div>
 										</div>
 									</div>
@@ -202,8 +202,8 @@
 										<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 											<div  class="input-group">
 												<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.organ_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                                           </span>
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
 											</div>
 										</div>
 									</div>
@@ -231,7 +231,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab ng-show="showelse">
+		<tab active="false" ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">现任职务</h5>
 			</tab-heading>
@@ -276,7 +276,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">职称</h5>
 			</tab-heading>
@@ -317,7 +317,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">学历</h5>
 			</tab-heading>
@@ -360,7 +360,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">学位</h5>
 			</tab-heading>
@@ -399,7 +399,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">奖惩记录</h5>
 			</tab-heading>
@@ -440,7 +440,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">年度考核</h5>
 			</tab-heading>
@@ -479,7 +479,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">个人简历</h5>
 			</tab-heading>
@@ -505,7 +505,7 @@
 				</div>
 			</div>
 		</tab>
-		<tab  ng-show="showelse">
+		<tab ng-show="showelse">
 			<tab-heading>
 				<h5 class="modal-title">家庭成员</h5>
 			</tab-heading>

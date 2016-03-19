@@ -94,9 +94,9 @@
                                         <button ng-click="updatepeople(people)" type="button"  class="btn btn-href ">
                                              修改
                                         </button>
-                                        <button type="button" ng-click="deletepeople($index,people)" class="btn btn-href ">
-                                             删除
-                                        </button>
+                                        <!--<button type="button" ng-click="deletepeople($index,people)" class="btn btn-href ">-->
+                                             <!--删除-->
+                                        <!--</button>-->
                                    </td>
                               </tr>
                               </tbody>
@@ -108,7 +108,7 @@
                </div>
           </div>
           <!--<div class="panel panel-default" ng-show="!isedit" ui-view ></div>-->
-          <div class="panel panel-default" ng-show="isedit">
+          <div class="panel panel-default" ng-if="isedit">
                <div class="panel-heading" style="position: relative">
                     <button class="btn btn-info" ng-click="back_people()">返回</button>
                     <span style="margin-left: 20px">{{showtitle}}</span>
@@ -116,7 +116,7 @@
                </div>
                <div ng-include="'/public/app/tpl/ui_peopleupdate_model.html'"></div>
           </div>
-          <!--<div class="panel panel-default" ng-show="isadd">-->
+          <!--<div class="panel panel-default" ng-if="isadd">-->
                <!--<div class="panel-heading" style="position: relative">-->
                     <!--<button class="btn btn-info" ng-click="back_people()">返回</button>-->
                     <!--<span style="margin-left: 20px">添加用户信息</span>-->

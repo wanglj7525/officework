@@ -1,12 +1,18 @@
 angular.module('app')
-	.factory('Auth',['$http','$localStorage',function($http,$localStorage){
+	.factory('Auth',['$http','$localStorage','SERVICE_URL',function($http,$localStorage,SERVICE_URL){
 		return {
 			username: '', //当前登录的用户名
 			userrole: '', //当前登录的角色名
 			userid:0,//当前登录的用户id
 			//roleid: $localStorage.user? $localStorage.user.role_id:0,//当前登录的角色id
 			roleid:function(){
-				return $localStorage.user.role_id;
+				//TODO 上线后 修改为 前面的代码
+				//if($localStorage.user.setting){
+				//	return $localStorage.user.setting.state;
+				//}else{
+				//	return 'true'
+				//}
+				return 'true'
 			},//当前登录的角色id
 			roles: function () {
 				console.log("获取角色列表");

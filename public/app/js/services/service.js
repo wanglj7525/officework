@@ -115,12 +115,12 @@ angular.module('app')
 			}
 		}
 	}] )
-	.service('worktipservice2', ['$q','$http', function($q,$http){
+	.service('getxueliList', ['$q','$http', function($q,$http){
 		var data={};
 		return{
-			getData:function(id){
+			getxuewei:function(id){
 				var deferred=$q.defer();
-				var path='/public/app/api/worktip2';
+				var path='/public/app/api/xueli';
 				if (id) {
 					path+='';
 				};

@@ -1,6 +1,6 @@
 'use strict';
-  app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','UIMessageService','messageservice','searchservice','SettingpeopleService','SettingdaimaService',
-		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,UIMessageService,messageservice,searchservice,SettingpeopleService,SettingdaimaService) {
+  app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','UIMessageService','messageservice','searchservice','SettingpeopleService','SettingdaimaService','getxueliList',
+		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,UIMessageService,messageservice,searchservice,SettingpeopleService,SettingdaimaService,getxueliList) {
 			$scope.treeselected=$localStorage.treeselect;
 			$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 				if(newValue===oldValue) return;
@@ -25,8 +25,13 @@
 			//人员状态
 			SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 			//学历
-			SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
-
+			SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist2=res.data.info.list;console.log($scope.xuelilist2);},function(rej){});
+			
+			//SettingdaimaService.getxueliList().then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+			getxueliList.getxuewei().then(
+				function(res){
+					$scope.xuelilist=res.data.info
+			})
 			$scope.selectparam=[];
 			//职级
 			$scope.rank=[];
@@ -42,6 +47,11 @@
 			$scope.status = {
 				open: false
 			};
+			$scope.isSelected=false;
+			$scope.peoplesearch=function(){
+				//$scope.isSelected = !$scope.isSelected;
+				$scope.status.open = !$scope.status.open
+			}
 			searchservice.getData().then(
 				function (res) {
 					$scope.nianlinglist = res.data.info;

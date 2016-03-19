@@ -467,6 +467,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		}
 		//保存班子
 		$scope.savedeploy=function(){
+			if($scope.InPerson_ids.length==0&&$scope.OutPerson_ids.length==0){
+				alert("没有进行任免职操作，不需要保存调配");
+				return ;
+			}
 			var modalsaveInstance = $modal.open({
 				templateUrl: 'savePeopleModel.html',
 				controller: 'SaveDeployInstanceCtrl',
@@ -485,24 +489,27 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					in:$scope.InPerson,
 					out:$scope.OutPerson
 				}
-				console.log(json);
-				var postData = $.param({
-					json:JSON.stringify(json),
-					access_token:$localStorage.token
-				});
-				UIDeployservice.deploySave(postData).then(
-					function(res){
-						console.log(res);
-						if(res.data.code==200){
-							$state.go('app.analysis');
-						}else{
-							alert(res.data.msg);
+
+					console.log(json);
+					var postData = $.param({
+						json:JSON.stringify(json),
+						access_token:$localStorage.token
+					});
+					UIDeployservice.deploySave(postData).then(
+						function(res){
+							console.log(res);
+							if(res.data.code==200){
+								$state.go('app.analysis');
+							}else{
+								alert(res.data.msg);
+							}
 						}
-					}
-					,function(rej){
-						console.log(rej);
-					})
-				console.log();
+						,function(rej){
+							console.log(rej);
+						})
+					console.log();
+
+
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

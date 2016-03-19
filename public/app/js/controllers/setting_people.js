@@ -1008,8 +1008,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             modalzwaddInstance.result.then(function (xuewei) {
                 var params=$.param({
                     person_id:  $scope.user.person_id,
-                    degree_code:xuewei.degree_name?xuewei.degree_name['ano']:"",
-                    degree_name:xuewei.degree_name?xuewei.degree_name['dz']:"",
+                    degree_code:xuewei.degree_code?xuewei.degree_code['ano']:"",
                     school_name:xuewei.school_name,
                     degree_category:"",
                     no:0,
@@ -1045,28 +1044,33 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
-        //添加学位
-        $scope.addxuewei=function(){
+        //修改学位
+        $scope.updatexuewei=function(xuewei){
+            $scope.newdata=angular.copy(xuewei);
             var modalzwaddInstance = $modal.open({
-                templateUrl: 'addxueweiModel.html',
-                controller: 'ModalAddxueweiInstanceCtrl',
+                templateUrl: 'updatexueweiModel.html',
+                controller: 'ModalUpdatexueweiInstanceCtrl',
                 size: 'md',
                 resolve:{
                     elementSelect:function(){
                         return $scope.elementSelect
+                    },
+                    newdata:function(){
+                        return $scope.newdata
                     }
                 }
             });
-            modalzwaddInstance.result.then(function (xuewei) {
+            modalzwaddInstance.result.then(function () {
                 var params=$.param({
+                    id:xuewei.id,
                     person_id:  $scope.user.person_id,
-                    degree_name:xuewei.degree_name?xuewei.degree_name['ano']:"",
-                    school_name:xuewei.school_name,
+                    degree_code:$scope.newdata.degree_code?$scope.newdata.degree_code['ano']:"",
+                    school_name:$scope.newdata.school_name,
                     degree_category:"",
                     no:0,
                     access_token:$localStorage.token
                 });
-                SettingpeopleService.addDegreeinfo(params).then(
+                SettingpeopleService.updateDegreeinfo(params).then(
                     function(res){
                         if(res.data.code==200){
                             //学位
@@ -1085,13 +1089,41 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                                 }
                             );
                         }else{
-                            alert("添加失败");
+                            alert("修改失败");
                         }
                     },
                     function(rej){
 
                     }
                 )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //删除学位
+        $scope.deletexuewei=function(idx,xuewei){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:xuewei.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deleteDegreeinfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.degreeinfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
@@ -1363,6 +1395,25 @@ app.controller('ModalAddxueweiInstanceCtrl', ['$scope', '$modalInstance','elemen
     $scope.xuewei={};
     $scope.ok = function () {
         $modalInstance.close($scope.xuewei);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalUpdatexueweiInstanceCtrl', ['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+//学位
+    if($scope.newdata.degree_code){
+        for(var i=0;i<$scope.elementSelect.xuewei.length;i++){
+            if($scope.newdata.degree_code==$scope.elementSelect.xuewei[i].dz){
+                $scope.newdata.degree_code=$scope.elementSelect.xuewei[i];
+            }
+        }
+    }
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

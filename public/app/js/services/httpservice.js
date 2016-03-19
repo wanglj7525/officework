@@ -433,6 +433,28 @@ angular.module('app')
             });
             return promise;
         },
+        updateDegreeinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/degreeInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        deleteDegreeinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/degreeInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         /**
          * 奖惩记录 查询 添加 删除 修改
          * **/

@@ -13,7 +13,7 @@
 					<label class="col-md-4 control-label">学位</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select ng-model="xuewei.degree_name" theme="bootstrap">
+							<ui-select ng-model="xuewei.degree_code" theme="bootstrap">
 								<ui-select-match placeholder="请选择学位">{{$select.selected.dz}}</ui-select-match>
 								<ui-select-choices repeat="item in elementSelect.xuewei | filter: $select.search">
 									<div ng-bind-html="item.dz | highlight: $select.search"></div>

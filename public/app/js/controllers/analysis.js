@@ -45,7 +45,7 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 					if(res.data.code==200){
 						$scope.worktiptable1 = res.data.info;
 					}else{
-						//alert(res.data.msg);
+						console.log(res.data.msg);
 					}
 				},
 				function (rej) {
@@ -123,7 +123,7 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 								}
 							}
 						}else{
-							//alert(res.data.msg);
+							console.log(res.data.msg);
 						}
 
 					},

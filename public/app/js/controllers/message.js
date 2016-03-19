@@ -75,7 +75,7 @@
 							$scope.messagetabletab = res.data.info.elements;
 							console.log( res.data.info.totalElements)
 						}else{
-							//alert(res.data.msg);
+							console.log(res.data.msg);
 						}
 
 					},
@@ -105,7 +105,7 @@
 							console.log(res.data.info.totalElements);
 
 						}else{
-							//alert(res.data.msg);
+							console.log(res.data.msg);
 						}
 
 					},

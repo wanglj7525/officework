@@ -72,6 +72,7 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 			modaladjustdeleteInstance.result.then(function (item) {
 				UIAdjustplanService.delAdjustPlan($scope.currentid).then(
 					function(res){
+						$scope.temp11=$scope.planlist.length
 						if(res.data.code==200){
 							UIAdjustplanService.getAdjustplanList().then(
 								function (res) {

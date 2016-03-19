@@ -104,6 +104,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 								data.reason=adjust.yuanyin;
 								data.tobe_post=adjust.zhiwu['name'];
 								console.log(data.tobe_post);
+								$state.go('app.analysis');
 								//angular.copy($scope.newdata,data);
 								//console.log($scope.newdata);
 							}else{

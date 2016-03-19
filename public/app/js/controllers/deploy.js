@@ -168,7 +168,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		$scope.my_data1 = [];
 		$scope.doing_async1 = true;
 		$scope.treeselected=$localStorage.treeselect;
-		
+		$scope.nopeople="班子暂无成员";
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
 			treeservice_new.getData().then(
@@ -178,7 +178,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						$scope.my_data1.push(res.data.info[i].name)
 						$scope.texttree=$scope.my_data1.indexOf($localStorage.treeselect);
 						$scope.texttree++;
-						console.log($scope.texttree)
+						
 					}
 					$scope.doing_async1 = false;
 					//tree.expand_all();

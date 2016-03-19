@@ -1,860 +1,1085 @@
 <div>
 	<tabset  class="tab-container addpeople">
-		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled" >
-			<div ng-if="tab==tabs[0]">
-				<div  flex>
-					<div class="" layout="column" >
-						<div >
-							<form name="addPeopleform_1" class="form-horizontal">
-								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.name.$invalid && !addPeopleform_1.name.$pristine }">
-											<label class="col-md-3 control-label">姓名</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="name" type="text" ng-model="user.name" required>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthday.$invalid && !addPeopleform_1.birthday.$pristine }">
-											<label class="col-md-3 control-label">出生年月</label>
-											<div class="col-md-9" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
-												<div  class="input-group">
-													<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                                           </span>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiguan.$invalid && !addPeopleform_1.jiguan.$pristine }">
-											<label class="col-md-3 control-label">籍贯</label>
-											<div class="col-md-9 ">
-												<div  class=" m-l-n">
-													<div class="dropdown" dropdown >
-														<input autocompletes="" class="tags form-control" ng-model="user.jiguan" name="jiguan" type="text" loaddata="{{address | filter: { dz:user.jiguan} }}"  />
-														<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
-															<span class="caret"  ></span>
-														</div>
-														<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">
-															<li ng-repeat="p in address" ng-class="{active:user.jiguan==p.dz}"  >
-																<a href="javascript:void(0)" ng-click="user.jiguan=p.dz;user.jiguan_ano=p.ano">{{p.dz}}</a>
-															</li>
-														</ul>
-													</div>
-													<!--<ui-select theme="bootstrap"  ng-model="user.jiguan">-->
-													<!--<ui-select-match  placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
-													<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
-													<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
-													<!--</ui-select-choices>-->
-													<!--</ui-select>-->
-												</div>
-												<!--<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>-->
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.health.$invalid && !addPeopleform_1.health.$pristine }">
-											<label class="col-md-3 control-label">健康状况</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.health" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in jiankanglist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.rank.$invalid && !addPeopleform_1.rank.$pristine }">
-											<label class="col-md-3 control-label">职级</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.rank" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in zhijilist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.personal.$invalid && !addPeopleform_1.personal.$pristine }">
-											<label class="col-md-3 control-label">个人身份</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.personal" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in personallist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.sex.$invalid && !addPeopleform_1.sex.$pristine }">
-											<label class="col-md-3 control-label">性别</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.sex" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in sexlist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.nation.$invalid && !addPeopleform_1.nation.$pristine }">
-											<label class="col-md-3 control-label">民族</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.nation" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in minzulist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthplace.$invalid && !addPeopleform_1.birthplace.$pristine }">
-											<label class="col-md-3 control-label">出生地</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<div class="dropdown" dropdown >
-														<input autocompletes="" class="tags form-control" ng-model="user.birthplace" name="birthplace" type="text" loaddata="{{address | filter: { dz:user.birthplace} }}"  />
-														<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
-															<span class="caret"  ></span>
-														</div>
-														<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">
-															<li ng-repeat="p in address" ng-class="{active:user.birthplace==p.dz}"  >
-																<a href="javascript:void(0)" ng-click="user.birthplace=p.dz;user.birthplace_ano=p.ano">{{p.dz}}</a>
-															</li>
-														</ul>
-													</div>
-													<!--<ui-select ng-model="user.birthplace" theme="bootstrap">-->
-													<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
-													<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
-													<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
-													<!--</ui-select-choices>-->
-													<!--</ui-select>-->
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.political_status.$invalid && !addPeopleform_1.political_status.$pristine }">
-											<label class="col-md-3 control-label">政治面貌</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.political_status" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in zhengzhilist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.person_status.$invalid && !addPeopleform_1.person_status.$pristine }">
-											<label class="col-md-3 control-label">人员状态</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<ui-select ng-model="user.person_status" theme="bootstrap">
-														<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
-														<ui-select-choices repeat="item in zhuangtailist | filter: $select.search">
-															<div ng-bind-html="item.dz | highlight: $select.search"></div>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.card_id.$invalid && !addPeopleform_1.card_id.$pristine }">
-											<label class="col-md-3 control-label">身份证号</label>
-											<div class="col-md-9 row">
-												<div  class=" m-l-n">
-													<input class="form-control" name="card_id" type="text" ng-model="user.card_id" required>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div>
-											<div class="button btn btn-default" ngf-select="uploadphoto($file)" ng-model="file" name="file" ngf-pattern="'image/*'"
-												 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
-												 ngf-resize="{width: 100, height: 100}">请选择</div>
-											<img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
-											<!--<button  ng-click="uploadphoto()">Submit</button>-->
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.work_date.$invalid && !addPeopleform_1.work_date.$pristine }">
-											<label class="col-md-4 control-label">参加工作日期</label>
-											<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
-												<div  class="input-group">
-													<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.work_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                                           </span>
-												</div>
-											</div>
-										</div>
-										<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.organ_date.$invalid && !addPeopleform_1.organ_date.$pristine }">
-											<label class="col-md-4 control-label">参加组织日期</label>
-											<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
-												<div  class="input-group">
-													<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.organ_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                                           <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                                           </span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+		<!--<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled" >-->
+		<!--<div ng-if="tab==tabs[0]">-->
+		<!--<div  flex>-->
+		<!--<div class="" layout="column" >-->
+		<!--<div >-->
+		<!--<form name="addPeopleform_1" class="form-horizontal">-->
+		<!--<div class="row">-->
+		<!--<div class="col-md-4">-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.name.$invalid && !addPeopleform_1.name.$pristine }">-->
+		<!--<label class="col-md-3 control-label">姓名</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<input class="form-control" name="name" type="text" ng-model="user.name" required>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthday.$invalid && !addPeopleform_1.birthday.$pristine }">-->
+		<!--<label class="col-md-3 control-label">出生年月</label>-->
+		<!--<div class="col-md-9" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">-->
+		<!--<div  class="input-group">-->
+		<!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />-->
+		<!--<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+		<!--</span>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiguan.$invalid && !addPeopleform_1.jiguan.$pristine }">-->
+		<!--<label class="col-md-3 control-label">籍贯</label>-->
+		<!--<div class="col-md-9 ">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<div class="dropdown" dropdown >-->
+		<!--<input autocompletes="" class="tags form-control" ng-model="user.jiguan" name="jiguan" type="text" loaddata="{{address | filter: { dz:user.jiguan} }}"  />-->
+		<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+		<!--<span class="caret"  ></span>-->
+		<!--</div>-->
+		<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+		<!--<li ng-repeat="p in address" ng-class="{active:user.jiguan==p.dz}"  >-->
+		<!--<a href="javascript:void(0)" ng-click="user.jiguan=p.dz;user.jiguan_ano=p.ano">{{p.dz}}</a>-->
+		<!--</li>-->
+		<!--</ul>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;<ui-select theme="bootstrap"  ng-model="user.jiguan">&ndash;&gt;-->
+		<!--&lt;!&ndash;<ui-select-match  placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>&ndash;&gt;-->
+		<!--&lt;!&ndash;<ui-select-choices repeat="item in address | filter: $select.search">&ndash;&gt;-->
+		<!--&lt;!&ndash;<div  ng-bind-html="item.dz | highlight: $select.search"></div>&ndash;&gt;-->
+		<!--&lt;!&ndash;</ui-select-choices>&ndash;&gt;-->
+		<!--&lt;!&ndash;</ui-select>&ndash;&gt;-->
+		<!--</div>-->
+		<!--&lt;!&ndash;<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>&ndash;&gt;-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.health.$invalid && !addPeopleform_1.health.$pristine }">-->
+		<!--<label class="col-md-3 control-label">健康状况</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.health" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in jiankanglist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.rank.$invalid && !addPeopleform_1.rank.$pristine }">-->
+		<!--<label class="col-md-3 control-label">职级</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.rank" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in zhijilist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.personal.$invalid && !addPeopleform_1.personal.$pristine }">-->
+		<!--<label class="col-md-3 control-label">个人身份</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.personal" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in personallist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="col-md-4">-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.sex.$invalid && !addPeopleform_1.sex.$pristine }">-->
+		<!--<label class="col-md-3 control-label">性别</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.sex" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in sexlist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.nation.$invalid && !addPeopleform_1.nation.$pristine }">-->
+		<!--<label class="col-md-3 control-label">民族</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.nation" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in minzulist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthplace.$invalid && !addPeopleform_1.birthplace.$pristine }">-->
+		<!--<label class="col-md-3 control-label">出生地</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<div class="dropdown" dropdown >-->
+		<!--<input autocompletes="" class="tags form-control" ng-model="user.birthplace" name="birthplace" type="text" loaddata="{{address | filter: { dz:user.birthplace} }}"  />-->
+		<!--<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">-->
+		<!--<span class="caret"  ></span>-->
+		<!--</div>-->
+		<!--<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">-->
+		<!--<li ng-repeat="p in address" ng-class="{active:user.birthplace==p.dz}"  >-->
+		<!--<a href="javascript:void(0)" ng-click="user.birthplace=p.dz;user.birthplace_ano=p.ano">{{p.dz}}</a>-->
+		<!--</li>-->
+		<!--</ul>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;<ui-select ng-model="user.birthplace" theme="bootstrap">&ndash;&gt;-->
+		<!--&lt;!&ndash;<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>&ndash;&gt;-->
+		<!--&lt;!&ndash;<ui-select-choices repeat="item in address | filter: $select.search">&ndash;&gt;-->
+		<!--&lt;!&ndash;<div ng-bind-html="item.dz | highlight: $select.search"></div>&ndash;&gt;-->
+		<!--&lt;!&ndash;</ui-select-choices>&ndash;&gt;-->
+		<!--&lt;!&ndash;</ui-select>&ndash;&gt;-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.political_status.$invalid && !addPeopleform_1.political_status.$pristine }">-->
+		<!--<label class="col-md-3 control-label">政治面貌</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.political_status" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in zhengzhilist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.person_status.$invalid && !addPeopleform_1.person_status.$pristine }">-->
+		<!--<label class="col-md-3 control-label">人员状态</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<ui-select ng-model="user.person_status" theme="bootstrap">-->
+		<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+		<!--<ui-select-choices repeat="item in zhuangtailist | filter: $select.search">-->
+		<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+		<!--</ui-select-choices>-->
+		<!--</ui-select>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.card_id.$invalid && !addPeopleform_1.card_id.$pristine }">-->
+		<!--<label class="col-md-3 control-label">身份证号</label>-->
+		<!--<div class="col-md-9 row">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<input class="form-control" name="card_id" type="text" ng-model="user.card_id" required>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="col-md-4">-->
+		<!--<div>-->
+		<!--<div class="button btn btn-default" ngf-select="uploadphoto($file)" ng-model="file" name="file" ngf-pattern="'image/*'"-->
+		<!--ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"-->
+		<!--ngf-resize="{width: 100, height: 100}">请选择</div>-->
+		<!--<img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">-->
+		<!--&lt;!&ndash;<button  ng-click="uploadphoto()">Submit</button>&ndash;&gt;-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.work_date.$invalid && !addPeopleform_1.work_date.$pristine }">-->
+		<!--<label class="col-md-4 control-label">参加工作日期</label>-->
+		<!--<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">-->
+		<!--<div  class="input-group">-->
+		<!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.work_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />-->
+		<!--<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+		<!--</span>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.organ_date.$invalid && !addPeopleform_1.organ_date.$pristine }">-->
+		<!--<label class="col-md-4 control-label">参加组织日期</label>-->
+		<!--<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">-->
+		<!--<div  class="input-group">-->
+		<!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.organ_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />-->
+		<!--<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+		<!--</span>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
 
-								<div class="row">
-									<div class="form-group" >
-										<label class="col-md-1 control-label">专长</label>
-										<div class="col-md-11 ">
+		<!--<div class="row">-->
+		<!--<div class="form-group" >-->
+		<!--<label class="col-md-1 control-label">专长</label>-->
+		<!--<div class="col-md-11 ">-->
+		<!--<div  class=" m-l-n">-->
+		<!--<textarea rows="2" class="form-control" name="specialty" ng-model="user.specialty" ></textarea>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+
+		<!--</form>-->
+		<!--<div class="row">-->
+		<!--<button class="btn btn-default"  ng-click="back_people()">取消</button>-->
+		<!--<button class="btn btn-primary"  ng-click="saveJiben()">保存</button>-->
+		<!--&lt;!&ndash;ng-disabled="addPeopleform_1.$invalid"&ndash;&gt;-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[1]" >-->
+		<!--<div flex>-->
+		<!--<div class="" layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">职务管理-->
+		<!--<button ng-click="addzhiwu()"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>-->
+		<!--</div>-->
+		<!--<table st-table="postinfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>职务名称</th>-->
+		<!--<th>职务类别</th>-->
+		<!--&lt;!&ndash;<th>职务统计类别</th>&ndash;&gt;-->
+		<!--<th>职级</th>-->
+		<!--<th>任职状态</th>-->
+		<!--<th>批准任职时间</th>-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in postinfolist" >-->
+		<!--<td>{{row.post_name}}</td>-->
+		<!--<td>{{row.post_category}}</td>-->
+		<!--&lt;!&ndash;<td>{{row.post_statistics_category}}</td>&ndash;&gt;-->
+		<!--<td>{{row.rank}}</td>-->
+		<!--<td>{{row.work_status}}</td>-->
+		<!--<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>-->
+		<!--<td>-->
+		<!--<button ng-click="updatezhiwu(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button" ng-click="deletezhiwu($index,row)"  class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[2]">-->
+		<!--<div flex>-->
+		<!--<div  layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">职称管理-->
+		<!--<button ng-click="addzhicheng()"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>-->
+		<!--</div>-->
+		<!--<table st-table="titleinfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>技术任职资格职称</th>-->
+		<!--<th>获得资格日期</th>-->
+		<!--&lt;!&ndash;<th>聘任时间</th>&ndash;&gt;-->
+		<!--&lt;!&ndash;<th>级别</th>&ndash;&gt;-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in titleinfolist" >-->
+		<!--<td>{{row.title_name}}</td>-->
+		<!--<td>{{row.get_date | date:'yyyy-MM-dd'}}</td>-->
+		<!--&lt;!&ndash;<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>&ndash;&gt;-->
+		<!--&lt;!&ndash;<td>{{row.level}}</td>&ndash;&gt;-->
+		<!--<td>-->
+		<!--<button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button" ng-click="deletezhicheng($index,row)" class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[3]">-->
+		<!--<div flex>-->
+		<!--<div  layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">学历管理-->
+		<!--<button ng-click="addxueli()"  class="btn btn-add btn-href" style="width: 150px;">添加学历</button>-->
+		<!--</div>-->
+		<!--<table st-table="eduinfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>学历</th>-->
+		<!--&lt;!&ndash;<th>学历类别</th>&ndash;&gt;-->
+		<!--<th>毕业日期</th>-->
+		<!--<th>学校名称</th>-->
+		<!--<th>专业</th>-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in eduinfolist" >-->
+		<!--<td>{{row.edu_level}}</td>-->
+		<!--&lt;!&ndash;<td>{{row.edu_category}}</td>&ndash;&gt;-->
+		<!--<td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>-->
+		<!--<td>{{row.school_name}}</td>-->
+		<!--<td>{{row.profession_name}}</td>-->
+		<!--<td>-->
+		<!--<button ng-click="updatexueli(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button"  ng-click="deletexueli($index,row)"  class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[4]">-->
+		<!--<div flex>-->
+		<!--<div  layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">学位管理-->
+		<!--<button ng-click="addxuewei()"  class="btn btn-add btn-href" style="width: 150px;">添加学位</button>-->
+		<!--</div>-->
+		<!--<table st-table="degreeinfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>学位</th>-->
+		<!--&lt;!&ndash;<th>学位类别</th>&ndash;&gt;-->
+		<!--<th>学位授予单位</th>-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in degreeinfolist" >-->
+		<!--<td>{{row.degree_code}}</td>-->
+		<!--&lt;!&ndash;<td>{{row.degree_category}}</td>&ndash;&gt;-->
+		<!--<td>{{row.school_name}}</td>-->
+		<!--<td>-->
+		<!--<button ng-click="updatexuewei(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button" ng-click="deletexuewei($index,row)" class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[5]">-->
+		<!--<div flex>-->
+		<!--<div  layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">奖惩记录管理-->
+		<!--<button ng-click="addjiangcheng()"  class="btn btn-add btn-href" style="width: 150px;">添加奖惩记录</button>-->
+		<!--</div>-->
+		<!--<table st-table="jiangchenginfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>机关正处工资级别</th>-->
+		<!--<th>机关正处工资档次</th>-->
+		<!--<th>事业五级管理薪级</th>-->
+		<!--<th width="50%">奖惩说明</th>-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in jiangchenginfolist" >-->
+		<!--<td>{{row.wage_level}}</td>-->
+		<!--<td>{{row.wage_grade}}</td>-->
+		<!--<td>{{row.wage_level_2}}</td>-->
+		<!--<td width="50%">{{row.explanation}}</td>-->
+		<!--<td>-->
+		<!--<button ng-click="updatejiangcheng(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button" ng-click="deletejiangcheng($index,row)"  class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[6]">-->
+		<!--<div flex>-->
+		<!--<div  layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">年度考核管理-->
+		<!--<button ng-click="addkaohe()"  class="btn btn-add btn-href" style="width: 150px;">添加年度考核</button>-->
+		<!--</div>-->
+		<!--<table st-table="examinfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>考察类别</th>-->
+		<!--<th>考查时间</th>-->
+		<!--<th>考查结论类别</th>-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in examinfolist" >-->
+		<!--<td>{{row.exa_category}}</td>-->
+		<!--<td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>-->
+		<!--<td>{{row.exa_result}}</td>-->
+		<!--<td>-->
+		<!--<button ng-click="updatekaohe(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button" ng-click="deletekaohe($index,row)"  class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[7]">-->
+		<!--<div  flex>-->
+		<!--<div class="" layout="column" >-->
+		<!--<div >-->
+		<!--<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">-->
+		<!--<div class="row">-->
+		<!--<div class="form-group">-->
+		<!--&lt;!&ndash;<label class="col-md-1 control-label">个人简历</label>&ndash;&gt;-->
+		<!--<div class="col-md-12">-->
+		<!--<textarea rows="20" class="form-control" name="speciaty" ng-model="resumeinfo.resume" ></textarea>-->
+		<!--&lt;!&ndash;<pre ng-bind="resumeinfo.resume"></pre>&ndash;&gt;-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</form>-->
+		<!--<div class="row">-->
+		<!--<button class="btn btn-primary"  ng-click="savejianli()">保存简历</button>-->
+		<!--&lt;!&ndash;ng-disabled="addPeopleform_1.$invalid"&ndash;&gt;-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div ng-if="tab==tabs[8]">-->
+		<!--<div flex>-->
+		<!--<div  layout="column" >-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading" style="position: relative">家庭成员管理-->
+		<!--<button ng-click="addjiating()"  class="btn btn-add btn-href" style="width: 150px;">添加家庭成员</button>-->
+		<!--</div>-->
+		<!--<table st-table="familyInfolist"  class="table table-bordered">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th>人员姓名</th>-->
+		<!--<th>与该人关系</th>-->
+		<!--<th>人员出生日期</th>-->
+		<!--<th>人员工作单位</th>-->
+		<!--<th>政治面貌</th>-->
+		<!--&lt;!&ndash;<th>人员职务</th>&ndash;&gt;-->
+		<!--<th>人员现状</th>-->
+		<!--<th>操作</th>-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="row in familyInfolist" >-->
+		<!--<td>{{row.family_name}}</td>-->
+		<!--<td>{{row.renatinship_name}}</td>-->
+		<!--<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>-->
+		<!--<td>{{row.family_org_name}}</td>-->
+		<!--<td>{{row.family_poli}}</td>-->
+		<!--&lt;!&ndash;<td>{{row.family_post}}</td>&ndash;&gt;-->
+		<!--<td>{{row.family_status}}</td>-->
+		<!--<td>-->
+		<!--<button ng-click="updatejiating(row)" type="button"  class="btn btn-href ">-->
+		<!--修改-->
+		<!--</button>-->
+		<!--<button type="button" ng-click="deletejiating($index,row)"  class="btn btn-href ">-->
+		<!--删除-->
+		<!--</button>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</tab>-->
+		<!--getBaseInfo()-->
+		<tab active="true">
+			<tab-heading>
+				<h5 class="modal-title">基本信息</h5>
+			</tab-heading>
+			<div  flex>
+				<div class="" layout="column" >
+					<div >
+						<form name="addPeopleform_1" class="form-horizontal">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.name.$invalid && !addPeopleform_1.name.$pristine }">
+										<label class="col-md-3 control-label">姓名</label>
+										<div class="col-md-9 row">
 											<div  class=" m-l-n">
-												<textarea rows="2" class="form-control" name="specialty" ng-model="user.specialty" ></textarea>
+												<input class="form-control" name="name" type="text" ng-model="user.name" required>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthday.$invalid && !addPeopleform_1.birthday.$pristine }">
+										<label class="col-md-3 control-label">出生年月</label>
+										<div class="col-md-9" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+											<div  class="input-group">
+												<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiguan.$invalid && !addPeopleform_1.jiguan.$pristine }">
+										<label class="col-md-3 control-label">籍贯</label>
+										<div class="col-md-9 ">
+											<div  class=" m-l-n">
+												<div class="dropdown" dropdown >
+													<input autocompletes="" class="tags form-control" ng-model="user.jiguan" name="jiguan" type="text" loaddata="{{address | filter: { dz:user.jiguan} }}"  />
+													<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
+														<span class="caret"  ></span>
+													</div>
+													<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">
+														<li ng-repeat="p in address" ng-class="{active:user.jiguan==p.dz}"  >
+															<a href="javascript:void(0)" ng-click="user.jiguan=p.dz;user.jiguan_ano=p.ano">{{p.dz}}</a>
+														</li>
+													</ul>
+												</div>
+												<!--<ui-select theme="bootstrap"  ng-model="user.jiguan">-->
+												<!--<ui-select-match  placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+												<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
+												<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
+												<!--</ui-select-choices>-->
+												<!--</ui-select>-->
+											</div>
+											<!--<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>-->
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.health.$invalid && !addPeopleform_1.health.$pristine }">
+										<label class="col-md-3 control-label">健康状况</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.health" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in jiankanglist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.rank.$invalid && !addPeopleform_1.rank.$pristine }">
+										<label class="col-md-3 control-label">职级</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.rank" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in zhijilist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.personal.$invalid && !addPeopleform_1.personal.$pristine }">
+										<label class="col-md-3 control-label">个人身份</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.personal" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in personallist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
 											</div>
 										</div>
 									</div>
 								</div>
-
-							</form>
-							<div class="row">
-								<button class="btn btn-default"  ng-click="back_people()">取消</button>
-								<button class="btn btn-primary"  ng-click="saveJiben()">保存</button>
-								<!--ng-disabled="addPeopleform_1.$invalid"-->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[1]" >
-				<div flex>
-					<div class="" layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">职务管理
-								<button ng-click="addzhiwu()"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
-							</div>
-							<table st-table="postinfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>职务名称</th>
-									<th>职务类别</th>
-									<!--<th>职务统计类别</th>-->
-									<th>职级</th>
-									<th>任职状态</th>
-									<th>批准任职时间</th>
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in postinfolist" >
-									<td>{{row.post_name}}</td>
-									<td>{{row.post_category}}</td>
-									<!--<td>{{row.post_statistics_category}}</td>-->
-									<td>{{row.rank}}</td>
-									<td>{{row.work_status}}</td>
-									<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>
-									<td>
-										<button ng-click="updatezhiwu(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button" ng-click="deletezhiwu($index,row)"  class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[2]">
-				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">职称管理
-								<button ng-click="addzhicheng()"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
-							</div>
-							<table st-table="titleinfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>技术任职资格职称</th>
-									<th>获得资格日期</th>
-									<!--<th>聘任时间</th>-->
-									<!--<th>级别</th>-->
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in titleinfolist" >
-									<td>{{row.title_name}}</td>
-									<td>{{row.get_date | date:'yyyy-MM-dd'}}</td>
-									<!--<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>-->
-									<!--<td>{{row.level}}</td>-->
-									<td>
-										<button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button" ng-click="deletezhicheng($index,row)" class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[3]">
-				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">学历管理
-								<button ng-click="addxueli()"  class="btn btn-add btn-href" style="width: 150px;">添加学历</button>
-							</div>
-							<table st-table="eduinfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>学历</th>
-									<!--<th>学历类别</th>-->
-									<th>毕业日期</th>
-									<th>学校名称</th>
-									<th>专业</th>
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in eduinfolist" >
-									<td>{{row.edu_level}}</td>
-									<!--<td>{{row.edu_category}}</td>-->
-									<td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>
-									<td>{{row.school_name}}</td>
-									<td>{{row.profession_name}}</td>
-									<td>
-										<button ng-click="updatexueli(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button"  ng-click="deletexueli($index,row)"  class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[4]">
-				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">学位管理
-								<button ng-click="addxuewei()"  class="btn btn-add btn-href" style="width: 150px;">添加学位</button>
-							</div>
-							<table st-table="degreeinfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>学位</th>
-									<!--<th>学位类别</th>-->
-									<th>学位授予单位</th>
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in degreeinfolist" >
-									<td>{{row.degree_code}}</td>
-									<!--<td>{{row.degree_category}}</td>-->
-									<td>{{row.school_name}}</td>
-									<td>
-										<button ng-click="updatexuewei(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button" ng-click="deletexuewei($index,row)" class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[5]">
-				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">奖惩记录管理
-								<button ng-click="addjiangcheng()"  class="btn btn-add btn-href" style="width: 150px;">添加奖惩记录</button>
-							</div>
-							<table st-table="jiangchenginfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>机关正处工资级别</th>
-									<th>机关正处工资档次</th>
-									<th>事业五级管理薪级</th>
-									<th width="50%">奖惩说明</th>
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in jiangchenginfolist" >
-									<td>{{row.wage_level}}</td>
-									<td>{{row.wage_grade}}</td>
-									<td>{{row.wage_level_2}}</td>
-									<td width="50%">{{row.explanation}}</td>
-									<td>
-										<button ng-click="updatejiangcheng(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button" ng-click="deletejiangcheng($index,row)"  class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[6]">
-				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">年度考核管理
-								<button ng-click="addkaohe()"  class="btn btn-add btn-href" style="width: 150px;">添加年度考核</button>
-							</div>
-							<table st-table="examinfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>考察类别</th>
-									<th>考查时间</th>
-									<th>考查结论类别</th>
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in examinfolist" >
-									<td>{{row.exa_category}}</td>
-									<td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>
-									<td>{{row.exa_result}}</td>
-									<td>
-										<button ng-click="updatekaohe(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button" ng-click="deletekaohe($index,row)"  class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[7]">
-				<div  flex>
-					<div class="" layout="column" >
-						<div >
-							<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
-								<div class="row">
-									<div class="form-group">
-										<!--<label class="col-md-1 control-label">个人简历</label>-->
-										<div class="col-md-12">
-											<textarea rows="20" class="form-control" name="speciaty" ng-model="resumeinfo.resume" ></textarea>
-											<!--<pre ng-bind="resumeinfo.resume"></pre>-->
+								<div class="col-md-4">
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.sex.$invalid && !addPeopleform_1.sex.$pristine }">
+										<label class="col-md-3 control-label">性别</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.sex" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in sexlist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.nation.$invalid && !addPeopleform_1.nation.$pristine }">
+										<label class="col-md-3 control-label">民族</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.nation" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in minzulist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthplace.$invalid && !addPeopleform_1.birthplace.$pristine }">
+										<label class="col-md-3 control-label">出生地</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<div class="dropdown" dropdown >
+													<input autocompletes="" class="tags form-control" ng-model="user.birthplace" name="birthplace" type="text" loaddata="{{address | filter: { dz:user.birthplace} }}"  />
+													<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
+														<span class="caret"  ></span>
+													</div>
+													<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">
+														<li ng-repeat="p in address" ng-class="{active:user.birthplace==p.dz}"  >
+															<a href="javascript:void(0)" ng-click="user.birthplace=p.dz;user.birthplace_ano=p.ano">{{p.dz}}</a>
+														</li>
+													</ul>
+												</div>
+												<!--<ui-select ng-model="user.birthplace" theme="bootstrap">-->
+												<!--<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>-->
+												<!--<ui-select-choices repeat="item in address | filter: $select.search">-->
+												<!--<div ng-bind-html="item.dz | highlight: $select.search"></div>-->
+												<!--</ui-select-choices>-->
+												<!--</ui-select>-->
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.political_status.$invalid && !addPeopleform_1.political_status.$pristine }">
+										<label class="col-md-3 control-label">政治面貌</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.political_status" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in zhengzhilist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.person_status.$invalid && !addPeopleform_1.person_status.$pristine }">
+										<label class="col-md-3 control-label">人员状态</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<ui-select ng-model="user.person_status" theme="bootstrap">
+													<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
+													<ui-select-choices repeat="item in zhuangtailist | filter: $select.search">
+														<div ng-bind-html="item.dz | highlight: $select.search"></div>
+													</ui-select-choices>
+												</ui-select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.card_id.$invalid && !addPeopleform_1.card_id.$pristine }">
+										<label class="col-md-3 control-label">身份证号</label>
+										<div class="col-md-9 row">
+											<div  class=" m-l-n">
+												<input class="form-control" name="card_id" type="text" ng-model="user.card_id" required>
+											</div>
 										</div>
 									</div>
 								</div>
-							</form>
+								<div class="col-md-4">
+									<div>
+										<div class="button btn btn-default" ngf-select="uploadphoto($file)" ng-model="file" name="file" ngf-pattern="'image/*'"
+											 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+											 ngf-resize="{width: 100, height: 100}">请选择</div>
+										<img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
+										<!--<button  ng-click="uploadphoto()">Submit</button>-->
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.work_date.$invalid && !addPeopleform_1.work_date.$pristine }">
+										<label class="col-md-4 control-label">参加工作日期</label>
+										<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+											<div  class="input-group">
+												<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.work_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.organ_date.$invalid && !addPeopleform_1.organ_date.$pristine }">
+										<label class="col-md-4 control-label">参加组织日期</label>
+										<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+											<div  class="input-group">
+												<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.organ_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<div class="row">
-								<button class="btn btn-primary"  ng-click="savejianli()">保存简历</button>
-								<!--ng-disabled="addPeopleform_1.$invalid"-->
+								<div class="form-group" >
+									<label class="col-md-1 control-label">专长</label>
+									<div class="col-md-11 ">
+										<div  class=" m-l-n">
+											<textarea rows="2" class="form-control" name="specialty" ng-model="user.specialty" ></textarea>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-if="tab==tabs[8]">
-				<div flex>
-					<div  layout="column" >
-						<div class="panel panel-default">
-							<div class="panel-heading" style="position: relative">家庭成员管理
-								<button ng-click="addjiating()"  class="btn btn-add btn-href" style="width: 150px;">添加家庭成员</button>
-							</div>
-							<table st-table="familyInfolist"  class="table table-bordered">
-								<thead>
-								<tr>
-									<th>人员姓名</th>
-									<th>与该人关系</th>
-									<th>人员出生日期</th>
-									<th>人员工作单位</th>
-									<th>政治面貌</th>
-									<!--<th>人员职务</th>-->
-									<th>人员现状</th>
-									<th>操作</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr ng-repeat="row in familyInfolist" >
-									<td>{{row.family_name}}</td>
-									<td>{{row.renatinship_name}}</td>
-									<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
-									<td>{{row.family_org_name}}</td>
-									<td>{{row.family_poli}}</td>
-									<!--<td>{{row.family_post}}</td>-->
-									<td>{{row.family_status}}</td>
-									<td>
-										<button ng-click="updatejiating(row)" type="button"  class="btn btn-href ">
-											修改
-										</button>
-										<button type="button" ng-click="deletejiating($index,row)"  class="btn btn-href ">
-											删除
-										</button>
-									</td>
-								</tr>
-								</tbody>
-							</table>
+
+						</form>
+						<div class="row">
+							<button class="btn btn-default"  ng-click="back_people()">取消</button>
+							<button class="btn btn-primary"  ng-click="saveJiben()">保存</button>
+							<!--ng-disabled="addPeopleform_1.$invalid"-->
 						</div>
 					</div>
 				</div>
 			</div>
 		</tab>
-		<!--getBaseInfo()-->
-		<!--<tab active="selectshow">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">基本信息</h5>-->
-			<!--</tab-heading>-->
+		<tab active="false" ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">现任职务</h5>
+			</tab-heading>
+			<div flex>
+				<div class="" layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">职务管理
+							<button ng-click="addzhiwu()"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>
+						</div>
+						<table st-table="postinfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>职务名称</th>
+								<th>职务类别</th>
+								<!--<th>职务统计类别</th>-->
+								<th>职级</th>
+								<th>任职状态</th>
+								<th>批准任职时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in postinfolist" >
+								<td>{{row.post_name}}</td>
+								<td>{{row.post_category}}</td>
+								<!--<td>{{row.post_statistics_category}}</td>-->
+								<td>{{row.rank}}</td>
+								<td>{{row.work_status}}</td>
+								<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>
+								<td>
+									<button ng-click="updatezhiwu(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button" ng-click="deletezhiwu($index,row)"  class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">职称</h5>
+			</tab-heading>
+			<div flex>
+				<div  layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">职称管理
+							<button ng-click="addzhicheng()"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
+						</div>
+						<table st-table="titleinfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>技术任职资格职称</th>
+								<th>获得资格日期</th>
+								<!--<th>聘任时间</th>-->
+								<!--<th>级别</th>-->
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in titleinfolist" >
+								<td>{{row.title_name}}</td>
+								<td>{{row.get_date | date:'yyyy-MM-dd'}}</td>
+								<!--<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>-->
+								<!--<td>{{row.level}}</td>-->
+								<td>
+									<button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button" ng-click="deletezhicheng($index,row)" class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">学历</h5>
+			</tab-heading>
+			<div flex>
+				<div  layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">学历管理
+							<button ng-click="addxueli()"  class="btn btn-add btn-href" style="width: 150px;">添加学历</button>
+						</div>
+						<table st-table="eduinfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>学历</th>
+								<!--<th>学历类别</th>-->
+								<th>毕业日期</th>
+								<th>学校名称</th>
+								<th>专业</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in eduinfolist" >
+								<td>{{row.edu_level}}</td>
+								<!--<td>{{row.edu_category}}</td>-->
+								<td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>
+								<td>{{row.school_name}}</td>
+								<td>{{row.profession_name}}</td>
+								<td>
+									<button ng-click="updatexueli(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button"  ng-click="deletexueli($index,row)"  class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">学位</h5>
+			</tab-heading>
+			<div flex>
+				<div  layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">学位管理
+							<button ng-click="addxuewei()"  class="btn btn-add btn-href" style="width: 150px;">添加学位</button>
+						</div>
+						<table st-table="degreeinfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>学位</th>
+								<!--<th>学位类别</th>-->
+								<th>学位授予单位</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in degreeinfolist" >
+								<td>{{row.degree_code}}</td>
+								<!--<td>{{row.degree_category}}</td>-->
+								<td>{{row.school_name}}</td>
+								<td>
+									<button ng-click="updatexuewei(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button" ng-click="deletexuewei($index,row)" class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">奖惩记录</h5>
+			</tab-heading>
+			<div flex>
+				<div  layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">奖惩记录管理
+							<button ng-click="addjiangcheng()"  class="btn btn-add btn-href" style="width: 150px;">添加奖惩记录</button>
+						</div>
+						<table st-table="jiangchenginfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>机关正处工资级别</th>
+								<th>机关正处工资档次</th>
+								<th>事业五级管理薪级</th>
+								<th width="50%">奖惩说明</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in jiangchenginfolist" >
+								<td>{{row.wage_level}}</td>
+								<td>{{row.wage_grade}}</td>
+								<td>{{row.wage_level_2}}</td>
+								<td width="50%">{{row.explanation}}</td>
+								<td>
+									<button ng-click="updatejiangcheng(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button" ng-click="deletejiangcheng($index,row)"  class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">年度考核</h5>
+			</tab-heading>
+			<div flex>
+				<div  layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">年度考核管理
+							<button ng-click="addkaohe()"  class="btn btn-add btn-href" style="width: 150px;">添加年度考核</button>
+						</div>
+						<table st-table="examinfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>考察类别</th>
+								<th>考查时间</th>
+								<th>考查结论类别</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in examinfolist" >
+								<td>{{row.exa_category}}</td>
+								<td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>
+								<td>{{row.exa_result}}</td>
+								<td>
+									<button ng-click="updatekaohe(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button" ng-click="deletekaohe($index,row)"  class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">个人简历</h5>
+			</tab-heading>
+			<div  flex>
+				<div class="" layout="column" >
+					<div >
+						<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
+							<div class="row">
+								<div class="form-group">
+									<!--<label class="col-md-1 control-label">个人简历</label>-->
+									<div class="col-md-12">
+										<textarea rows="20" class="form-control" name="speciaty" ng-model="resumeinfo.resume" ></textarea>
+										<!--<pre ng-bind="resumeinfo.resume"></pre>-->
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="row">
+							<button class="btn btn-primary"  ng-click="savejianli()">保存简历</button>
+							<!--ng-disabled="addPeopleform_1.$invalid"-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab ng-show="showelse">
+			<tab-heading>
+				<h5 class="modal-title">家庭成员</h5>
+			</tab-heading>
+			<div flex>
+				<div  layout="column" >
+					<div class="panel panel-default">
+						<div class="panel-heading" style="position: relative">家庭成员管理
+							<button ng-click="addjiating()"  class="btn btn-add btn-href" style="width: 150px;">添加家庭成员</button>
+						</div>
+						<table st-table="familyInfolist"  class="table table-bordered">
+							<thead>
+							<tr>
+								<th>人员姓名</th>
+								<th>与该人关系</th>
+								<th>人员出生日期</th>
+								<th>人员工作单位</th>
+								<th>政治面貌</th>
+								<!--<th>人员职务</th>-->
+								<th>人员现状</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="row in familyInfolist" >
+								<td>{{row.family_name}}</td>
+								<td>{{row.renatinship_name}}</td>
+								<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
+								<td>{{row.family_org_name}}</td>
+								<td>{{row.family_poli}}</td>
+								<!--<td>{{row.family_post}}</td>-->
+								<td>{{row.family_status}}</td>
+								<td>
+									<button ng-click="updatejiating(row)" type="button"  class="btn btn-href ">
+										修改
+									</button>
+									<button type="button" ng-click="deletejiating($index,row)"  class="btn btn-href ">
+										删除
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">现任职务</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div class="" layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">职务管理-->
-							<!--<button ng-click="addzhiwu()"  class="btn btn-add btn-href" style="width: 150px;">添加现任职务</button>-->
-						<!--</div>-->
-						<!--<table st-table="postinfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>职务名称</th>-->
-								<!--<th>职务类别</th>-->
-								<!--&lt;!&ndash;<th>职务统计类别</th>&ndash;&gt;-->
-								<!--<th>职级</th>-->
-								<!--<th>任职状态</th>-->
-								<!--<th>批准任职时间</th>-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in postinfolist" >-->
-								<!--<td>{{row.post_name}}</td>-->
-								<!--<td>{{row.post_category}}</td>-->
-								<!--&lt;!&ndash;<td>{{row.post_statistics_category}}</td>&ndash;&gt;-->
-								<!--<td>{{row.rank}}</td>-->
-								<!--<td>{{row.work_status}}</td>-->
-								<!--<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>-->
-								<!--<td>-->
-									<!--<button ng-click="updatezhiwu(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button" ng-click="deletezhiwu($index,row)"  class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">职称</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div  layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">职称管理-->
-							<!--<button ng-click="addzhicheng()"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>-->
-						<!--</div>-->
-						<!--<table st-table="titleinfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>技术任职资格职称</th>-->
-								<!--<th>获得资格日期</th>-->
-								<!--&lt;!&ndash;<th>聘任时间</th>&ndash;&gt;-->
-								<!--&lt;!&ndash;<th>级别</th>&ndash;&gt;-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in titleinfolist" >-->
-								<!--<td>{{row.title_name}}</td>-->
-								<!--<td>{{row.get_date | date:'yyyy-MM-dd'}}</td>-->
-								<!--&lt;!&ndash;<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>&ndash;&gt;-->
-								<!--&lt;!&ndash;<td>{{row.level}}</td>&ndash;&gt;-->
-								<!--<td>-->
-									<!--<button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button" ng-click="deletezhicheng($index,row)" class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">学历</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div  layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">学历管理-->
-							<!--<button ng-click="addxueli()"  class="btn btn-add btn-href" style="width: 150px;">添加学历</button>-->
-						<!--</div>-->
-						<!--<table st-table="eduinfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>学历</th>-->
-								<!--&lt;!&ndash;<th>学历类别</th>&ndash;&gt;-->
-								<!--<th>毕业日期</th>-->
-								<!--<th>学校名称</th>-->
-								<!--<th>专业</th>-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in eduinfolist" >-->
-								<!--<td>{{row.edu_level}}</td>-->
-								<!--&lt;!&ndash;<td>{{row.edu_category}}</td>&ndash;&gt;-->
-								<!--<td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>-->
-								<!--<td>{{row.school_name}}</td>-->
-								<!--<td>{{row.profession_name}}</td>-->
-								<!--<td>-->
-									<!--<button ng-click="updatexueli(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button"  ng-click="deletexueli($index,row)"  class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">学位</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div  layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">学位管理-->
-							<!--<button ng-click="addxuewei()"  class="btn btn-add btn-href" style="width: 150px;">添加学位</button>-->
-						<!--</div>-->
-						<!--<table st-table="degreeinfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>学位</th>-->
-								<!--&lt;!&ndash;<th>学位类别</th>&ndash;&gt;-->
-								<!--<th>学位授予单位</th>-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in degreeinfolist" >-->
-								<!--<td>{{row.degree_code}}</td>-->
-								<!--&lt;!&ndash;<td>{{row.degree_category}}</td>&ndash;&gt;-->
-								<!--<td>{{row.school_name}}</td>-->
-								<!--<td>-->
-									<!--<button ng-click="updatexuewei(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button" ng-click="deletexuewei($index,row)" class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">奖惩记录</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div  layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">奖惩记录管理-->
-							<!--<button ng-click="addjiangcheng()"  class="btn btn-add btn-href" style="width: 150px;">添加奖惩记录</button>-->
-						<!--</div>-->
-						<!--<table st-table="jiangchenginfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>机关正处工资级别</th>-->
-								<!--<th>机关正处工资档次</th>-->
-								<!--<th>事业五级管理薪级</th>-->
-								<!--<th width="50%">奖惩说明</th>-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in jiangchenginfolist" >-->
-								<!--<td>{{row.wage_level}}</td>-->
-								<!--<td>{{row.wage_grade}}</td>-->
-								<!--<td>{{row.wage_level_2}}</td>-->
-								<!--<td width="50%">{{row.explanation}}</td>-->
-								<!--<td>-->
-									<!--<button ng-click="updatejiangcheng(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button" ng-click="deletejiangcheng($index,row)"  class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">年度考核</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div  layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">年度考核管理-->
-							<!--<button ng-click="addkaohe()"  class="btn btn-add btn-href" style="width: 150px;">添加年度考核</button>-->
-						<!--</div>-->
-						<!--<table st-table="examinfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>考察类别</th>-->
-								<!--<th>考查时间</th>-->
-								<!--<th>考查结论类别</th>-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in examinfolist" >-->
-								<!--<td>{{row.exa_category}}</td>-->
-								<!--<td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>-->
-								<!--<td>{{row.exa_result}}</td>-->
-								<!--<td>-->
-									<!--<button ng-click="updatekaohe(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button" ng-click="deletekaohe($index,row)"  class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">个人简历</h5>-->
-			<!--</tab-heading>-->
-			<!--<div  flex>-->
-				<!--<div class="" layout="column" >-->
-					<!--<div >-->
-						<!--<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">-->
-							<!--<div class="row">-->
-								<!--<div class="form-group">-->
-									<!--&lt;!&ndash;<label class="col-md-1 control-label">个人简历</label>&ndash;&gt;-->
-									<!--<div class="col-md-12">-->
-										<!--<textarea rows="20" class="form-control" name="speciaty" ng-model="resumeinfo.resume" ></textarea>-->
-										<!--&lt;!&ndash;<pre ng-bind="resumeinfo.resume"></pre>&ndash;&gt;-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-						<!--</form>-->
-						<!--<div class="row">-->
-							<!--<button class="btn btn-primary"  ng-click="savejianli()">保存简历</button>-->
-							<!--&lt;!&ndash;ng-disabled="addPeopleform_1.$invalid"&ndash;&gt;-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</tab>-->
-		<!--<tab ng-show="showelse">-->
-			<!--<tab-heading>-->
-				<!--<h5 class="modal-title">家庭成员</h5>-->
-			<!--</tab-heading>-->
-			<!--<div flex>-->
-				<!--<div  layout="column" >-->
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-heading" style="position: relative">家庭成员管理-->
-							<!--<button ng-click="addjiating()"  class="btn btn-add btn-href" style="width: 150px;">添加家庭成员</button>-->
-						<!--</div>-->
-						<!--<table st-table="familyInfolist"  class="table table-bordered">-->
-							<!--<thead>-->
-							<!--<tr>-->
-								<!--<th>人员姓名</th>-->
-								<!--<th>与该人关系</th>-->
-								<!--<th>人员出生日期</th>-->
-								<!--<th>人员工作单位</th>-->
-								<!--<th>政治面貌</th>-->
-								<!--&lt;!&ndash;<th>人员职务</th>&ndash;&gt;-->
-								<!--<th>人员现状</th>-->
-								<!--<th>操作</th>-->
-							<!--</tr>-->
-							<!--</thead>-->
-							<!--<tbody>-->
-							<!--<tr ng-repeat="row in familyInfolist" >-->
-								<!--<td>{{row.family_name}}</td>-->
-								<!--<td>{{row.renatinship_name}}</td>-->
-								<!--<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>-->
-								<!--<td>{{row.family_org_name}}</td>-->
-								<!--<td>{{row.family_poli}}</td>-->
-								<!--&lt;!&ndash;<td>{{row.family_post}}</td>&ndash;&gt;-->
-								<!--<td>{{row.family_status}}</td>-->
-								<!--<td>-->
-									<!--<button ng-click="updatejiating(row)" type="button"  class="btn btn-href ">-->
-										<!--修改-->
-									<!--</button>-->
-									<!--<button type="button" ng-click="deletejiating($index,row)"  class="btn btn-href ">-->
-										<!--删除-->
-									<!--</button>-->
-								<!--</td>-->
-							<!--</tr>-->
-							<!--</tbody>-->
-						<!--</table>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-
-		<!--</tab>-->
+		</tab>
 	</tabset>
 </div>

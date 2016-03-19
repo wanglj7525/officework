@@ -301,17 +301,17 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
 
 //添加用户
         $scope.addp=function(){
-            $scope.tabs = [
-                { title:'基本信息',active:true },
-                { title:'现任职务',active:false,disabled: true  },
-                { title:'职称',active:false,disabled: true },
-                { title:'学历',active:false,disabled: true },
-                { title:'学位',active:false,disabled: true },
-                { title:'奖惩记录',active:false,disabled: true },
-                { title:'年度考核',active:false,disabled: true },
-                { title:'个人简历',active:false,disabled: true },
-                { title:'家庭成员',active:false,disabled: true }
-            ];
+            //$scope.tabs = [
+            //    { title:'基本信息',active:true },
+            //    { title:'现任职务',active:false,disabled: true  },
+            //    { title:'职称',active:false,disabled: true },
+            //    { title:'学历',active:false,disabled: true },
+            //    { title:'学位',active:false,disabled: true },
+            //    { title:'奖惩记录',active:false,disabled: true },
+            //    { title:'年度考核',active:false,disabled: true },
+            //    { title:'个人简历',active:false,disabled: true },
+            //    { title:'家庭成员',active:false,disabled: true }
+            //];
 
             $scope.user={};
             $scope.isedit=true;
@@ -329,17 +329,17 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         }
 //修改用户
         $scope.updatepeople=function(people){
-            $scope.tabs = [
-                { title:'基本信息',active:true },
-                { title:'现任职务',active:false},
-                { title:'职称',active:false},
-                { title:'学历',active:false},
-                { title:'学位',active:false},
-                { title:'奖惩记录',active:false},
-                { title:'年度考核',active:false},
-                { title:'个人简历',active:false},
-                { title:'家庭成员',active:false}
-            ];
+            //$scope.tabs = [
+            //    { title:'基本信息',active:true },
+            //    { title:'现任职务',active:false},
+            //    { title:'职称',active:false},
+            //    { title:'学历',active:false},
+            //    { title:'学位',active:false},
+            //    { title:'奖惩记录',active:false},
+            //    { title:'年度考核',active:false},
+            //    { title:'个人简历',active:false},
+            //    { title:'家庭成员',active:false}
+            //];
             $scope.updatepeopleelement=people;
             $scope.user={};
             $scope.isedit=true;
@@ -527,7 +527,6 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             }
         };
 
-
         //保存基本信息
         $scope.saveJiben=function(){
             $scope.showelse=true;
@@ -611,19 +610,95 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 });
                 SettingpeopleService.addBase(postData).then(
                     function(res){
-                        $scope.user=res.data.info;
-                        console.log($scope.user);
-                        $scope.tabs = [
-                            { title:'基本信息',active:true },
-                            { title:'现任职务',active:false,disabled: false  },
-                            { title:'职称',active:false,disabled: false },
-                            { title:'学历',active:false,disabled: false },
-                            { title:'学位',active:false,disabled: false },
-                            { title:'奖惩记录',active:false,disabled: false },
-                            { title:'年度考核',active:false,disabled: false },
-                            { title:'个人简历',active:false,disabled: false },
-                            { title:'家庭成员',active:false,disabled: false }
-                        ];
+                        var people=res.data.info;
+                        var postData = $.param({
+                            person_id:people.person_id,
+                            access_token:$localStorage.token
+                        });
+                        SettingpeopleService.getPeopleBase(postData).then(
+                            function(res){
+                                if(res.data.code==200){
+                                    $scope.user=res.data.info;
+                                    //$scope.user_photo=$rootScope.imageurl+$scope.user.head_pic;
+                                    //下拉列表默认显示值
+                                    if($scope.user.jiguan||$scope.user.birthplace){
+                                        for(var i=0;i<$scope.address.length;i++){
+                                            if($scope.user.birthplace==$scope.address[i].ano){
+                                                $scope.user.birthplace=$scope.address[i].dz;
+                                            }
+                                            if($scope.user.jiguan==$scope.address[i].ano){
+                                                $scope.user.jiguan=$scope.address[i].dz;
+                                            }
+                                        }
+                                    }
+                                    if($scope.user.person_status){
+                                        for(var i=0;i<$scope.zhuangtailist.length;i++){
+                                            if($scope.user.person_status==$scope.zhuangtailist[i].ano){
+                                                $scope.user.person_status=$scope.zhuangtailist[i];
+                                            }
+                                        }
+                                    }
+                                    if($scope.user.personal){
+                                        for(var i=0;i<$scope.personallist.length;i++){
+                                            if($scope.user.personal==$scope.personallist[i].ano){
+                                                $scope.user.personal=$scope.personallist[i];
+                                            }
+                                        }
+                                    }
+                                    if($scope.user.rank){
+                                        for(var i=0;i<$scope.zhijilist.length;i++){
+                                            if($scope.user.rank==$scope.zhijilist[i].ano){
+                                                $scope.user.rank=$scope.zhijilist[i];
+                                            }
+                                        }
+                                    }
+                                    if($scope.user.health){
+                                        for(var i=0;i<$scope.jiankanglist.length;i++){
+                                            if($scope.user.health==$scope.jiankanglist[i].ano){
+                                                $scope.user.health=$scope.jiankanglist[i];
+                                            }
+                                        }
+                                    }
+                                    if($scope.user.political_status){
+                                        for(var i=0;i<$scope.zhengzhilist.length;i++){
+                                            if($scope.user.political_status==$scope.zhengzhilist[i].ano){
+                                                $scope.user.political_status=$scope.zhengzhilist[i];
+                                            }
+                                        }
+                                    }
+                                    if($scope.user.sex){
+                                        for(var i=0;i<$scope.sexlist.length;i++){
+                                            if($scope.user.sex==$scope.sexlist[i].ano){
+                                                $scope.user.sex=$scope.sexlist[i];
+                                            }
+                                        }
+                                    }
+                                    if( $scope.user.nation){
+                                        for(var i=0;i<$scope.minzulist.length;i++){
+                                            if($scope.user.nation==$scope.minzulist[i].ano){
+                                                $scope.user.nation=$scope.minzulist[i];
+                                            }
+                                        }
+                                    }
+                                }else{
+                                    alert(res.data.msg);
+                                }
+                            },function(rej){
+                                console.log(rej);
+                            }
+                        )
+
+                        //$scope.tabs = [
+                        //    { title:'基本信息',active:true },
+                        //    { title:'现任职务',active:false,disabled: false  },
+                        //    { title:'职称',active:false,disabled: false },
+                        //    { title:'学历',active:false,disabled: false },
+                        //    { title:'学位',active:false,disabled: false },
+                        //    { title:'奖惩记录',active:false,disabled: false },
+                        //    { title:'年度考核',active:false,disabled: false },
+                        //    { title:'个人简历',active:false,disabled: false },
+                        //    { title:'家庭成员',active:false,disabled: false }
+                        //];
                     },
                     function(rej){
 

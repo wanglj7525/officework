@@ -280,7 +280,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						$scope.paginationConf.totalItems = res.data.info.totalElements;
 						$scope.searchpeopleshow = res.data.info.elements;
 					}else{
-						alert(res.data.msg);
+						console.log(res.data.msg);
 					}
 
 				},
@@ -501,7 +501,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							if(res.data.code==200){
 								$state.go('app.analysis');
 							}else{
-								alert(res.data.msg);
+								console.log(res.data.msg);
 							}
 						}
 						,function(rej){

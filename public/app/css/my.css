@@ -475,7 +475,12 @@ fieldset[disabled] .btn-mydefault.active {
 
 /*自定义标签*/
 .table > tbody > tr > .mytd {
-    padding: 8px 5px;
+    padding: 8px 0px;
+    border-top: 1px solid #eaeff0;
+}
+.table > tbody > tr > .mytd2 {
+    padding-left: 0px;
+    padding-right: 1px;
     border-top: 1px solid #eaeff0;
 }
 .modal-dialog{
@@ -491,4 +496,11 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .mytable>tbody>tr>td{
     border: 0px;
+}
+.secondtabletitle{
+    background-color: #a7a7a7;
+    color: #555;
+}
+.daimabtn{
+    text-align: left!important;
 }

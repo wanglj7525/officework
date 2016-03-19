@@ -97,7 +97,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 								//angular.copy($scope.newdata,data);
 								//console.log($scope.newdata);
 							}else{
-								alert(res.data.msg);
+								console.log(res.data.msg);
 							}
 
 						}
@@ -122,7 +122,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 							}
 						}
 					}else{
-						alert(res.data.msg);
+						console.log(res.data.msg);
 					}
 				},
 				function (rej) {

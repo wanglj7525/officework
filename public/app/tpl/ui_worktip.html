@@ -38,7 +38,6 @@
                         <th width="10%">分类</th>
                         <th width="16%">地区/单位</th>
                         <th width="32%">提示</th>
-                        <th width="32%">备注</th>
                         <th width="10%">操作</th>
                     </tr>
                     </thead>
@@ -46,7 +45,6 @@
                     <tr ng-repeat="row in worktiptable | filter: {category:pid}" >
                         <td>{{row.category}}</td>
                         <td>{{row.unit_name}}</td>
-                        <td >{{row.msg}}</td>
                         <td >{{row.msg}}</td>
                         <td class="lastTd">
                             <button type="button" ui-sref="app.deploy" class="btn btn-href btn-default">

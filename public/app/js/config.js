@@ -56,6 +56,10 @@ angular.module('app')   .constant('STATIC_PATH','/public/app/')
                       var stateService = $injector.get('$state');
                       stateService.go("access.signin");
                       return $q.reject(response);
+                  }else{
+                      if(response.data&&response.data.info&&response.data.info.access_token){
+                          $localStorage.token=response.data.info.access_token;
+                      }
                   }
                   return response;
               },

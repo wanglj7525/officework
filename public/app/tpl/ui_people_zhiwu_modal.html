@@ -68,12 +68,23 @@
 					<label class="col-md-4 control-label">任职机构所属地</label>
 					<div class="col-md-8 row">
 						<div  class=" m-l-n">
-							<ui-select theme="bootstrap"  ng-model="zhiwu.location">
-								<ui-select-match  placeholder="请选择任职机构所属地">{{$select.selected.dz}}</ui-select-match>
-								<ui-select-choices repeat="item in elementSelect.address | filter: $select.search">
-									<div  ng-bind-html="item.dz | highlight: $select.search"></div>
-								</ui-select-choices>
-							</ui-select>
+							<div class="dropdown" dropdown >
+								<input autocompletes="" class="tags form-control" ng-model="zhiwu.location" name="location" type="text" loaddata="{{elementSelect.address | filter: { dz:zhiwu.location} }}"  />
+								<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
+									<span class="caret"  ></span>
+								</div>
+								<ul  class="dropdown-menu" role="menu" style="width: 100%;max-height: 200px;overflow-y: auto" ng-if="1">
+									<li ng-repeat="p in elementSelect.address" ng-class="{active:zhiwu.location==p.dz}"  >
+										<a href="javascript:void(0)" ng-click="zhiwu.location=p.dz;zhiwu.location_ano=p.ano">{{p.dz}}</a>
+									</li>
+								</ul>
+							</div>
+							<!--<ui-select theme="bootstrap"  ng-model="zhiwu.location">-->
+								<!--<ui-select-match  placeholder="请选择任职机构所属地">{{$select.selected.dz}}</ui-select-match>-->
+								<!--<ui-select-choices repeat="item in elementSelect.address | filter: $select.search">-->
+									<!--<div  ng-bind-html="item.dz | highlight: $select.search"></div>-->
+								<!--</ui-select-choices>-->
+							<!--</ui-select>-->
 						</div>
 					</div>
 				</div>

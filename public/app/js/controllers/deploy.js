@@ -369,7 +369,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 									person_id:newpeople.person_id,
 									unit_id:$localStorage.tree_uuid,
 									adjust_type:2,
-									now_post_id:'',
+									now_post_id:people.now_post_id,
 									tobe_post_id:deploy.zhiwei['id'],
 									reason:deploy.reason
 								}

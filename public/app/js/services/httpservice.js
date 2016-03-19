@@ -183,7 +183,7 @@ angular.module('app')
         },
         logoutservice:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/security/logout?';
+            var path=SERVICE_URL+'/security/logout';
             var promise=$http.post(path,params).then(function(response){
                 return response;
             },function(response){
@@ -283,8 +283,30 @@ angular.module('app')
         },
         addPeoplepostinfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/postInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/postInfo/add';
+            var promise=$http.post( path,params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updatePeoplepostinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/postInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        deletePeoplepostinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/postInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -308,8 +330,19 @@ angular.module('app')
         },
         addPeopletitleinfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/titleInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/titleInfo/add';
+            var promise=$http.post( path, params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updatePeopletitleinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/titleInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -333,8 +366,8 @@ angular.module('app')
         },
         addEduinfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/eduInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/eduInfo/add';
+            var promise=$http.post( path, params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -358,8 +391,8 @@ angular.module('app')
         },
         addDegreeinfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/degreeInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/degreeInfo/add';
+            var promise=$http.post( path,params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -383,8 +416,8 @@ angular.module('app')
         },
         addjiangchenginfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/jiangchengInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/jiangchengInfo/add';
+            var promise=$http.post( path, params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -408,8 +441,8 @@ angular.module('app')
         },
         addexaminfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/examInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/examInfo/add';
+            var promise=$http.post( path, params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -447,8 +480,8 @@ angular.module('app')
         },
         addfamilyInfo:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/familyInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/familyInfo/add';
+            var promise=$http.post( path,params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -459,6 +492,18 @@ angular.module('app')
         /**
          * 基本信息
          * **/
+        savePhoto:function(params){
+            var deferred=$q.defer();
+            //var path='http://192.168.2.108:81/setting/user/basicInfo/upload';
+            var path=SERVICE_URL+'/setting/user/basicInfo/upload';
+            var promise=$http.post( path, params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         updateBase:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/basicInfo/update?';
@@ -472,8 +517,8 @@ angular.module('app')
         },
         addBase:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/setting/user/basicInfo/add?';
-            var promise=$http.post( path+ params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/basicInfo/add';
+            var promise=$http.post( path, params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -857,8 +902,8 @@ angular.module('app')
         },
         saveadjust:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/adjustplan/save?';
-            var promise=$http.post(path+params).then(function(response){
+            var path=SERVICE_URL+'/adjustplan/save';
+            var promise=$http.post(path,params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);

@@ -1,0 +1,89 @@
+img{ border:0;}
+table{ font-size:14px;}
+ol,ul li{ list-style-type:none;}
+a{ color:#464646; text-decoration:none;}
+a:focus {outline:none;-moz-outline:none;}
+a:hover{color:#358ee0; text-decoration:none;}
+.clear {clear:both;}
+.main{ width:1200px; margin:0 auto;}
+
+/*登录和注册*/
+.logintext{background-color: #FFF7D1;margin-bottom: 10px;color: #FF8D5E;border: 1px #FFF7D1 solid;height: auto;font-size: 14px;padding: 5px}
+.logintopleft{ background:#3db2f7; height:8px; width:50%; float:left;}
+.logintopright{ background:#008ee0; height:8px; width:50%; float:right;}
+.loginframe{ width:360px; height:380px; position:absolute; top:50%; left:50%; margin-top:-190px; margin-left:-180px;}
+.loginbigtit{ font-size:30px; line-height:40px; height:40px; margin:0 auto; text-align:center;}
+.loginuserimg{ width:64px; height:64px; margin:20px auto; background:url(images/login3_03.jpg) no-repeat!important;}
+.logininput{ border:1px solid #cfcfcf; width:360px; height:38px; margin-bottom:20px; padding-right:28px;}
+.loginuser{ background:url(images/login3_07.jpg) no-repeat 330px center;}
+.loginstatus{ width:100%; padding:10px 0;}
+.span1{ width:360px;}
+[class*="span"] {
+    float: left;
+    min-height: 1px;
+}
+input{padding-left: 8px}
+.loginbtn { text-align:center;
+    border: none;
+    background: #6dc8fd;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden; }
+.loginbtn:hover, .loginbtn:focus {
+    background-color: #4e6d8d;
+    color: #ffffff;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden; }
+.loginbtn:active, .loginbtn.active {
+    background-color: #2c3e50;
+    color: rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+.loginbtn.disabled, .loginbtn[disabled] {
+    background-color: #95a5a6;
+    color: #ffffff; }
+.loginbtn.loginbtn-large {
+    padding-bottom: 12px;
+    padding-top: 13px; }
+.loginbtn.login-primary {
+    background-color: #6dc8fd; }
+.loginbtn.loginbtn-primary:hover, .loginbtn.loginbtn-primary:focus {
+    background-color: #3db2f7; }
+.loginbtn.loginbtn-primary:active, .loginbtn.loginbtn-primary.active {
+    background-color: #6dc8fd; }
+.loginbtn-block {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.loginbtn-block + .loginbtn-block {
+    margin-top: 5px;
+}
+.loginbtn-large {
+    padding: 11px 19px;
+    font-size: 17.5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.loginpassword{ background:url(images/login3_07-11.jpg) no-repeat 330px center;}
+/*版权信息*/
+.footer{ width:100%;text-align:center; padding:10px 0; position:fixed; bottom:0;}

@@ -29,17 +29,19 @@
 											<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 										</div>
 										<div class="list-group">
-											<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">（应交流）</span></div>
+											<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}
+												<span ng-if="peoples.needChange" style="color: red">（应交流）</span>
+											</div>
 											<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>
 											<div class="list-group-item" >
-												<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'" ng-click="removepeople(peoples)">免职</button>
+												<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'" ng-click="removepeople(peoples)" style="padding: 0px">免职</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="row"  ng-if="t!=daweilist.row[0]">
-								<div class="panel col-md-4 panel-card " ng-repeat="peoples in  t.column">
+								<div class="panel col-lg-4 col-md-6 panel-card " ng-repeat="peoples in  t.column" style="height: 220px">
 									<div class="item">
 										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 									</div>
@@ -47,7 +49,7 @@
 										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;padding: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">(应交流)</span></div>
 										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px;padding: 0px">{{peoples.post_name}}</div>
 										<div class="list-group-item" >
-											<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'"  ng-click="removepeople(peoples)">免职</button>
+											<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'"  ng-click="removepeople(peoples)" style="padding: 0px">免职</button>
 										</div>
 									</div>
 								</div>
@@ -133,7 +135,7 @@
 												<img ng-click="showOneDetail(t)" onerror="javascript:this.src='/public/app/img/a.png';" src="{{t.imgurl?imageurl+t.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{t.name}}">
 											</div>
 											<div style="text-align: center">
-												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{t.name}}</div>
+												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;white-space:nowrap" >{{t.name}}</div>
 												<div class="list-group-item" style="padding: 0px">{{t.company}}</div>
 												<div class="list-group-item">
 													<button class="btn btn-info  w-full"  ng-click="selectpeople(t)" style="padding: 0px">任职</button>

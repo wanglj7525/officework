@@ -255,7 +255,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
             });
             modaldeleteInstance.result.then(function () {
                 var params=$.param({
-                    id:people.id,
+                    person_id:people.id,
                     access_token:$localStorage.token
                 });
                 SettingpeopleService.deletePeople(params).then(
@@ -301,6 +301,18 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
 
 //添加用户
         $scope.addp=function(){
+            $scope.tabs = [
+                { title:'基本信息',active:true },
+                { title:'现任职务',active:false,disabled: true  },
+                { title:'职称',active:false,disabled: true },
+                { title:'学历',active:false,disabled: true },
+                { title:'学位',active:false,disabled: true },
+                { title:'奖惩记录',active:false,disabled: true },
+                { title:'年度考核',active:false,disabled: true },
+                { title:'个人简历',active:false,disabled: true },
+                { title:'家庭成员',active:false,disabled: true }
+            ];
+
             $scope.user={};
             $scope.isedit=true;
             $scope.showelse=false;
@@ -317,6 +329,17 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         }
 //修改用户
         $scope.updatepeople=function(people){
+            $scope.tabs = [
+                { title:'基本信息',active:true },
+                { title:'现任职务',active:false},
+                { title:'职称',active:false},
+                { title:'学历',active:false},
+                { title:'学位',active:false},
+                { title:'奖惩记录',active:false},
+                { title:'年度考核',active:false},
+                { title:'个人简历',active:false},
+                { title:'家庭成员',active:false}
+            ];
             $scope.updatepeopleelement=people;
             $scope.user={};
             $scope.isedit=true;
@@ -590,6 +613,17 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     function(res){
                         $scope.user=res.data.info;
                         console.log($scope.user);
+                        $scope.tabs = [
+                            { title:'基本信息',active:true },
+                            { title:'现任职务',active:false,disabled: false  },
+                            { title:'职称',active:false,disabled: false },
+                            { title:'学历',active:false,disabled: false },
+                            { title:'学位',active:false,disabled: false },
+                            { title:'奖惩记录',active:false,disabled: false },
+                            { title:'年度考核',active:false,disabled: false },
+                            { title:'个人简历',active:false,disabled: false },
+                            { title:'家庭成员',active:false,disabled: false }
+                        ];
                     },
                     function(rej){
 

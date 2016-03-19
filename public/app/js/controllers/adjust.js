@@ -1,4 +1,14 @@
 'use strict';
+app.controller('ModaldelReasonInstanceCtrl', ['$scope', '$modalInstance' ,function($scope, $modalInstance) {
+
+	$scope.ok = function () {
+		$modalInstance.close();
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+}]);
 app.controller('analysisReasonController', ['$scope', '$modalInstance',function($scope, $modalInstance) {
 	$scope.adjust={}
 		$scope.ok = function () {
@@ -110,6 +120,14 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 		
 		//删除原因
 		$scope.delReason= function (e) {
+			var modaldelReasonInstance = $modal.open({
+				templateUrl: 'delReason.html',
+				controller: 'ModaldelReasonInstanceCtrl',
+				size: 'sm',
+				resolve: {
+				}
+			});
+			modaldelReasonInstance.result.then(function (item) {
 			var postData = $.param({
 				id:e.id,
 			});
@@ -121,6 +139,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 								$scope.adjusttable.splice(i,1);
 							}
 						}
+						$state.go('app.analysis');
 					}else{
 						console.log(res.data.msg);
 					}
@@ -130,6 +149,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 				}
 			);
 			}
+			)}
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue) {
 			var postData = $.param({
 				tree_id: $localStorage.tree_uuid,

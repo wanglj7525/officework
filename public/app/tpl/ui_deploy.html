@@ -15,8 +15,8 @@
 		<div ng-show="!isdetail">
 			<div class="col-md-4 col-padding" ng-style="{height:showheight}" style="overflow-y: auto">
 				<div class="panel panel-default">
-					<div class="panel-heading">{{treeselected}}
-					</div>
+					<div class="panel-heading">{{treeselected}}</div>
+					<div class="" ng-if="daweilist">
 					<div class="form-group" >
 						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
 					</div>
@@ -56,7 +56,16 @@
 							</div>
 						</div>
 					</div>
-
+					</div>
+				</div>
+				<div class="" ng-if="!daweilist" style="margin-left: 18px">
+					<!--{{treeselected}}班子暂无成员-->
+					<div class="" ng-if="texttree" style="margin-left: 18px">
+						请选择班子
+					</div>
+					<div class="" ng-if="!texttree" style="margin-left: 18px">
+						{{treeselected}}班子暂无成员
+					</div>
 				</div>
 			</div>
 

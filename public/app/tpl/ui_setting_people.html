@@ -16,6 +16,9 @@
           <script type="text/ng-template" id="addxueliModel.html">
                <div ng-include="'/public/app/tpl/ui_people_xueli_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="updatexueliModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_xueli_update_modal.html'"></div>
+          </script>
           <script type="text/ng-template" id="addxueweiModel.html">
                <div ng-include="'/public/app/tpl/ui_people_xuewei_modal.html'"></div>
           </script>
@@ -384,7 +387,7 @@
                                                             <button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletezhicheng($index,row)" class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>
@@ -424,10 +427,10 @@
                                                        <td>{{row.school_name}}</td>
                                                        <td>{{row.profession_name}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatexueli(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button"  ng-click="deletexueli($index,row)"  class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>

@@ -350,6 +350,17 @@ angular.module('app')
             });
             return promise;
         },
+        deletePeopletitleinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/titleInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         /**
          * 学历 查询 添加 删除 修改
          * **/
@@ -368,6 +379,28 @@ angular.module('app')
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/eduInfo/add';
             var promise=$http.post( path, params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        updateEduinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/eduInfo/update?';
+            var promise=$http.put( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        deleteEduinfo:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/eduInfo/delete?';
+            var promise=$http.delete( path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);

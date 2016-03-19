@@ -824,6 +824,35 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
+
+        //删除职称
+        $scope.deletezhicheng=function(idx,zhicheng){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:zhicheng.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deletePeopletitleinfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.titleinfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
         //添加学历
         $scope.addxueli=function(){
             var modalzwaddInstance = $modal.open({
@@ -840,15 +869,170 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 var params=$.param({
                     person_id:  $scope.user.person_id,
                     edu_level:xueli.edu_level?xueli.edu_level['ano']:"",
+                    edu_category:"",
                     greduation_date:$filter("date")(xueli.greduation_date, "yyyyMMdd"),
                     school_name:xueli.school_name,
                     profession_name:xueli.profession_name,
+                    statistics_logo:"",
+                    no:0,
                     access_token:$localStorage.token
                 });
                 SettingpeopleService.addEduinfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.eduinfolist.push(res.data.info);
+                            //学历
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getEduinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.eduinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
+                        }else{
+                            alert("添加失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //修改学历
+        $scope.updatexueli=function(xueli){
+            $scope.newdata=angular.copy(xueli);
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'updatexueliModel.html',
+                controller: 'ModalUpdatexueliInstanceCtrl',
+                size: 'md',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    },
+                    newdata:function(){
+                        return $scope.newdata
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function () {
+                var params=$.param({
+                    id:xueli.id,
+                    person_id:  $scope.user.person_id,
+                    edu_level:$scope.newdata.edu_level?$scope.newdata.edu_level['ano']:"",
+                    edu_category:"",
+                    greduation_date:$filter("date")($scope.newdata.greduation_date, "yyyyMMdd"),
+                    school_name:$scope.newdata.school_name,
+                    profession_name:$scope.newdata.profession_name,
+                    statistics_logo:"",
+                    no:0,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.updateEduinfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getEduinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.eduinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
+                        }else{
+                            alert("添加失败");
+                        }
+                    },
+                    function(rej){
+
+                    }
+                )
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //删除学历
+        $scope.deletexueli=function(idx,xueli){
+            var modaldeleteInstance = $modal.open({
+                templateUrl: 'deleteModel.html',
+                controller: 'ModalDeleteInstanceCtrl',
+                size: 'sm'
+            });
+            modaldeleteInstance.result.then(function () {
+                var params=$.param({
+                    id:xueli.id,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.deleteEduinfo(params).then(
+                    function (res) {
+                        if(res.data.code==200){
+                            $scope.eduinfolist.splice(idx,1);
+                        }else{
+                            alert(res.data.msg);
+                        }
+                    },
+                    function (rej) {
+                        console.log(rej);
+                    }
+                );
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        //添加学位
+        $scope.addxuewei=function(){
+            var modalzwaddInstance = $modal.open({
+                templateUrl: 'addxueweiModel.html',
+                controller: 'ModalAddxueweiInstanceCtrl',
+                size: 'md',
+                resolve:{
+                    elementSelect:function(){
+                        return $scope.elementSelect
+                    }
+                }
+            });
+            modalzwaddInstance.result.then(function (xuewei) {
+                var params=$.param({
+                    person_id:  $scope.user.person_id,
+                    degree_code:xuewei.degree_name?xuewei.degree_name['ano']:"",
+                    degree_name:xuewei.degree_name?xuewei.degree_name['dz']:"",
+                    school_name:xuewei.school_name,
+                    degree_category:"",
+                    no:0,
+                    access_token:$localStorage.token
+                });
+                SettingpeopleService.addDegreeinfo(params).then(
+                    function(res){
+                        if(res.data.code==200){
+                            //学位
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getDegreeinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.degreeinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
                         }else{
                             alert("添加失败");
                         }
@@ -878,12 +1062,28 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     person_id:  $scope.user.person_id,
                     degree_name:xuewei.degree_name?xuewei.degree_name['ano']:"",
                     school_name:xuewei.school_name,
+                    degree_category:"",
+                    no:0,
                     access_token:$localStorage.token
                 });
                 SettingpeopleService.addDegreeinfo(params).then(
                     function(res){
                         if(res.data.code==200){
-                            $scope.degreeinfolist.push(res.data.info);
+                            //学位
+                            var postData = $.param({
+                                person_id:$scope.user.person_id,
+                                access_token:$localStorage.token
+                            });
+                            SettingpeopleService.getDegreeinfo(postData).then(
+                                function(res){
+                                    if (res.data.code == 200) {
+                                        $scope.degreeinfolist=res.data.info;
+                                    }
+                                },
+                                function(rej){
+
+                                }
+                            );
                         }else{
                             alert("添加失败");
                         }
@@ -1133,6 +1333,25 @@ app.controller('ModalAddxueliInstanceCtrl', ['$scope', '$modalInstance','element
     $scope.xueli={};
     $scope.ok = function () {
         $modalInstance.close($scope.xueli);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalUpdatexueliInstanceCtrl', ['$scope', '$modalInstance','elementSelect','newdata',function($scope, $modalInstance,elementSelect,newdata) {
+    $scope.elementSelect=elementSelect;
+    $scope.newdata=newdata;
+    //学历
+    if($scope.newdata.edu_level){
+        for(var i=0;i<$scope.elementSelect.xuellist.length;i++){
+            if($scope.newdata.edu_level==$scope.elementSelect.xuellist[i].dz){
+                $scope.newdata.edu_level=$scope.elementSelect.xuellist[i];
+            }
+        }
+    }
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

@@ -227,7 +227,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//人员状态
 		SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 		//学历
-		SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+		SettingdaimaService.getCodagetList("ZB64").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
 		////任职原因
 		//SettingdaimaService.getCodagetList("ZB12").then(function(res){ $scope.renzhilist=res.data.info.list;},function(rej){});
 		////免职原因

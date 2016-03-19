@@ -34,7 +34,7 @@
 							{{row.reason}}
 							</td>
 							<td style="width: 15%;">
-								<button type="button" ng-click="updateReason(row)" class="btn btn-href ">
+								<button type="button" ng-click="updateReason(row)" class="btn btn-href " ng-if="row.type=='任职'">
 									修改
 								</button>
 								<button type="button" ng-click="delReason(row)" class="btn btn-href ">

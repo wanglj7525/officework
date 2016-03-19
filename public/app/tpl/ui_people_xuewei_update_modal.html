@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<div style="position: relative">
+		<span >
+			<h3 class="modal-title">修改学位</h3>
+		</span>
+	</div>
+</div>
+<div class="modal-body">
+	<form name="updatePeoplexueweiform" class="form-horizontal">
+		<div class="row">
+			<div class="">
+				<div class="form-group" ng-class="{ 'has-error' : updatePeoplexueweiform.degree_name.$invalid && !updatePeoplexueweiform.degree_name.$pristine }">
+					<label class="col-md-4 control-label">学位</label>
+					<div class="col-md-8 row">
+						<div  class=" m-l-n">
+							<ui-select ng-model="newdata.degree_code" theme="bootstrap">
+								<ui-select-match placeholder="请选择学位">{{$select.selected.dz}}</ui-select-match>
+								<ui-select-choices repeat="item in elementSelect.xuewei | filter: $select.search">
+									<div ng-bind-html="item.dz | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : updatePeoplexueweiform.school_name.$invalid && !updatePeoplexueweiform.school_name.$pristine }">
+					<label class="col-md-4 control-label">学位授予单位</label>
+					<div class="col-md-8 row">
+						<div  class=" m-l-n">
+							<input class="form-control" name="school_name" type="text" ng-model="newdata.school_name" required>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">取消</button>
+	<button class="btn btn-primary"   ng-click="ok()">确定</button>
+	<!--ng-disabled="updatePeoplexueweiform.$invalid"-->
+</div>

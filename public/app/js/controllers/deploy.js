@@ -227,7 +227,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//人员状态
 		SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 		//学历
-		SettingdaimaService.getCodagetList("GB4658").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
+		SettingdaimaService.getCodagetList("ZB64").then(function(res){ $scope.xuelilist=res.data.info.list;},function(rej){});
 		////任职原因
 		//SettingdaimaService.getCodagetList("ZB12").then(function(res){ $scope.renzhilist=res.data.info.list;},function(rej){});
 		////免职原因
@@ -467,6 +467,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		}
 		//保存班子
 		$scope.savedeploy=function(){
+			if($scope.InPerson_ids.length==0&&$scope.OutPerson_ids.length==0){
+				alert("没有进行任免职操作，不需要保存调配");
+				return ;
+			}
 			var modalsaveInstance = $modal.open({
 				templateUrl: 'savePeopleModel.html',
 				controller: 'SaveDeployInstanceCtrl',
@@ -485,24 +489,27 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					in:$scope.InPerson,
 					out:$scope.OutPerson
 				}
-				console.log(json);
-				var postData = $.param({
-					json:JSON.stringify(json),
-					access_token:$localStorage.token
-				});
-				UIDeployservice.deploySave(postData).then(
-					function(res){
-						console.log(res);
-						if(res.data.code==200){
-							$state.go('app.analysis');
-						}else{
-							alert(res.data.msg);
+
+					console.log(json);
+					var postData = $.param({
+						json:JSON.stringify(json),
+						access_token:$localStorage.token
+					});
+					UIDeployservice.deploySave(postData).then(
+						function(res){
+							console.log(res);
+							if(res.data.code==200){
+								$state.go('app.analysis');
+							}else{
+								alert(res.data.msg);
+							}
 						}
-					}
-					,function(rej){
-						console.log(rej);
-					})
-				console.log();
+						,function(rej){
+							console.log(rej);
+						})
+					console.log();
+
+
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});

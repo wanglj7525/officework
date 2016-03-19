@@ -16,8 +16,14 @@
           <script type="text/ng-template" id="addxueliModel.html">
                <div ng-include="'/public/app/tpl/ui_people_xueli_modal.html'"></div>
           </script>
+          <script type="text/ng-template" id="updatexueliModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_xueli_update_modal.html'"></div>
+          </script>
           <script type="text/ng-template" id="addxueweiModel.html">
                <div ng-include="'/public/app/tpl/ui_people_xuewei_modal.html'"></div>
+          </script>
+          <script type="text/ng-template" id="updatexueweiModel.html">
+               <div ng-include="'/public/app/tpl/ui_people_xuewei_update_modal.html'"></div>
           </script>
           <script type="text/ng-template" id="addjiangchengModel.html">
                <div ng-include="'/public/app/tpl/ui_people_jiangcheng_modal.html'"></div>
@@ -384,7 +390,7 @@
                                                             <button ng-click="updatezhicheng(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletezhicheng($index,row)" class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>
@@ -403,7 +409,7 @@
                                    <div  layout="column" >
                                         <div class="panel panel-default">
                                              <div class="panel-heading" style="position: relative">学历管理
-                                                  <button ng-click="addxueli()"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
+                                                  <button ng-click="addxueli()"  class="btn btn-add btn-href" style="width: 150px;">添加学历</button>
                                              </div>
                                              <table st-table="eduinfolist"  class="table table-bordered">
                                                   <thead>
@@ -424,10 +430,10 @@
                                                        <td>{{row.school_name}}</td>
                                                        <td>{{row.profession_name}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatexueli(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button"  ng-click="deletexueli($index,row)"  class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>
@@ -446,7 +452,7 @@
                                    <div  layout="column" >
                                         <div class="panel panel-default">
                                              <div class="panel-heading" style="position: relative">学位管理
-                                                  <button ng-click="addxuewei()"  class="btn btn-add btn-href" style="width: 150px;">添加职称</button>
+                                                  <button ng-click="addxuewei()"  class="btn btn-add btn-href" style="width: 150px;">添加学位</button>
                                              </div>
                                              <table st-table="degreeinfolist"  class="table table-bordered">
                                                   <thead>
@@ -459,14 +465,14 @@
                                                   </thead>
                                                   <tbody>
                                                   <tr ng-repeat="row in degreeinfolist" >
-                                                       <td>{{row.degree_name}}</td>
+                                                       <td>{{row.degree_code}}</td>
                                                        <!--<td>{{row.degree_category}}</td>-->
                                                        <td>{{row.school_name}}</td>
                                                        <td>
-                                                            <button ng-click="" type="button"  class="btn btn-href ">
+                                                            <button ng-click="updatexuewei(row)" type="button"  class="btn btn-href ">
                                                                  修改
                                                             </button>
-                                                            <button type="button"  class="btn btn-href ">
+                                                            <button type="button" ng-click="deletexuewei($index,row)" class="btn btn-href ">
                                                                  删除
                                                             </button>
                                                        </td>

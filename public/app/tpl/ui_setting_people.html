@@ -117,7 +117,7 @@
                                                   <div class="row">
                                                        <div class="col-md-4">
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.name.$invalid && !addPeopleform_1.name.$pristine }">
-                                                                 <label class="col-md-3 control-label">姓名</label>
+                                                                 <label class="col-md-3 control-label"style="text-align: left">姓名</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <input class="form-control" name="name" type="text" ng-model="user.name" required>
@@ -125,7 +125,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthday.$invalid && !addPeopleform_1.birthday.$pristine }">
-                                                                 <label class="col-md-3 control-label">出生年月</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">出生年月</label>
                                                                  <div class="col-md-9" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
                                                                       <div  class="input-group">
                                                                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
@@ -135,7 +135,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.jiguan.$invalid && !addPeopleform_1.jiguan.$pristine }">
-                                                                 <label class="col-md-3 control-label">籍贯</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">籍贯</label>
                                                                  <div class="col-md-9 ">
                                                                       <div  class=" m-l-n">
                                                                       <ui-select theme="bootstrap"  ng-model="user.jiguan">
@@ -149,7 +149,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.health.$invalid && !addPeopleform_1.health.$pristine }">
-                                                                 <label class="col-md-3 control-label">健康状况</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">健康状况</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.health" theme="bootstrap">
@@ -162,7 +162,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.rank.$invalid && !addPeopleform_1.rank.$pristine }">
-                                                                 <label class="col-md-3 control-label">职级</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">职级</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.rank" theme="bootstrap">
@@ -175,7 +175,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.personal.$invalid && !addPeopleform_1.personal.$pristine }">
-                                                                 <label class="col-md-3 control-label">个人身份</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">个人身份</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.personal" theme="bootstrap">
@@ -190,7 +190,7 @@
                                                        </div>
                                                        <div class="col-md-4">
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.sex.$invalid && !addPeopleform_1.sex.$pristine }">
-                                                                 <label class="col-md-3 control-label">性别</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">性别</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.sex" theme="bootstrap">
@@ -203,7 +203,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.nation.$invalid && !addPeopleform_1.nation.$pristine }">
-                                                                 <label class="col-md-3 control-label">民族</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">民族</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.nation" theme="bootstrap">
@@ -216,7 +216,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.birthplace.$invalid && !addPeopleform_1.birthplace.$pristine }">
-                                                                 <label class="col-md-3 control-label">出生地</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">出生地</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.birthplace" theme="bootstrap">
@@ -229,7 +229,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.political_status.$invalid && !addPeopleform_1.political_status.$pristine }">
-                                                                 <label class="col-md-3 control-label">政治面貌</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">政治面貌</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.political_status" theme="bootstrap">
@@ -242,7 +242,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.person_status.$invalid && !addPeopleform_1.person_status.$pristine }">
-                                                                 <label class="col-md-3 control-label">人员状态</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">人员状态</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <ui-select ng-model="user.person_status" theme="bootstrap">
@@ -255,7 +255,7 @@
                                                                  </div>
                                                             </div>
                                                             <div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.card_id.$invalid && !addPeopleform_1.card_id.$pristine }">
-                                                                 <label class="col-md-3 control-label">身份证号</label>
+                                                                 <label class="col-md-3 control-label" style="text-align: left">身份证号</label>
                                                                  <div class="col-md-9 row">
                                                                       <div  class=" m-l-n">
                                                                            <input class="form-control" name="card_id" type="text" ng-model="user.card_id" required>

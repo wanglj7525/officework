@@ -156,7 +156,7 @@
 					<div class="" layout="column" ng-if="postinfolist">
 						<div class="panel panel-default">
 							<table st-table="postinfolist"  class="table table-bordered" >
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>职务名称</th>
 									<th>职务类别</th>
@@ -190,7 +190,7 @@
 					<div  layout="column" ng-if="titleinfolist">
 						<div class="panel panel-default">
 							<table st-table="titleinfolist"  class="table table-bordered" >
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>技术任职资格职称</th>
 									<th>获得资格日期</th>
@@ -220,7 +220,7 @@
 					<div  layout="column" ng-if="eduinfolist" >
 						<div class="panel panel-default">
 							<table st-table="eduinfolist"  class="table table-bordered">
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>学历</th>
 									<!--<th>学历类别</th>-->
@@ -249,10 +249,10 @@
 					<h5 class="modal-title">学位</h5>
 				</tab-heading>
 				<div flex>
-					<div  layout="column" ng-if="!degreeinfolist">
+					<div  layout="column" ng-if="degreeinfolist">
 						<div class="panel panel-default">
 							<table st-table="degreeinfolist"  class="table table-bordered">
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>学位</th>
 									<!--<th>学位类别</th>-->
@@ -269,7 +269,7 @@
 							</table>
 						</div>
 					</div>
-					<div  layout="column" ng-if="degreeinfolist">暂无学位</div>
+					<div  layout="column" ng-if="!degreeinfolist">暂无学位</div>
 				</div>
 			</tab>
 			<tab  >
@@ -280,7 +280,7 @@
 					<div  layout="column" ng-if="degreeinfolist">
 						<div class="panel panel-default">
 							<table st-table="jiangchenginfolist"  class="table table-bordered">
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>奖惩说明</th>
 									<th>机关正处工资级别</th>
@@ -311,7 +311,7 @@
 					<div  layout="column" ng-if="examinfolist">
 					<div class="panel panel-default">
 							<table st-table="examinfolist"  class="table table-bordered">
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>考察类别</th>
 									<th>考查时间</th>
@@ -409,7 +409,7 @@
 					<div  layout="column" >
 						<div class="panel panel-default">
 							<table st-table="familyInfolist"  class="table table-bordered">
-								<thead>
+								<thead class="secondtabletitle">
 								<tr>
 									<th>人员姓名</th>
 									<th>与该人关系</th>

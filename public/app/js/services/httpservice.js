@@ -256,6 +256,17 @@ angular.module('app')
             });
             return promise;
         },
+        deletePeople:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/delete?';
+            var promise=$http.delete( path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         getPeopleBase:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/basicInfo?';

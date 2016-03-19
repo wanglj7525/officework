@@ -1,11 +1,4 @@
-img{ border:0;}
-table{ font-size:14px;}
-ol,ul li{ list-style-type:none;}
-a{ color:#464646; text-decoration:none;}
-a:focus {outline:none;-moz-outline:none;}
-a:hover{color:#358ee0; text-decoration:none;}
-.clear {clear:both;}
-.main{ width:1200px; margin:0 auto;}
+
 
 /*登录和注册*/
 .logintext{background-color: #FFF7D1;margin-bottom: 10px;color: #FF8D5E;border: 1px #FFF7D1 solid;height: auto;font-size: 14px;padding: 5px}
@@ -23,6 +16,9 @@ a:hover{color:#358ee0; text-decoration:none;}
     min-height: 1px;
 }
 input{padding-left: 8px}
+.logininput:focus{
+    border: 1px #6dc8fd solid;
+}
 .loginbtn { text-align:center;
     border: none;
     background: #6dc8fd;

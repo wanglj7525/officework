@@ -100,6 +100,12 @@ thead{
     padding-left: 0px;
     padding-right: 0px;
     margin: auto;
+    width: 250px;
+}
+@media (max-width: 992px) {
+    .leftNav{
+        width: 100%;
+    }
 }
 /*添加按钮*/
 .btn-add{
@@ -506,4 +512,7 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .modal-title{
     font-size: 16px;
+}
+.savebtn{
+    position: fixed;bottom: 0px;z-index: 1000;opacity: 0.5;width:27%;
 }

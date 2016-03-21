@@ -405,4 +405,6 @@ app.controller('SetTreeCtrl',['$rootScope','$state','$scope','$modal','$log','$l
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
+   //单位树表单验证部分
+        
 }]);

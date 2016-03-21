@@ -7,7 +7,8 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 			$scope.renzhilist=res.data.info.list;
 		},function(rej){});
 		var select_tree = $.param({
-			tree_id:$localStorage.tree_uuid
+			tree_id:$localStorage.tree_uuid,
+			access_token:$localStorage.token
 		});
 		adjustdetailservice.getzhiweiList(select_tree).then(
 			function (res) {

@@ -2,8 +2,8 @@
 
 /*登录和注册*/
 .logintext{background-color: #FFF7D1;margin-bottom: 10px;color: #FF8D5E;border: 1px #FFF7D1 solid;height: auto;font-size: 14px;padding: 5px}
-.logintopleft{ background:#3db2f7; height:8px; width:50%; float:left;}
-.logintopright{ background:#008ee0; height:8px; width:50%; float:right;}
+.logintopleft{ background:#2E7BC9; height:8px; width:50%; float:left;}
+.logintopright{ background:#2E7BC9; height:8px; width:50%; float:right;}
 .loginframe{ width:360px; height:380px; position:absolute; top:50%; left:50%; margin-top:-190px; margin-left:-180px;}
 .loginbigtit{ font-size:30px; line-height:40px; height:40px; margin:0 auto; text-align:center;}
 .loginuserimg{ width:64px; height:64px; margin:20px auto; background:url(images/login3_03.jpg) no-repeat!important;}

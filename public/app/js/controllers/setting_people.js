@@ -726,6 +726,13 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 SettingpeopleService.updateresumeInfo(params).then(
                     function(res){
                         if(res.data.code==200){
+                            var modalsavejianliInstance = $modal.open({
+                                templateUrl: 'savejianliModel.html',
+                                controller: 'ModalsavejianliInstanceCtrl',
+                                size: 'sm'
+                            });
+                            modalsavejianliInstance.result.then(function () {})
+                            
                         }else{
                             alert("保存失败");
                         }
@@ -1936,6 +1943,15 @@ app.controller('ModalAddxueweiInstanceCtrl', ['$scope', '$modalInstance','elemen
     $scope.xuewei={};
     $scope.ok = function () {
         $modalInstance.close($scope.xuewei);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}]);
+app.controller('ModalsavejianliInstanceCtrl', ['$scope', '$modalInstance',function($scope, $modalInstance) {
+    $scope.ok = function () {
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

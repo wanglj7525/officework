@@ -37,7 +37,8 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			var postData1 = $.param({
 				tree_id:$localStorage.tree_uuid,
-				category:0
+				category:0,
+				access_token:$localStorage.token
 			});
 			UIworktipservice.getworktipList(postData1).then(
 				function (res) {

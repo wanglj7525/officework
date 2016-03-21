@@ -34,9 +34,13 @@ app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice',
 	$scope.selectcategory=function(id,name){
 		$scope.pid=id;
 		$scope.currentname=name;
+		
 	}
 	//切换单位树 请求新的数据
-	UIworktipservice.getworkcategory().then(
+	var postData = $.param({
+		access_token:$localStorage.token
+	});
+	UIworktipservice.getworkcategory(postData).then(
 		function (res) {
 			$scope.tipinfo = res.data.info.list;
 		},
@@ -47,7 +51,8 @@ app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice',
 	$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			var postData = $.param({
 				tree_id:$localStorage.tree_uuid,
-				category:''
+				category:'',
+				access_token:$localStorage.token
 			});
 			UIworktipservice.getworktipList(postData).then(
 				function (res) {

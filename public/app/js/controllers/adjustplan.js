@@ -9,15 +9,22 @@ app.controller('ModalDeleteAdjustInstanceCtrl', ['$scope', '$modalInstance' ,'it
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService','$modal',
-	function($scope, $http, $state, $timeout,UIAdjustplanService,$modal) {
-		UIAdjustplanService.getAdjustplanList().then(
+app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService','$modal','$localStorage',
+	function($scope, $http, $state, $timeout,UIAdjustplanService,$modal,$localStorage) {
+		var postData = $.param({
+			access_token:$localStorage.token
+		});
+		UIAdjustplanService.getAdjustplanList(postData).then(
 			function (res) {
 				$scope.planlist = res.data.info;
 				console.log($scope.planlist)
 				$scope.currentname=$scope.planlist[0].name;
 				$scope.currentid=$scope.planlist[0].id;
-					UIAdjustplanService.getAdjustplanDetail($scope.currentid).then(
+				var postData1 = $.param({
+					id:$scope.currentid,
+					access_token:$localStorage.token
+				});
+					UIAdjustplanService.getAdjustplanDetail(postData1).then(
 						function(res){
 							$scope.plandetail=res.data.info;
 							console.log($scope.plandetail)
@@ -27,8 +34,11 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 							console.log(rej);
 						}
 					);
-
-				UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
+				var postData2 = $.param({
+					id:$scope.planlist[0].id,
+					access_token:$localStorage.token
+				});
+				UIAdjustplanService.getAdjustplanDetail(postData2).then(
 					function(res){
 						$scope.plandetail=res.data.info;
 						console.log($scope.plandetail)
@@ -47,7 +57,11 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 		$scope.selectdplan=function(plan){
 			$scope.currentid=plan.id;
 			$scope.currentname=plan.name;
-			UIAdjustplanService.getAdjustplanDetail($scope.currentid).then(
+			var postData3 = $.param({
+				id:$scope.currentid,
+				access_token:$localStorage.token
+			});
+			UIAdjustplanService.getAdjustplanDetail(postData3).then(
 				function(res){
 					$scope.plandetail=res.data.info;
 					console.log($scope.plandetail)
@@ -70,15 +84,27 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 				}
 			});
 			modaladjustdeleteInstance.result.then(function (item) {
-				UIAdjustplanService.delAdjustPlan($scope.currentid).then(
+				var postData4 = $.param({
+					id:$scope.currentid,
+					access_token:$localStorage.token
+				});
+				UIAdjustplanService.delAdjustPlan(postData4).then(
 					function(res){
 						$scope.temp11=$scope.planlist.length
 						if(res.data.code==200){
-							UIAdjustplanService.getAdjustplanList().then(
+							var postData6 = $.param({
+								access_token:$localStorage.token
+							});
+							UIAdjustplanService.getAdjustplanList(postData6).then(
 								function (res) {
 									$scope.planlist = res.data.info;
 									$scope.currentname=$scope.planlist[0].name;
-									UIAdjustplanService.getAdjustplanDetail($scope.planlist[0].id).then(
+									$scope.currentid=$scope.planlist[0].id;
+									var postData5 = $.param({
+										id:$scope.planlist[0].id,
+										access_token:$localStorage.token
+									});
+									UIAdjustplanService.getAdjustplanDetail(postData5).then(
 										function(res){
 											$scope.plandetail=res.data.info;
 										},

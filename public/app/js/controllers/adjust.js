@@ -49,7 +49,8 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 				var postData = $.param({
 					tree_id:$localStorage.tree_uuid,
 					name:saveadjust.name,
-					note:saveadjust.reason
+					note:saveadjust.reason,
+					access_token:$localStorage.token
 				});
 				console.log(postData);
 				adjustdetailservice.saveadjust(postData).then(function(res){
@@ -60,7 +61,8 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 			});
 		}
 		var zhiwei = $.param({
-			tree_id:$localStorage.tree_uuid
+			tree_id:$localStorage.tree_uuid,
+			access_token:$localStorage.token
 		});
 		adjustdetailservice.getzhiweiList(zhiwei).then(
 			function (res) {
@@ -94,7 +96,8 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 						id: data.id,
 						//tree_id:353165011,
 						tobe_post_id: adjust.zhiwu["id"],
-						reason: adjust.yuanyin
+						reason: adjust.yuanyin,
+						access_token:$localStorage.token
 						//access_token: $localStorage.token
 					});
 					console.log(adjust.zhiwu)
@@ -131,6 +134,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 			modaldelReasonInstance.result.then(function (item) {
 			var postData = $.param({
 				id:e.id,
+				access_token:$localStorage.token
 			});
 			adjustdetailservice.delAdjustList(postData).then(
 				function (res) {

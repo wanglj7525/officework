@@ -12,21 +12,28 @@
 		<script type="text/ng-template" id="myModalContent.html">
 			<div ng-include="'/public/app/tpl/ui_message_modal.html'"></div>
 		</script>
+		<script>
+//			var s=document.getElementById("savebtnwidth").offsetWidth;
+//			document.getElementById("savebutton").style.width = s + "px";
+//			alert(s);
+		</script>
 		<div ng-show="!isdetail">
-			<div class="col-md-4 col-padding" ng-style="{height:showheight}" style="overflow-y: auto">
+			<div class="col-md-4 col-padding" ng-style="{height:showheight}" style="overflow-y: auto" id="savebtnwidth">
 				<div class="panel panel-default">
 					<div class="panel-heading">{{treeselected}}</div>
 					<div class="" ng-if="daweilist">
-					<div class="form-group" >
-						<button style="position: fixed;bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()">保存班子调整</button>
-					</div>
-					<div  class="deploy" >
+					
+					<div  class="deploy"  >
+						<div id="btnframe">
 						<div ng-repeat="t in daweilist.row" >
 							<div class="deploy" ng-if="t==daweilist.row[0]">
-								<div class="deployframe"  >
+								<div class="deployframe"   >
 									<div class="panel panel-card deploycontent" style="width: 30%" ng-repeat="peoples in t.column">
-										<div class="item">
+										<div class="item" ng-if="peoples.name">
 											<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
+										</div>
+										<div class="item" ng-if="!peoples.name">
+											<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/b.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/b.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 										</div>
 										<div class="list-group">
 											<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}
@@ -41,9 +48,12 @@
 								</div>
 							</div>
 							<div class="row"  ng-if="t!=daweilist.row[0]">
-								<div class="panel col-lg-4 col-md-6 panel-card " ng-repeat="peoples in  t.column" style="height: 220px">
-									<div class="item">
+								<div class="panel col-lg-4 col-md-6  panel-card " ng-repeat="peoples in  t.column" style="height: 220px">
+									<div class="item" ng-if="peoples.name">
 										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
+									</div>
+									<div class="item" ng-if="!peoples.name">
+										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/b.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/b.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 									</div>
 									<div class="list-group" style="text-align: center">
 										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;padding: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">(应交流)</span></div>
@@ -54,6 +64,9 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<button style="bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()" ng-if="!InPerson_ids.length==0||!OutPerson_ids.length==0">保存班子调整</button>
+						<button style="" class="btn savebtn  btn-danger font-bold"   ng-click="savedeploy()" ng-if="InPerson_ids.length==0&&OutPerson_ids.length==0" id="savebutton">保存班子调整</button>
 						</div>
 					</div>
 					</div>

@@ -750,10 +750,10 @@ angular.module('app')
 }]) .service('UIAdjustplanService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
     //调整方案
     return{
-        getAdjustplanList:function(){
+        getAdjustplanList:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/adjustplan/list';
-            var promise=$http.get(path).then(function(response){
+            var path=SERVICE_URL+'/adjustplan/list?';
+            var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -761,10 +761,10 @@ angular.module('app')
             });
             return promise;
         },
-        getAdjustplanDetail:function(id){
+        getAdjustplanDetail:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/adjustplan/get?id='+id;
-            var promise=$http.get(path).then(function(response){
+            var path=SERVICE_URL+'/adjustplan/get?'
+            var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -772,10 +772,10 @@ angular.module('app')
             });
             return promise;
         },
-        delAdjustPlan:function(id){
+        delAdjustPlan:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/adjustplan/delete?id='+id;
-            var promise=$http.delete(path).then(function(response){
+            var path=SERVICE_URL+'/adjustplan/delete?';
+            var promise=$http.delete(path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -799,10 +799,10 @@ angular.module('app')
             });
             return promise;
         },
-        getworkcategory:function(){
+        getworkcategory:function(params){
             var deferred=$q.defer();
-            var path=SERVICE_URL+'/worktip/category';
-            var promise=$http.get(path).then(function(response){
+            var path=SERVICE_URL+'/worktip/category?';
+            var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);

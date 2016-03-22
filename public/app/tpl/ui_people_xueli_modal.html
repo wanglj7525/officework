@@ -8,10 +8,10 @@
 <div class="modal-body" >
 	<form name="addPeoplexueliform" class="form-horizontal">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.edu_level.$invalid && !addPeoplexueliform.edu_level.$pristine }">
-					<label class="col-md-4 control-label">学历</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">学历</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="xueli.edu_level" theme="bootstrap">
 								<ui-select-match placeholder="请选择学历">{{$select.selected.dz}}</ui-select-match>
@@ -23,26 +23,26 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.school_name.$invalid && !addPeoplexueliform.school_name.$pristine }">
-					<label class="col-md-4 control-label">学校名称</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">学校名称</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="school_name" type="text" ng-model="xueli.school_name" required>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.profession_name.$invalid && !addPeoplexueliform.profession_name.$pristine }">
-					<label class="col-md-4 control-label">专业名称</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">专业名称</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="profession_name" type="text" ng-model="xueli.profession_name" required>
 						</div>
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplexueliform.greduation_date.$invalid && !addPeoplexueliform.greduation_date.$pristine }">
-					<label class="col-md-4 control-label">毕业日期</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-xs-4 control-label">毕业日期</label>
+					<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="xueli.greduation_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>

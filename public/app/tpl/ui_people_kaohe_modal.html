@@ -10,8 +10,8 @@
 		<div class="row">
 			<div class="">
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplekaoheform.exa_category.$invalid && !addPeoplekaoheform.exa_category.$pristine }">
-					<label class="col-md-4 control-label">考查类别</label>
-					<div class="col-md-8 row">
+					<label class="col-md-4 col-xs-4 control-label">考查类别</label>
+					<div class="col-md-8 col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="kaocha.exa_category" theme="bootstrap">
 								<ui-select-match placeholder="请选择考查类别">{{$select.selected.dz}}</ui-select-match>
@@ -23,8 +23,8 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplekaoheform.exa_date.$invalid && !addPeoplekaoheform.exa_date.$pristine }">
-					<label class="col-md-4 control-label">考查时间</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-md-4 col-xs-4 control-label">考查时间</label>
+					<div class="col-md-8 col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="kaocha.exa_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -33,8 +33,8 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplekaoheform.exa_result.$invalid && !addPeoplekaoheform.exa_result.$pristine }">
-					<label class="col-md-4 control-label">考查结论</label>
-					<div class="col-md-8 row">
+					<label class="col-md-4 col-xs-4 control-label">考查结论</label>
+					<div class="col-md-8 col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="kaocha.exa_result" theme="bootstrap">
 								<ui-select-match placeholder="请选择考查结论">{{$select.selected.dz}}</ui-select-match>

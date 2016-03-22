@@ -18,7 +18,7 @@
 //			alert(s);
 		</script>
 		<div ng-show="!isdetail">
-			<div class="col-md-4 col-padding" ng-style="{height:showheight}" style="overflow-y: auto" id="savebtnwidth">
+			<div class="col-md-4 col-xs-4 col-padding" ng-style="{height:showheight}" style="overflow-y: auto" id="savebtnwidth">
 				<div class="panel panel-default">
 					<div class="panel-heading">{{treeselected}}</div>
 					<div class="" ng-if="daweilist">
@@ -48,7 +48,7 @@
 								</div>
 							</div>
 							<div class="row"  ng-if="t!=daweilist.row[0]">
-								<div class="panel col-lg-4 col-md-6  panel-card " ng-repeat="peoples in  t.column" style="height: 220px">
+								<div class="panel col-lg-4 col-md-6 col-xs-4 panel-card " ng-repeat="peoples in  t.column" style="height: 220px">
 									<div class="item" ng-if="peoples.name">
 										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
 									</div>
@@ -65,8 +65,8 @@
 								</div>
 							</div>
 						</div>
-						<button style="bottom: 0px;z-index: 1000" class="btn w-full  btn-danger font-bold" ng-click="savedeploy()" ng-if="!InPerson_ids.length==0||!OutPerson_ids.length==0">保存班子调整</button>
-						<button style="" class="btn savebtn  btn-danger font-bold"   ng-click="savedeploy()" ng-if="InPerson_ids.length==0&&OutPerson_ids.length==0" id="savebutton">保存班子调整</button>
+						<button  class="btn savebtn  btn-danger font-bold" ng-click="savedeploy()" ng-if="!InPerson_ids.length==0||!OutPerson_ids.length==0">保存班子调整</button>
+						<button  class="btn savebtn   btn-danger font-bold" ng-click="savedeploy()" ng-if="InPerson_ids.length==0&&OutPerson_ids.length==0"  disabled="disabled">保存班子调整</button>
 						</div>
 					</div>
 					</div>
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-8 col-padding" ng-style="{height:showheight}" style="overflow-y: auto" >
+			<div class="col-md-8 col-xs-8 col-padding" ng-style="{height:showheight}" style="overflow-y: auto" >
 				<accordion close-others="oneAtATime">
 					<accordion-group is-open="status.open" class="b-info">
 						<accordion-heading class="btn-info">
@@ -151,7 +151,7 @@
 						<div class="panel-body row">
 							<div class="row" >
 								<div ng-repeat="t in searchpeopleshow">
-									<div class="col-lg-2 col-md-4 col-sm-6">
+									<div class="col-lg-2 col-md-4 col-sm-6 col-xs-6">
 										<div class="panel panel-card">
 											<div class="item">
 												<img ng-click="showOneDetail(t)" onerror="javascript:this.src='/public/app/img/a.png';" src="{{t.imgurl?imageurl+t.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{t.name}}">

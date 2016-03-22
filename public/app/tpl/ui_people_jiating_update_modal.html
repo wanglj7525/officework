@@ -8,18 +8,18 @@
 <div class="modal-body" >
 	<form name="updatePeoplejiatingform" class="form-horizontal">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-xs-6 ">
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplejiatingform.family_name.$invalid && !updatePeoplejiatingform.family_name.$pristine }">
-					<label class="col-md-4 control-label">人员姓名</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">人员姓名</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="family_name" type="text" ng-model="newdata.family_name" required>
 						</div>
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplejiatingform.family_birthday.$invalid && !updatePeoplejiatingform.family_birthday.$pristine }">
-					<label class="col-md-4 control-label">出生日期</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-xs-4 control-label">出生日期</label>
+					<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.family_birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -28,18 +28,18 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplejiatingform.family_org_name.$invalid && !updatePeoplejiatingform.family_org_name.$pristine }">
-					<label class="col-md-4 control-label">工作单位</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">工作单位</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="family_org_name" type="text" ng-model="newdata.family_org_name" required>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplejiatingform.renationship_number.$invalid && !updatePeoplejiatingform.renationship_number.$pristine }">
-					<label class="col-md-4 control-label">与该人关系</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">与该人关系</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="newdata.renationship_number" theme="bootstrap">
 								<ui-select-match placeholder="请输入搜索...">{{$select.selected.dz}}</ui-select-match>
@@ -51,8 +51,8 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplejiatingform.family_poli.$invalid && !updatePeoplejiatingform.family_poli.$pristine }">
-					<label class="col-md-4 control-label">政治面貌</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">政治面貌</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="newdata.family_poli" theme="bootstrap">
 								<ui-select-match placeholder="请选择政治面貌">{{$select.selected.dz}}</ui-select-match>
@@ -64,8 +64,8 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplejiatingform.family_status.$invalid && !updatePeoplejiatingform.family_status.$pristine }">
-					<label class="col-md-4 control-label">人员现状</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">人员现状</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="newdata.family_status" theme="bootstrap">
 								<ui-select-match placeholder="请选择人员现状">{{$select.selected.dz}}</ui-select-match>

@@ -9,8 +9,8 @@
 <div class="modal-body">
     <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
         <div class="form-group">
-            <label class="col-md-3 control-label">拟任职务</label>
-            <div class="col-md-9 row">
+            <label class="col-md-3 col-xs-3 control-label">拟任职务</label>
+            <div class="col-md-9 col-xs-9 row">
                 <div  class=" m-l-n">
                     <ui-select ng-model="adjust.zhiwu" theme="bootstrap" ng-controller="adjustdetailController">
                         <ui-select-match placeholder="请选择拟任职务">{{$select.selected.name }}</ui-select-match>
@@ -33,8 +33,8 @@
             <!--</div>-->
         </div>
         <div class="form-group"  ng-class="{ 'has-error' : renzhiform.reason.$invalid && !renzhiform.reason.$pristine }">
-            <label class="col-md-3 control-label">调配原因</label>
-            <div class="col-md-9 row">
+            <label class="col-md-3 col-xs-3 control-label">调配原因</label>
+            <div class="col-md-9 col-xs-9 row">
                 <div  class=" m-l-n">
                     <div class="dropdown" dropdown  ng-controller="adjustdetailController">
                         <input autocompletes="" class="tags form-control" name="adjust" ng-model="adjust.yuanyin" type="text" loaddata="{{adjustreason | filter: { dz:adjust.yuanyin} }}" required />

@@ -8,8 +8,8 @@
 <div class="modal-body">
   <form name="mianzhiform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
     <div class="form-group"  ng-class="{ 'has-error' : renzhiform.reason.$invalid && !renzhiform.reason.$pristine }">
-      <label class="col-md-2 control-label">调配原因</label>
-      <div class="col-md-10 row">
+      <label class="col-md-2 col-xs-2 control-label">调配原因</label>
+      <div class="col-md-10 col-xs-10 row">
         <div  class=" m-l-n">
           <div class="dropdown" dropdown >
             <input autocompletes="" class="tags form-control" ng-model="deploy.reason" name="reason" type="text" loaddata="{{mianzhilist | filter: { dz:deploy.reason} }}" required />
@@ -26,8 +26,8 @@
       </div>
     </div>
     <div class="form-group" ng-show="hasanalysis">
-      <label class="col-md-2 control-label">分析结果</label>
-      <div class="col-md-10 row">
+      <label class="col-md-2 col-xs-2 control-label">分析结果</label>
+      <div class="col-md-10 col-xs-10 row">
         <div  class=" m-l-n">
           <div class=" list-group"  style="display:inline;">
             <div class="list-group-item" ng-repeat="result in analysis_result track by $index">

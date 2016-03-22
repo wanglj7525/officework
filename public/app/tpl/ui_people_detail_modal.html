@@ -10,26 +10,26 @@
 						<div >
 							<form name="addPeopleform_1" class="form-horizontal" style="width: 99%">
 								<div class="row">
-									<div class="col-md-4">
+									<div class="col-xs-4">
 										<div class="form-group">
-											<label class="col-md-3 control-label"  style="text-align: left">姓名</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label"  style="text-align: left">姓名</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input class="form-control" name="name" type="text" value="{{user.name}}" disabled>
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-3 control-label"  style="text-align: left">出生年月</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label"  style="text-align: left">出生年月</label>
+											<div class="col-xs-9 row">
 												<div  class="m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.birthday | date:'yyyy-MM-dd'}} " />
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-3 control-label"  style="text-align: left">籍贯</label>
-											<div class="col-md-9 ">
+											<label class="col-xs-3 control-label"  style="text-align: left">籍贯</label>
+											<div class="col-xs-9 ">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.jiguan.dz}}" />
 												</div>
@@ -37,96 +37,103 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-md-3 control-label"  style="text-align: left">健康状况</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label"  style="text-align: left">健康状况</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.health.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-md-3 control-label"  style="text-align: left">职级</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label"  style="text-align: left">职级</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.rank.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-3 control-label"  style="text-align: left">个人身份</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label"  style="text-align: left">个人身份</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.personal.dz}}" />
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-xs-4">
 										<div class="form-group" >
-											<label class="col-md-3 control-label" style="text-align: left">性别</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label" style="text-align: left">性别</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.sex.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-md-3 control-label" style="text-align: left">民族</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label" style="text-align: left">民族</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.nation.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-md-3 control-label" style="text-align: left">出生地</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label" style="text-align: left">出生地</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.birthplace.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-3 control-label" style="text-align: left">政治面貌</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label" style="text-align: left">政治面貌</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.political_status.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-3 control-label" style="text-align: left">人员状态</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label" style="text-align: left">人员状态</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.person_status.dz}}" />
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-3 control-label" style="text-align: left">身份证号</label>
-											<div class="col-md-9 row">
+											<label class="col-xs-3 control-label" style="text-align: left">身份证号</label>
+											<div class="col-xs-9 row">
 												<div  class=" m-l-n">
 													<input class="form-control" name="card_id" type="text" value="{{user.card_id}}" disabled>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4">
-										<div>
-											<img  style="width: 192px;height: 256px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
+									<div class="col-xs-4">
+										<div class="form-group">
+											<label class="col-xs-4 control-label"  style="text-align: left"></label>
+											<div class="col-xs-5" style="padding-left: 0px" >
+												<div  class="m-l-n">
+													<img  class="w-full" style="height: 226px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-offset-4">
 											<!--<img src="/public/app/img/a.png" ng-src="{{user.head_pic}}"  style="width: 60%;height: 200px;margin-left: 40%">-->
 										</div>
 										<div class="form-group">
-											<label class="col-md-offset-3 col-md-4 control-label"  style="text-align: left">参加工作日期</label>
-											<div class="col-md-5" style="padding-left: 0px" >
+											<label class="col-xs-4 control-label"  style="text-align: left">参加工作日期</label>
+											<div class="col-xs-5" style="padding-left: 0px" >
 												<div  class="m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.work_date | date:'yyyy-MM-dd'}} " />
 												</div>
 											</div>
 										</div>
 										<div class="form-group" >
-											<label class="col-md-offset-3 col-md-4 control-label"  style="text-align: left">参加组织日期</label>
-											<div class="col-md-5" style="padding-left: 0px" >
+											<label class="col-xs-4 control-label"  style="text-align: left">参加组织日期</label>
+											<div class="col-xs-5" style="padding-left: 0px" >
 												<div  class="m-l-n">
 													<input type="text" class="form-control" disabled value="{{user.organ_date | date:'yyyy-MM-dd'}} " />
 												</div>
@@ -134,10 +141,10 @@
 										</div>
 									</div>
 								</div>
-								<div class="row col-md-12">
+								<div class="row col-xs-12">
 									<div class="form-group" >
-										<label class="col-md-1 control-label" style="text-align: left">专长</label>
-										<div class="col-md-11 ">
+										<label class="col-xs-1 control-label" style="text-align: left">专长</label>
+										<div class="col-xs-11 ">
 											<div  class=" m-l-n">
 												<textarea rows="2" class="form-control" name="speciaty" value="{{user.speciaty}}"  disabled></textarea>
 											</div>
@@ -341,44 +348,44 @@
 						<div >
 							<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
 								<!--<div class="row">-->
-									<!--<div class="col-md-6">-->
+									<!--<div class="col-xs-6">-->
 										<!--<div class="form-group">-->
-											<!--<label class="col-md-3 control-label">首任正处长职时间</label>-->
-											<!--<div class="col-md-9 row">-->
+											<!--<label class="col-xs-3 control-label">首任正处长职时间</label>-->
+											<!--<div class="col-xs-9 row">-->
 												<!--<div  class=" m-l-n">-->
 													<!--<input class="form-control" name="name" type="text"  value="{{resumeinfo.first_director_time | date:'yyyy-MM-dd'}}"  disabled>-->
 												<!--</div>-->
 											<!--</div>-->
 										<!--</div>-->
 										<!--<div class="form-group" >-->
-											<!--<label class="col-md-3 control-label">部队正团时间</label>-->
-											<!--<div class="col-md-9 row">-->
+											<!--<label class="col-xs-3 control-label">部队正团时间</label>-->
+											<!--<div class="col-xs-9 row">-->
 												<!--<div  class=" m-l-n">-->
 													<!--<input class="form-control" name="birthday" type="text"  value="{{resumeinfo.tuan_time | date:'yyyy-MM-dd'}}" disabled>-->
 												<!--</div>-->
 											<!--</div>-->
 										<!--</div>-->
 										<!--<div class="form-group" >-->
-											<!--<label class="col-md-3 control-label">转业时间</label>-->
-											<!--<div class="col-md-9 row">-->
+											<!--<label class="col-xs-3 control-label">转业时间</label>-->
+											<!--<div class="col-xs-9 row">-->
 												<!--<div  class=" m-l-n">-->
 													<!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.zhuanye_time | date:'yyyy-MM-dd'}}" disabled>-->
 												<!--</div>-->
 											<!--</div>-->
 										<!--</div>-->
 									<!--</div>-->
-									<!--<div class="col-md-6">-->
+									<!--<div class="col-xs-6">-->
 										<!--<div class="form-group" >-->
-											<!--<label class="col-md-3 control-label">是否军转干部</label>-->
-											<!--<div class="col-md-9 row">-->
+											<!--<label class="col-xs-3 control-label">是否军转干部</label>-->
+											<!--<div class="col-xs-9 row">-->
 												<!--<div  class=" m-l-n">-->
 													<!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.is_exchange}}" disabled>-->
 												<!--</div>-->
 											<!--</div>-->
 										<!--</div>-->
 										<!--<div class="form-group" >-->
-											<!--<label class="col-md-3 control-label">部队副师时间</label>-->
-											<!--<div class="col-md-9 row">-->
+											<!--<label class="col-xs-3 control-label">部队副师时间</label>-->
+											<!--<div class="col-xs-9 row">-->
 												<!--<div  class=" m-l-n">-->
 													<!--<input class="form-control" name="minzu" type="text" value="{{resumeinfo.fushi_time | date:'yyyy-MM-dd'}}" disabled>-->
 												<!--</div>-->
@@ -388,8 +395,8 @@
 								<!--</div>-->
 								<div class="row">
 									<div class="form-group">
-										<label class="col-md-1 control-label">个人简历</label>
-										<div class="col-md-11">
+										<label class="col-xs-1 control-label">个人简历</label>
+										<div class="col-xs-11">
 											<pre ng-bind="resumeinfo.resume"></pre>
 											<!--<div ng-bind-html="resumeinfo.resume"></div>-->
 											<!--<script type="text/html" style="margin:auto;height:300px;width:800px" ng-style=""  ng-model="all_text"  meta-umeditor-->

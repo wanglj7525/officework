@@ -1,14 +1,17 @@
 <div col-padding ng-controller="analysisController">
     <script type="text/ng-template" id="analysisChartsModel.html">
         <div ng-include="'/public/app/tpl/ui_charts_modal.html'"></div>
+    </script> 
+    <script type="text/ng-template" id="peopleChartsModel.html">
+        <div ng-include="'/public/app/tpl/ui_peoplecharts_modal.html'"></div>
     </script>
     <!--<div class="bg-light md-whiteframe-z0 md-aside md-content hidden-xs affix">-->
     <!--<nav ui-nav  ng-include="'/public/app/tpl/blocks/nosearch.nav.html'" ></nav>-->
     <!--</div>-->
     <div class="md-right">
         <div class="workBgColor row" >
-            <div class="col-md-8 col-padding">
-                <div class="analysis col-md-6 col-padding">
+            <div class="col-md-8 col-xs-8 col-padding">
+                <div class="analysis col-md-6 col-xs-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold" >年龄</div>
                         <div class="panel-body" >
@@ -34,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="analysis col-md-6 col-padding">
+                <div class="analysis col-md-6 col-xs-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">性别</div>
                         <div class="panel-body">
@@ -60,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="analysis col-md-6 col-padding">
+                <div class="analysis col-md-6 col-xs-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">学历</div>
                         <div class="panel-body">
@@ -86,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="analysis col-md-6 col-padding">
+                <div class="analysis col-md-6 col-xs-6 col-padding">
                     <div class="analysis panel panel-default ">
                         <div class="panel-heading font-bold">党派</div>
                         <div class="panel-body">
@@ -113,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-padding">
+            <div class="col-md-4 col-xs-4 col-padding">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold" style="position: relative">需要调整的问题
                         <button ui-sref="app.deploy" class="btn btn-add btn-href ">班子调整</button>

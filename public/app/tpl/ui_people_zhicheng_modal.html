@@ -10,8 +10,8 @@
 		<div class="row">
 			<div class="">
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhichengform.name.$invalid && !addPeoplezhichengform.name.$pristine }">
-					<label class="col-md-4 control-label">技术任职资格职称</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">技术任职资格职称</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select theme="bootstrap"  ng-model="zhicheng.title_name">
 								<ui-select-match  placeholder="请选择技术任职资格职称">{{$select.selected.dz}}</ui-select-match>
@@ -23,8 +23,8 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplezhichengform.get_date.$invalid && !addPeoplezhichengform.get_date.$pristine }">
-					<label class="col-md-4 control-label">获得资格日期</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-xs-4 control-label">获得资格日期</label>
+					<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhicheng.get_date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -33,8 +33,8 @@
 					</div>
 				</div>
 				<!--<div class="form-group" ng-class="{ 'has-error' : addPeoplezhichengform.jiguan.$invalid && !addPeoplezhichengform.jiguan.$pristine }">-->
-					<!--<label class="col-md-4 control-label">聘任时间</label>-->
-					<!--<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">-->
+					<!--<label class="col-xs-4 control-label">聘任时间</label>-->
+					<!--<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">-->
 						<!--<div  class="input-group">-->
 							<!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="zhicheng.pinyong" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />-->
 							<!--<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
@@ -43,8 +43,8 @@
 					<!--</div>-->
 				<!--</div>-->
 				<!--<div class="form-group" ng-class="{ 'has-error' : addPeoplezhichengform.jiankang.$invalid && !addPeoplezhichengform.jiankang.$pristine }">-->
-					<!--<label class="col-md-4 control-label">级别</label>-->
-					<!--<div class="col-md-8 row">-->
+					<!--<label class="col-xs-4 control-label">级别</label>-->
+					<!--<div class="col-xs-8 row">-->
 						<!--<div  class=" m-l-n">-->
 							<!--<ui-select theme="bootstrap"  ng-model="zhicheng.jibie">-->
 								<!--<ui-select-match  placeholder="请选择级别">{{$select.selected.dz}}</ui-select-match>-->

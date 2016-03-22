@@ -8,32 +8,32 @@
 <div class="modal-body">
 	<form name="updatepositionform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
 		<div class="form-group" ng-class="{ 'has-error' : updatepositionform.name.$invalid && !updatepositionform.name.$pristine }">
-			<label class="col-md-3 control-label">名称</label>
-			<div class="col-md-9 row">
+			<label class="col-xs-3 control-label">名称</label>
+			<div class="col-xs-9 row">
 				<div  class=" m-l-n">
 					<input class="form-control" name="name" type="text" ng-model="newposition.name" required>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-3 control-label">人数</label>
-			<div class="col-md-9 row">
+			<label class="col-xs-3 control-label">人数</label>
+			<div class="col-xs-9 row">
 				<div  class=" m-l-n">
 					<input class="form-control" type="number" ng-model="newposition.num">
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-3 control-label">排序</label>
-			<div class="col-md-9 row">
+			<label class="col-xs-3 control-label">排序</label>
+			<div class="col-xs-9 row">
 				<div  class=" m-l-n">
 					<input class="form-control" type="number" min="1" ng-model="newposition.rank">
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-3 control-label">职级</label>
-			<div class="col-md-9 row">
+			<label class="col-xs-3 control-label">职级</label>
+			<div class="col-xs-9 row">
 				<div  class=" m-l-n">
 					<ui-select ng-model="newposition.post_rank" theme="bootstrap">
 						<ui-select-match placeholder="请选择职级">{{$select.selected.dz}}</ui-select-match>
@@ -45,8 +45,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-3 control-label">职务类别</label>
-			<div class="col-md-9 row">
+			<label class="col-xs-3 control-label">职务类别</label>
+			<div class="col-xs-9 row">
 				<div  class=" m-l-n">
 					<ui-select ng-model="newposition.post_category" theme="bootstrap">
 						<ui-select-match placeholder="请选择职务类别">{{$select.selected.dz}}</ui-select-match>

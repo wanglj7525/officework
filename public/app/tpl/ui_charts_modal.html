@@ -23,7 +23,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="row in charts" >
-        <td>{{row.name}}</td>
+        <td ng-click="showOneDetail(row)">{{row.name}}</td>
         <td>{{row.post_name}}</td>
         <td>{{row.sex}}</td>
         <td>{{row.nation}}</td>

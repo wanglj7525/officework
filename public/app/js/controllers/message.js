@@ -70,6 +70,7 @@
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
 							console.log( res.data.info.totalElements)
+							console.log($scope.messagetabletab)
 						}else{
 							//alert(res.data.msg);
 						}
@@ -99,6 +100,7 @@
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
 							console.log(res.data.info.totalElements);
+							console.log($scope.messagetabletab)
 
 						}else{
 							//alert(res.data.msg);
@@ -120,6 +122,7 @@
 
 
 			$scope.showOneDetail=function(people){
+				console.log(people)
 				$scope.isdetail=true;
 				$scope.user={};
 				var postData = $.param({

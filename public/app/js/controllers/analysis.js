@@ -1,6 +1,179 @@
 'use strict';
+app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStorage','people','UIanalysisservice','SettingpeopleService','$modal',function($scope, $modalInstance,$localStorage,people,UIanalysisservice,SettingpeopleService,$modal) {
+		$scope.user={};
+		var postData = $.param({
+			person_id:people.person_id,
+			access_token:$localStorage.token
+		});
+	console.log(people.person_id);
+		//家庭成员
+		SettingpeopleService.getfamilyInfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.familyInfolist=res.data.info;
+				}
+			},
+			function(rej){
 
-app.controller('analysisChartsController', ['$scope', '$modalInstance','$localStorage', 'title','type','UIanalysisservice',function($scope, $modalInstance,$localStorage,title,type,UIanalysisservice) {
+			}
+		);
+		//简历
+		SettingpeopleService.getresumeInfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.resumeinfo={};
+					$scope.resumeinfo=res.data.info[0];
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//年度考核
+		SettingpeopleService.getexaminfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.examinfolist=res.data.info;
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//奖惩记录
+		SettingpeopleService.getjiangchenginfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.jiangchenginfolist=res.data.info;
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//学位
+		SettingpeopleService.getDegreeinfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.degreeinfolist=res.data.info;
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//学历
+		SettingpeopleService.getEduinfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.eduinfolist=res.data.info;
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//职称
+		SettingpeopleService.getPeopletitleinfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.titleinfolist=res.data.info;
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//现任职务
+		SettingpeopleService.getPeoplepostinfo(postData).then(
+			function(res){
+				if (res.data.code == 200) {
+					$scope.postinfolist=res.data.info;
+				}
+			},
+			function(rej){
+
+			}
+		);
+		//基本信息
+		SettingpeopleService.getPeopleBase(postData).then(
+			function(res) {
+				if (res.data.code == 200) {
+					$scope.user = res.data.info;
+					console.log($scope.user)
+					//下拉列表默认显示值
+					if($scope.user.jiguan||$scope.user.birthplace){
+						for(var i=0;i<$scope.address.length;i++){
+							if($scope.user.birthplace==$scope.address[i].ano){
+								$scope.user.birthplace=$scope.address[i];
+							}
+							if($scope.user.jiguan==$scope.address[i].ano){
+								$scope.user.jiguan=$scope.address[i];
+							}
+						}
+					}
+					if($scope.user.person_status){
+						for(var i=0;i<$scope.zhuangtailist.length;i++){
+							if($scope.user.person_status==$scope.zhuangtailist[i].ano){
+								$scope.user.person_status=$scope.zhuangtailist[i];
+							}
+						}
+					}
+					if($scope.user.personal){
+						for(var i=0;i<$scope.personallist.length;i++){
+							if($scope.user.personal==$scope.personallist[i].ano){
+								$scope.user.personal=$scope.personallist[i];
+							}
+						}
+					}
+					if($scope.user.rank){
+						for(var i=0;i<$scope.zhijilist.length;i++){
+							if($scope.user.rank==$scope.zhijilist[i].ano){
+								$scope.user.rank=$scope.zhijilist[i];
+							}
+						}
+					}
+					if($scope.user.health){
+						for(var i=0;i<$scope.jiankanglist.length;i++){
+							if($scope.user.health==$scope.jiankanglist[i].ano){
+								$scope.user.health=$scope.jiankanglist[i];
+							}
+						}
+					}
+					if($scope.user.political_status){
+						for(var i=0;i<$scope.zhengzhilist.length;i++){
+							if($scope.user.political_status==$scope.zhengzhilist[i].ano){
+								$scope.user.political_status=$scope.zhengzhilist[i];
+							}
+						}
+					}
+					if($scope.user.sex){
+						for(var i=0;i<$scope.sexlist.length;i++){
+							if($scope.user.sex==$scope.sexlist[i].ano){
+								$scope.user.sex=$scope.sexlist[i];
+							}
+						}
+
+					}
+					if( $scope.user.nation){
+						for(var i=0;i<$scope.minzulist.length;i++){
+							if($scope.user.nation==$scope.minzulist[i].ano){
+								$scope.user.nation=$scope.minzulist[i];
+							}
+						}
+					}
+				}
+			}
+		)
+	$scope.ok = function () {
+		$modalInstance.close();
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+}]);
+app.controller('analysisChartsController', ['$scope', '$modalInstance','$localStorage', 'title','type','UIanalysisservice','SettingpeopleService','$modal',function($scope, $modalInstance,$localStorage,title,type,UIanalysisservice,SettingpeopleService,$modal) {
 		var postData = $.param({
 			tree_id:$localStorage.tree_uuid,
 			type:type,
@@ -12,6 +185,7 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 				console.log(res);
 				if(res.data.code==200){
 					$scope.charts = res.data.info.list;
+					console.log($scope.charts)
 				}else{
 					//alert(res.data.msg);
 				}
@@ -28,6 +202,22 @@ app.controller('analysisChartsController', ['$scope', '$modalInstance','$localSt
 
 	$scope.cancel = function () {
 		$modalInstance.dismiss('cancel');
+	};
+	$scope.showOneDetail=function(people){
+		console.log(people)
+		var modalchartsInstance = $modal.open({
+			templateUrl: 'peopleChartsModel.html',
+			controller: 'peopleChartsController',
+			size: 'lg',
+			resolve: {
+				people:function(){return people}
+			}
+		});
+
+
+		modalchartsInstance.result.then(function (i) {
+		}, function () {
+		});
 	};
 }]);
 app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservice','UIworktipservice',

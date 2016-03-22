@@ -514,5 +514,5 @@ fieldset[disabled] .btn-mydefault.active {
     font-size: 16px;
 }
 .savebtn{
-    position: fixed;bottom: 0px;z-index: 1000;opacity: 0.5;width:27%;
+    position: fixed;bottom: 0px;z-index: 1000;width:27%;
 }

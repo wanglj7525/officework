@@ -10,8 +10,8 @@
 		<div class="row">
 			<div class="">
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiangchengform.name.$invalid && !addPeoplejiangchengform.name.$pristine }">
-					<label class="col-md-4 control-label">机关正处工资级别</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">机关正处工资级别</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<ui-select ng-model="jiangcheng.wage_level" theme="bootstrap">
 								<ui-select-match placeholder="请选择工资级别">{{$select.selected.dz}}</ui-select-match>
@@ -23,8 +23,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">机关正处工资档次</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">机关正处工资档次</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="wage_level_2" type="number" ng-model="jiangcheng.wage_grade" required>
 							<!--<ui-select ng-model="jiangcheng.wage_grade" theme="bootstrap">-->
@@ -37,16 +37,16 @@
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiangchengform.jiguan.$invalid && !addPeoplejiangchengform.jiguan.$pristine }">
-					<label class="col-md-4 control-label">事业五级管理薪级</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">事业五级管理薪级</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="wage_level_2" type="number" ng-model="jiangcheng.wage_level_2" required>
 						</div>
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : addPeoplejiangchengform.explanation.$invalid && !addPeoplejiangchengform.explanation.$pristine }">
-					<label class="col-md-4 control-label">奖惩说明</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">奖惩说明</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<textarea rows="2" class="form-control" name="explanation" ng-model="jiangcheng.explanation" ></textarea>
 						</div>

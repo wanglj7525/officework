@@ -8,18 +8,18 @@
 <div class="modal-body">
 	<form name="updatePeoplezhiwuform" class="form-horizontal">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.post_name.$invalid && !updatePeoplezhiwuform.post_name.$pristine }">
-					<label class="col-md-4 control-label">职务名称</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">职务名称</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="post_name" type="text" ng-model="newdata.post_name" ng-required="">
 						</div>
 					</div>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error' : updatePeoplezhiwuform.work_status.$invalid && !updatePeoplezhiwuform.work_status.$pristine }">
-					<label class="col-md-4 control-label">任职状态</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">任职状态</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.work_status" name="location" type="text" loaddata="{{elementSelect.renzhizhuangtai | filter: { dz:newdata.work_status} }}" required />-->
@@ -42,16 +42,16 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-4 control-label">批准任职文号</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">批准任职文号</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="working_number" type="text" ng-model="newdata.working_number" >
 						</div>
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">任职机构</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">任职机构</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_id" name="location" type="text" loaddata="{{elementSelect.renzhijigoudaima | filter: { dz:newdata.organization_id} }}" required />-->
@@ -74,8 +74,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">任职机构所属地</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">任职机构所属地</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<div class="dropdown" dropdown >
 								<input autocompletes="" class="tags form-control" ng-model="newdata.location" name="location" type="text" loaddata="{{elementSelect.address | filter: { dz:newdata.location} }}"  />
@@ -98,8 +98,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">任职机构隶属</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">任职机构隶属</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_membership" name="location" type="text" loaddata="{{elementSelect.renzhijigoulishu | filter: { dz:newdata.organization_membership} }}" required />-->
@@ -122,8 +122,8 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-4 control-label">任职机构性质类别</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">任职机构性质类别</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_type" name="location" type="text" loaddata="{{elementSelect.renzhijigouxingzhi | filter: { dz:newdata.organization_type} }}" required />-->
@@ -146,10 +146,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="form-group">
-					<label class="col-md-4 control-label">职务类别</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">职务类别</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.post_category" name="location" type="text" loaddata="{{elementSelect.zhiwuleibie | filter: { dz:newdata.post_category} }}" required />-->
@@ -172,8 +172,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">职级</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">职级</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.rank" name="location" type="text" loaddata="{{elementSelect.zhijilist | filter: { dz:newdata.rank} }}" required />-->
@@ -196,8 +196,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">批准任职时间</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-xs-4 control-label">批准任职时间</label>
+					<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.working_date" is-open="opened" datepicker-options="dateOptions"  close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -206,8 +206,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">批准免职时间</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-xs-4 control-label">批准免职时间</label>
+					<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.depose_date" is-open="opened" datepicker-options="dateOptions" close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -217,8 +217,8 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-4 control-label">任职机构级别</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">任职机构级别</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<!--<div class="dropdown" dropdown >-->
 								<!--<input autocompletes="" class="tags form-control" ng-model="newdata.organization_level" name="location" type="text" loaddata="{{elementSelect.renzhijigoujibie | filter: { dz:newdata.organization_level} }}" required />-->
@@ -241,8 +241,8 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">现任职级时间</label>
-					<div class="col-md-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
+					<label class="col-xs-4 control-label">现任职级时间</label>
+					<div class="col-xs-8" style="padding-left: 0px" ng-controller="DatepickerDemoCtrl">
 						<div  class="input-group">
 							<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newdata.rank_time" is-open="opened" datepicker-options="dateOptions"  close-text="Close" />
 							<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -251,16 +251,16 @@
 					</div>
 				</div>
 				<div class="form-group" >
-					<label class="col-md-4 control-label">多职务主次序号</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">多职务主次序号</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="post_oder" type="number" ng-model="newdata.post_oder"  >
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-4 control-label">集体内排列顺序</label>
-					<div class="col-md-8 row">
+					<label class="col-xs-4 control-label">集体内排列顺序</label>
+					<div class="col-xs-8 row">
 						<div  class=" m-l-n">
 							<input class="form-control" name="post_all_oder" type="number" ng-model="newdata.post_all_oder" >
 						</div>

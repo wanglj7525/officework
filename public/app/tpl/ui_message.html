@@ -78,11 +78,9 @@
                                             <div class="item">
                                                 <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
                                             </div>
-                                            <div class="wrapper" style="text-align: center">
-                                                <h4>
-                                                    {{people.name}}
-                                                </h4>
-                                            </div>
+                                            <div class="" style="text-align: center">{{people.name}}</div>
+                                            <div class="" style="text-align: center">{{people.organization_name}}</div>
+                                            <div class="" style="text-align: center">{{people.post_name}}</div>
                                         </div>
 
                                     </div>
@@ -106,8 +104,8 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="people in messagetabletab" >
-                                        <td>{{people.name}}</td>
+                                    <tr ng-repeat="people in messagetabletab"  >
+                                        <td ng-click="showOneDetail(people)">{{people.name}}</td>
                                         <td>{{people.jiguan}}</td>
                                         <td>{{people.birthday}}</td>
                                         <td>{{people.edu_level}}</td>

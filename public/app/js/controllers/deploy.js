@@ -299,6 +299,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					if(res.data.code==200){
 						$scope.paginationConf.totalItems = res.data.info.totalElements;
 						$scope.searchpeopleshow = res.data.info.elements;
+						console.log($scope.searchpeopleshow);
 					}else{
 						console.log(res.data.msg);
 					}

@@ -39,6 +39,8 @@
 											<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px">{{peoples.name}}
 												<span ng-if="peoples.needChange" style="color: red">(应交流)</span>
 											</div>
+											<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.organization_name}}</div>
+
 											<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px">{{peoples.post_name}}</div>
 											<div class="list-group-item" >
 												<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'" ng-click="removepeople(peoples)" style="padding: 0px">免职</button>
@@ -57,6 +59,7 @@
 									</div>
 									<div class="list-group" style="text-align: center">
 										<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;padding: 0px">{{peoples.name}}<span ng-if="peoples.needChange" style="color: red">(应交流)</span></div>
+										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px;padding: 0px">{{peoples.organization_name}}</div>
 										<div class="list-group-item" style="padding-top: 1px;padding-bottom: 1px;padding: 0px">{{peoples.post_name}}</div>
 										<div class="list-group-item" >
 											<button class="btn btn-info  w-full"  ng-show="peoples.state=='true'"  ng-click="removepeople(peoples)" style="padding: 0px">免职</button>
@@ -113,19 +116,19 @@
 													<table class="table mytable">
 													<tr class="form-group" style="margin-bottom: 0px" >
 														<td><label class="control-label">职级</label></td>
-														<td><input type="button" class="btn btn-default left-button " ng-repeat="zhiji in zhijilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhiji.dz}}" rank='{{zhiji.ano}}'></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="zhiji in zhijilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhiji.jc}}" rank='{{zhiji.ano}}'></td>
 													</tr>
 													<tr class="form-group" style="margin-bottom: 0px" >
 														<td><label class="control-label">性别</label></td>
-														<td><input type="button" class="btn btn-default left-button " ng-repeat="sex in sexlist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{sex.dz}}" xingbie='{{sex.ano}}'></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="sex in sexlist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{sex.jc}}" xingbie='{{sex.ano}}'></td>
 													</tr>
 													<tr class="form-group" style="margin-bottom: 0px" >
 														<td><label class="control-label">学历</label></td>
-														<td><input type="button" class="btn btn-default left-button " ng-repeat="xueli in xuelilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{xueli.dz}}" edulevel='{{xueli.ano}}'></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="xueli in xuelilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{xueli.jc}}" edulevel='{{xueli.ano}}'></td>
 													</tr>
 													<tr class="form-group" style="margin-bottom: 0px" >
 														<td><label class="control-label" style="white-space:nowrap">政治面貌</label></td>
-														<td><input type="button" class="btn btn-default left-button " ng-repeat="zhengzhi in zhengzhilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhengzhi.dz}}" politicalstatus='{{zhengzhi.ano}}'></td>
+														<td><input type="button" class="btn btn-default left-button " ng-repeat="zhengzhi in zhengzhilist" ng-init="isSelected = false" ng-click="isSelected = !isSelected"  selectbutton="isSelected" value="{{zhengzhi.jc}}" politicalstatus='{{zhengzhi.ano}}'></td>
 													</tr>
 													<tr class="form-group" style="margin-bottom: 0px" >
 														<td><label class="control-label">年龄</label></td>
@@ -158,6 +161,8 @@
 											</div>
 											<div style="text-align: center">
 												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;white-space:nowrap" >{{t.name}}</div>
+												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;white-space:nowrap" >{{t.organization_name}}</div>
+												<div class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;white-space:nowrap" >{{t.post_name}}</div>
 												<div class="list-group-item" style="padding: 0px">{{t.company}}</div>
 												<div class="list-group-item">
 													<button class="btn btn-info  w-full"  ng-click="selectpeople(t)" style="padding: 0px">任职</button>

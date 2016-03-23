@@ -516,3 +516,9 @@ fieldset[disabled] .btn-mydefault.active {
 .savebtn{
     position: fixed;bottom: 0px;z-index: 1000;width:27%;
 }
+.gaizhang{
+    width: 100px;
+    height: 40px;
+    margin-top: 80px;
+    margin-left: 80%;
+}

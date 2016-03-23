@@ -134,6 +134,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.familyInfolist=res.data.info;
+							console.log("家庭成员",$scope.familyInfolist)
 						}
 					},
 					function(rej){
@@ -157,6 +158,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.examinfolist=res.data.info;
+							console.log("年度考核",$scope.examinfolist)
 						}
 					},
 					function(rej){
@@ -168,6 +170,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.jiangchenginfolist=res.data.info;
+							console.log("奖惩记录",$scope.jiangchenginfolist)
 						}
 					},
 					function(rej){
@@ -179,6 +182,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.degreeinfolist=res.data.info;
+							console.log("学位",$scope.degreeinfolist)
 						}
 					},
 					function(rej){
@@ -190,6 +194,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.eduinfolist=res.data.info;
+							console.log("学历",$scope.eduinfolist)
 						}
 					},
 					function(rej){
@@ -201,6 +206,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.titleinfolist=res.data.info;
+							console.log("职称",$scope.titleinfolist)
 						}
 					},
 					function(rej){
@@ -212,6 +218,7 @@
 					function(res){
 						if (res.data.code == 200) {
 							$scope.postinfolist=res.data.info;
+							console.log("现任职务",$scope.postinfolist)
 						}
 					},
 					function(rej){
@@ -284,6 +291,7 @@
 									}
 								}
 							}
+							console.log("基本信息",$scope.user)
 						}
 					}
 				)

@@ -2,8 +2,8 @@
 
 var app =  
 angular.module('app')   .constant('STATIC_PATH','/public/app/')
-    //.constant('SERVICE_URL','http://192.168.2.117:81'
-    .constant('SERVICE_URL','http://192.168.2.136:8080')
+    .constant('SERVICE_URL','http://192.168.2.117:81')
+    //.constant('SERVICE_URL','http://192.168.2.136:8080')
     //.constant('SERVICE_URL','http://183.252.21.100:39001')
     //.constant('SERVICE_URL','http://192.168.2.108:81')
   .config(

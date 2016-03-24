@@ -92,7 +92,9 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 						if($scope.analysis_result.length==0){
 							$scope.hasresult=false;
 							$scope.noresult="空";
+							console.log("分析结果",$scope.analysis_result);
 						}
+						console.log("分析结果",$scope.analysis_result);
 					}else{
 						$scope.hasresult=false;
 						$scope.noresult="分析失败";
@@ -196,6 +198,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				function(res){
 					//班子成员
 					$scope.daweilist = res.data.info;
+					console.log($scope.daweilist)
 					if($scope.daweilist){
 						//需要分析班子成员，标注出 需要交流的人员
 						var params=$.param({
@@ -281,8 +284,11 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			leftopen:true
 		};
 		//$scope.isdetail=false;
+		//deployright
 		$scope.searchPeoples=function(){
 			var postData = $.param({
+				isfilt:1,
+				tree_id:$localStorage.tree_uuid,
 				keyword:$scope.search.keywords,
 				ranks:$scope.rank.join(","),
 				sexs:$scope.xingbie.join(","),
@@ -310,6 +316,37 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			)
 		}
+
+		var getMessageImageList = function () {
+			var postData = $.param({
+				isfilt:1,
+				tree_id:$localStorage.tree_uuid,
+				pageNo: $scope.paginationConf.currentPage,
+				pageSize: $scope.paginationConf.itemsPerPage,
+				access_token:$localStorage.token
+			});
+			UIDeployservice.deployright(postData).then(
+				function (res) {
+					if(res.data.code==200){
+						$scope.paginationConf.totalItems = res.data.info.totalElements;
+						$scope.searchpeopleshow = res.data.info.elements;
+					}else{
+						//alert(res.data.msg);
+					}
+
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			)
+		}
+		//配置分页基本参数
+		$scope.paginationConf = {
+			currentPage: 1,
+			itemsPerPage: 12
+		};
+		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
+		$scope.$watch('treeselected', getMessageImageList);
 		//配置分页基本参数
 		$scope.paginationConf = {
 			currentPage: 1,

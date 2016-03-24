@@ -502,6 +502,7 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .mytable>tbody>tr>td{
     border: 0px;
+    padding: 8px 0px;
 }
 .secondtabletitle{
     background-color: #a7a7a7;
@@ -521,4 +522,24 @@ fieldset[disabled] .btn-mydefault.active {
     height: 40px;
     margin-top: 80px;
     margin-left: 80%;
+}
+.btn-manege{
+    float: right;
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:1px #ccc solid;
+}
+.btn-all{
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:1px #ccc solid;
+}
+.btn-kuaijie{
+    float: left;
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:1px #ccc solid;
 }

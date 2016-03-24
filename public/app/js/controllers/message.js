@@ -21,7 +21,7 @@
 			//政治面貌
 			SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
 			//个人身份
-			SettingdaimaService.getCodagetList("ZB06").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
+			SettingdaimaService.getCodagetList("GB2261_4").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
 			//人员状态
 			SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
 			//学历
@@ -42,6 +42,112 @@
 			$scope.status = {
 				open: false
 			};
+			$scope.tabel={
+				open:false
+			};
+			$scope.kuaijie={
+				open:false
+			};
+			$scope.jieguo={
+				open:false
+			};
+			//清空树
+			
+			//自定义查询
+			//获取所有标签
+			var postData1 = $.param({
+				access_token:$localStorage.token
+			});
+			UIMessageService.getallLable(postData1).then(
+				function (res) {
+					$scope.lablelist = res.data.lableList;
+				},
+				function (rej) {
+					console.log(rej);
+				})
+			//删除标签
+			var postData2 = $.param({
+				id:1,
+				access_token:$localStorage.token
+			});
+			UIMessageService.delLabel(postData2).then(
+				function (res) {
+				},
+				function (rej) {
+					console.log(rej);
+				})
+			//获取所有字段
+			var postData3= $.param({
+				access_token:$localStorage.token
+			});
+			UIMessageService.getallcode(postData3).then(
+				function (res) {
+					$scope.lablelist = res.data.lableList;
+				},
+				function (rej) {
+					console.log(rej);
+				})
+			//添加标签
+			var postData4 = $.param({
+				name:1,
+				queryItems:2,
+				access_token:$localStorage.token
+			});
+			UIMessageService.getallLable(postData4).then(
+				function (res) {
+					$scope.lablelist = res.data.lableList;
+					console.log($scope.lablelist)
+				},
+				function (rej) {
+					console.log(rej);
+				})
+			//复杂查询
+			var postData5 = $.param({
+				id:1,
+				pageNo:1,
+				pageSize:1,
+				access_token:$localStorage.token
+			});
+			UIMessageService.getallLable(postData5).then(
+				function (res) {
+					$scope.lablelist = res.data.lableList;
+				},
+				function (rej) {
+					console.log(rej);
+				});
+			
+			
+			$scope.compexsearch=function(id){
+				var postData = $.param({
+					id:id,
+					pageNo:1,
+					pageSize:1,
+					access_token:$localStorage.token
+				});
+				UIMessageService.getallLable(postData).then(
+					function (res) {
+						$scope.lablelist = res.data.lableList;
+					},
+					function (rej) {
+						console.log(rej);
+					});
+			}
+			
+			
+			console.log($scope.tiaojian)
+			$scope.addonetiaojian=function(){
+				$("#addone").append('<tr ><td><select><option value="AND">AND</option><option value="OR">OR</option></select></td>'+
+				'<td><select><option value="0">空</option><option value="1">(</option></select></td>'+
+					'<td><select><option value="0">A01职称</option><option value="1">A01职称</option></select></td>'+
+					'<td><select><option value="0">等于</option><option value="1">等于</option></select></td>'+
+					'<td><input type="text"></td>'+
+					'<td><select><option value="0">空</option><option value="1">)</option></select></td>'+
+					'<td><button onclick="$(this).parent().parent().remove()">删除</button></td>'+
+					'</tr>')
+			}
+			$scope.selectall=function(){
+				$('[name=checkitems]:checkbox').attr('checked',true)
+			}
 			searchservice.getData().then(
 				function (res) {
 					$scope.nianlinglist = res.data.info;
@@ -51,8 +157,9 @@
 				}
 			);
 			$scope.searchPeople=function(){
-				console.log($scope.search.keywords);
 				var postData = $.param({
+					isfilt:0,
+					tree_id:$localStorage.tree_uuid,
 					keyword:$scope.search.keywords,
 					ranks:$scope.rank.join(","),
 					sexs:$scope.xingbie.join(","),
@@ -84,6 +191,8 @@
 			//分页获取数据
 			var getMessageImageList = function () {
 				var postData = $.param({
+					isfilt:0,
+					tree_id:$localStorage.tree_uuid,
 					keyword:$scope.search.keywords,
 					ranks:$scope.rank.join(","),
 					sexs:$scope.xingbie.join(","),
@@ -259,6 +368,7 @@
 								for(var i=0;i<$scope.zhijilist.length;i++){
 									if($scope.user.rank==$scope.zhijilist[i].ano){
 										$scope.user.rank=$scope.zhijilist[i];
+										console.log($scope.user.rank)
 									}
 								}
 							}
@@ -291,10 +401,82 @@
 									}
 								}
 							}
-							console.log("基本信息",$scope.user)
+							
 						}
 					}
 				)
 			};
+			console.log("基本信息",$scope.user)
+			//结果集管理
+			$scope.jieguomanage=function(){
+				var modaljieguomanegeInstance = $modal.open({
+					templateUrl: 'jieguomanageModel.html',
+					controller: 'ModaljieguomanageInstanceCtrl',
+					size: 'lg',
+					resolve:{
+					}
+				});
+				modaljieguomanegeInstance.result.then(function (deploy) {
+				}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
+				});
+			}
+			//查询条件管理
+			$scope.tiaojianmanage=function(){
+				var modaltiaojianmanageInstance = $modal.open({
+					templateUrl: 'tiaojianmanageModel.html',
+					controller: 'ModaltiaojianmanageInstanceCtrl',
+					size: 'lg',
+					resolve:{
+					}
+				});
+				modaltiaojianmanageInstance.result.then(function (deploy) {
+				}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
+				});
+			}
+			$scope.addtiaojian=function(){
+				var modaladdtiaojianInstance = $modal.open({
+					templateUrl: 'addtiaojianModel.html',
+					controller: 'ModaladdtiaojianInstanceCtrl',
+					size: 'lg',
+					resolve:{
+					}
+				});
+				modaladdtiaojianInstance.result.then(function (deploy) {
+				}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
+				});
+			}
 
 		} ]);
+app.controller('ModaljieguomanageInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
+	function($scope, $modalInstance) {
+		$scope.ok = function () {
+			$modalInstance.close();
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
+app.controller('ModaltiaojianmanageInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
+	function($scope, $modalInstance) {
+		$scope.ok = function () {
+			$modalInstance.close();
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
+app.controller('ModaladdtiaojianInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
+	function($scope, $modalInstance) {
+		$scope.ok = function () {
+			$modalInstance.close();
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);

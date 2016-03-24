@@ -744,6 +744,66 @@ angular.module('app')
                 return response;
             });
             return promise;
+        },
+        getcomplexlist:function(params){
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var path='/setting/user/label/complexQuery?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        addLabel:function(params){
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var path='/setting/user/label/add?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        delLabel:function(params){
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var path='/setting/user/label/delete?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getallcode:function(params){
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var path='/setting/user/label/getAllCode?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getallLable:function(params){
+            var deferred=$q.defer();
+            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
+            var path='/setting/user/label/getAllLabel?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
         }
 
     }
@@ -855,9 +915,20 @@ angular.module('app')
 }] ).service('UIDeployservice', ['$q','$http','SERVICE_URL', function($q,$http,SERVICE_URL){
     //班子调配
     return{
+        
         deploySave:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/analysis/batchsave?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                return response;
+            });
+            return promise;
+        },
+        deployright:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjust/member?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){

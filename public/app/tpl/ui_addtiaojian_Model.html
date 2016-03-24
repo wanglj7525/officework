@@ -1,0 +1,68 @@
+<div ng-controller="MessageController" >
+  <div class="modal-header">
+    <div style="position: relative">
+		<span >
+			<h3 class="modal-title">新增查询条件</h3>
+		</span>
+    </div>
+  </div>
+  <div class="modal-body">
+    条件关键字：<input type="text"> 20字符以内
+    <form name="addtreeform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <td>逻辑</td>
+          <td>左括号</td>
+          <td>字段名称</td>
+          <td>运算符</td>
+          <td>条件</td>
+          <td>右括号</td>
+          <td>操作</td>
+        </tr>
+        </thead>
+        <tbody id="addone">
+        <tr >
+          <td>
+            &nbsp;
+          </td>
+          <td> 
+            <select>
+              <option value="0">空</option>
+              <option value="1">(</option>
+            </select>
+          </td>
+          <td>
+            <select>
+              <option value="0">A01职称</option>
+              <option value="1">A01职称</option>
+            </select>
+          </td>
+          <td>
+            <select>
+              <option value="0">等于</option>
+              <option value="1">等于</option>
+            </select>
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <select>
+              <option value="0">空</option>
+              <option value="1">)</option>
+            </select>
+          </td>
+          <td>
+            <button ng-click="addonetiaojian()">新增</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">确定</button>
+  </div>
+</div>

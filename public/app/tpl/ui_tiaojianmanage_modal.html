@@ -1,0 +1,39 @@
+<div ng-controller="MessageController">
+  <div class="modal-header">
+    <div style="position: relative">
+		<span >
+			<h3 class="modal-title">管理查询条件</h3>
+		</span>
+    </div>
+  </div>
+  <div class="modal-body">
+    <button type="button" ng-click="addtiaojian()">新增查询条件</button>
+    <form name="addtreeform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <td>序号</td>
+          <td>关键字</td>
+          <td>条件详情</td>
+          <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1 </td>
+          <td> 男性党委书记</td>
+          <td>性别='男' And 职位='党委书记'</td>
+          <td>删除
+            <span class="fa fa-long-arrow-down"></span>
+            <span class="fa fa-long-arrow-up"></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">确定</button>
+  </div>
+</div>

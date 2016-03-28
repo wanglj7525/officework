@@ -29,7 +29,13 @@
 //			$scope.tipinfo.splice(idx,1);
 //		}
 //	} ]);
-app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams',  function($scope, $localStorage,UIworktipservice,$stateParams) {
+app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams', 'SeetingtreeService', function($scope, $localStorage,UIworktipservice,$stateParams,SeetingtreeService) {
+	var postData1= $.param({
+		parent:0,
+	})
+	
+	
+	
 	$scope.currentname='全部';
 	$scope.selectcategory=function(id,name){
 		$scope.pid=id;

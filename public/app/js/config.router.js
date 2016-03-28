@@ -58,7 +58,7 @@ angular.module('app')
               .state('app.message',{
                   url:'/message',
                   templateUrl: STATIC_PATH + 'tpl/ui_message.html',
-                  resolve: load([STATIC_PATH + 'js/controllers/message.js'])
+                  resolve: load(['ui.select',STATIC_PATH + 'js/controllers/message.js'])
               })
               .state('app.worktip', {
                   //abstract: true,

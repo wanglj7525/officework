@@ -11,6 +11,7 @@ app.controller('AbnTestController',[ '$rootScope','$scope', '$http', '$state','$
         //}
 
         $localStorage.tree_uuid=branch.uuid;
+        $localStorage.tree_uuid_bak=branch.uuid;
         $localStorage.treeselect=$scope.output;
         //TODO
     };

@@ -89,6 +89,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
         //分页获取数据
         var getMessageImageList = function () {
             var postData = $.param({
+                isfilt:"0",
+                tree_id:"",
                 keyword:$scope.searchtext,
                 ranks:'',
                 sexs:'',

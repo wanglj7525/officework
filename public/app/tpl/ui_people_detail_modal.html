@@ -1,19 +1,18 @@
 <div >
 	<div >
 		<tabset class="tab-container ">
-
-			<tab heading="按任免表查看" class="color-message addpeople">
-				<table class="table table-bordered table-responsive">
+			<tab heading="按任免表查看" class="color-message addpeople" >
+				<table class="table table-bordered table-responsive peopledetailtable">
 					<tr>
-						<td width="10%">姓名</td>
+						<td width="10%" >姓名</td>
 						<td>{{user.name}}</td>
 						<td width="10%">性别</td>
 						<td>{{user.sex.jc}}</td>
-						<td>出生年月</td>
-						<td>{{user.birthday | date:'yyyy-MM-dd'}}</td>
-						<td rowspan="4" width="100px;" height="" style="padding: 0px">
+						<td>出生年月<br>（岁）</td>
+						<td>{{user.birthday | date:'yyyy-MM-dd'}}<br>({{nowyear-(user.birthday | date:'yyyy')+1}}岁)</td>
+						<td rowspan="4"  colspan="2" width="100px;" height="" style="padding: 0px">
 							<div style="margin: 0 ;padding: 0">
-							<img  class="" style="width: 100px;height: 120px;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
+							<img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
 							</div>
 						</td>
 					</tr>
@@ -66,7 +65,7 @@
 					</tr>
 					<tr>
 						<td>简历</td>
-						<td colspan="6"><pre ng-bind="resumeinfo.resume"></pre></td>
+						<td colspan="6" overflow-x;hidden><pre ng-bind="resumeinfo.resume" style="width: 800px;background-color: #fff;border: 0px;overflow:hidden"></pre></td>
 					</tr>
 					<tr>
 						<td height="120px">奖惩情况</td>
@@ -97,7 +96,7 @@
 					<tr ng-repeat="row in familyInfolist" >
 						<td>{{row.renatinship_name}}</td>
 						<td>{{row.family_name}}</td>
-						<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
+						<td>{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
 						<td>{{row.family_poli}}</td>
 						<td colspan="2">{{row.family_org_name}}</td>
 					</tr>

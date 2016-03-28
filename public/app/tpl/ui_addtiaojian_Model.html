@@ -1,68 +1,139 @@
-<div ng-controller="MessageController" >
-  <div class="modal-header">
-    <div style="position: relative">
+<div class="modal-header">
+  <div style="position: relative">
 		<span >
-			<h3 class="modal-title">新增查询条件</h3>
+			<h3 class="modal-title">添加查询条件</h3>
 		</span>
-    </div>
   </div>
-  <div class="modal-body">
-    条件关键字：<input type="text"> 20字符以内
-    <form name="addtreeform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <td>逻辑</td>
-          <td>左括号</td>
-          <td>字段名称</td>
-          <td>运算符</td>
-          <td>条件</td>
-          <td>右括号</td>
-          <td>操作</td>
-        </tr>
-        </thead>
-        <tbody id="addone">
-        <tr >
+</div>
+<div class="modal-body">
+  <form name="adduserform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+    <div class="row">
+      <div class="col-xs-2" style="width: 10%;padding: 0px;margin: 0px">
+      条件关键字:
+      </div>
+      <div class="col-xs-4">
+        <input type="text" ng-model="select.name" style="width: 100%">
+      </div>
+      <div>
+        20字符以内
+      </div>
+    </div>
+    <table class="table table-bordered table-responsive">
+      <thead>
+      <tr>
+        <td width="8%">逻辑</td>
+        <td width="10%">左括号</td>
+        <td width="18%">字段名称</td>
+        <td width="15%">运算符</td>
+        <td width="18%">条件</td>
+        <td width="10%">右括号</td>
+        <td width="10%">操作</td>
+      </tr>
+      </thead>
+      <tbody id="addone">
+      <tr >
+        <td>
+          <select name="aaa" ng-show="0">
+          </select>
+        </td>
+        <td>
+          <select  name="bbb">
+            <option value="0">空</option>
+            <option value="1">(</option>
+          </select>
+        </td>
+        <td>
+          <select ng-model="a110" name="ccc"  ng-change="codechange()" ng-if="1">
+            <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
+          </select>
+        </td>
+        <td>
+          <select ng-model="select.yunsuanfu" name="ddd">
+            <option value="1">等于</option>
+            <option value="2">不等于</option>
+            <option value="6">大于</option>
+            <option value="3">大于等于</option>
+            <option value="4">小于</option>
+            <option value="5">小于等于</option>
+            <option value="7">包含</option>
+            <option value="8">左包含</option>
+            <option value="9">右包含</option>
+          </select>
+        </td>
+        <td>
+          <select ng-model="b1110" name="eee" ng-if="0">
+            <option ng-repeat="i in code" value={{i.code}}>{{i.msg}}</option>
+          </select>
+          <input type="text" ng-model="select.zhi" name="eee" ng-if="1">
+          <ui-select name="eee" theme="bootstrap" ng-if="0" ng-model="select.zhi" >
+            <ui-select-match placeholder="请输入搜索...">{{$select.selected.code}}</ui-select-match>
+            <ui-select-choices repeat="item in code | filter: $select.search">
+              <div ng-bind-html="item.code | highlight: $select.search"></div>
+            </ui-select-choices>
+          </ui-select>
+        </td>
+        <td>
+          <select ng-model="select.youkuohao" name="fff">
+            <option value="0">空</option>
+            <option value="1">)</option>
+          </select>
+        </td>
+        <td>
+          <button ng-click="addonetiaojian()" class="btn btn-addtiaojian">新增</button>
+        </td>
+      </tr>
+        <tr  ng-repeat="t in tiaojianlist" id={{t.id}}>
           <td>
-            &nbsp;
+            <select name={{t.model1}}>
+              <option value="AND">AND</option>
+              <option value="OR">OR</option>
+            </select>
           </td>
-          <td> 
-            <select>
+          <td>
+            <select name={{t.model2}}>
               <option value="0">空</option>
               <option value="1">(</option>
             </select>
           </td>
           <td>
-            <select>
-              <option value="0">A01职称</option>
-              <option value="1">A01职称</option>
+            <select  ng-model="select.model3" name={{t.model3}} id={{t.codemodel}} ng-change="codechange($even)">
+              <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
             </select>
           </td>
           <td>
-            <select>
-              <option value="0">等于</option>
+            <select  name={{t.model4}}>
               <option value="1">等于</option>
+              <option value="2">不等于</option>
+              <option value="6">大于</option>
+              <option value="3">大于等于</option>
+              <option value="4">小于</option>
+              <option value="5">小于等于</option>
+              <option value="7">包含</option>
+              <option value="8">左包含</option>
+              <option value="9">右包含</option>
             </select>
           </td>
           <td>
-            <input type="text">
+            <input type="text" name={{t.model5}} ng-if="0"> 
+            <select ng-model="selelct.code" name={{t.model5}} id={{t.codechildmodel}}  ng-if="1">
+              <option ng-repeat="i in code" value={{i.code}}>{{i.msg}}</option>
+            </select>
           </td>
           <td>
-            <select>
+            <select  name={{t.model6}}>
               <option value="0">空</option>
               <option value="1">)</option>
             </select>
           </td>
           <td>
-            <button ng-click="addonetiaojian()">新增</button>
+            <button name={{t.id}} ng-click="delonetiaojian($event)" class="btn btn-addtiaojian">删除</button>
           </td>
         </tr>
-        </tbody>
-      </table>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-default" ng-click="cancel()">取消</button>
-    <button class="btn btn-primary" ng-click="ok()">确定</button>
-  </div>
+      </tbody>
+    </table>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" ng-click="cancel()">取消</button>
+  <button class="btn btn-primary"  ng-disabled="adduserform.$invalid" ng-click="ok()">确定</button>
 </div>

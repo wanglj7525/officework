@@ -333,7 +333,7 @@ table{
 .treeMain{
     background-color:#f7f7f7;
     height: 100%;
-
+    margin-bottom: 50px;
 }
 
 .treeMain li>a:hover{
@@ -542,4 +542,25 @@ fieldset[disabled] .btn-mydefault.active {
     padding-top: 0;
     padding-bottom: 0;
     border:1px #ccc solid;
+}
+.btn-kuaijie:focus{
+    color: #ffffff !important;
+    background-color: #ee3939;
+    border-color: #ed2a2a;
+}
+.btn-submit{
+    background-color: #336699;
+    color: #fff;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.btn-addtiaojian{
+    float: left;
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:1px #ccc solid;
+}
+.peopledetailtable tbody tr td{
+    vertical-align : middle;
 }

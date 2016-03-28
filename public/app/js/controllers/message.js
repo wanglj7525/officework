@@ -2,10 +2,90 @@
   app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','UIMessageService','messageservice','searchservice','SettingpeopleService','SettingdaimaService','getxueliList',
 		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,UIMessageService,messageservice,searchservice,SettingpeopleService,SettingdaimaService,getxueliList) {
 			$scope.treeselected=$localStorage.treeselect;
+			$scope.select_tree_id=$localStorage.tree_uuid;
 			$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 				if(newValue===oldValue) return;
 				$scope.treeselected=$localStorage.treeselect;
 			});
+			$scope.cleantree=function(){
+				$localStorage.tree_uuid="";
+				$scope.treeselected="";
+				console.log($localStorage.tree_uuid)
+				//var postData = $.param({
+				//	isfilt:0,
+				//	tree_id:$scope.select_tree_id,
+				//	keyword:$scope.search.keywords,
+				//	ranks:$scope.rank.join(","),
+				//	sexs:$scope.xingbie.join(","),
+				//	political_statuses:$scope.politicalstatus.join(","),
+				//	edu_levels:$scope.edulevel.join(","),
+				//	ages:$scope.age.join(","),
+				//	pageNo: $scope.paginationConf.currentPage,
+				//	pageSize: $scope.paginationConf.itemsPerPage,
+				//	access_token:$localStorage.token
+				//});
+				//SettingpeopleService.getPeopleList(postData).then(
+				//	function (res) {
+				//		console.log(res.data.info.totalElements);
+				//		if(res.data.code==200){
+				//			$scope.paginationConf.totalItems = res.data.info.totalElements;
+				//			$scope.messagetabletab = res.data.info.elements;
+				//			console.log( res.data.info.totalElements)
+				//			console.log($scope.messagetabletab)
+				//		}else{
+				//			//alert(res.data.msg);
+				//		}
+                //
+				//	},
+				//	function (rej) {
+				//		console.log(rej);
+				//	}
+				//)
+				//var getMessageImageList = function () {
+				//	var postData = $.param({
+				//		isfilt:0,
+				//		tree_id:$scope.select_tree_id,
+				//		keyword:$scope.search.keywords,
+				//		ranks:$scope.rank.join(","),
+				//		sexs:$scope.xingbie.join(","),
+				//		political_statuses:$scope.politicalstatus.join(","),
+				//		edu_levels:$scope.edulevel.join(","),
+				//		ages:$scope.age.join(","),
+				//		pageNo: $scope.paginationConf.currentPage,
+				//		pageSize: $scope.paginationConf.itemsPerPage,
+				//		access_token:$localStorage.token
+				//	});
+				//	SettingpeopleService.getPeopleList(postData).then(
+				//		function (res) {
+				//			if(res.data.code==200){
+				//				$scope.paginationConf.totalItems = res.data.info.totalElements;
+				//				$scope.messagetabletab = res.data.info.elements;
+				//				console.log(res.data.info.totalElements);
+				//				console.log($scope.messagetabletab)
+                //
+				//			}else{
+				//				//alert(res.data.msg);
+				//			}
+                //
+				//		},
+				//		function (rej) {
+				//			console.log(rej);
+				//		}
+				//	)
+				//}
+				////配置分页基本参数
+				//$scope.paginationConf = {
+				//	currentPage: 1,
+				//	itemsPerPage: 12
+				//};
+				//$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
+				//$scope.$watch('select_tree_id', getMessageImageList);
+			}
+			//分页获取数据
+			//当前年份
+			$scope.y=new Date()
+			$scope.nowyear= $scope.y.getFullYear()
+			console.log($scope.nowyear)
 
 			$scope.isdetail=false;
 			//性别
@@ -51,56 +131,66 @@
 			$scope.jieguo={
 				open:false
 			};
-			//清空树
-			
 			//自定义查询
+			//删除标签
+			$scope.delLable=function(id){
+				var postData = $.param({
+					id:id,
+					access_token:$localStorage.token
+				});
+				UIMessageService.delLabel(postData).then(
+					function (res) {
+					},
+					function (rej) {
+						console.log(rej);
+					})
+				var postData1 = $.param({
+					access_token:$localStorage.token
+				});
+				UIMessageService.getallLable(postData1).then(
+					function (res) {
+						$scope.lablelist = res.data.data.labelList;
+						$scope.xxx=$scope.lablelist
+						console.log($scope.xxx)
+					},
+					function (rej) {
+						console.log(rej);
+					})
+				var postData2 = $.param({
+					access_token:$localStorage.token
+				});
+				UIMessageService.getallLable(postData2).then(
+					function (res) {
+						$scope.lablelist = res.data.data.labelList;
+						$scope.xxx=$scope.lablelist
+						console.log($scope.xxx)
+					},
+					function (rej) {
+						console.log(rej);
+					})
+			}
+
 			//获取所有标签
+
+
 			var postData1 = $.param({
 				access_token:$localStorage.token
 			});
 			UIMessageService.getallLable(postData1).then(
 				function (res) {
-					$scope.lablelist = res.data.lableList;
+					$scope.lablelist = res.data.data.labelList;
+					$scope.xxx=$scope.lablelist
+					$scope.showlable=[]
+					$scope.showlable.push($scope.xxx[0])
+					$scope.showlable.push($scope.xxx[1])
+					$scope.showlable.push($scope.xxx[2])
+					$scope.showlable.push($scope.xxx[3])
+					console.log( typeof $scope.showlable)
 				},
 				function (rej) {
 					console.log(rej);
 				})
-			//删除标签
-			var postData2 = $.param({
-				id:1,
-				access_token:$localStorage.token
-			});
-			UIMessageService.delLabel(postData2).then(
-				function (res) {
-				},
-				function (rej) {
-					console.log(rej);
-				})
-			//获取所有字段
-			var postData3= $.param({
-				access_token:$localStorage.token
-			});
-			UIMessageService.getallcode(postData3).then(
-				function (res) {
-					$scope.lablelist = res.data.lableList;
-				},
-				function (rej) {
-					console.log(rej);
-				})
-			//添加标签
-			var postData4 = $.param({
-				name:1,
-				queryItems:2,
-				access_token:$localStorage.token
-			});
-			UIMessageService.getallLable(postData4).then(
-				function (res) {
-					$scope.lablelist = res.data.lableList;
-					console.log($scope.lablelist)
-				},
-				function (rej) {
-					console.log(rej);
-				})
+			
 			//复杂查询
 			var postData5 = $.param({
 				id:1,
@@ -124,7 +214,7 @@
 					pageSize:1,
 					access_token:$localStorage.token
 				});
-				UIMessageService.getallLable(postData).then(
+				UIMessageService.getcomplexlist(postData).then(
 					function (res) {
 						$scope.lablelist = res.data.lableList;
 					},
@@ -134,20 +224,7 @@
 			}
 			
 			
-			console.log($scope.tiaojian)
-			$scope.addonetiaojian=function(){
-				$("#addone").append('<tr ><td><select><option value="AND">AND</option><option value="OR">OR</option></select></td>'+
-				'<td><select><option value="0">空</option><option value="1">(</option></select></td>'+
-					'<td><select><option value="0">A01职称</option><option value="1">A01职称</option></select></td>'+
-					'<td><select><option value="0">等于</option><option value="1">等于</option></select></td>'+
-					'<td><input type="text"></td>'+
-					'<td><select><option value="0">空</option><option value="1">)</option></select></td>'+
-					'<td><button onclick="$(this).parent().parent().remove()">删除</button></td>'+
-					'</tr>')
-			}
-			$scope.selectall=function(){
-				$('[name=checkitems]:checkbox').attr('checked',true)
-			}
+		
 			searchservice.getData().then(
 				function (res) {
 					$scope.nianlinglist = res.data.info;
@@ -159,7 +236,7 @@
 			$scope.searchPeople=function(){
 				var postData = $.param({
 					isfilt:0,
-					tree_id:$localStorage.tree_uuid,
+					tree_id:$scope.select_tree_id,
 					keyword:$scope.search.keywords,
 					ranks:$scope.rank.join(","),
 					sexs:$scope.xingbie.join(","),
@@ -170,13 +247,14 @@
 					pageSize: $scope.paginationConf.itemsPerPage,
 					access_token:$localStorage.token
 				});
+				console.log($scope.rank)
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
-						console.log(res.data.info.totalElements);
+						//console.log(res.data.info.totalElements);
 						if(res.data.code==200){
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
-							console.log( res.data.info.totalElements)
+							//console.log( res.data.info.totalElements)
 							console.log($scope.messagetabletab)
 						}else{
 							//alert(res.data.msg);
@@ -206,6 +284,7 @@
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
 						if(res.data.code==200){
+							
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
 							console.log(res.data.info.totalElements);
@@ -229,7 +308,56 @@
 			$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
 			$scope.$watch('treeselected', getMessageImageList);
 
+			$scope.cleansubmit=function(){
+				var x=$("[selectbutton='isSelected']").length;
+				console.log($("[selectbutton='isSelected']")[1].selectbutton)
+				for(var i=0;i<x;i++){
+					$("[selectbutton='isSelected']").removeClass('btn-danger');
+					$("[selectbutton='isSelected']").addClass('btn-default');
+				}
+				//职级
+				$scope.rank=[];
+				//性别
+				$scope.xingbie=[];
+				//政治面貌
+				$scope.politicalstatus=[];
+				//学历
+				$scope.edulevel=[];
+				//年龄
+				$scope.age=[];
+					var postData = $.param({
+						isfilt:0,
+						tree_id:$localStorage.tree_uuid,
+						keyword:$scope.search.keywords,
+						ranks:$scope.rank.join(","),
+						sexs:$scope.xingbie.join(","),
+						political_statuses:$scope.politicalstatus.join(","),
+						edu_levels:$scope.edulevel.join(","),
+						ages:$scope.age.join(","),
+						pageNo: $scope.paginationConf.currentPage,
+						pageSize: $scope.paginationConf.itemsPerPage,
+						access_token:$localStorage.token
+					});
+					SettingpeopleService.getPeopleList(postData).then(
+						function (res) {
+							if(res.data.code==200){
 
+								$scope.paginationConf.totalItems = res.data.info.totalElements;
+								$scope.messagetabletab = res.data.info.elements;
+								console.log(res.data.info.totalElements);
+								console.log($scope.messagetabletab)
+
+							}else{
+								//alert(res.data.msg);
+							}
+
+						},
+						function (rej) {
+							console.log(rej);
+						}
+					)
+
+			}
 			$scope.showOneDetail=function(people){
 				console.log(people)
 				$scope.isdetail=true;
@@ -244,6 +372,7 @@
 						if (res.data.code == 200) {
 							$scope.familyInfolist=res.data.info;
 							console.log("家庭成员",$scope.familyInfolist)
+							console.log("家庭成员",$scope.familyInfolist.birthday)
 						}
 					},
 					function(rej){
@@ -256,6 +385,7 @@
 						if (res.data.code == 200) {
 							$scope.resumeinfo={};
 							$scope.resumeinfo=res.data.info[0];
+							console.log($scope.resumeinfo)
 						}
 					},
 					function(rej){
@@ -443,11 +573,104 @@
 					resolve:{
 					}
 				});
-				modaladdtiaojianInstance.result.then(function (deploy) {
+				modaladdtiaojianInstance.result.then(function (select) {
+					var a=["AND",]
+					var b=[]
+					var c=[]
+					var d=[]
+					var e=[]
+					var f=[]
+					var aa=[]
+					var bb=[]
+					var cc=[]
+					var dd=[]
+					var ee=[]
+					var ff=[]
+					$("select[name='aaa']").each(
+						function(){
+							a.push($(this).val())
+						}
+					)
+					$("select[name='bbb']").each(
+						function(){
+							b.push($(this).val())
+						}
+					)
+					$("select[name='ccc']").each(
+						function(){
+							c.push($(this).val())
+						}
+					)
+					
+					$("select[name='ddd']").each(
+						function(){
+							d.push($(this).val())
+						}
+					)
+					$("input[name='eee']").each(
+						function(){
+							e.push($(this).val())
+						}
+					)
+					$("select[name='fff']").each(
+						function(){
+							f.push($(this).val())
+						}
+					)
+				
+					var m= a.length;
+					$scope.n=[]
+					$scope.queryItemList=[]
+					for(var i=0;i<m;i++){
+						//var temp={"queryItemList":a[i]+","+b[i]+","+c[i]+","+d[i]+","+e[i]+","+f[i]};
+						//e[i]=c[i];
+						var temp={
+							logic:a[i],
+							isLeftBracket:b[i],
+							code:c[i],
+							operate:d[i],
+							value1:e[i],
+							isRightBracket:f[i],
+						};
+						console.log($scope.n)
+						$scope.queryItemList.push(temp)
+					}
+					//var p={
+					//	logic:$scope.logic,
+					//	isLeftBracket:$scope.isLeftBracket,
+					//	code:$scope.code,
+					//	operate:$scope.operate,
+					//	value:$scope.value,
+					//	isRightBracket:$scope.isRightBracket,
+					//};
+					
+					console.log(temps)
+					console.log(select)
+					var name=select["name"];
+					var temps={
+						name:name,
+						queryItemList:$scope.queryItemList
+					};
+					//delete temps["name"]
+					//添加标签
+					var postData4 = $.param({
+						name:name,
+						queryItems:JSON.stringify(temps),
+						access_token:$localStorage.token
+					});
+					UIMessageService.addLabel(postData4).then(
+						function (res) {
+							console.log("添加成功");
+						},
+						function (rej) {
+							console.log(rej);
+						})
 				}, function () {
 					$log.info('Modal dismissed at: ' + new Date());
+					alert("添加失败")
 				});
 			}
+			
 
 		} ]);
 app.controller('ModaljieguomanageInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
@@ -470,10 +693,78 @@ app.controller('ModaltiaojianmanageInstanceCtrl', ['$scope', '$modalInstance','$
 			$modalInstance.dismiss('cancel');
 		};
 	}]);
-app.controller('ModaladdtiaojianInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
-	function($scope, $modalInstance) {
+app.controller('ModaladdtiaojianInstanceCtrl', ['$scope', '$modalInstance','$localStorage','UIMessageService','SettingdaimaService',
+	function($scope, $modalInstance,$localStorage,UIMessageService,SettingdaimaService) {
+		
+		//获取所有字段
+		var postData3= $.param({
+			access_token:$localStorage.token
+		});
+		UIMessageService.getallcode(postData3).then(
+			function (res) {
+				$scope.codelist = res.data.data.CodeList;
+				$scope.code=$scope.codelist
+				console.log($scope.codelist)
+			},
+			function (rej) {
+				console.log(rej);
+			})
+		//var i=1;
+		//var a="selelct.luoji"+i;
+		//var b="selelct.zuokuohao"+i;
+		//var c="selelct.code"+i;
+		//var d="selelct.yunsuanfu"+i;
+		//var e="selelct.zhi"+i;
+		//var f="selelct.youkuohao"+i;
+		//$scope.tiaojianlist=[{"id":i,"model1":a,"model2":b,"model3":c,"model4":d,"model5":e,"model6":f}]
+		//$scope.tiaojian=$scope.tiaojianlist;
+		$scope.tiaojianlist=[];
+		var ii=111
+		$scope.addonetiaojian=function(){
+	
+			$scope.tiaojianlist.push({"model1":"aaa","model2":"bbb","model3":"ccc","model4":"ddd","model5":"eee","model6":"fff","id":ii})
+			console.log($scope.tiaojianlist)
+			ii++;
+		}
+
+		Array.prototype.remove=function(obj){
+			for(var i =0;i <this.length;i++){
+				var temp = this[i];
+				if(!isNaN(obj)){
+					temp=i;
+				}
+				if(temp == obj){
+					for(var j = i;j <this.length;j++){
+						this[j]=this[j+1];
+					}
+					this.length = this.length-1;
+				}
+			}
+		}
+		$scope.delonetiaojian=function(target){
+			//target.target.parentNode.parentNode.remove()
+			//alert(target.target.name)
+			for(var n=0;n<$scope.tiaojianlist.length;n++){
+				if($scope.tiaojianlist[n].id==target.target.name){
+					console.log(n)
+					console.log($scope.tiaojianlist[n].id)
+					$scope.tiaojianlist.splice(n,1)
+				
+					console.log($scope.tiaojianlist.length)
+				}
+			}
+		}
+		$scope.select={
+			name:"",
+			luoji:"",
+			zuokuohao:"",
+			code:"",
+			yunsuanfu:"",
+			zhi:"",
+			youkuohao:""
+		};
 		$scope.ok = function () {
-			$modalInstance.close();
+			$modalInstance.close($scope.select);
 		};
 
 		$scope.cancel = function () {

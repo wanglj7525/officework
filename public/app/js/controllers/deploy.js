@@ -1,15 +1,15 @@
 'use strict';
 app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','adjustdetailservice','SettingdaimaService','UIDeployservice','people',
 	function($scope, $modalInstance,$localStorage,adjustdetailservice,SettingdaimaService,UIDeployservice,people) {
-		$scope.hasanalysis=false;
 		//任职原因
 		SettingdaimaService.getCodagetList("ZB12").then(function(res){
 			$scope.renzhilist=res.data.info.list;
 		},function(rej){});
 		var select_tree = $.param({
-			tree_id:$localStorage.tree_uuid,
+			tree_id:$localStorage.tree_uuid_bak,
 			access_token:$localStorage.token
 		});
+		console.log($localStorage.tree_uuid_bak)
 		adjustdetailservice.getzhiweiList(select_tree).then(
 			function (res) {
 				$scope.companylist = res.data.info;
@@ -160,8 +160,8 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice','getxueliList','treeservice_new',
-	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice,getxueliList,treeservice_new) {
+app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice','getxueliList','treeservice_new','UIMessageService',
+	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice,getxueliList,treeservice_new,UIMessageService) {
 		//存储任职 离职人员id
 		$scope.InPerson_ids=[];
 		$scope.OutPerson_ids=[];
@@ -171,6 +171,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		$scope.my_data1 = [];
 		$scope.doing_async1 = true;
 		$scope.treeselected=$localStorage.treeselect;
+		console.log($localStorage.treeselected)
 		$scope.nopeople="班子暂无成员";
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
@@ -208,12 +209,19 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						UIDeployservice.getBanziAnalysis(params).then(
 							function(res){
 								if(res.data.msg=="操作成功"){
+									console.log(11111111111)
+									console.log(res.data.data.info.ageList)
 									for(var j=0;j<$scope.daweilist.row.length;j++){
 										for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
-											if(res.data.data.person_ids.indexOf($scope.daweilist.row[j].column[i].person_id)!=-1){
+											if(res.data.data.info.changeList.indexOf($scope.daweilist.row[j].column[i].person_id)!=-1){
 												$scope.daweilist.row[j].column[i].needChange=true;
-											}else{
+											}
+											if(res.data.data.info.ageList.indexOf($scope.daweilist.row[j].column[i].person_id)!=-1){
+												$scope.daweilist.row[j].column[i].overage=true;
+											}
+											else{
 												$scope.daweilist.row[j].column[i].needChange=false;
+												$scope.daweilist.row[j].column[i].overage=false;
 											}
 										}
 									}
@@ -221,6 +229,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							},
 							function(rej){
 								console.log(rej);
+								console.log(222222)
+
 							}
 						);
 					}
@@ -276,16 +286,248 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//年龄
 		$scope.age=[];
 		$scope.search={};
-
 		//点击头像查看个人信息
 		$scope.selectparam=[];
 		$scope.status = {
 			open: false,
 			leftopen:true
 		};
+		
+		//获取所有标签
+		var postData1 = $.param({
+			access_token:$localStorage.token
+		});
+		UIMessageService.getallLable(postData1).then(
+			function (res) {
+				$scope.lablelist = res.data.data.labelList;
+				$scope.xxx=$scope.lablelist
+				$scope.showlable=[]
+				$scope.showlable.push($scope.xxx[0])
+				$scope.showlable.push($scope.xxx[1])
+				$scope.showlable.push($scope.xxx[2])
+				$scope.showlable.push($scope.xxx[3])
+				console.log( typeof $scope.showlable)
+			},
+			function (rej) {
+				console.log(rej);
+			})
+		//获取所有字段
+
+		$scope.compexsearch=function(id){
+			var postData = $.param({
+				id:id,
+				pageNo:1,
+				pageSize:1,
+				access_token:$localStorage.token
+			});
+			UIMessageService.getcomplexlist(postData).then(
+				function (res) {
+					$scope.lablelist = res.data.lableList;
+				},
+				function (rej) {
+					console.log(rej);
+				});
+		}
+
+		//条件管理
+		$scope.tiaojianmanage=function(){
+			var modaltiaojianmanageInstance = $modal.open({
+				templateUrl: 'tiaojianmanagedeployModel.html',
+				controller: 'ModaltiaojianmanagedeployInstanceCtrl',
+				size: 'lg',
+				resolve:{
+				}
+			});
+			modaltiaojianmanageInstance.result.then(function (deploy) {
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
+		//增加条件
+		$scope.addtiaojian=function(){
+			var modaladdtiaojianInstance = $modal.open({
+				templateUrl: 'addtiaojiandeployModel.html',
+				controller: 'ModaladdtiaojiandeployInstanceCtrl',
+				size: 'lg',
+				resolve:{
+				}
+			});
+			modaladdtiaojianInstance.result.then(function (select) {
+				var a=[-1,]
+				var b=[]
+				var c=[]
+				var d=[]
+				var e=[]
+				var f=[]
+				var aa=[]
+				var bb=[]
+				var cc=[]
+				var dd=[]
+				var ee=[]
+				var ff=[]
+				$("select[name='aaa']").each(
+					function(){
+						a.push($(this).val())
+					}
+				)
+				$("select[name='bbb']").each(
+					function(){
+						b.push($(this).val())
+					}
+				)
+				$("select[name='ccc']").each(
+					function(){
+						c.push($(this).val())
+					}
+				)
+				$("select[name='ddd']").each(
+					function(){
+						d.push($(this).val())
+					}
+				)
+				$("input[name='eee']").each(
+					function(){
+						e.push($(this).val())
+					}
+				)
+				$("select[name='fff']").each(
+					function(){
+						f.push($(this).val())
+					}
+				)
+				var temps=[];
+				var m= a.length;
+				for(var i=0;i<m;i++){
+					var temp={"sqlstr":a[i]+","+b[i]+","+c[i]+","+d[i]+","+e[i]+","+f[i]};
+					temps[i]=temp;
+				}
+				console.log(temps)
+
+				//alert(a)
+				//alert(b)
+				//alert(c)
+				//alert(d)
+				//alert(e)
+				//alert(f)
+
+
+				console.log(select)
+				var name=select["name"];
+				delete select["name"]
+				//添加标签
+				var postData4 = $.param({
+					name:name,
+					queryItems:JSON.stringify(temps),
+					access_token:$localStorage.token
+				});
+				UIMessageService.addLabel(postData4).then(
+					function (res) {
+						console.log("添加成功")
+					},
+					function (rej) {
+						console.log(rej);
+					})
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
+		//清空树
+		$scope.cleantree=function(){
+			$localStorage.tree_uuid="";
+			$scope.treeselected="";
+			console.log($localStorage.tree_uuid)
+			//var postData = $.param({
+			//	isfilt:0,
+			//	tree_id:$scope.select_tree_id,
+			//	keyword:$scope.search.keywords,
+			//	ranks:$scope.rank.join(","),
+			//	sexs:$scope.xingbie.join(","),
+			//	political_statuses:$scope.politicalstatus.join(","),
+			//	edu_levels:$scope.edulevel.join(","),
+			//	ages:$scope.age.join(","),
+			//	pageNo: $scope.paginationConf.currentPage,
+			//	pageSize: $scope.paginationConf.itemsPerPage,
+			//	access_token:$localStorage.token
+			//});
+			//SettingpeopleService.getPeopleList(postData).then(
+			//	function (res) {
+			//		console.log(res.data.info.totalElements);
+			//		if(res.data.code==200){
+			//			$scope.paginationConf.totalItems = res.data.info.totalElements;
+			//			$scope.messagetabletab = res.data.info.elements;
+			//			console.log( res.data.info.totalElements)
+			//			console.log($scope.messagetabletab)
+			//		}else{
+			//			//alert(res.data.msg);
+			//		}
+			//
+			//	},
+			//	function (rej) {
+			//		console.log(rej);
+			//	}
+			//)
+			//var getMessageImageList = function () {
+			//	var postData = $.param({
+			//		isfilt:0,
+			//		tree_id:$scope.select_tree_id,
+			//		keyword:$scope.search.keywords,
+			//		ranks:$scope.rank.join(","),
+			//		sexs:$scope.xingbie.join(","),
+			//		political_statuses:$scope.politicalstatus.join(","),
+			//		edu_levels:$scope.edulevel.join(","),
+			//		ages:$scope.age.join(","),
+			//		pageNo: $scope.paginationConf.currentPage,
+			//		pageSize: $scope.paginationConf.itemsPerPage,
+			//		access_token:$localStorage.token
+			//	});
+			//	SettingpeopleService.getPeopleList(postData).then(
+			//		function (res) {
+			//			if(res.data.code==200){
+			//				$scope.paginationConf.totalItems = res.data.info.totalElements;
+			//				$scope.messagetabletab = res.data.info.elements;
+			//				console.log(res.data.info.totalElements);
+			//				console.log($scope.messagetabletab)
+			//
+			//			}else{
+			//				//alert(res.data.msg);
+			//			}
+			//
+			//		},
+			//		function (rej) {
+			//			console.log(rej);
+			//		}
+			//	)
+			//}
+			////配置分页基本参数
+			//$scope.paginationConf = {
+			//	currentPage: 1,
+			//	itemsPerPage: 12
+			//};
+			//$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
+			//$scope.$watch('select_tree_id', getMessageImageList);
+		}
+		//清除选项
+		$scope.cleansubmit=function(){
+			var x=$("[selectbutton='isSelected']").length;
+			console.log($("[selectbutton='isSelected']")[1].selectbutton)
+			for(var i=0;i<x;i++){
+				$("[selectbutton='isSelected']").removeClass('btn-danger');
+				$("[selectbutton='isSelected']").addClass('btn-default');
+			}
+			//职级
+			$scope.rank=[];
+			//性别
+			$scope.xingbie=[];
+			//政治面貌
+			$scope.politicalstatus=[];
+			//学历
+			$scope.edulevel=[];
+			//年龄
+			$scope.age=[];
+		}
 		//$scope.isdetail=false;
 		//deployright
-		$scope.searchPeoples=function(){
+		$scope.searchPeople=function(){
 			var postData = $.param({
 				isfilt:1,
 				tree_id:$localStorage.tree_uuid,
@@ -346,13 +588,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			itemsPerPage: 12
 		};
 		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
-		$scope.$watch('treeselected', getMessageImageList);
-		//配置分页基本参数
-		$scope.paginationConf = {
-			currentPage: 1,
-			itemsPerPage: 12
-		};
-		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', $scope.searchPeoples);
+		$scope.$watch('treeselected', getMessageImageList)
 
 		//任职
 		$scope.selectpeople=function(people){
@@ -377,7 +613,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					post_name:deploy.zhiwei['name'],
 					post_id:deploy.zhiwei['id'],
 					imgurl:people.imgurl,
-					needChange:false
+					needChange:false,
+					overage:false
 				}
 
 				/**
@@ -572,7 +809,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
-
+		//获取当前年份
+		$scope.y=new Date()
+		$scope.nowyear= $scope.y.getFullYear()
+		$scope.hasanalysis=false;
 		//查看详情
 		$scope.showOneDetail=function(people){
 
@@ -745,3 +985,90 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 
 		};
 	} ]);
+app.controller('ModaltiaojianmanagedeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
+	function($scope, $modalInstance) {
+		$scope.ok = function () {
+			$modalInstance.close();
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
+app.controller('ModaladdtiaojiandeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage','UIMessageService','$compile',
+	function($scope, $modalInstance,$localStorage,UIMessageService,$compile) {
+		//获取所有字段
+		var postData3= $.param({
+			access_token:$localStorage.token
+		});
+		UIMessageService.getallcode(postData3).then(
+			function (res) {
+				$scope.codelist = res.data.data.CodeList;
+				$scope.code=$scope.codelist
+				console.log($scope.codelist)
+			},
+			function (rej) {
+				console.log(rej);
+			})
+		//var i=1;
+		//var a="selelct.luoji"+i;
+		//var b="selelct.zuokuohao"+i;
+		//var c="selelct.code"+i;
+		//var d="selelct.yunsuanfu"+i;
+		//var e="selelct.zhi"+i;
+		//var f="selelct.youkuohao"+i;
+		//$scope.tiaojianlist=[{"id":i,"model1":a,"model2":b,"model3":c,"model4":d,"model5":e,"model6":f}]
+		//$scope.tiaojian=$scope.tiaojianlist;
+		$scope.tiaojianlist=[];
+		var ii=111
+		$scope.addonetiaojian=function(){
+
+			$scope.tiaojianlist.push({"model1":"aaa","model2":"bbb","model3":"ccc","model4":"ddd","model5":"eee","model6":"fff","id":ii})
+			console.log($scope.tiaojianlist)
+			ii++;
+		}
+
+		Array.prototype.remove=function(obj){
+			for(var i =0;i <this.length;i++){
+				var temp = this[i];
+				if(!isNaN(obj)){
+					temp=i;
+				}
+				if(temp == obj){
+					for(var j = i;j <this.length;j++){
+						this[j]=this[j+1];
+					}
+					this.length = this.length-1;
+				}
+			}
+		}
+		$scope.delonetiaojian=function(target){
+			//target.target.parentNode.parentNode.remove()
+			//alert(target.target.name)
+			for(var n=0;n<$scope.tiaojianlist.length;n++){
+				if($scope.tiaojianlist[n].id==target.target.name){
+					console.log(n)
+					console.log($scope.tiaojianlist[n].id)
+					$scope.tiaojianlist.splice(n,1)
+
+					console.log($scope.tiaojianlist.length)
+				}
+			}
+		}
+		$scope.select={
+			name:"",
+			luoji:"",
+			zuokuohao:"",
+			code:"",
+			yunsuanfu:"",
+			zhi:"",
+			youkuohao:""
+		};
+		$scope.ok = function () {
+			$modalInstance.close($scope.select);
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);

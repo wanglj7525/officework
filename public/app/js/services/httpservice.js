@@ -735,8 +735,7 @@ angular.module('app')
     return{
         getMessageList:function(params){
             var deferred=$q.defer();
-            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
-            var path='/public/app/api/message?';
+            var path=SERVICE_URL+'/public/app/api/message?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
@@ -747,8 +746,7 @@ angular.module('app')
         },
         getcomplexlist:function(params){
             var deferred=$q.defer();
-            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
-            var path='/setting/user/label/complexQuery?';
+            var path=SERVICE_URL+'/setting/user/label/complexQuery?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
@@ -759,9 +757,8 @@ angular.module('app')
         },
         addLabel:function(params){
             var deferred=$q.defer();
-            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
-            var path='/setting/user/label/add?';
-            var promise=$http.get(path+params).then(function(response){
+            var path=SERVICE_URL+'/setting/user/label/add?';
+            var promise=$http.post(path+params).then(function(response){
                 return response;
             },function(response){
                 console.log(response);
@@ -771,8 +768,7 @@ angular.module('app')
         },
         delLabel:function(params){
             var deferred=$q.defer();
-            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
-            var path='/setting/user/label/delete?';
+            var path=SERVICE_URL+'/setting/user/label/delete?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
@@ -783,8 +779,7 @@ angular.module('app')
         },
         getallcode:function(params){
             var deferred=$q.defer();
-            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
-            var path='/setting/user/label/getAllCode?';
+            var path=SERVICE_URL+'/setting/user/label/getAllCode?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){
@@ -795,8 +790,7 @@ angular.module('app')
         },
         getallLable:function(params){
             var deferred=$q.defer();
-            //var path=SERVICE_URL+'/setting/sysuser/getUser?';
-            var path='/setting/user/label/getAllLabel?';
+            var path=SERVICE_URL+'/setting/user/label/getAllLabel?';
             var promise=$http.get(path+params).then(function(response){
                 return response;
             },function(response){

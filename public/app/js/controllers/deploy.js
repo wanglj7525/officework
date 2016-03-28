@@ -312,12 +312,15 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				console.log(rej);
 			})
 		//获取所有字段
-
+	//复杂查询
 		$scope.compexsearch=function(id){
+			console.log(id)
 			var postData = $.param({
 				id:id,
-				pageNo:1,
-				pageSize:1,
+				pageNo:$scope.paginationConf.currentPage,
+				pageSize:$scope.paginationConf.itemsPerPage,
+				tree_id:$scope.tree_uuid_bak,
+				isfilt:0,
 				access_token:$localStorage.token
 			});
 			UIMessageService.getcomplexlist(postData).then(
@@ -524,6 +527,37 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			$scope.edulevel=[];
 			//年龄
 			$scope.age=[];
+			var postData = $.param({
+				isfilt:0,
+				tree_id:$localStorage.tree_uuid,
+				keyword:$scope.search.keywords,
+				ranks:$scope.rank.join(","),
+				sexs:$scope.xingbie.join(","),
+				political_statuses:$scope.politicalstatus.join(","),
+				edu_levels:$scope.edulevel.join(","),
+				ages:$scope.age.join(","),
+				pageNo: $scope.paginationConf.currentPage,
+				pageSize: $scope.paginationConf.itemsPerPage,
+				access_token:$localStorage.token
+			});
+			SettingpeopleService.getPeopleList(postData).then(
+				function (res) {
+					if(res.data.code==200){
+
+						$scope.paginationConf.totalItems = res.data.info.totalElements;
+						$scope.messagetabletab = res.data.info.elements;
+						console.log(res.data.info.totalElements);
+						console.log($scope.messagetabletab)
+
+					}else{
+						//alert(res.data.msg);
+					}
+
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			)
 		}
 		//$scope.isdetail=false;
 		//deployright

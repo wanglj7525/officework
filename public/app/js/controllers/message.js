@@ -172,7 +172,6 @@
 
 			//获取所有标签
 
-
 			var postData1 = $.param({
 				access_token:$localStorage.token
 			});
@@ -185,38 +184,54 @@
 					$scope.showlable.push($scope.xxx[1])
 					$scope.showlable.push($scope.xxx[2])
 					$scope.showlable.push($scope.xxx[3])
-					console.log( typeof $scope.showlable)
+					console.log(  $scope.lablelist)
 				},
 				function (rej) {
 					console.log(rej);
 				})
 			
 			//复杂查询
-			var postData5 = $.param({
-				id:1,
-				pageNo:1,
-				pageSize:1,
-				access_token:$localStorage.token
-			});
-			UIMessageService.getallLable(postData5).then(
-				function (res) {
-					$scope.lablelist = res.data.lableList;
-				},
-				function (rej) {
-					console.log(rej);
-				});
-			
-			
 			$scope.compexsearch=function(id){
+				console.log(id)
+				$scope.id=id
 				var postData = $.param({
 					id:id,
-					pageNo:1,
-					pageSize:1,
+					pageNo:$scope.paginationConf.currentPage,
+					pageSize:$scope.paginationConf.itemsPerPage,
+					tree_id:$scope.tree_uuid_bak,
+					isfilt:0,
 					access_token:$localStorage.token
 				});
 				UIMessageService.getcomplexlist(postData).then(
 					function (res) {
 						$scope.lablelist = res.data.lableList;
+						var getMessageImageList1 = function () {
+							var postData1 = $.param({
+								id:$scope.id,
+								pageNo:$scope.paginationConf.currentPage,
+								pageSize:$scope.paginationConf.itemsPerPage,
+								tree_id:$scope.tree_uuid_bak,
+								isfilt:0,
+								access_token:$localStorage.token
+							});
+							UIMessageService.getcomplexlist(postData1).then(
+								function (res) {
+									if(res.data.code==200){
+										$scope.paginationConf.totalItems = res.data.info.totalElements;
+										$scope.messagetabletab = res.data.info.elements;
+										console.log(res.data.info.totalElements);
+										console.log($scope.messagetabletab)
+
+									}else{
+										//alert(res.data.msg);
+									}
+
+								},
+								function (rej) {
+									console.log(rej);
+								}
+							)
+						}
 					},
 					function (rej) {
 						console.log(rej);
@@ -224,7 +239,7 @@
 			}
 			
 			
-		
+			
 			searchservice.getData().then(
 				function (res) {
 					$scope.nianlinglist = res.data.info;
@@ -267,6 +282,37 @@
 				)
 			}
 			//分页获取数据
+			//var getMessageImageList2= function () {
+			//	//alert("复杂")
+			//	var postData1 = $.param({
+			//		id:$scope.id,
+			//		pageNo:$scope.paginationConf.currentPage,
+			//		pageSize:$scope.paginationConf.itemsPerPage,
+			//		tree_id:$scope.tree_uuid_bak,
+			//		isfilt:0,
+			//		access_token:$localStorage.token
+			//	});
+			//	UIMessageService.getcomplexlist(postData1).then(
+			//		function (res) {
+			//			if(res.data.msg=="操作成功"){
+			//				console.log( res.data.data.info.totalElements);
+			//				$scope.messagetabletab1 = res.data.data.info.elements;
+			//				console.log($scope.messagetabletab1)
+			//				console.log(res.data)
+            //
+			//			}else{
+			//				//alert(res.data.msg);
+			//				console.log($scope.messagetabletab)
+			//				console.log(res.data)
+            //
+			//			}
+            //
+			//		},
+			//		function (rej) {
+			//			console.log(rej);
+			//		}
+			//	)
+			//}
 			var getMessageImageList = function () {
 				var postData = $.param({
 					isfilt:0,
@@ -284,7 +330,7 @@
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
 						if(res.data.code==200){
-							
+
 							$scope.paginationConf.totalItems = res.data.info.totalElements;
 							$scope.messagetabletab = res.data.info.elements;
 							console.log(res.data.info.totalElements);
@@ -300,6 +346,7 @@
 					}
 				)
 			}
+
 			//配置分页基本参数
 			$scope.paginationConf = {
 				currentPage: 1,

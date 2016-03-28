@@ -43,12 +43,12 @@
           </select>
         </td>
         <td>
-          <select ng-model="a110" name="ccc"  ng-change="codechange()" ng-if="1">
+          <select  name="ccc"  ng-if="1">
             <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
           </select>
         </td>
         <td>
-          <select ng-model="select.yunsuanfu" name="ddd">
+          <select  name="ddd">
             <option value="1">等于</option>
             <option value="2">不等于</option>
             <option value="6">大于</option>
@@ -61,10 +61,10 @@
           </select>
         </td>
         <td>
-          <select ng-model="b1110" name="eee" ng-if="0">
+          <select name="eee" ng-if="0">
             <option ng-repeat="i in code" value={{i.code}}>{{i.msg}}</option>
           </select>
-          <input type="text" ng-model="select.zhi" name="eee" ng-if="1">
+          <input type="text"  name="eee" ng-if="1">
           <ui-select name="eee" theme="bootstrap" ng-if="0" ng-model="select.zhi" >
             <ui-select-match placeholder="请输入搜索...">{{$select.selected.code}}</ui-select-match>
             <ui-select-choices repeat="item in code | filter: $select.search">
@@ -73,7 +73,7 @@
           </ui-select>
         </td>
         <td>
-          <select ng-model="select.youkuohao" name="fff">
+          <select  name="fff">
             <option value="0">空</option>
             <option value="1">)</option>
           </select>
@@ -96,7 +96,7 @@
             </select>
           </td>
           <td>
-            <select  ng-model="select.model3" name={{t.model3}} id={{t.codemodel}} ng-change="codechange($even)">
+            <select   name={{t.model3}} id={{t.codemodel}} ng-change="codechange($even)">
               <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
             </select>
           </td>
@@ -115,7 +115,7 @@
           </td>
           <td>
             <input type="text" name={{t.model5}} ng-if="0"> 
-            <select ng-model="selelct.code" name={{t.model5}} id={{t.codechildmodel}}  ng-if="1">
+            <select  name={{t.model5}} id={{t.codechildmodel}}  ng-if="1">
               <option ng-repeat="i in code" value={{i.code}}>{{i.msg}}</option>
             </select>
           </td>

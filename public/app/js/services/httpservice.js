@@ -744,6 +744,7 @@ angular.module('app')
             });
             return promise;
         },
+        //自定义查询
         getcomplexlist:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/user/label/complexQuery?';
@@ -798,12 +799,68 @@ angular.module('app')
                 return response;
             });
             return promise;
+        },
+        //结果集查询
+        getallresult:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resultSet/getAllResultSet?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        getallresultuser:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resultSet/getUser?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        delresult:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resultSet/delete?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
+        addresult:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/setting/user/resultSet/add?';
+            var promise=$http.post(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
         }
 
     }
 }]) .service('UIAdjustplanService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
     //调整方案
     return{
+        exportAdjustolan:function(params){
+            var deferred=$q.defer();
+            var path=SERVICE_URL+'/adjustplan/export?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         getAdjustplanList:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/adjustplan/list?';

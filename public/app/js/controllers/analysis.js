@@ -1,11 +1,32 @@
 'use strict';
-app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStorage','people','UIanalysisservice','SettingpeopleService','$modal',function($scope, $modalInstance,$localStorage,people,UIanalysisservice,SettingpeopleService,$modal) {
-		$scope.user={};
+app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStorage','people','UIanalysisservice','SettingpeopleService','$modal','SettingdaimaService',function($scope, $modalInstance,$localStorage,people,UIanalysisservice,SettingpeopleService,$modal,SettingdaimaService) {
+	$scope.y=new Date()
+	$scope.nowyear= $scope.y.getFullYear()
+	console.log(people)	
+	$scope.user={};
 		var postData = $.param({
 			person_id:people.person_id,
 			access_token:$localStorage.token
 		});
 	console.log(people.person_id);
+
+	//性别
+	SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+	//地址
+	SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+	//民族
+	SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
+	//健康
+	SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
+	//职级
+	SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+	//政治面貌
+	SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+	//个人身份
+	SettingdaimaService.getCodagetList("GB2261_4").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
+	//人员状态
+	SettingdaimaService.getCodagetList("FJ14").then(function(res){ $scope.zhuangtailist=res.data.info.list;},function(rej){});
+	//学历
 		//家庭成员
 		SettingpeopleService.getfamilyInfo(postData).then(
 			function(res){
@@ -100,7 +121,7 @@ app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStor
 			function(res) {
 				if (res.data.code == 200) {
 					$scope.user = res.data.info;
-					console.log($scope.user)
+					console.log($scope.user.sex)
 					//下拉列表默认显示值
 					if($scope.user.jiguan||$scope.user.birthplace){
 						for(var i=0;i<$scope.address.length;i++){
@@ -148,9 +169,11 @@ app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStor
 						}
 					}
 					if($scope.user.sex){
+						console.log($scope.user.sex)
 						for(var i=0;i<$scope.sexlist.length;i++){
+							console.log($scope.sexlist)
 							if($scope.user.sex==$scope.sexlist[i].ano){
-								$scope.user.sex=$scope.sexlist[i];
+								$scope.user.sex=$scope.sexlist[i].jc;
 							}
 						}
 
@@ -397,7 +420,7 @@ app.directive('pies', function($modal,$log) {
 				var option = {
 					// 提示框，鼠标悬浮交互时的信息提示
 					tooltip : {
-						show : true,
+						show : false,
 						trigger : 'item',
 						formatter: "{b} : {c}人 ({d}%)"
 					},
@@ -504,7 +527,9 @@ app.directive('bars', function($modal,$log) {
 		
 			function showbar(){
 				var option = {
+					
 					tooltip : {
+						show:false,
 						formatter: "{b} : {c}人"
 					},
 					//禁止拖动
@@ -547,6 +572,9 @@ app.directive('bars', function($modal,$log) {
 										var color = colorList[colorIndex];
 										colorList.splice(colorIndex,1);
 										return color;
+									},
+									label:{
+										show:false,
 									}
 								}
 							}

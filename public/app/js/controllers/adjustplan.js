@@ -9,7 +9,7 @@ app.controller('ModalDeleteAdjustInstanceCtrl', ['$scope', '$modalInstance' ,'it
 		$modalInstance.dismiss('cancel');
 	};
 }]);
-app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService','$modal','$localStorage',
+app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService','$modal','$localStorage','SERVICE_URL',
 	function($scope, $http, $state, $timeout,UIAdjustplanService,$modal,$localStorage) {
 		var postData = $.param({
 			access_token:$localStorage.token
@@ -20,6 +20,7 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 				console.log($scope.planlist)
 				$scope.currentname=$scope.planlist[0].name;
 				$scope.currentid=$scope.planlist[0].id;
+				$scope.exportid=$scope.planlist[0].id;
 				var postData1 = $.param({
 					id:$scope.currentid,
 					access_token:$localStorage.token
@@ -53,9 +54,9 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 				console.log(rej);
 			}
 		);
-
 		$scope.selectdplan=function(plan){
 			$scope.currentid=plan.id;
+			$scope.exportid=plan.id;
 			$scope.currentname=plan.name;
 			var postData3 = $.param({
 				id:$scope.currentid,
@@ -72,6 +73,22 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 				}
 			);
 
+		}
+		$scope.explort=function(){
+			var postData=$.param({
+				id:$scope.exportid,
+				access_token:$localStorage.token
+			})
+			UIAdjustplanService.exportAdjustolan(postData).then(
+				function (res) {
+					console.log(res.data.info);
+					console.log(SERVICE_URL);
+					$scope.docurl=SERVICE_URL+res.data.info
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
 		}
 		$scope.deletaplan=function(plandetail){
 			console.log(plandetail)

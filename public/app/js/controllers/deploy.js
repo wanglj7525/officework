@@ -175,6 +175,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		$scope.nopeople="班子暂无成员";
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
+			$scope.select_tree_id=$localStorage.tree_uuid_bak;
+			$scope.complex.open=false
+			$scope.treechange.open=1,
+			$scope.cleansubmit()
 			treeservice_new.getData().then(
 				function (res) {
 					//$scope.my_data2 = res.data.info;
@@ -192,7 +196,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			);
 			var postData = $.param({
-				tree_id:$localStorage.tree_uuid,
+				tree_id:$localStorage.tree_uuid_bak,
 				access_token:$localStorage.token
 			});
 			UIDeployservice.getOneDeploy(postData).then(
@@ -203,7 +207,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					if($scope.daweilist){
 						//需要分析班子成员，标注出 需要交流的人员
 						var params=$.param({
-							unit_id:$localStorage.tree_uuid,
+							unit_id:$localStorage.tree_uuid_bak,
 							access_token:$localStorage.token
 						});
 						UIDeployservice.getBanziAnalysis(params).then(
@@ -292,7 +296,12 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			open: false,
 			leftopen:true
 		};
-		
+		$scope.complex={
+			open:false
+		};
+		$scope.treechange={
+			open:0
+		}
 		//获取所有标签
 		var postData1 = $.param({
 			access_token:$localStorage.token
@@ -436,78 +445,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		}
 		//清空树
 		$scope.cleantree=function(){
-			$localStorage.tree_uuid="";
 			$scope.treeselected="";
+			$scope.select_tree_id=""
 			console.log($localStorage.tree_uuid)
-			//var postData = $.param({
-			//	isfilt:0,
-			//	tree_id:$scope.select_tree_id,
-			//	keyword:$scope.search.keywords,
-			//	ranks:$scope.rank.join(","),
-			//	sexs:$scope.xingbie.join(","),
-			//	political_statuses:$scope.politicalstatus.join(","),
-			//	edu_levels:$scope.edulevel.join(","),
-			//	ages:$scope.age.join(","),
-			//	pageNo: $scope.paginationConf.currentPage,
-			//	pageSize: $scope.paginationConf.itemsPerPage,
-			//	access_token:$localStorage.token
-			//});
-			//SettingpeopleService.getPeopleList(postData).then(
-			//	function (res) {
-			//		console.log(res.data.info.totalElements);
-			//		if(res.data.code==200){
-			//			$scope.paginationConf.totalItems = res.data.info.totalElements;
-			//			$scope.messagetabletab = res.data.info.elements;
-			//			console.log( res.data.info.totalElements)
-			//			console.log($scope.messagetabletab)
-			//		}else{
-			//			//alert(res.data.msg);
-			//		}
-			//
-			//	},
-			//	function (rej) {
-			//		console.log(rej);
-			//	}
-			//)
-			//var getMessageImageList = function () {
-			//	var postData = $.param({
-			//		isfilt:0,
-			//		tree_id:$scope.select_tree_id,
-			//		keyword:$scope.search.keywords,
-			//		ranks:$scope.rank.join(","),
-			//		sexs:$scope.xingbie.join(","),
-			//		political_statuses:$scope.politicalstatus.join(","),
-			//		edu_levels:$scope.edulevel.join(","),
-			//		ages:$scope.age.join(","),
-			//		pageNo: $scope.paginationConf.currentPage,
-			//		pageSize: $scope.paginationConf.itemsPerPage,
-			//		access_token:$localStorage.token
-			//	});
-			//	SettingpeopleService.getPeopleList(postData).then(
-			//		function (res) {
-			//			if(res.data.code==200){
-			//				$scope.paginationConf.totalItems = res.data.info.totalElements;
-			//				$scope.messagetabletab = res.data.info.elements;
-			//				console.log(res.data.info.totalElements);
-			//				console.log($scope.messagetabletab)
-			//
-			//			}else{
-			//				//alert(res.data.msg);
-			//			}
-			//
-			//		},
-			//		function (rej) {
-			//			console.log(rej);
-			//		}
-			//	)
-			//}
-			////配置分页基本参数
-			//$scope.paginationConf = {
-			//	currentPage: 1,
-			//	itemsPerPage: 12
-			//};
-			//$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
-			//$scope.$watch('select_tree_id', getMessageImageList);
+
 		}
 		//清除选项
 		$scope.cleansubmit=function(){
@@ -563,8 +504,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//deployright
 		$scope.searchPeople=function(){
 			var postData = $.param({
-				isfilt:1,
-				tree_id:$localStorage.tree_uuid,
+				isfilt:$scope.treechange.open,
+				tree_id:$scope.select_tree_id,
 				keyword:$scope.search.keywords,
 				ranks:$scope.rank.join(","),
 				sexs:$scope.xingbie.join(","),
@@ -593,28 +534,83 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			)
 		}
 
+		
 		var getMessageImageList = function () {
-			var postData = $.param({
-				isfilt:1,
-				tree_id:$localStorage.tree_uuid,
-				pageNo: $scope.paginationConf.currentPage,
-				pageSize: $scope.paginationConf.itemsPerPage,
-				access_token:$localStorage.token
-			});
-			UIDeployservice.deployright(postData).then(
-				function (res) {
-					if(res.data.code==200){
-						$scope.paginationConf.totalItems = res.data.info.totalElements;
-						$scope.searchpeopleshow = res.data.info.elements;
-					}else{
-						//alert(res.data.msg);
-					}
+			if ($scope.complex.open==false) {
+					var postData = $.param({
+						isfilt: $scope.treechange.open,
+						tree_id: $scope.select_tree_id,
+						keyword: $scope.search.keywords,
+						ranks: $scope.rank.join(","),
+						sexs: $scope.xingbie.join(","),
+						political_statuses: $scope.politicalstatus.join(","),
+						edu_levels: $scope.edulevel.join(","),
+						ages: $scope.age.join(","),
+						pageNo: $scope.paginationConf.currentPage,
+						pageSize: $scope.paginationConf.itemsPerPage,
+						access_token: $localStorage.token
+					});
+					console.log(1111111111111)
+					console.log($scope.treechange.open)
 
-				},
-				function (rej) {
-					console.log(rej);
-				}
-			)
+					SettingpeopleService.getPeopleList(postData).then(
+						function (res) {
+							if (res.data.code == 200) {
+
+								$scope.paginationConf.totalItems = res.data.info.totalElements;
+								$scope.searchpeopleshow = res.data.info.elements;
+								console.log(res.data.info.totalElements);
+								console.log($scope.searchpeopleshow)
+
+							} else {
+								//alert(res.data.msg);
+							}
+
+						},
+						function (rej) {
+							console.log(rej);
+						}
+					)
+				
+			}
+			if ($scope.complex.open==true) {
+				console.log(333333333333333)
+				var postData = $.param({
+					id:$scope.id,
+					pageNo:$scope.paginationConf.currentPage,
+					pageSize:$scope.paginationConf.itemsPerPage,
+					tree_id:$scope.tree_uuid_bak,
+					isfilt:0,
+					access_token:$localStorage.token
+				});
+				console.log(22222222222)
+				UIMessageService.getcomplexlist(postData).then(
+					function (res) {
+						$scope.lablelist = res.data.lableList;
+						var postData1 = $.param({
+							id:$scope.id,
+							pageNo:$scope.paginationConf.currentPage,
+							pageSize:$scope.paginationConf.itemsPerPage,
+							tree_id:$scope.tree_uuid_bak,
+							isfilt:0,
+							access_token:$localStorage.token
+						});
+						UIMessageService.getcomplexlist(postData1).then(
+							function (res) {
+									$scope.paginationConf.totalItems = res.data.info.totalElements;
+									$scope.searchpeopleshow = res.data.info.elements;
+									console.log(res.data.info.totalElements);
+									console.log($scope.searchpeopleshow)
+							},
+							function (rej) {
+								console.log(rej);
+							}
+						)
+					},
+					function (rej) {
+						console.log(rej);
+					});
+			}
 		}
 		//配置分页基本参数
 		$scope.paginationConf = {
@@ -623,6 +619,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		};
 		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
 		$scope.$watch('treeselected', getMessageImageList)
+		$scope.$watch('complex.open', getMessageImageList)
 
 		//任职
 		$scope.selectpeople=function(people){
@@ -696,7 +693,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 								//任职人员信息
 								var p={
 									person_id:newpeople.person_id,
-									unit_id:$localStorage.tree_uuid,
+									unit_id:$localStorage.tree_uuid_bak,
 									adjust_type:2,
 									now_post_id:people.now_post_id,
 									tobe_post_id:deploy.zhiwei['id'],

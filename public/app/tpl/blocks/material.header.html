@@ -11,8 +11,8 @@
     <!--href="/app/worktip"-->
     <a  class="navbar-brand text-lt" style="padding-left: 5px;">
       <!-- <img src="/public/app/img/logo.png"> -->
-      <!--ng-click=" $state.go('app.worktip');"-->
-      <span  class="hidden-folded" >{{app.name}}</span>
+      
+      <span  class="hidden-folded" ui-sref="app.worktip" ui-sref-active="active" ng-click="changeMenu(true,false)" >{{app.name}}</span>
     </a>
     <!-- / brand -->
   </div>

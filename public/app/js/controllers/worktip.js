@@ -30,12 +30,6 @@
 //		}
 //	} ]);
 app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams', 'SeetingtreeService', function($scope, $localStorage,UIworktipservice,$stateParams,SeetingtreeService) {
-	var postData1= $.param({
-		parent:0,
-	})
-	
-	
-	
 	$scope.currentname='全部';
 	$scope.selectcategory=function(id,name){
 		$scope.pid=id;
@@ -55,6 +49,11 @@ app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice',
 		}
 	)
 	$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
+		var postData1= $.param({
+			parent:0,
+		})
+		SeetingtreeService.getTreeList(postData1).then(function(res){},
+			function(rej){})
 			var postData = $.param({
 				tree_id:$localStorage.tree_uuid,
 				category:'',

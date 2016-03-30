@@ -1,93 +1,30 @@
 'use strict';
   app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','UIMessageService','messageservice','searchservice','SettingpeopleService','SettingdaimaService','getxueliList',
 		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,UIMessageService,messageservice,searchservice,SettingpeopleService,SettingdaimaService,getxueliList) {
+			$scope.isdetail=false;
 			$scope.treeselected=$localStorage.treeselect;
 			$scope.select_tree_id=$localStorage.tree_uuid;
 			$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 				if(newValue===oldValue) return;
 				$scope.treeselected=$localStorage.treeselect;
+				$scope.select_tree_id=$localStorage.tree_uuid;
+				$scope.isdetail=false
+				$scope.complex.open=false
 			});
+			//清空树
 			$scope.cleantree=function(){
-				$localStorage.tree_uuid="";
 				$scope.treeselected="";
+				$scope.select_tree_id=""
 				console.log($localStorage.tree_uuid)
-				//var postData = $.param({
-				//	isfilt:0,
-				//	tree_id:$scope.select_tree_id,
-				//	keyword:$scope.search.keywords,
-				//	ranks:$scope.rank.join(","),
-				//	sexs:$scope.xingbie.join(","),
-				//	political_statuses:$scope.politicalstatus.join(","),
-				//	edu_levels:$scope.edulevel.join(","),
-				//	ages:$scope.age.join(","),
-				//	pageNo: $scope.paginationConf.currentPage,
-				//	pageSize: $scope.paginationConf.itemsPerPage,
-				//	access_token:$localStorage.token
-				//});
-				//SettingpeopleService.getPeopleList(postData).then(
-				//	function (res) {
-				//		console.log(res.data.info.totalElements);
-				//		if(res.data.code==200){
-				//			$scope.paginationConf.totalItems = res.data.info.totalElements;
-				//			$scope.messagetabletab = res.data.info.elements;
-				//			console.log( res.data.info.totalElements)
-				//			console.log($scope.messagetabletab)
-				//		}else{
-				//			//alert(res.data.msg);
-				//		}
-                //
-				//	},
-				//	function (rej) {
-				//		console.log(rej);
-				//	}
-				//)
-				//var getMessageImageList = function () {
-				//	var postData = $.param({
-				//		isfilt:0,
-				//		tree_id:$scope.select_tree_id,
-				//		keyword:$scope.search.keywords,
-				//		ranks:$scope.rank.join(","),
-				//		sexs:$scope.xingbie.join(","),
-				//		political_statuses:$scope.politicalstatus.join(","),
-				//		edu_levels:$scope.edulevel.join(","),
-				//		ages:$scope.age.join(","),
-				//		pageNo: $scope.paginationConf.currentPage,
-				//		pageSize: $scope.paginationConf.itemsPerPage,
-				//		access_token:$localStorage.token
-				//	});
-				//	SettingpeopleService.getPeopleList(postData).then(
-				//		function (res) {
-				//			if(res.data.code==200){
-				//				$scope.paginationConf.totalItems = res.data.info.totalElements;
-				//				$scope.messagetabletab = res.data.info.elements;
-				//				console.log(res.data.info.totalElements);
-				//				console.log($scope.messagetabletab)
-                //
-				//			}else{
-				//				//alert(res.data.msg);
-				//			}
-                //
-				//		},
-				//		function (rej) {
-				//			console.log(rej);
-				//		}
-				//	)
-				//}
-				////配置分页基本参数
-				//$scope.paginationConf = {
-				//	currentPage: 1,
-				//	itemsPerPage: 12
-				//};
-				//$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
-				//$scope.$watch('select_tree_id', getMessageImageList);
+				
 			}
-			//分页获取数据
+			
 			//当前年份
 			$scope.y=new Date()
 			$scope.nowyear= $scope.y.getFullYear()
 			console.log($scope.nowyear)
 
-			$scope.isdetail=false;
+		
 			//性别
 			SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
 			//地址
@@ -129,6 +66,9 @@
 				open:false
 			};
 			$scope.jieguo={
+				open:false
+			};
+			$scope.complex={
 				open:false
 			};
 			//自定义查询
@@ -189,11 +129,20 @@
 				function (rej) {
 					console.log(rej);
 				})
-			
+	
+			searchservice.getData().then(
+				function (res) {
+					$scope.nianlinglist = res.data.info;
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			);
 			//复杂查询
 			$scope.compexsearch=function(id){
 				console.log(id)
 				$scope.id=id
+				//$scope.complex.open=true
 				var postData = $.param({
 					id:id,
 					pageNo:$scope.paginationConf.currentPage,
@@ -202,10 +151,11 @@
 					isfilt:0,
 					access_token:$localStorage.token
 				});
+				console.log(id)
 				UIMessageService.getcomplexlist(postData).then(
 					function (res) {
+						console.log(id)
 						$scope.lablelist = res.data.lableList;
-						var getMessageImageList1 = function () {
 							var postData1 = $.param({
 								id:$scope.id,
 								pageNo:$scope.paginationConf.currentPage,
@@ -216,10 +166,10 @@
 							});
 							UIMessageService.getcomplexlist(postData1).then(
 								function (res) {
-									if(res.data.code==200){
-										$scope.paginationConf.totalItems = res.data.info.totalElements;
-										$scope.messagetabletab = res.data.info.elements;
-										console.log(res.data.info.totalElements);
+									if(res.data.msg=="操作成功"){
+										$scope.paginationConf.totalItems = res.data.data.info.totalElements;
+										$scope.messagetabletab = res.data.data.info.elements;
+										console.log(res.data.data.info.totalElements);
 										console.log($scope.messagetabletab)
 
 									}else{
@@ -231,23 +181,12 @@
 									console.log(rej);
 								}
 							)
-						}
 					},
 					function (rej) {
 						console.log(rej);
 					});
 			}
 			
-			
-			
-			searchservice.getData().then(
-				function (res) {
-					$scope.nianlinglist = res.data.info;
-				},
-				function (rej) {
-					console.log(rej);
-				}
-			);
 			$scope.searchPeople=function(){
 				var postData = $.param({
 					isfilt:0,
@@ -263,6 +202,8 @@
 					access_token:$localStorage.token
 				});
 				console.log($scope.rank)
+				console.log($scope.select_tree_id)
+				console.log($scope.treeselected)
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
 						//console.log(res.data.info.totalElements);
@@ -281,42 +222,13 @@
 					}
 				)
 			}
+			
 			//分页获取数据
-			//var getMessageImageList2= function () {
-			//	//alert("复杂")
-			//	var postData1 = $.param({
-			//		id:$scope.id,
-			//		pageNo:$scope.paginationConf.currentPage,
-			//		pageSize:$scope.paginationConf.itemsPerPage,
-			//		tree_id:$scope.tree_uuid_bak,
-			//		isfilt:0,
-			//		access_token:$localStorage.token
-			//	});
-			//	UIMessageService.getcomplexlist(postData1).then(
-			//		function (res) {
-			//			if(res.data.msg=="操作成功"){
-			//				console.log( res.data.data.info.totalElements);
-			//				$scope.messagetabletab1 = res.data.data.info.elements;
-			//				console.log($scope.messagetabletab1)
-			//				console.log(res.data)
-            //
-			//			}else{
-			//				//alert(res.data.msg);
-			//				console.log($scope.messagetabletab)
-			//				console.log(res.data)
-            //
-			//			}
-            //
-			//		},
-			//		function (rej) {
-			//			console.log(rej);
-			//		}
-			//	)
-			//}
 			var getMessageImageList = function () {
+				if ($scope.complex.open==false){
 				var postData = $.param({
 					isfilt:0,
-					tree_id:$localStorage.tree_uuid,
+					tree_id:$scope.select_tree_id,
 					keyword:$scope.search.keywords,
 					ranks:$scope.rank.join(","),
 					sexs:$scope.xingbie.join(","),
@@ -327,6 +239,7 @@
 					pageSize: $scope.paginationConf.itemsPerPage,
 					access_token:$localStorage.token
 				});
+				console.log(1111111111111)
 				SettingpeopleService.getPeopleList(postData).then(
 					function (res) {
 						if(res.data.code==200){
@@ -345,6 +258,51 @@
 						console.log(rej);
 					}
 				)
+				}
+				if ($scope.complex.open==true) {
+					console.log(333333333333333)
+					var postData = $.param({
+						id:$scope.id,
+						pageNo:$scope.paginationConf.currentPage,
+						pageSize:$scope.paginationConf.itemsPerPage,
+						tree_id:$scope.tree_uuid_bak,
+						isfilt:0,
+						access_token:$localStorage.token
+					});
+					console.log(22222222222)
+					UIMessageService.getcomplexlist(postData).then(
+						function (res) {
+							$scope.lablelist = res.data.lableList;
+							var postData1 = $.param({
+								id:$scope.id,
+								pageNo:$scope.paginationConf.currentPage,
+								pageSize:$scope.paginationConf.itemsPerPage,
+								tree_id:$scope.tree_uuid_bak,
+								isfilt:0,
+								access_token:$localStorage.token
+							});
+							UIMessageService.getcomplexlist(postData1).then(
+								function (res) {
+									if(res.data.msg=="操作成功"){
+										$scope.paginationConf.totalItems = res.data.data.info.totalElements;
+										$scope.messagetabletab = res.data.data.info.elements;
+										console.log(res.data.data.info.totalElements);
+										console.log($scope.messagetabletab)
+
+									}else{
+										//alert(res.data.msg);
+									}
+
+								},
+								function (rej) {
+									console.log(rej);
+								}
+							)
+						},
+						function (rej) {
+							console.log(rej);
+						});
+				}
 			}
 
 			//配置分页基本参数
@@ -354,6 +312,8 @@
 			};
 			$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
 			$scope.$watch('treeselected', getMessageImageList);
+			$scope.$watch('complex.open', getMessageImageList);
+		//	$scope.$watch('id', $scope.compexsearch);
 
 			$scope.cleansubmit=function(){
 				var x=$("[selectbutton='isSelected']").length;
@@ -372,38 +332,6 @@
 				$scope.edulevel=[];
 				//年龄
 				$scope.age=[];
-					var postData = $.param({
-						isfilt:0,
-						tree_id:$localStorage.tree_uuid,
-						keyword:$scope.search.keywords,
-						ranks:$scope.rank.join(","),
-						sexs:$scope.xingbie.join(","),
-						political_statuses:$scope.politicalstatus.join(","),
-						edu_levels:$scope.edulevel.join(","),
-						ages:$scope.age.join(","),
-						pageNo: $scope.paginationConf.currentPage,
-						pageSize: $scope.paginationConf.itemsPerPage,
-						access_token:$localStorage.token
-					});
-					SettingpeopleService.getPeopleList(postData).then(
-						function (res) {
-							if(res.data.code==200){
-
-								$scope.paginationConf.totalItems = res.data.info.totalElements;
-								$scope.messagetabletab = res.data.info.elements;
-								console.log(res.data.info.totalElements);
-								console.log($scope.messagetabletab)
-
-							}else{
-								//alert(res.data.msg);
-							}
-
-						},
-						function (rej) {
-							console.log(rej);
-						}
-					)
-
 			}
 			$scope.showOneDetail=function(people){
 				console.log(people)
@@ -584,6 +512,14 @@
 				)
 			};
 			console.log("基本信息",$scope.user)
+			//获取所有结果集
+			var postResult= $.param({
+				access_token:$localStorage.token
+			})
+			//结果集查询
+			$scope.resultsearch= function () {
+				
+			}
 			//结果集管理
 			$scope.jieguomanage=function(){
 				var modaljieguomanegeInstance = $modal.open({
@@ -711,10 +647,12 @@
 						},
 						function (rej) {
 							console.log(rej);
+							console.log("SQL查询语句添加失败");
+
 						})
 				}, function () {
 					$log.info('Modal dismissed at: ' + new Date());
-					alert("添加失败")
+					alert("放弃添加")
 				});
 			}
 			
@@ -756,6 +694,9 @@ app.controller('ModaladdtiaojianInstanceCtrl', ['$scope', '$modalInstance','$loc
 			function (rej) {
 				console.log(rej);
 			})
+		var codechange=function(id){
+			//alert(id)
+		}
 		//var i=1;
 		//var a="selelct.luoji"+i;
 		//var b="selelct.zuokuohao"+i;

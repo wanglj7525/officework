@@ -7,14 +7,61 @@
 .page-list .page-total input {width: 40px; padding-left:3px;}
 .page-list .page-total select {width: 50px;}
 /*添加人员信息*/
+.addpeople .nav-tabs{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 0px;
+}
 .addpeople .nav-tabs > li{
-    background-color: #676767;
-    color: #fff;
-    margin: auto -1px;
+    background-color: #fff;
+    color: #000;
+    margin: auto 2px;
+    border: 0px;
+}
+.addpeople .nav-tabs > li.active>a{
+    color: #FF780D;
+    border: 0px;
+}
+.addpeople .nav-tabs > li:hover{
+    background-color: #fff!important;
+    border: 1px #FEAD6E solid;
+    color: #FEAD6E;
+    margin: auto 2px;
+}
+.addpeople .nav-tabs > li.active{
+    background-color: #fff;
+    border: 1px #FF780D solid;
+    color: #FF780D!important;
+    margin: auto 2px;
+}
+.addpeople .nav-tabs > li>a{
+    border: 0;
+    margin: auto 2px;
+    background-color: #fff;
+    color: #000;
+}
+.addpeople .nav-tabs > li>a:hover{
+    border: 0;
+    color:#FEAD6E ;
+    margin: auto 2px;
+
+}
+.addpeople .nav-tabs > li>a.active{
+     border: 0px;
+    color: #FF780D;
 }
 .addpeople > tab>tab-heading{
     border: 0px;
 }
+.detail-td{
+    background-color: #E8EDEF;
+}
+.table-people-detaile,
+.table-people-detaile>tbody>tr>td{
+    border: 1px  #DDDDDD solid;;
+}
+
+
 .col-padding{
     padding: 0px;
 }
@@ -89,8 +136,8 @@
 thead{
     border-bottom: 0px;
     margin-top: 10px;
-    color: #fff;
-    background-color: #676767;
+    color: #555;
+    background-color: #E8EDEF;
 }
 .lastTd{
     margin-right: 0px;
@@ -502,10 +549,10 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .mytable>tbody>tr>td{
     border: 0px;
-    padding: 8px 0px;
+    padding: 0px 0px;
 }
 .secondtabletitle{
-    background-color: #a7a7a7;
+    background-color: #E8EDEF;
     color: #555;
 }
 .daimabtn{
@@ -525,7 +572,7 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .btn-manege{
     float: right;
-    background-color: #fff;
+    background-color: #959595;
     padding-top: 0;
     padding-bottom: 0;
     border:1px #ccc solid;
@@ -536,11 +583,20 @@ fieldset[disabled] .btn-mydefault.active {
     padding-bottom: 0;
     border:1px #ccc solid;
 }
+.btn-all:focus{
+    color: #ffffff !important;
+    background-color: #ee3939;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:1px #ccc solid;
+}
 .btn-kuaijie{
     float: left;
     background-color: #fff;
     padding-top: 0;
     padding-bottom: 0;
+    margin-right: 5px;
+    margin-top:5px;
     border:1px #ccc solid;
 }
 .btn-kuaijie:focus{
@@ -549,10 +605,13 @@ fieldset[disabled] .btn-mydefault.active {
     border-color: #ed2a2a;
 }
 .btn-submit{
-    background-color: #336699;
+    background-color: #959595;
     color: #fff;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+.btn-search{
+    margin: 3px;
 }
 .btn-addtiaojian{
     float: left;
@@ -563,4 +622,14 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .peopledetailtable tbody tr td{
     vertical-align : middle;
+}
+.searchtable>tbody > tr > td {
+    border-color: #DDDDDD;
+}
+.tab-search> .nav-tabs > li.active > a {
+    border-top: 2px #00a8f3 solid;
+    color: #00a8f3;
+}
+.panel{
+    margin-bottom: 0px;
 }

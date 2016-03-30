@@ -44,7 +44,7 @@
         </td>
         <td>
           <select  name="ccc"  ng-if="1">
-            <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
+            <option ng-repeat="i in code" value={{i.code}} >{{i.code}}{{i.msg}}</option>
           </select>
         </td>
         <td>
@@ -96,7 +96,7 @@
             </select>
           </td>
           <td>
-            <select   name={{t.model3}} id={{t.codemodel}} ng-change="codechange($even)">
+            <select   name={{t.model3}} id={{t.codemodel}}>
               <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
             </select>
           </td>

@@ -1,80 +1,81 @@
 <div >
   <div >
-    <tabset class="tab-container ">
-      <tab heading="按任免表查看" class="color-message addpeople" >
-        <table class="table table-bordered table-responsive peopledetailtable">
+    <tabset class="tab-container tab-search">
+      <tab heading="按任免表查看" class="color-message analysispeople" >
+        <table st-table="postinfolist"  class="table table-bordered table-people-detaile">
           <tr>
-            <td width="10%" >姓名</td>
+            <td class="detail-td" width="10%">姓名</td>
             <td>{{user.name}}</td>
-            <td width="10%">性别</td>
-            <td>{{user.sex}}</td>
-            <td>出生年月<br>（岁）</td>
-            <td>{{user.birthday | date:'yyyy-MM-dd'}}<br>({{nowyear-(user.birthday | date:'yyyy')+1}}岁)</td>
-            <td rowspan="4"  colspan="2" width="100px;" height="" style="padding: 0px">
+            <td class="detail-td">性别</td>
+            <td>{{user.sex.dz}}</td>
+            <td class="detail-td">出生年月</td>
+            <td>{{user.birthday|date:'yyyy-MM-dd'}}</td>
+            <td rowspan="4"  width="100px;"  style="padding: 0px">
               <div style="margin: 0 ;padding: 0">
                 <img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
               </div>
             </td>
           </tr>
           <tr>
-            <td>民族</td>
+            <td class="detail-td">民族</td>
             <td>{{user.nation.dz}}</td>
-            <td>籍贯</td>
+            <td  class="detail-td">籍贯</td>
             <td>{{user.jiguan.dz}}</td>
-            <td>出生地</td>
+            <td class="detail-td">出生地</td>
             <td>{{user.birthplace.dz}}</td>
           </tr>
           <tr>
-            <td>入党时间</td>
+            <td class="detail-td">入党时间</td>
             <td>{{user.organ_date | date:'yyyy-MM-dd'}}</td>
-            <td>参加工作时间</td>
+            <td class="detail-td">参加工作日期</td>
             <td>{{user.work_date | date:'yyyy-MM-dd'}}</td>
-            <td>健康状况</td>
+            <td class="detail-td">健康状况</td>
             <td>{{user.health.dz}}</td>
           </tr>
           <tr>
-            <td>专业技术职务</td>
+            <td class="detail-td">专业技术职务</td>
             <td colspan="2"></td>
-            <td>熟悉专业有何特长</td>
+            <td class="detail-td">熟悉专业有何特长</td>
             <td colspan="2">{{user.speciaty}}</td>
           </tr>
           <tr>
-            <td rowspan="2">学历<br>学位</td>
-            <td>全日制教育</td>
-            <td></td>
-            <td>毕业院校系及专业</td>
-            <td colspan="3"></td>
+            <td class="detail-td">学历</td>
+            <td class="detail-td">全日制教育</td>
+            <td colspan="2">{{user.speciaty}}</td>
+            <td class="detail-td">毕业院校系系专业</td>
+            <td colspan="2">{{user.speciaty}}</td>
           </tr>
           <tr>
-            <td>在职教育</td>
-            <td></td>
-            <td>毕业院校系及专业</td>
-            <td colspan="3"></td>
+            <td class="detail-td">学位</td>
+            <td class="detail-td">在职教育</td>
+            <td colspan="2">{{user.speciaty}}</td>
+            <td class="detail-td">毕业院校系系专业</td>
+            <td colspan="2">{{user.speciaty}}</td>
           </tr>
           <tr>
-            <td colspan="2">现任职务</td>
-            <td colspan="5">
-              <a ng-repeat="row in postinfolist" >{{row.post_name}}、</a>
-            </td>
+            <td class="detail-td">现任职务</td>
+            <td colspan="6">{{row.post_name}}</td>
           </tr>
           <tr>
-            <td colspan="2">拟任职务</td><td colspan="5"></td>
+            <td class="detail-td">拟任职务</td>
+            <td colspan="6"></td>
           </tr>
           <tr>
-            <td colspan="2">拟免职务</td><td colspan="5"></td>
+            <td class="detail-td">拟免职务</td>
+            <td colspan="6"></td>
           </tr>
           <tr>
-            <td>简历</td>
+            <td class="detail-td">简历</td>
             <td colspan="6" overflow-x;hidden><pre ng-bind="resumeinfo.resume" style="width: 800px;background-color: #fff;border: 0px;overflow:hidden"></pre></td>
           </tr>
           <tr>
-            <td height="120px">奖惩情况</td>
+            <td height="120px" class="detail-td">奖惩情况</td>
             <td colspan="6" >
               <a ng-repeat="row in jiangchenginfolist">{{row.explanation}}</a>
             </td>
           </tr>
           <tr>
-            <td height="100px">年度考核结果</td>
+            <td class="detail-td">年度考核结果</td>
             <td colspan="6">
               <a ng-repeat="row in examinfolist|filter:'年度考核'">
                 考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}
@@ -82,21 +83,22 @@
             </td>
           </tr>
           <tr>
-            <td height="120px">任免理由</td>
+            <td class="detail-td">任免理由</td>
             <td colspan="6"></td>
           </tr>
           <tr>
-            <td rowspan="{{familyInfolist.length+2}}">家庭主要成员及重要社会关系</td>
-            <td>称谓</td>
-            <td>姓名</td>
-            <td>年龄</td>
-            <td>政治面貌</td>
-            <td colspan="2">工作单位及职务</td>
+            <td rowspan="{{familyInfolist.length+2}}"  class="detail-td">家庭主要成员及重要社会关系</td>
+            <td class="detail-td">称谓</td>
+            <td class="detail-td">姓名</td>
+            <td class="detail-td">年龄</td>
+            <td class="detail-td">政治面貌</td>
+            <td colspan="2" class="detail-td">工作单位及职务</td>
           </tr>
           <tr ng-repeat="row in familyInfolist" >
             <td>{{row.renatinship_name}}</td>
             <td>{{row.family_name}}</td>
-            <td>{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
+            <td ng-if="!row.family_birthday">无记录</td>
+            <td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
             <td>{{row.family_poli}}</td>
             <td colspan="2">{{row.family_org_name}}</td>
           </tr>
@@ -108,7 +110,7 @@
             <td colspan="2">&nbsp;</td>
           </tr>
           <tr>
-            <td>呈报单位</td>
+            <td  class="detail-td">呈报单位</td>
             <td colspan="6"  height="100px">
               <div class="gaizhang">(盖章）<br>
                 年&nbsp;&nbsp;月&nbsp;&nbsp;日
@@ -116,208 +118,83 @@
             </td>
           </tr>
           <tr>
-            <td height="120px">审批机关意见</td>
-            <td colspan="3" ><div class="gaizhang">(盖章）<br>
+            <td height="120px" class="detail-td">审批机关意见</td>
+            <td colspan="2" ><div class="gaizhang">(盖章）<br>
               年&nbsp;&nbsp;月&nbsp;&nbsp;日
             </div></td>
-            <td height="120px">行政任免机关意见</td>
-            <td colspan="2" ><div class="gaizhang">(盖章）<br>
+            <td height="120px" class="detail-td">行政任免机关意见</td>
+            <td colspan="3" ><div class="gaizhang">(盖章）<br>
               年&nbsp;&nbsp;月&nbsp;&nbsp;日
             </div></td>
           </tr>
         </table>
+       
       </tab>
       <tab heading="按信息集查看" class="color-message ">
-        <tabset class="tab-container addpeople">
+        <tabset class="tab-container analysispeople">
           <tab heading="基本信息"><div flex>
             <div class="" layout="column" >
-              <div >
-                <form name="addPeopleform_1" class="form-horizontal" style="width: 99%">
-                  <div class="row">
-                    <div class="col-xs-3">
-                      <div class="form-group">
-                        <label class="col-xs-4 control-label"  style="text-align: left">姓名</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input class="form-control" name="name" type="text" value="{{user.name}}" disabled>
-                          </div>
-                        </div>
+              <div class=" ">
+                <table st-table="postinfolist"  class="table table-bordered table-people-detaile">
+                  <tr>
+                    <td class="detail-td">姓名</td>
+                    <td>{{user.name}}</td>
+                    <td class="detail-td">性别</td>
+                    <td>{{user.sex.jc}}</td>
+                    <td class="detail-td">民族</td>
+                    <td>{{user.nation.dz}}</td>
+                    <td class="detail-td">出生年月</td>
+                    <td>{{user.birthday|date:'yyyy-MM-dd'}}</td>
+                    <td rowspan="4"  width="100px;"  style="padding: 0px">
+                      <div style="margin: 0 ;padding: 0">
+                        <img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
                       </div>
-                      <div class="form-group" >
-                        <label class="col-xs-4 control-label"  style="text-align: left">籍贯</label>
-                        <div class="col-xs-8 row">
-                          <div  class="m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.jiguan.jc}} " />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group" >
-                        <label class="col-xs-4 control-label"  style="text-align: left">参加组织日期</label>
-                        <div class="col-xs-8 ">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.organ_date|date:'yyyy-MM-dd'}}" />
-                          </div>
-                          <!--<input class="form-control" name="jiguan" type="text" ng-model="newdata.jiguan" required>-->
-                        </div>
-                      </div>
-                      <!--<div class="form-group">-->
-                      <!--<label class="col-xs-4 control-label"  style="text-align: left">人事关系所在单位</label>-->
-                      <!--<div class="col-xs-8 row">-->
-                      <!--<div  class=" m-l-n">-->
-                      <!--<input type="text" class="form-control" disabled value="{{user.health.dz}}" />-->
-                      <!--</div>-->
-                      <!--</div>-->
-                      <!--</div>-->
-                    </div>
-                    <div class="col-xs-3">
-                      <div class="form-group" >
-                        <label class="col-xs-4 control-label" style="text-align: left">性别</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.sex}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-xs-4 control-label" style="text-align: left">出生地</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.birthplace.dz}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-xs-4 control-label" style="text-align: left">个人身份</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.personal}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <!--<div class="form-group" >-->
-                      <!--<label class="col-xs-4 control-label" style="text-align: left">有效证件类型</label>-->
-                      <!--<div class="col-xs-8 row">-->
-                      <!--<div  class=" m-l-n">-->
-                      <!--<input type="text" class="form-control" disabled value="{{user.political_status.dz}}" />-->
-                      <!--</div>-->
-                      <!--</div>-->
-                      <!--</div>-->
-                    </div>
-                    <div class="col-xs-3">
-                      <div class="form-group" >
-                        <label class="col-xs-4 control-label" style="text-align: left">民族</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.nation.dz}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-xs-4 control-label" style="text-align: left">成长地</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.birthplace.dz}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-xs-4 control-label" style="text-align: left">健康状况</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.health.dz}}" />
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="col-xs-3">
-                      <div class="form-group" >
-                        <label class="col-xs-4 control-label" style="text-align: left">出生年月</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.birthday|date:'yyyy-MM-dd'}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-xs-4 control-label" style="text-align: left">政治面貌</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.political_status.dz}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group" >
-                        <label class="col-xs-4 control-label" style="text-align: left">证件号码</label>
-                        <div class="col-xs-8 row">
-                          <div  class=" m-l-n">
-                            <input type="text" class="form-control" disabled value="{{user.card_id}}" />
-                          </div>
-                        </div>
-                      </div>
-                      <!--<div class="form-group">-->
-                      <!--<label class="col-xs-4 control-label" style="text-align: left">婚姻状况</label>-->
-                      <!--<div class="col-xs-8 row">-->
-                      <!--<div  class=" m-l-n">-->
-                      <!--<input type="text" class="form-control" disabled value="{{user.birthplace.dz}}" />-->
-                      <!--</div>-->
-                      <!--</div>-->
-                      <!--</div>-->
-                      <!--<div class="form-group" >-->
-                      <!--<label class="col-xs-4 control-label" style="text-align: left">爱好</label>-->
-                      <!--<div class="col-xs-8 row">-->
-                      <!--<div  class=" m-l-n">-->
-                      <!--<input type="text" class="form-control" disabled value="{{user.political_status.dz}}" />-->
-                      <!--</div>-->
-                      <!--</div>-->
-                      <!--</div>-->
-                    </div>
-                    <!--<div class="col-xs-4">-->
-                    <!--<div class="form-group">-->
-                    <!--<label class="col-xs-4 control-label"  style="text-align: left"></label>-->
-                    <!--<div class="col-xs-5" style="padding-left: 0px" >-->
-                    <!--<div  class="m-l-n">-->
-                    <!--<img  class="w-full" style="height: 226px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="col-xs-offset-4">-->
-                    <!--&lt;!&ndash;<img src="/public/app/img/a.png" ng-src="{{user.head_pic}}"  style="width: 60%;height: 200px;margin-left: 40%">&ndash;&gt;-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                    <!--<label class="col-xs-4 control-label"  style="text-align: left">参加工作日期</label>-->
-                    <!--<div class="col-xs-5" style="padding-left: 0px" >-->
-                    <!--<div  class="m-l-n">-->
-                    <!--<input type="text" class="form-control" disabled value="{{user.work_date | date:'yyyy-MM-dd'}} " />-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="form-group" >-->
-                    <!--<label class="col-xs-4 control-label"  style="text-align: left">参加组织日期</label>-->
-                    <!--<div class="col-xs-5" style="padding-left: 0px" >-->
-                    <!--<div  class="m-l-n">-->
-                    <!--<input type="text" class="form-control" disabled value="{{user.organ_date | date:'yyyy-MM-dd'}} " />-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                  </div>
-                  <div class="row col-xs-12">
-                    <div class="form-group" >
-                      <label class="col-xs-1 control-label" style="text-align: left">专长</label>
-                      <div class="col-xs-11 ">
-                        <div  class=" m-l-n">
-                          <textarea rows="2" class="form-control" name="speciaty" value="{{user.speciaty}}"  disabled></textarea>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="detail-td">籍贯</td>
+                    <td>{{user.jiguan.jc}}</td>
+                    <td  class="detail-td">出生地</td>
+                    <td colspan="2">{{user.birthplace.dz}}</td>
+                    <td class="detail-td">成长地</td>
+                    <td colspan="2">{{user.birthplace.dz}}</td>
+                  </tr>
+                  <tr>
+                    <td class="detail-td">政治面貌</td>
+                    <td>{{user.political_status.dz}}</td>
+                    <td class="detail-td">参加组织日期</td>
+                    <td colspan="2" >{{user.organ_date|date:'yyyy-MM-dd'}}</td>
+                    <td class="detail-td">个人身份</td>
+                    <td colspan="2">{{user.personal.dz}}</td>
+                  </tr>
+                  <tr>
+                    <td class="detail-td">健康状况</td>
+                    <td colspan="3">{{user.health.dz}}</td>
+                    <td class="detail-td">婚姻状况</td>
+                    <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td class="detail-td">专长</td>
+                    <td colspan="3">{{user.speciaty}}</td>
+                    <td class="detail-td">爱好</td>
+                    <td colspan="4">{{user.speciaty}}</td>
+                  </tr>
+                  <tr>
+                    <td class="detail-td">人事所在关系</td>
+                    <td colspan="8"></td>
+                  </tr>
+                  <tr>
+                    <td class="detail-td">有效证件类别</td>
+                    <td colspan="3"></td>
+                    <td class="detail-td">证件号码</td>
+                    <td colspan="4">{{user.card_id}}</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div></tab>
           <tab heading="职务信息"><div flex>
-            <div class="" layout="column" ng-if="postinfolist">
+            <div class="" layout="column">
               <div class="panel panel-default">
                 <table st-table="postinfolist"  class="table table-bordered" >
                   <thead class="secondtabletitle">
@@ -358,10 +235,10 @@
                 </table>
               </div>
             </div>
-            <div class="" layout="column" ng-if="!postinfolist">暂无现任职务</div>
+            <!--<div class="" layout="column" ng-if="!postinfolist">暂无现任职务</div>-->
           </div></tab>
           <tab heading="职称信息"><div flex>
-            <div  layout="column" ng-if="titleinfolist">
+            <div  layout="column" >
               <div class="panel panel-default">
                 <table st-table="titleinfolist"  class="table table-bordered" >
                   <thead class="secondtabletitle">
@@ -383,10 +260,10 @@
                 </table>
               </div>
             </div>
-            <div class="" layout="column" ng-if="!titleinfolist">暂无职称</div>
+            <!--<div class="" layout="column" ng-if="!titleinfolist">暂无职称</div>-->
           </div></tab>
           <tab heading="学历信息"><div flex>
-            <div  layout="column" ng-if="eduinfolist" >
+            <div  layout="column" >
               <div class="panel panel-default">
                 <table st-table="eduinfolist"  class="table table-bordered">
                   <thead class="secondtabletitle">
@@ -410,10 +287,10 @@
                 </table>
               </div>
             </div>
-            <div  layout="column" ng-if="!eduinfolist">暂无学历</div>
+            <!--<div  layout="column" ng-if="!eduinfolist">暂无学历</div>-->
           </div></tab>
           <tab heading="学位信息"><div flex>
-            <div  layout="column" ng-if="degreeinfolist">
+            <div  layout="column">
               <div class="panel panel-default">
                 <table st-table="degreeinfolist"  class="table table-bordered">
                   <thead class="secondtabletitle">
@@ -435,10 +312,10 @@
                 </table>
               </div>
             </div>
-            <div  layout="column" ng-if="!degreeinfolist">暂无学位</div>
+            <!--<div  layout="column" ng-if="!degreeinfolist">暂无学位</div>-->
           </div></tab>
           <tab heading="奖惩信息"><div flex>
-            <div  layout="column" ng-if="jiangchenginfolist">
+            <div  layout="column">
               <div class="panel panel-default">
                 <table st-table="jiangchenginfolist"  class="table table-bordered">
                   <thead class="secondtabletitle">
@@ -460,14 +337,12 @@
                 </table>
               </div>
             </div>
-            <div  layout="column" ng-if="!jiangchenginfolist">
-              暂无奖惩记录
-            </div>
-        
+            <!--<div  layout="column" ng-if="!jiangchenginfolist"></div>-->
+
           </div>
           </tab>
           <tab heading="考核信息"><div flex>
-            <div  layout="column" ng-if="examinfolist">
+            <div  layout="column">
               <div class="panel panel-default">
                 <table st-table="examinfolist"  class="table table-bordered">
                   <thead class="secondtabletitle">
@@ -491,68 +366,17 @@
                 </table>
               </div>
             </div>
-            <div  layout="column" ng-if="!examinfolist">
-              暂无考核记录
-            </div>
+            <div  layout="column" ng-if="!examinfolist"></div>
           </div></tab>
           <tab heading="简历信息"><div  flex>
             <div class="" layout="column" >
               <div >
                 <form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
-                  <!--<div class="row">-->
-                  <!--<div class="col-xs-6">-->
-                  <!--<div class="form-group">-->
-                  <!--<label class="col-xs-3 control-label">首任正处长职时间</label>-->
-                  <!--<div class="col-xs-9 row">-->
-                  <!--<div  class=" m-l-n">-->
-                  <!--<input class="form-control" name="name" type="text"  value="{{resumeinfo.first_director_time | date:'yyyy-MM-dd'}}"  disabled>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="form-group" >-->
-                  <!--<label class="col-xs-3 control-label">部队正团时间</label>-->
-                  <!--<div class="col-xs-9 row">-->
-                  <!--<div  class=" m-l-n">-->
-                  <!--<input class="form-control" name="birthday" type="text"  value="{{resumeinfo.tuan_time | date:'yyyy-MM-dd'}}" disabled>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="form-group" >-->
-                  <!--<label class="col-xs-3 control-label">转业时间</label>-->
-                  <!--<div class="col-xs-9 row">-->
-                  <!--<div  class=" m-l-n">-->
-                  <!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.zhuanye_time | date:'yyyy-MM-dd'}}" disabled>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="col-xs-6">-->
-                  <!--<div class="form-group" >-->
-                  <!--<label class="col-xs-3 control-label">是否军转干部</label>-->
-                  <!--<div class="col-xs-9 row">-->
-                  <!--<div  class=" m-l-n">-->
-                  <!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.is_exchange}}" disabled>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="form-group" >-->
-                  <!--<label class="col-xs-3 control-label">部队副师时间</label>-->
-                  <!--<div class="col-xs-9 row">-->
-                  <!--<div  class=" m-l-n">-->
-                  <!--<input class="form-control" name="minzu" type="text" value="{{resumeinfo.fushi_time | date:'yyyy-MM-dd'}}" disabled>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
-                  <!--</div>-->
                   <div class="row">
                     <div class="form-group">
                       <label class="col-xs-1 control-label">个人简历</label>
                       <div class="col-xs-11">
                         <pre ng-bind="resumeinfo.resume"></pre>
-                        <!--<div ng-bind-html="resumeinfo.resume"></div>-->
-                        <!--<script type="text/html" style="margin:auto;height:300px;width:800px" ng-style=""  ng-model="all_text"  meta-umeditor-->
-                        <!--meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历" ></script>-->
                       </div>
                     </div>
                   </div>

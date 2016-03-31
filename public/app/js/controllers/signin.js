@@ -19,6 +19,8 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 							//存储access_token
 							$localStorage.token=res.data.info.access_token;
 							$localStorage.user=res.data.info;
+							console.log($localStorage.user)
+							console.log($scope.user)
 							$state.go('app.worktip');
 							var params=$.param({
 								resource : 'setting',

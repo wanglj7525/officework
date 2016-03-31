@@ -78,9 +78,9 @@ angular.module('app')
           });
           modaluserInstance.result.then(function (newdata) {
             var params=$.param({
-              //id: $localStorage.user.id,
-              //oldpassword:newdata.oldpassword,
-              //password:  newdata.password,
+              username:$localStorage.user.username,
+              oldpassword:newdata.oldpassword,
+              password:  newdata.password,
               access_token:$localStorage.token
             });
             //调用后台保存 成功后重新登录

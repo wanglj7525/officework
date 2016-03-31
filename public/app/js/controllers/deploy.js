@@ -178,7 +178,11 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			$scope.select_tree_id=$localStorage.tree_uuid_bak;
 			$scope.complex.open=false
 			$scope.treechange.open=1,
+			$scope.isdetail=false
+			$scope.resultall.open=false
 			$scope.cleansubmit()
+			$scope.saveresultbtn.open=false
+			
 			treeservice_new.getData().then(
 				function (res) {
 					//$scope.my_data2 = res.data.info;
@@ -213,7 +217,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						UIDeployservice.getBanziAnalysis(params).then(
 							function(res){
 								if(res.data.msg=="操作成功"){
-									console.log(11111111111)
 									console.log(res.data.data.info.ageList)
 									for(var j=0;j<$scope.daweilist.row.length;j++){
 										for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
@@ -292,16 +295,42 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		$scope.search={};
 		//点击头像查看个人信息
 		$scope.selectparam=[];
+		$scope.resultpersonid=""
 		$scope.status = {
 			open: false,
 			leftopen:true
 		};
-		$scope.complex={
-			open:false
-		};
 		$scope.treechange={
 			open:0
 		}
+		$scope.tabel={
+			open:false
+		};
+		$scope.kuaijie={
+			open:false
+		};
+		$scope.jieguo={
+			open:false
+		};
+		$scope.kuaijietable={
+			open:false
+		};
+		$scope.jieguotable={
+			open:false
+		};
+		$scope.result={}
+		$scope.complex={
+			open:false
+		};
+		$scope.resultall={
+			open:false
+		};
+		$scope.saveresultbtn={
+			open:false
+		};
+		$scope.showdetaile={
+			open:false
+		};
 		//获取所有标签
 		var postData1 = $.param({
 			access_token:$localStorage.token
@@ -320,8 +349,84 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			function (rej) {
 				console.log(rej);
 			})
-		//获取所有字段
-	//复杂查询
+		//获取结果集
+		var postResult= $.param({
+			access_token:$localStorage.token
+		})
+		UIMessageService.getallresult(postResult).then(
+			function (res) {
+				console.log(res.data)
+				$scope.showresult = res.data.data.resultSetList;
+				$scope.yyy=$scope.showresult
+				$scope.showresult=[]
+				$scope.showresult.push($scope.yyy[0])
+				$scope.showresult.push($scope.yyy[1])
+				$scope.showresult.push($scope.yyy[2])
+				$scope.showresult.push($scope.yyy[3])
+				console.log(  $scope.showresult)
+			},
+			function (rej) {
+				console.log(rej);
+			})
+		//结果集管理
+		$scope.jieguomanage=function(){
+			var modaljieguomanegeInstance = $modal.open({
+				templateUrl: 'jieguomanagejieguoModel.html',
+				controller: 'ModaljieguomanagedeployInstanceCtrl',
+				size: 'lg',
+				resolve:{
+				}
+			});
+			modaljieguomanegeInstance.result.then(function () {
+				var postResult= $.param({
+					access_token:$localStorage.token
+				})
+				UIMessageService.getallresult(postResult).then(
+					function (res) {
+						console.log(res.data)
+						$scope.showresult = res.data.data.resultSetList;
+						$scope.yyy=$scope.showresult
+						$scope.showresult=[]
+						$scope.showresult.push($scope.yyy[0])
+						$scope.showresult.push($scope.yyy[1])
+						$scope.showresult.push($scope.yyy[2])
+						$scope.showresult.push($scope.yyy[3])
+						console.log(  $scope.showresult)
+					},
+					function (rej) {
+						console.log(rej);
+					})
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		}
+		//删除结果集
+		$scope.delresult=function(id){
+			var postData = $.param({
+				id:id,
+				access_token:$localStorage.token
+			});
+			UIMessageService.delresult(postData).then(
+				function (res) {
+					var postData1 = $.param({
+						access_token:$localStorage.token
+					});
+					UIMessageService.getallresult(postData1).then(
+						function (res) {
+							$scope.resultlist = res.data.data.resultSetList;
+							$scope.yyy=$scope.resultlist
+							console.log($scope.yyy)
+						},
+						function (rej) {
+							console.log(rej);
+						})
+				},
+				function (rej) {
+					console.log(rej);
+				})
+
+		}
+		//复杂查询
 		$scope.compexsearch=function(id){
 			console.log(id)
 			var postData = $.param({
@@ -531,38 +636,34 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				function (rej) {
 					console.log(rej);
 				}
-			)
+			) 
 		}
-
-		
 		var getMessageImageList = function () {
-			if ($scope.complex.open==false) {
+			if ($scope.complex.open==false){
+				if ($scope.resultall.open==false){
 					var postData = $.param({
-						isfilt: $scope.treechange.open,
-						tree_id: $scope.select_tree_id,
-						keyword: $scope.search.keywords,
-						ranks: $scope.rank.join(","),
-						sexs: $scope.xingbie.join(","),
-						political_statuses: $scope.politicalstatus.join(","),
-						edu_levels: $scope.edulevel.join(","),
-						ages: $scope.age.join(","),
+						isfilt:$scope.treechange.open,
+						tree_id:$scope.select_tree_id,
+						keyword:$scope.search.keywords,
+						ranks:$scope.rank.join(","),
+						sexs:$scope.xingbie.join(","),
+						political_statuses:$scope.politicalstatus.join(","),
+						edu_levels:$scope.edulevel.join(","),
+						ages:$scope.age.join(","),
 						pageNo: $scope.paginationConf.currentPage,
 						pageSize: $scope.paginationConf.itemsPerPage,
-						access_token: $localStorage.token
+						access_token:$localStorage.token
 					});
-					console.log(1111111111111)
-					console.log($scope.treechange.open)
-
 					SettingpeopleService.getPeopleList(postData).then(
 						function (res) {
-							if (res.data.code == 200) {
+							if(res.data.code==200){
 
 								$scope.paginationConf.totalItems = res.data.info.totalElements;
 								$scope.searchpeopleshow = res.data.info.elements;
 								console.log(res.data.info.totalElements);
 								console.log($scope.searchpeopleshow)
 
-							} else {
+							}else{
 								//alert(res.data.msg);
 							}
 
@@ -571,7 +672,34 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							console.log(rej);
 						}
 					)
-				
+				}
+				else {
+					var postData = $.param({
+						id:$scope.resultid,
+						pageNo:$scope.paginationConf.currentPage,
+						pageSize:$scope.paginationConf.itemsPerPage,
+						tree_id:$scope.tree_uuid_bak,
+						isfilt:0,
+						access_token:$localStorage.token
+					});
+					UIMessageService.getallresultuser(postData).then(
+						function (res) {
+							if(res.data.msg=="操作成功"){
+								$scope.paginationConf.totalItems = res.data.data.info.totalElements;
+								$scope.searchpeopleshow = res.data.data.info.elements;
+								console.log(res.data.data.info.totalElements);
+								console.log($scope.searchpeopleshow)
+
+							}else{
+								//alert(res.data.msg);
+							}
+
+						},
+						function (rej) {
+							console.log(rej);
+						}
+					)
+				}
 			}
 			if ($scope.complex.open==true) {
 				console.log(333333333333333)
@@ -597,10 +725,16 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						});
 						UIMessageService.getcomplexlist(postData1).then(
 							function (res) {
-									$scope.paginationConf.totalItems = res.data.info.totalElements;
-									$scope.searchpeopleshow = res.data.info.elements;
-									console.log(res.data.info.totalElements);
+								if(res.data.msg=="操作成功"){
+									$scope.paginationConf.totalItems = res.data.data.info.totalElements;
+									$scope.searchpeopleshow = res.data.data.info.elements;
+									console.log(res.data.data.info.totalElements);
 									console.log($scope.searchpeopleshow)
+
+								}else{
+									//alert(res.data.msg);
+								}
+
 							},
 							function (rej) {
 								console.log(rej);
@@ -618,8 +752,9 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			itemsPerPage: 12
 		};
 		$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
-		$scope.$watch('treeselected', getMessageImageList)
-		$scope.$watch('complex.open', getMessageImageList)
+		$scope.$watch('treeselected', getMessageImageList);
+		$scope.$watch('complex.open', getMessageImageList);
+		$scope.$watch('resultall.open', getMessageImageList);
 
 		//任职
 		$scope.selectpeople=function(people){
@@ -1097,6 +1232,17 @@ app.controller('ModaladdtiaojiandeployInstanceCtrl', ['$scope', '$modalInstance'
 		};
 		$scope.ok = function () {
 			$modalInstance.close($scope.select);
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
+
+app.controller('ModaljieguomanagedeployInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
+	function($scope, $modalInstance) {
+		$scope.ok = function () {
+			$modalInstance.close();
 		};
 
 		$scope.cancel = function () {

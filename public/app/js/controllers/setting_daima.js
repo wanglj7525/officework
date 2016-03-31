@@ -51,6 +51,7 @@ app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','$modal','$log','$
                 ano: newdata.ano,
                 dz:  newdata.dz,
                 jc:  newdata.jc,
+                sy:  newdata.sy,
                 access_token:$localStorage.token
             });
             //调用后台保存 成功后修改页面
@@ -126,6 +127,7 @@ app.controller('SetDaimaCtrl',['$rootScope','$state','$scope','$modal','$log','$
                 ano: $scope.newdata.ano,
                 dz:  $scope.newdata.dz,
                 jc:  $scope.newdata.jc,
+                sy:  $scope.newdata.sy,
                 access_token:$localStorage.token
             });
             //调用后台保存 成功后修改页面

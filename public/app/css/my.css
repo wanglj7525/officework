@@ -53,6 +53,56 @@
 .addpeople > tab>tab-heading{
     border: 0px;
 }
+
+/*图表人物详情*/
+.analysispeople .nav-tabs{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 0px;
+}
+.analysispeople .nav-tabs > li{
+    background-color: #fff;
+    color: #000;
+    margin: auto 0px;
+    border: 0px;
+}
+.analysispeople .nav-tabs > li.active>a{
+    color: #FF780D;
+    border: 0px;
+}
+.analysispeople .nav-tabs > li:hover{
+    background-color: #fff!important;
+    border: 1px #FEAD6E solid;
+    color: #FEAD6E;
+    margin: auto 0px;
+}
+.analysispeople .nav-tabs > li.active{
+    background-color: #fff;
+    border: 1px #FF780D solid;
+    color: #FF780D!important;
+    margin: auto 2px;
+}
+.analysispeople .nav-tabs > li>a{
+    border: 0;
+    margin: auto 0px;
+    background-color: #fff;
+    color: #000;
+}
+.analysispeople .nav-tabs > li>a:hover{
+    border: 0;
+    color:#FEAD6E ;
+    margin: auto 0px;
+
+}
+.analysispeople .nav-tabs > li>a.active{
+    border: 0px;
+    color: #FF780D;
+}
+.analysispeople > tab>tab-heading{
+    border: 0px;
+}
+
+
 .detail-td{
     background-color: #E8EDEF;
 }
@@ -612,6 +662,8 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .btn-search{
     margin: 3px;
+    margin-bottom: 1px;
+    margin-top: 1px;
 }
 .btn-addtiaojian{
     float: left;
@@ -633,3 +685,11 @@ fieldset[disabled] .btn-mydefault.active {
 .panel{
     margin-bottom: 0px;
 }
+.mytable{
+    margin-bottom: 0px;
+}
+.frame {width:100%; padding:10px; background:#fff; float:left; margin-right:0px; display:inline;}
+.wrap {width:100%; position:relative; overflow:hidden; font-family:arial, sans-serif;}
+.wrap img {display:block;}
+.wrap div {width:100%;  padding:300px 0px 0px 10px; position:absolute; left:0; top:0;}
+

@@ -88,8 +88,8 @@
                                    <td>{{people.jiguan}}</td>
                                    <td>{{people.birthday}}</td>
                                    <td>{{people.edu_level}}</td>
-                                   <td>{{people.post_name}}</td>
-                                   <td>{{people.organization_name}}</td>
+                                   <td><span ng-repeat="i in people.post_name">{{i}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+                                   <td><span ng-repeat="i in people.organization_name">{{i}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
                                    <td>{{people.organ_date}}</td>
                                    <td>{{people.school_name}}</td>
                                    <td>{{people.profession_name}}</td>

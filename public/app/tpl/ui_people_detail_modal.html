@@ -97,7 +97,8 @@
 					<tr ng-repeat="row in familyInfolist" >
 						<td>{{row.renatinship_name}}</td>
 						<td>{{row.family_name}}</td>
-						<td>{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
+						<td ng-if="!row.family_birthday">无记录</td>
+						<td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
 						<td>{{row.family_poli}}</td>
 						<td colspan="2">{{row.family_org_name}}</td>
 					</tr>
@@ -417,7 +418,7 @@
 								</table>
 							</div>
 						</div>
-						<!--<div  layout="column" ng-if="!examinfolist"></div>-->
+						<div  layout="column" ng-if="!examinfolist"></div>
 					</div></tab>
 					<tab heading="简历信息"><div  flex>
 						<div class="" layout="column" >

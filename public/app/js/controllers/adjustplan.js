@@ -10,7 +10,7 @@ app.controller('ModalDeleteAdjustInstanceCtrl', ['$scope', '$modalInstance' ,'it
 	};
 }]);
 app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdjustplanService','$modal','$localStorage','SERVICE_URL',
-	function($scope, $http, $state, $timeout,UIAdjustplanService,$modal,$localStorage) {
+	function($scope, $http, $state, $timeout,UIAdjustplanService,$modal,$localStorage,SERVICE_URL) {
 		var postData = $.param({
 			access_token:$localStorage.token
 		});
@@ -84,6 +84,9 @@ app.controller('planController',[ '$scope', '$http', '$state','$timeout','UIAdju
 					console.log(res.data.info);
 					console.log(SERVICE_URL);
 					$scope.docurl=SERVICE_URL+res.data.info
+					console.log($scope.docurl);
+					window.location.href=$scope.docurl;
+
 				},
 				function (rej) {
 					console.log(rej);

@@ -32,7 +32,7 @@
 app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams', 'SeetingtreeService', function($scope, $localStorage,UIworktipservice,$stateParams,SeetingtreeService) {
 	$scope.currentname='全部';
 	$scope.selectcategory=function(id,name){
-		$scope.pid=id;
+		$scope.pid=name;
 		$scope.currentname=name;
 		
 	}
@@ -43,11 +43,26 @@ app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice',
 	UIworktipservice.getworkcategory(postData).then(
 		function (res) {
 			$scope.tipinfo = res.data.info.list;
+			console.log($scope.tipinfo)
 		},
 		function (rej) {
 			console.log(rej);
 		}
 	)
+	$scope.allmarkers=function(){
+		var postData = $.param({
+			access_token:$localStorage.token
+		});
+		UIworktipservice.getworkcategory(postData).then(
+			function (res) {
+				$scope.tipinfo = res.data.info.list;
+				console.log($scope.tipinfo)
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		)
+	}
 	$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 		var postData1= $.param({
 			parent:0,
@@ -63,6 +78,7 @@ app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice',
 				function (res) {
 					if(res.data.code==200){
 						$scope.worktiptable = res.data.info;
+						console.log($scope.worktiptable)
 					}else{
 						//alert(res.data.msg);
 					}

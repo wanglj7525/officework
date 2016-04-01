@@ -4,14 +4,14 @@ angular.module('app')
 			username: '', //当前登录的用户名
 			userrole: '', //当前登录的角色名
 			userid:0,//当前登录的用户id
-			//roleid: $localStorage.user? $localStorage.user.role_id:0,//当前登录的角色id
+			//roleid: $localStorage.isuser? $localStorage.isuser.state:0,//当前登录的角色id
 			roleid:function(){
 				//TODO 上线后 修改为 前面的代码
-				//if($localStorage.user.setting){
-				//	return $localStorage.user.setting.state;
-				//}else{
-				//	return 'true'
-				//}
+				if($localStorage.isuser){
+					return $localStorage.isuser.state;
+				}else{
+					return 'true'
+				}
 				return 'true'
 			},//当前登录的角色id
 			roles: function () {

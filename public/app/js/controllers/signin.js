@@ -15,21 +15,21 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 				SettinguserService.loginservice(params).then(
 					function(res){
 						console.log(res);
+						console.log(res.data.info);
+						//$localStorage.userstate=res.data.info.setting.state;
 						if(res.data.code==200){
 							//存储access_token
 							$localStorage.token=res.data.info.access_token;
-							$localStorage.user=res.data.info;
-							console.log($localStorage.user)
-							console.log($scope.user)
-							$state.go('app.worktip');
 							var params=$.param({
-								resource : 'setting',
+								resource : 'OPERATION_system_setting',
 								access_token : $localStorage.token
 							});
 							SettinguserService.authservice(params).then(
 								function(res){
 									console.log(res);
-									$localStorage.user.setting=res.data.info;
+									$localStorage.isuser=res.data.info;
+									console.log($localStorage.isuser);
+									$state.go('app.worktip');
 								},
 								function(rej){
 

@@ -173,6 +173,53 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		$scope.treeselected=$localStorage.treeselect;
 		console.log($localStorage.treeselected)
 		$scope.nopeople="班子暂无成员";
+		var postData = $.param({
+			tree_id:$localStorage.tree_uuid_bak,
+			access_token:$localStorage.token
+		});
+		UIDeployservice.getOneDeploy(postData).then(
+			function(res){
+				//班子成员
+				$scope.daweilist = res.data.info;
+				console.log($scope.daweilist)
+				if($scope.daweilist){
+					//需要分析班子成员，标注出 需要交流的人员
+					var params=$.param({
+						unit_id:$localStorage.tree_uuid_bak,
+						access_token:$localStorage.token
+					});
+					UIDeployservice.getBanziAnalysis(params).then(
+						function(res){
+							if(res.data.msg=="操作成功"){
+								console.log(res.data.data.info.ageList)
+								for(var j=0;j<$scope.daweilist.row.length;j++){
+									for(var i=0;i<$scope.daweilist.row[j].column.length;i++){
+										if(res.data.data.info.changeList.indexOf($scope.daweilist.row[j].column[i].person_id)!=-1){
+											$scope.daweilist.row[j].column[i].needChange=true;
+										}
+										if(res.data.data.info.ageList.indexOf($scope.daweilist.row[j].column[i].person_id)!=-1){
+											$scope.daweilist.row[j].column[i].overage=true;
+										}
+										else{
+											$scope.daweilist.row[j].column[i].needChange=false;
+											$scope.daweilist.row[j].column[i].overage=false;
+										}
+									}
+								}
+							}
+						},
+						function(rej){
+							console.log(rej);
+							console.log(222222)
+
+						}
+					);
+				}
+			},
+			function (rej) {
+				console.log(rej);
+			}
+		);
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
 			$scope.select_tree_id=$localStorage.tree_uuid_bak;
@@ -250,7 +297,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		});
 		$scope.isdetail=false;
 		//性别
-		SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+		SettingdaimaService.getfiltCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
 		//地址
 		SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
 		//民族
@@ -258,9 +305,9 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		//健康
 		SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
 		//职级
-		SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+		SettingdaimaService.getfiltCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
 		//政治面貌
-		SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+		SettingdaimaService.getfiltCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
 		//个人身份
 		SettingdaimaService.getCodagetList("ZB06").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
 		//人员状态
@@ -344,6 +391,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$scope.showlable.push($scope.xxx[1])
 				$scope.showlable.push($scope.xxx[2])
 				$scope.showlable.push($scope.xxx[3])
+				$scope.showlable.push($scope.xxx[4])
+				$scope.showlable.push($scope.xxx[5])
 				console.log( typeof $scope.showlable)
 			},
 			function (rej) {
@@ -363,6 +412,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$scope.showresult.push($scope.yyy[1])
 				$scope.showresult.push($scope.yyy[2])
 				$scope.showresult.push($scope.yyy[3])
+				$scope.showresult.push($scope.yyy[4])
+				$scope.showresult.push($scope.yyy[5])
 				console.log(  $scope.showresult)
 			},
 			function (rej) {
@@ -391,6 +442,8 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						$scope.showresult.push($scope.yyy[1])
 						$scope.showresult.push($scope.yyy[2])
 						$scope.showresult.push($scope.yyy[3])
+						$scope.showresult.push($scope.yyy[4])
+						$scope.showresult.push($scope.yyy[5])
 						console.log(  $scope.showresult)
 					},
 					function (rej) {
@@ -426,9 +479,41 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				})
 
 		}
+		//结果集查询
+		$scope.resultsearch=function(id){
+			console.log(id)
+			$scope.resultid=id
+			var postData = $.param({
+				id:id,
+				pageNo:$scope.paginationConf.currentPage,
+				pageSize:$scope.paginationConf.itemsPerPage,
+				tree_id:$scope.tree_uuid_bak,
+				isfilt:0,
+				access_token:$localStorage.token
+			});
+			console.log(id)
+			UIMessageService.getallresultuser(postData).then(
+				function (res) {
+					if(res.data.msg=="操作成功"){
+						$scope.paginationConf.totalItems = res.data.data.info.totalElements;
+						$scope.searchpeopleshow = res.data.data.info.elements;
+						console.log(res.data.data.info.totalElements);
+						console.log($scope.searchpeopleshow)
+
+					}else{
+						//alert(res.data.msg);
+					}
+
+				},
+				function (rej) {
+					console.log(rej);
+				}
+			)
+		}
 		//复杂查询
 		$scope.compexsearch=function(id){
 			console.log(id)
+			$scope.id=id
 			var postData = $.param({
 				id:id,
 				pageNo:$scope.paginationConf.currentPage,
@@ -513,7 +598,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					}
 				)
 				var temps=[];
-				var m= a.length;
+				var m= b.length;
 				for(var i=0;i<m;i++){
 					var temp={"sqlstr":a[i]+","+b[i]+","+c[i]+","+d[i]+","+e[i]+","+f[i]};
 					temps[i]=temp;
@@ -573,37 +658,36 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			$scope.edulevel=[];
 			//年龄
 			$scope.age=[];
-			var postData = $.param({
-				isfilt:0,
-				tree_id:$localStorage.tree_uuid,
-				keyword:$scope.search.keywords,
-				ranks:$scope.rank.join(","),
-				sexs:$scope.xingbie.join(","),
-				political_statuses:$scope.politicalstatus.join(","),
-				edu_levels:$scope.edulevel.join(","),
-				ages:$scope.age.join(","),
-				pageNo: $scope.paginationConf.currentPage,
-				pageSize: $scope.paginationConf.itemsPerPage,
-				access_token:$localStorage.token
-			});
-			SettingpeopleService.getPeopleList(postData).then(
-				function (res) {
-					if(res.data.code==200){
-
-						$scope.paginationConf.totalItems = res.data.info.totalElements;
-						$scope.messagetabletab = res.data.info.elements;
-						console.log(res.data.info.totalElements);
-						console.log($scope.messagetabletab)
-
-					}else{
-						//alert(res.data.msg);
-					}
-
-				},
-				function (rej) {
-					console.log(rej);
-				}
-			)
+			//var postData = $.param({
+			//	isfilt:0,
+			//	tree_id:$localStorage.tree_uuid,
+			//	keyword:$scope.search.keywords,
+			//	ranks:$scope.rank.join(","),
+			//	sexs:$scope.xingbie.join(","),
+			//	political_statuses:$scope.politicalstatus.join(","),
+			//	edu_levels:$scope.edulevel.join(","),
+			//	ages:$scope.age.join(","),
+			//	pageNo: $scope.paginationConf.currentPage,
+			//	pageSize: $scope.paginationConf.itemsPerPage,
+			//	access_token:$localStorage.token
+			//});
+			//SettingpeopleService.getPeopleList(postData).then(
+			//	function (res) {
+			//		if(res.data.code==200){
+			//			$scope.paginationConf.totalItems = res.data.info.totalElements;
+			//			$scope.messagetabletab = res.data.info.elements;
+			//			console.log(res.data.info.totalElements);
+			//			console.log($scope.messagetabletab)
+            //
+			//		}else{
+			//			//alert(res.data.msg);
+			//		}
+            //
+			//	},
+			//	function (rej) {
+			//		console.log(rej);
+			//	}
+			//)
 		}
 		//$scope.isdetail=false;
 		//deployright
@@ -674,6 +758,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					)
 				}
 				else {
+					console.log(44444444444)
 					var postData = $.param({
 						id:$scope.resultid,
 						pageNo:$scope.paginationConf.currentPage,

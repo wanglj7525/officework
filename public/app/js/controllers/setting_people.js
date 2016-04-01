@@ -357,10 +357,13 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                         $scope.user=res.data.info;
                         //$scope.user_photo=$rootScope.imageurl+$scope.user.head_pic;
                         //下拉列表默认显示值
-                        if($scope.user.jiguan||$scope.user.birthplace){
+                        if($scope.user.jiguan||$scope.user.birthplace||$scope.user.chengzhangdi){
                             for(var i=0;i<$scope.address.length;i++){
                                 if($scope.user.birthplace==$scope.address[i].ano){
                                     $scope.user.birthplace=$scope.address[i].dz;
+                                }
+                                if($scope.user.chengzhangdi==$scope.address[i].ano){
+                                    $scope.user.chengzhangdi=$scope.address[i].dz;
                                 }
                                 if($scope.user.jiguan==$scope.address[i].ano){
                                     $scope.user.jiguan=$scope.address[i].dz;
@@ -548,6 +551,13 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     }
                 }
             }
+            if(!$scope.user.chengzhangdi_ano&&$scope.user.chengzhangdi){
+                for(var i=0;i<$scope.address.length;i++){
+                    if($scope.user.chengzhangdi==$scope.address[i].dz){
+                        $scope.user.chengzhangdi_ano=$scope.address[i].ano;
+                    }
+                }
+            }
 
             if($scope.user.person_id){
                 //修改
@@ -558,6 +568,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     sex:$scope.user.sex?$scope.user.sex["ano"]:"",
                     birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
                     birthplace:$scope.user.birthplace_ano,//?$scope.user.birthplace["ano"]:"",
+                    growplace:$scope.user.chengzhangdi_ano,//?$scope.user.chengzhangdi["ano"]:"",
                     jiguan:$scope.user.jiguan_ano,//?$scope.user.jiguan["ano"]:"",
                     nation:$scope.user.nation?$scope.user.nation["ano"]:"",
                     health:$scope.user.health?$scope.user.health["ano"]:"",
@@ -591,6 +602,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     sex:$scope.user.sex?$scope.user.sex["ano"]:"",
                     birthday:$filter("date")($scope.user.birthday, "yyyyMMdd"),
                     birthplace:$scope.user.birthplace_ano,//?$scope.user.birthplace["ano"]:"",
+                    growplace:$scope.user.chengzhangdi_ano,//?$scope.user.chengzhangdi["ano"]:"",
                     jiguan:$scope.user.jiguan_ano,//?$scope.user.jiguan["ano"]:"",
                     //birthplace:$scope.user.birthplace?$scope.user.birthplace["ano"]:"",
                     //jiguan:$scope.user.jiguan?$scope.user.jiguan["ano"]:"",
@@ -623,10 +635,13 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                                     $scope.user=res.data.info;
                                     //$scope.user_photo=$rootScope.imageurl+$scope.user.head_pic;
                                     //下拉列表默认显示值
-                                    if($scope.user.jiguan||$scope.user.birthplace){
+                                    if($scope.user.jiguan||$scope.user.birthplace||$scope.user.chengzhangdi){
                                         for(var i=0;i<$scope.address.length;i++){
                                             if($scope.user.birthplace==$scope.address[i].ano){
                                                 $scope.user.birthplace=$scope.address[i].dz;
+                                            }
+                                            if($scope.user.chengzhangdi==$scope.address[i].ano){
+                                                $scope.user.chengzhangdi=$scope.address[i].dz;
                                             }
                                             if($scope.user.jiguan==$scope.address[i].ano){
                                                 $scope.user.jiguan=$scope.address[i].dz;

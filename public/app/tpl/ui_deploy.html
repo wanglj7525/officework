@@ -42,8 +42,10 @@
 									<div class="panel panel-card deploycontent" style="width: 30%" ng-repeat="peoples in t.column">
 										<div class="item" ng-if="peoples.name" style="position: relative">
 											<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
-											<div style="position:absolute; z-index:2; left:1px; bottom:1px;color: red" ng-if="peoples.needChange">任满两届</div>
-											<div style="position:absolute; z-index:2; right:1px; bottom:1px;color: red" ng-if="peoples.overage">年龄>58</div>
+											<span  class="imgover" >
+												<span ng-if="peoples.needChange" style="color: #fff">任满两届</span>
+												<span ng-if="peoples.overage" style="float: right;color: #DFA40C">年龄>58</span>
+											</span>
 										</div>
 										<div class="item" ng-if="!peoples.name">
 											<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/b.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/b.png'}}" class="w-full r-t" alt="{{peoples.name}}">
@@ -69,8 +71,10 @@
 								<div class=" panel panel-card deploycontent" style="width: 30%" ng-repeat="peoples in  t.column">
 									<div class="item" ng-if="peoples.name" style="position: relative">
 										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="{{peoples.name}}">
-										<div style="position:absolute; z-index:2; left:1px; bottom:1px;color: red" ng-if="peoples.needChange">任满两届</div>
-										<div style="position:absolute; z-index:2; right:1px; bottom:1px;color: red" ng-if="peoples.overage">年龄>58</div>
+											<span  class="imgover" >
+												<span ng-if="peoples.needChange" style="color: #fff">任满两届</span>
+												<span ng-if="peoples.overage" style="float: right;color: #DFA40C">年龄>58</span>
+											</span>
 									</div>
 									<div class="item" ng-if="!peoples.name">
 										<img ng-click="showOneDetail(peoples)" onerror="javascript:this.src='/public/app/img/b.png';" ng-src="{{peoples.imgurl?imageurl+peoples.imgurl:'/public/app/img/b.png'}}" class="w-full r-t" alt="{{peoples.name}}">
@@ -122,30 +126,31 @@
 								<div class="cell scrollable hover" >
 									<div class="cell-inner" style="margin-bottom: 0px">
 										<div class="list-group" style="margin-bottom: 0px">
-											<div class="row">已选班子：<span class="btn btn-default"  ng-if="treeselected">{{treeselected}}<span class="mdi-content-clear" ng-click="cleantree();searchPeople();resultall.open=false;complex.open=false"></span></span></div>
-											<form  class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled" ng-submit="searchPeople();resultall.open=false;complex.open=false">
+											<!--<div class="row">已选班子：<span class="btn btn-default"  ng-if="treeselected">{{treeselected}}<span class="mdi-content-clear" ng-click="cleantree();treechange.open=0;resultall.open=false;complex.open=false"></span></span></div>-->
+											<form  class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled" ng-submit="cleantree();treechange.open=0;searchPeople();resultall.open=false;complex.open=false">
 												<div class="" >
 													<div class="list-group-item" style="border: 0px;padding: 2px 15px;">
 														<div class="form-group" style="margin-bottom: 0px">
 															<table class="table table-bordered searchtable">
 																<tr>
-																	<td style="width: 10%; vertical-align : middle;background-color: #E8EDEF">快捷查询</td>
+																	<td style="width: 15%; vertical-align : middle;background-color: #E8EDEF">快捷查询</td>
 																	<td>
 																		<div class="row">
 																			<table class="table mytable">
 																				<tr class="form-group">
 																					<td  colspan="2">
-																						<div class="col-xs-9" style="padding-left: 0px"><input type="text" ng-model="search.keywords" name="keywords" class="form-control" style="width: 80%;float: left;" placeholder="姓名/职级/籍贯/院校……" ng-change="searchPeople();complex.open=false">
+																						<div class="col-xs-9" style="padding-left: 0px">
+																							<input type="text" ng-model="search.keywords" name="keywords" class="form-control" style="width: 80%;float: left;" placeholder="姓名/职级/籍贯/院校……" ng-change="searchPeople();complex.open=false">
 																							<!--<button class="btn btn-info icon-magnifier"  type="submit">搜索</button>-->
 																							<button class="btn btn-info" type="submit">模糊搜索</button>
 																							<!--<a style="margin-right: 10px" ng-click="kuaijietable.open=!kuaijietable.open">自定义</a><a ng-click="jieguotable.open=!jieguotable.open">结果集</a>-->
 
 																						</div>
-																						<div class="col-xs-offset-0 col-xs-3">
+																						<div class="col-xs-offset-1 col-xs-2">
 																							<!--<button class="btn btn-submit" type="button" ng-click="cleansubmit()"  ng-show="table.open" style="float: right">清除</button>-->
-																						</div>
 																						<span style="color: #000" ng-show="!table.open" ng-click="table.open=!table.open;kuaijietable.open=!kuaijietable.open;jieguotable.open=!jieguotable.open" >复杂查询<span class="fa fa-chevron-down" style="color: #00a8f3"></span></span>
 																						<span style=";color: #000" ng-show="table.open" ng-click="table.open=!table.open;kuaijietable.open=!kuaijietable.open;jieguotable.open=!jieguotable.open">复杂查询<span class="fa fa-chevron-up" style="color: #00a8f3"></span></span>
+																						</div>
 																					</td>
 																				</tr>
 																				<tr class="form-group" ng-show="table.open">
@@ -188,16 +193,15 @@
 																					<td>
 																						<div class="row">
 																							<div class="col-xs-9" style="padding-left: 0px">
-																								<a class="col-xs-2" ng-repeat="j in showlable track by $index " ng-click="cleansubmit();compexsearch(j.id);resultall.open=false;complex.open=true" ng-show="!kuaijie.open" ng-if="j">{{j.name}}</a>
-																								<a class="col-xs-2" ng-repeat="i in xxx" ng-click="cleansubmit();resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="kuaijie.open">{{i.name}}</a>
-																								<a class="col-xs-2" ><span style="color: #000" ng-if="!kuaijie.open"ng-click="kuaijie.open=!kuaijie.open" >更多</span></a>
+																								<a class="col-xs-2" ng-repeat="j in showlable track by $index " ng-click="cleansubmit();complex.open=true;compexsearch(j.id);resultall.open=false;" ng-show="!kuaijie.open" ng-if="j">{{j.name}}</a>
+																								<a class="col-xs-2" ng-repeat="i in xxx" ng-click="cleansubmit();complex.open=true;compexsearch(i.id);resultall.open=false" ng-show="kuaijie.open" ng-if="i">{{i.name}}</a>
 																							</div>
-																							<div class=" col-xs-1">
+																							<div class=" col-xs-2">
+																								<a class="col-xs-12" ng-if="xxx.length>6"><span style="color: #000" ng-if="!kuaijie.open"ng-click="kuaijie.open=!kuaijie.open" >更多</span></a>
 																								<a class="col-xs-12" ><span style="color: #000" ng-if="kuaijie.open" ng-click="kuaijie.open=!kuaijie.open">收起</span></span></a>
 																							</div>
-																							<div class="col-xs-offset-1 col-xs-1">
+																							<div class="c col-xs-1">
 																								<a class="" type="" ng-click="tiaojianmanage()">管理</a>
-
 																							</div>
 																						</div>
 																					</td>
@@ -215,16 +219,16 @@
 																				<td>
 																					<div class="row">
 																						<div class="col-xs-9" style="padding-left: 0px">
-																							<a class="col-xs-2" ng-repeat="j in showresult track by $index " ng-click="cleansubmit();resultsearch(j.id);complex.open=false;resultall.open=true" ng-show="!jieguo.open" ng-if="j">{{j.name}}</a>
-																							<a class="col-xs-2" ng-repeat="i in yyy" ng-click="cleansubmit();resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="jieguo.open">{{i.name}}</a>
-																							<a class="col-xs-2" ><span style="color: #000" ng-if="!jieguo.open"ng-click="jieguo.open=!jieguo.open" >更多</span></a>
+																							<a class="col-xs-2" ng-repeat="j in showresult track by $index " ng-click="resultall.open=true;cleansubmit();treechange.open=0;resultsearch(j.id);complex.open=false;" ng-show="!jieguo.open" ng-if="j">{{j.name}}</a>
+																							<a class="col-xs-2" ng-repeat="i in yyy" ng-click="cleansubmit();treechange.open=0;resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="jieguo.open">{{i.name}}</a>
 																						</div>
-																						<div class=" col-xs-1">
+																						<div class=" col-xs-2">
+																							<a class="col-xs-12" ng-if="yyy.length>6"><span style="color: #000" ng-if="!jieguo.open"ng-click="jieguo.open=!jieguo.open" >更多</span></a>
 																							<a class="col-xs-12" ><span style="color: #000" ng-if="jieguo.open" ng-click="jieguo.open=!jieguo.open">收起</span></a>
 
 																							<!--<button class="btn btn-submit" type="button" ng-click="cleansubmit()"  ng-show="table.open" style="float: right">清除</button>-->
 																						</div>
-																						<div class="col-xs-offset-1 col-xs-1">
+																						<div class="col-xs-1">
 																							<a class="" type="" ng-click="jieguomanage()">管理</a>
 																						</div>
 																					</div>

@@ -1,22 +1,29 @@
-<div ng-controller="MessageController">
-  <div class="modal-header">
-    <div style="position: relative">
-		<span >
-			<h3 class="modal-title">请输入结果集名称</h3>
-		</span>
-    </div>
-  </div>
-  <div class="modal-body">
-    <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-      <div class="form-group" ng-class="{ 'has-error' : addtreeform.name.$invalid && !addtreeform.name.$pristine }">
-        <div class="col-xs-offset-2 col-xs-8 row">
-          <div  class=" m-l-n">
-            <input class="form-control" id="result-name" type="text" ng-model="resultname" required>
+<div ng-controller="MessageController" >
+  
+    <tabset class="tab-container tab-search">
+      <!--<tab heading="保存到现有结果集" class="color-message addpeople" >-->
+        <!--<table st-table="postinfolist"  class="table table-bordered table-people-detaile">-->
+          <!--11111-->
+        <!--</table>-->
+      <!--</tab>-->
+      <tab heading="新建结果集" class="color-message ">
+        <table>
+          <div class="modal-body">
+            <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+              <div class="form-group" ng-class="{ 'has-error' : addtreeform.name.$invalid && !addtreeform.name.$pristine }">
+                <label class="col-xs-3 control-label">请输入结果集名称</label>
+                <div class="col-xs-9 row">
+                  <div  class=" m-l-n">
+                    <input class="form-control" id="result-name" type="text" ng-model="resultname" required>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-      </div>
-    </form>
-  </div>
+        </table>
+      </tab>
+    </tabset>
+    
   <div class="modal-footer">
     <button class="btn btn-default" ng-click="cancel()">取消</button>
     <button class="btn btn-primary"  ng-disabled="addtreeform.$invalid" ng-click="ok()">确定</button>

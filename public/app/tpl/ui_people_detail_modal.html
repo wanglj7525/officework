@@ -2,7 +2,7 @@
 	<div >
 		<tabset class="tab-container tab-search">
 			<tab heading="按任免表查看" class="color-message addpeople" >
-				<table st-table="postinfolist"  class="table table-bordered table-people-detaile">
+				<table st-table="postinfolist"  class="table table-bordered table-people-detaile" style="width: 80%">
 					<tr>
 						<td class="detail-td" width="10%">姓名</td>
 						<td>{{user.name}}</td>
@@ -54,7 +54,8 @@
 					</tr>
 					<tr>
 						<td class="detail-td">现任职务</td>
-						<td colspan="6">{{row.post_name}}</td>
+						<td colspan="6"><span ng-repeat="i in postinfolist">{{i.organization_name[i]}}{{i.post_name[i]}}</span>
+						</td>
 					</tr>
 					<tr>
 						<td class="detail-td">拟任职务</td>
@@ -183,7 +184,7 @@
 				<!--</table>-->
 			</tab>
 			<tab heading="按信息集查看" class="color-message ">
-				<tabset class="tab-container addpeople">
+				<tabset class="tab-container addpeople" style="width: 80%">
 					<tab heading="基本信息"><div flex>
 						<div class="" layout="column" >
 							<div class=" ">

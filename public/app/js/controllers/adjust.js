@@ -107,7 +107,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 								data.reason=adjust.yuanyin;
 								data.tobe_post=adjust.zhiwu['name'];
 								console.log(data.tobe_post);
-								$state.go('app.analysis');
+								//$state.go('app.analysis');
 								//angular.copy($scope.newdata,data);
 								//console.log($scope.newdata);
 							}else{
@@ -144,7 +144,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 								$scope.adjusttable.splice(i,1);
 							}
 						}
-						$state.go('app.analysis');
+						//$state.go('app.analysis');
 					}else{
 						console.log(res.data.msg);
 					}

@@ -86,15 +86,15 @@
                                                                                     <td>
                                                                                         <div class="row">
                                                                                         <div class="col-xs-9" style="padding-left: 0px">
-                                                                                            <a class="col-xs-2" ng-repeat="j in showlable track by $index " ng-click="cleansubmit();compexsearch(j.id);resultall.open=false;complex.open=true" ng-show="!kuaijie.open" ng-if="j">{{j.name}}</a>
-                                                                                            <a class="col-xs-2" ng-repeat="i in xxx" ng-click="cleansubmit();resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="kuaijie.open">{{i.name}}</a>
-                                                                                            <a class="col-xs-2" ><span style="color: #000" ng-if="!kuaijie.open"ng-click="kuaijie.open=!kuaijie.open" >更多</span></a>
+                                                                                            <a class="col-xs-2 jieguobtn" ng-repeat="j in showlable track by $index " ng-click="cleansubmit();compexsearch(j.id);resultall.open=false;complex.open=true" ng-show="!kuaijie.open" ng-if="j"><span style="color: #000">{{j.name}}</span></a>
+                                                                                            <a class="col-xs-2 jieguobtn" ng-repeat="i in xxx" ng-click="cleansubmit();resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="kuaijie.open"><span style="color: #000">{{i.name}}</span></a>
                                                                                         </div>
-                                                                                        <div class=" col-xs-1">
-                                                                                            <a class="col-xs-12" ><span style="color: #000" ng-if="kuaijie.open" ng-click="kuaijie.open=!kuaijie.open">收起</span></span></a>
+                                                                                        <div class=" col-xs-2">
+                                                                                            <a class="col-xs-12 jieguobtn" ng-if="xxx.length>6" ><span style="color: #000" ng-if="!kuaijie.open"ng-click="kuaijie.open=!kuaijie.open" >更多</span></a>
+                                                                                            <a class="col-xs-12 jieguobtn" ><span style="color: #000" ng-if="kuaijie.open" ng-click="kuaijie.open=!kuaijie.open">收起</span></span></a>
                                                                                         </div>
-                                                                                        <div class="col-xs-offset-1 col-xs-1">
-                                                                                            <a class="" type="" ng-click="tiaojianmanage()">管理</a>
+                                                                                        <div class="col-xs-1">
+                                                                                            <a class="jieguobtn" type="" ng-click="tiaojianmanage()"><span style="color: #000">管理</span></a>
                                                                                         
                                                                                         </div>
                                                                                         </div>
@@ -113,17 +113,16 @@
                                                                                     <td>
                                                                                         <div class="row">
                                                                                         <div class="col-xs-9" style="padding-left: 0px">
-                                                                                            <a class="col-xs-2" ng-repeat="j in showresult track by $index " ng-click="cleansubmit();resultsearch(j.id);complex.open=false;resultall.open=true" ng-show="!jieguo.open" ng-if="j">{{j.name}}</a>
-                                                                                            <a class="col-xs-2" ng-repeat="i in yyy" ng-click="cleansubmit();resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="jieguo.open">{{i.name}}</a>
-                                                                                            <a class="col-xs-2" ><span style="color: #000" ng-if="!jieguo.open"ng-click="jieguo.open=!jieguo.open" >更多</span></a>
+                                                                                            <a class="col-xs-2 jieguobtn"  ng-repeat="j in showresult track by $index " ng-click="cleansubmit();resultsearch(j.id);complex.open=false;resultall.open=true" ng-show="!jieguo.open" ng-if="j"><span style="color: #000">{{j.name}}</span></a>
+                                                                                            <a class="col-xs-2 jieguobtn" ng-repeat="i in yyy" ng-click="cleansubmit();resultsearch(i.id);complex.open=false;resultall.open=true" ng-show="jieguo.open"><span style="color: #000">{{i.name}}</span></a>
                                                                                         </div>
-                                                                                        <div class=" col-xs-1">
-                                                                                            <a class="col-xs-12" ><span style="color: #000" ng-if="jieguo.open" ng-click="jieguo.open=!jieguo.open">收起</span></a>
-
+                                                                                        <div class=" col-xs-2">
+                                                                                            <a class="col-xs-12 jieguobtn" ng-if="yyy.length>6"><span style="color: #000" ng-if="!jieguo.open"ng-click="jieguo.open=!jieguo.open" >更多</span></a>
+                                                                                            <a class="col-xs-12 jieguobtn" ><span style="color: #000" ng-if="jieguo.open" ng-click="jieguo.open=!jieguo.open">收起</span></a>
                                                                                             <!--<button class="btn btn-submit" type="button" ng-click="cleansubmit()"  ng-show="table.open" style="float: right">清除</button>-->
                                                                                         </div>
-                                                                                            <div class="col-xs-offset-1 col-xs-1">
-                                                                                                <a class="" type="" ng-click="jieguomanage()">管理</a>
+                                                                                            <div class="col-xs-1">
+                                                                                                <a class="jieguobtn" type="" ng-click="jieguomanage()"><span style="color: #000">管理</span></a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </td>
@@ -163,19 +162,19 @@
                 <tab heading="按头像查看" class="color-message "  ng-click="saveresultbtn.open=false" style="margin-left: 15px;">
                     <div class="row" >
                         <div ng-repeat="people in messagetabletab">
-                            <div class="col-xs-2" style="margin: 0px;padding: 0px">
-                                <div class="panel panel-card">
-                                    <div class="item" >
+                            <div class="messageimg" style="margin: 0px;padding: 0px">
+                                <div class="panel panel-card" style="margin: 0;padding: 0">
+                                    <div class="item" style="margin-right: 0px;margin-left: 15px" >
                                         <img  ng-click="showOneDetail(people)" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{people.imgurl?imageurl+people.imgurl:'/public/app/img/a.png'}}" class="w-full r-t" alt="Washed Out">
                                     </div>
+                                    <div  popover="{{people.organization_name[0]}}{{people.post_name[0]}}" popover-title="{{people.organization_name[1]}}{{people.post_name[1]}}" popover-trigger="mouseenter">
                                     <div class="" style="text-align: center">{{people.name}}</div>
-                                    <div style="height: 50px">
+                                    <div style="height: 20px">
                                         <div class="" style="text-align: center" ng-if="people.organization_name[0]">{{people.organization_name[0]}}{{people.post_name[0]}}</div>
-                                        <div class="" style="text-align: center" ng-if="people.organization_name[1]">{{people.organization_name[1]}}{{people.post_name[1]}}</div>
                                     </div>
                                     <div class="" style="text-align: center"></div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

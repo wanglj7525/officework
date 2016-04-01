@@ -90,7 +90,7 @@ angular.module('app')
                     $localStorage.token='0';
                     $state.go("access.signin");
                   }else{
-                    alert(res.data.msg);
+                    alert("原始密码错误!");
                   }
                 },
                 function (rej) {
@@ -107,7 +107,7 @@ angular.module('app')
           $scope.isshowtree=showtree;
           $scope.hassearch=showsearch;
         }
-
+        $scope.authuser=$localStorage.isuser.state;
         $scope.treeselected=$localStorage.treeselect;
         console.log("菜单左树："+$scope.treeselected);
         $scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){

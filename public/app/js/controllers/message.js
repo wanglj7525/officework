@@ -29,21 +29,7 @@
 
 		
 			//性别1
-			SettingdaimaService.getCodagetList("GB2261").then(function(res){ 
-				
-				console.log(res.data.info.list);
-				for (var i=0;i<res.data.info.list.length;i++){
-					if(res.data.info.list[i].sy==0){
-						res.data.info.list.splice(i,1)
-					}
-				}
-				$scope.sexlist=res.data.info.list;
-				console.log(res.data.info.list);
-			},function(rej){});
-			
-			//for (var i=0;i<$scope.sexlist.length;i++){
-			//	
-			//}
+			SettingdaimaService.getfiltCodagetList("GB2261").then(function(res){$scope.sexlist=res.data.info.list;},function(rej){});
 			//地址
 			SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
 			//民族
@@ -51,9 +37,9 @@
 			//健康
 			SettingdaimaService.getCodagetList("GB4767").then(function(res){ $scope.jiankanglist=res.data.info.list;},function(rej){});
 			//职级1
-			SettingdaimaService.getCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
+			SettingdaimaService.getfiltCodagetList("FJ09").then(function(res){ $scope.zhijilist=res.data.info.list;},function(rej){});
 			//政治面貌1
-			SettingdaimaService.getCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
+			SettingdaimaService.getfiltCodagetList("GB4762").then(function(res){ $scope.zhengzhilist=res.data.info.list;},function(rej){});
 			//个人身份
 			SettingdaimaService.getCodagetList("GB2261_4").then(function(res){ $scope.personallist=res.data.info.list;},function(rej){});
 			//人员状态
@@ -430,7 +416,7 @@
 			//配置分页基本参数
 			$scope.paginationConf = {
 				currentPage: 1,
-				itemsPerPage: 12
+				itemsPerPage: 16
 			};
 			$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', getMessageImageList);
 			$scope.$watch('treeselected', getMessageImageList);
@@ -656,6 +642,8 @@
 					$scope.showresult.push($scope.yyy[1])
 					$scope.showresult.push($scope.yyy[2])
 					$scope.showresult.push($scope.yyy[3])
+					$scope.showresult.push($scope.yyy[4])
+					$scope.showresult.push($scope.yyy[5])
 					console.log(  $scope.showresult)
 				},
 				function (rej) {

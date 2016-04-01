@@ -132,6 +132,21 @@ angular.module('app')
             });
             return promise;
         },
+        getfiltCodagetList:function(catalog_id){
+            var deferred=$q.defer();
+            var params=$.param({
+                catalog_id:catalog_id,
+                access_token:  $localStorage.token
+            });
+            var path=SERVICE_URL+'/setting/code/getListFilted?';
+            var promise=$http.get(path+params).then(function(response){
+                return response;
+            },function(response){
+                console.log(response);
+                return response;
+            });
+            return promise;
+        },
         addDaima:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/setting/code/add';
@@ -170,6 +185,7 @@ angular.module('app')
 }]).service('SettinguserService',['$q','$http','$localStorage','SERVICE_URL',function($q,$http,$localStorage,SERVICE_URL){
     //用户管理
     return{
+        
         loginservice:function(params){
             var deferred=$q.defer();
             var path=SERVICE_URL+'/security/login?';

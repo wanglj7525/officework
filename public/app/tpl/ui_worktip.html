@@ -47,7 +47,7 @@
                         <td>{{row.unit_name}}</td>
                         <td >{{row.msg}}</td>
                         <td class="lastTd">
-                            <button type="button" ui-sref="app.deploy" class="btn btn-href btn-default">
+                            <button type="button" ng-click="godeploy(row.unit_id,row.unit_name)" class="btn btn-href btn-default">
                                 班子调配
                             </button>
                         </td>

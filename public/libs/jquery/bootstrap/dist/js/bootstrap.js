@@ -1279,7 +1279,7 @@ if (typeof jQuery === 'undefined') {
     trigger: 'hover focus',
     title: '',
     delay: 0,
-    html: false,
+    html: true,
     container: false,
     viewport: {
       selector: 'body',

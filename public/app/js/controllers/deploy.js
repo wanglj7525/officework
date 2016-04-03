@@ -6,10 +6,10 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 			$scope.renzhilist=res.data.info.list;
 		},function(rej){});
 		var select_tree = $.param({
-			tree_id:$localStorage.tree_uuid_bak,
+			tree_id:$localStorage.tree_uuid,
 			access_token:$localStorage.token
 		});
-		console.log($localStorage.tree_uuid_bak)
+		console.log($localStorage.tree_uuid)
 		adjustdetailservice.getzhiweiList(select_tree).then(
 			function (res) {
 				$scope.companylist = res.data.info;
@@ -163,6 +163,7 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','adjustdetailservice','SettingdaimaService','SettingpeopleService','UIDeployservice','deploydanweiservice','messageservice','searchservice','getxueliList','treeservice_new','UIMessageService',
 	function($rootScope,$scope, $http, $state, $timeout,$modal,$log,$localStorage,adjustdetailservice,SettingdaimaService,SettingpeopleService,UIDeployservice,deploydanweiservice,messageservice,searchservice,getxueliList,treeservice_new,UIMessageService) {
 		//存储任职 离职人员id
+		
 		$scope.InPerson_ids=[];
 		$scope.OutPerson_ids=[];
 		//存储任职 离职人员信息
@@ -174,7 +175,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		console.log($localStorage.treeselected)
 		$scope.nopeople="班子暂无成员";
 		var postData = $.param({
-			tree_id:$localStorage.tree_uuid_bak,
+			tree_id:$localStorage.tree_uuid,
 			access_token:$localStorage.token
 		});
 		UIDeployservice.getOneDeploy(postData).then(
@@ -185,7 +186,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				if($scope.daweilist){
 					//需要分析班子成员，标注出 需要交流的人员
 					var params=$.param({
-						unit_id:$localStorage.tree_uuid_bak,
+						unit_id:$localStorage.tree_uuid,
 						access_token:$localStorage.token
 					});
 					UIDeployservice.getBanziAnalysis(params).then(
@@ -220,9 +221,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				console.log(rej);
 			}
 		);
+	
 		$scope.$watch(function(){ return $localStorage.treeselect},function(newValue,oldValue){
 			$scope.treeselected=$localStorage.treeselect;
-			$scope.select_tree_id=$localStorage.tree_uuid_bak;
+			$scope.select_tree_id=$localStorage.tree_uuid;
 			$scope.complex.open=false
 			$scope.treechange.open=1,
 			$scope.isdetail=false
@@ -247,7 +249,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			);
 			var postData = $.param({
-				tree_id:$localStorage.tree_uuid_bak,
+				tree_id:$localStorage.tree_uuid,
 				access_token:$localStorage.token
 			});
 			UIDeployservice.getOneDeploy(postData).then(
@@ -258,7 +260,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					if($scope.daweilist){
 						//需要分析班子成员，标注出 需要交流的人员
 						var params=$.param({
-							unit_id:$localStorage.tree_uuid_bak,
+							unit_id:$localStorage.tree_uuid,
 							access_token:$localStorage.token
 						});
 						UIDeployservice.getBanziAnalysis(params).then(
@@ -391,8 +393,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$scope.showlable.push($scope.xxx[1])
 				$scope.showlable.push($scope.xxx[2])
 				$scope.showlable.push($scope.xxx[3])
-				$scope.showlable.push($scope.xxx[4])
-				$scope.showlable.push($scope.xxx[5])
 				console.log( typeof $scope.showlable)
 			},
 			function (rej) {
@@ -412,8 +412,6 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				$scope.showresult.push($scope.yyy[1])
 				$scope.showresult.push($scope.yyy[2])
 				$scope.showresult.push($scope.yyy[3])
-				$scope.showresult.push($scope.yyy[4])
-				$scope.showresult.push($scope.yyy[5])
 				console.log(  $scope.showresult)
 			},
 			function (rej) {
@@ -487,7 +485,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				id:id,
 				pageNo:$scope.paginationConf.currentPage,
 				pageSize:$scope.paginationConf.itemsPerPage,
-				tree_id:$scope.tree_uuid_bak,
+				tree_id:$scope.tree_uuid,
 				isfilt:0,
 				access_token:$localStorage.token
 			});
@@ -499,6 +497,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						$scope.searchpeopleshow = res.data.data.info.elements;
 						console.log(res.data.data.info.totalElements);
 						console.log($scope.searchpeopleshow)
+						//$scope.text=$scope.searchpeopleshow.organization_name[0]+"\n"+$scope.searchpeopleshow.post_name[0]++$scope.searchpeopleshow.organization_name[0]
 
 					}else{
 						//alert(res.data.msg);
@@ -518,7 +517,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				id:id,
 				pageNo:$scope.paginationConf.currentPage,
 				pageSize:$scope.paginationConf.itemsPerPage,
-				tree_id:$scope.tree_uuid_bak,
+				tree_id:$scope.tree_uuid,
 				isfilt:0,
 				access_token:$localStorage.token
 			});
@@ -689,6 +688,14 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			//	}
 			//)
 		}
+		$scope.selectContacter=function(index){
+			$scope.selCont = index;
+			$scope.selCont1 = 1111100000000;
+		}
+		$scope.selectContacter1=function(index){
+			$scope.selCont1 = index;
+			$scope.selCont=10000000000;
+		}
 		//$scope.isdetail=false;
 		//deployright
 		$scope.searchPeople=function(){
@@ -741,11 +748,12 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					SettingpeopleService.getPeopleList(postData).then(
 						function (res) {
 							if(res.data.code==200){
-
 								$scope.paginationConf.totalItems = res.data.info.totalElements;
 								$scope.searchpeopleshow = res.data.info.elements;
 								console.log(res.data.info.totalElements);
 								console.log($scope.searchpeopleshow)
+								//console.log($scope.searchpeopleshow[0].organization_name)
+
 
 							}else{
 								//alert(res.data.msg);
@@ -763,7 +771,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 						id:$scope.resultid,
 						pageNo:$scope.paginationConf.currentPage,
 						pageSize:$scope.paginationConf.itemsPerPage,
-						tree_id:$scope.tree_uuid_bak,
+						tree_id:$scope.tree_uuid,
 						isfilt:0,
 						access_token:$localStorage.token
 					});
@@ -792,7 +800,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 					id:$scope.id,
 					pageNo:$scope.paginationConf.currentPage,
 					pageSize:$scope.paginationConf.itemsPerPage,
-					tree_id:$scope.tree_uuid_bak,
+					tree_id:$scope.tree_uuid,
 					isfilt:0,
 					access_token:$localStorage.token
 				});
@@ -804,7 +812,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 							id:$scope.id,
 							pageNo:$scope.paginationConf.currentPage,
 							pageSize:$scope.paginationConf.itemsPerPage,
-							tree_id:$scope.tree_uuid_bak,
+							tree_id:$scope.tree_uuid,
 							isfilt:0,
 							access_token:$localStorage.token
 						});
@@ -913,7 +921,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 								//任职人员信息
 								var p={
 									person_id:newpeople.person_id,
-									unit_id:$localStorage.tree_uuid_bak,
+									unit_id:$localStorage.tree_uuid,
 									adjust_type:2,
 									now_post_id:people.now_post_id,
 									tobe_post_id:deploy.zhiwei['id'],

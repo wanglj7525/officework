@@ -383,7 +383,7 @@ table{
 }
 .deploycontent{
     display: inline-block;
-
+    vertical-align: top
 }
 
 /*拟任职务*/
@@ -688,10 +688,30 @@ fieldset[disabled] .btn-mydefault.active {
 .mytable{
     margin-bottom: 0px;
 }
-.jieguobtn{
+a.jieguobtn{
+    display: block;
+    background-color: #fff;
+}
+a.jieguobtn:hover
+{
+    color: red!important;
     text-decoration: underline;
-    /*color: red;*/
-    /*border-bottom: 2px red solid;*/
+}
+a.jieguobtn.active{
+    color: red!important;
+}
+a.jieguobtn:focus
+{
+    color: red!important;
+}
+.selected{
+    color:red;
+}
+.selected1{
+    color:red;
+}
+.postdetaile{
+    
 }
 .messageimg{
     width: 160px;
@@ -705,6 +725,17 @@ fieldset[disabled] .btn-mydefault.active {
     width: 100%;
     background-color: #000;
     opacity:0.5;
+}
+.resultbtn{
+    background-color: #fff;
+    border: 0px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.resultbtn:focus{
+    background-color: #fff;
+    border-top: 2px #00a8f3 solid;
+    color: #00a8f3;
 }
 /*.frame {width:100%; padding:10px; background:#fff; float:left; margin-right:0px; display:inline;}*/
 /*.wrap {width:100%; position:relative; overflow:hidden; font-family:arial, sans-serif;}*/

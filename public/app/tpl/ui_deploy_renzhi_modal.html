@@ -27,7 +27,7 @@
 			<div class="col-md-10 col-xs-10 row">
 				<div  class=" m-l-n">
 					<div class="dropdown" dropdown >
-						<input autocompletes="" class="tags form-control" name="reason" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required />
+						<input autocompletes="" ng-change="analysis()" class="tags form-control" name="reason" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required />
 						<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
 							<span class="caret"  ></span>
 						</div>
@@ -60,6 +60,6 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">取消</button>
-	<button class="btn btn-primary"  ng-disabled="renzhiform.$invalid" ng-click="analysis()" ng-show="!hasanalysis">分析</button>
+	<button class="btn btn-primary"  ng-disabled="renzhiform.$invalid" ng-click="" ng-show="!hasanalysis">分析</button>
 	<button class="btn btn-primary" ng-click="ok()" ng-show="hasanalysis">确定</button>
 </div>

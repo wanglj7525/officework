@@ -1,29 +1,56 @@
 <div ng-controller="MessageController" >
-  
-    <tabset class="tab-container tab-search">
-      <!--<tab heading="保存到现有结果集" class="color-message addpeople" >-->
-        <!--<table st-table="postinfolist"  class="table table-bordered table-people-detaile">-->
-          <!--11111-->
-        <!--</table>-->
-      <!--</tab>-->
-      <tab heading="新建结果集" class="color-message ">
-        <table>
-          <div class="modal-body">
-            <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-              <div class="form-group" ng-class="{ 'has-error' : addtreeform.name.$invalid && !addtreeform.name.$pristine }">
-                <label class="col-xs-3 control-label">请输入结果集名称</label>
-                <div class="col-xs-9 row">
-                  <div  class=" m-l-n">
-                    <input class="form-control" id="result-name" type="text" ng-model="resultname" required>
-                  </div>
-                </div>
-              </div>
-            </form>
+  <div class="modal-header">
+    保存到结果集
+  </div>
+  <div class="row">
+  <button class="form-group col-xs-offset-1 col-xs-4 resultbtn active" ng-click="oldresult.open=false">
+    <div class="col-xs-10">
+      <a>保存到现有结果集</a>
+    </div>
+  </button>
+  <button class="form-group col-xs-offset-2 col-xs-4 resultbtn"  ng-click="oldresult.open=true">
+    <div class="col-xs-10">
+      <a>新建结果集</a>
+    </div>
+  </button>
+  </div>
+  <div class="modal-body" ng-if="!oldresult.open">
+    <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+      <div class="form-group" ng-class="{ 'has-error' : addtreeform.name.$invalid && !addtreeform.name.$pristine }">
+        <div class="col-xs-offset-1 col-xs-9 row">
+          <div  class=" m-l-n">
+            <!--<input class="form-control" id="result-name1" type="text" ng-model="resultname" required>-->
+            <table class="table table-bordered">
+              <tr ng-repeat="i in yyy">
+                <td>
+                  <input type="radio" mg-model="resultsave.name" name="resultsaveid" value="{{i.id}}">{{i.name}}
+                </td>
+                <td>
+                  (共{{i.count}}人)
+                  <!--<a style="color: #00a8f3" ng-click="resultdetail(i.id)">详情>></a>-->
+                </td>
+              </tr>
+            </table>
           </div>
-        </table>
-      </tab>
-    </tabset>
-    
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-body" ng-if="oldresult.open">
+    <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
+      <div class="form-group" ng-class="{ 'has-error' : addtreeform.name.$invalid && !addtreeform.name.$pristine }">
+        <label class="col-xs-3 control-label">请输入结果集名称</label>
+        <div class="col-xs-9 row">
+          <div  class=" m-l-n">
+            <input class="form-control" id="result-name" type="text" ng-model="resultname" required>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--</tab>-->
+  <!--</tabset>-->
+  <!---->
   <div class="modal-footer">
     <button class="btn btn-default" ng-click="cancel()">取消</button>
     <button class="btn btn-primary"  ng-disabled="addtreeform.$invalid" ng-click="ok()">确定</button>

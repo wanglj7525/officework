@@ -83,13 +83,13 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <tr  ng-repeat="people in peoplelist">
+                              <tr  ng-repeat="people in peoplelist ">
                                    <td>{{people.name}}</td>
                                    <td>{{people.jiguan}}</td>
                                    <td>{{people.birthday}}</td>
                                    <td>{{people.edu_level}}</td>
-                                   <td><span ng-repeat="i in people.post_name">{{i}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
-                                   <td><span ng-repeat="i in people.organization_name">{{i}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+                                   <td><span ng-repeat="i in people.post_name track by $index">{{i}}、</span></td>
+                                   <td><span ng-repeat="i in people.organization_name track by $index">{{i}}<span ng-if="i">、</span></span></td>
                                    <td>{{people.organ_date}}</td>
                                    <td>{{people.school_name}}</td>
                                    <td>{{people.profession_name}}</td>

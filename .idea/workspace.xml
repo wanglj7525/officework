@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a18e7630-f196-4530-a38b-e730ead2d2b0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/tpl/ui_resultdetail_Model.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/css/my.css" afterPath="$PROJECT_DIR$/public/app/css/my.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/config.js" afterPath="$PROJECT_DIR$/public/app/js/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/adjust.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/adjust.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/message.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/message.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/controllers/worktip.js" afterPath="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/js/main.js" afterPath="$PROJECT_DIR$/public/app/js/main.js" />
@@ -41,55 +43,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ui_jieguosave_modal.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_jieguosave_modal.html">
+      <file leaf-file-name="my.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.178572">
-              <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+            <state vertical-scroll-proportion="-13.107142">
+              <caret line="709" column="10" selection-start-line="709" selection-start-column="10" selection-end-line="709" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/js/controllers/message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41678938">
-              <caret line="640" column="57" selection-start-line="640" selection-start-column="57" selection-end-line="640" selection-end-column="57" />
+            <state vertical-scroll-proportion="-2.913793">
+              <caret line="776" column="12" selection-start-line="776" selection-start-column="12" selection-end-line="783" selection-end-column="13" />
               <folding>
-                <element signature="e#4405#4462#0" expanded="false" />
-                <element signature="e#4917#4949#0" expanded="false" />
-                <element signature="e#5000#5043#0" expanded="false" />
-                <element signature="e#5114#5433#0" expanded="false" />
-                <element signature="e#8883#10597#0" expanded="false" />
-                <element signature="e#8922#9841#0" expanded="false" />
-                <element signature="e#9797#9829#0" expanded="false" />
-                <element signature="e#9852#10591#0" expanded="false" />
-                <element signature="e#10633#11914#0" expanded="false" />
-                <element signature="e#11022#11849#0" expanded="false" />
-                <element signature="e#12843#13038#0" expanded="false" />
-                <element signature="e#13336#13537#0" expanded="false" />
-                <element signature="e#13656#13816#0" expanded="false" />
-                <element signature="e#13836#13845#0" expanded="false" />
-                <element signature="e#13935#14074#0" expanded="false" />
-                <element signature="e#14094#14103#0" expanded="false" />
-                <element signature="e#14199#14350#0" expanded="false" />
-                <element signature="e#14370#14379#0" expanded="false" />
-                <element signature="e#14469#14610#0" expanded="false" />
-                <element signature="e#14630#14639#0" expanded="false" />
-                <element signature="e#14726#14861#0" expanded="false" />
-                <element signature="e#14881#14890#0" expanded="false" />
-                <element signature="e#15144#15153#0" expanded="false" />
-                <element signature="e#16737#16937#0" expanded="false" />
-                <element signature="e#17737#17780#0" expanded="false" />
-                <element signature="e#21975#22013#0" expanded="false" />
-                <element signature="e#22072#22110#0" expanded="false" />
-                <element signature="e#22169#22207#0" expanded="false" />
-                <element signature="e#22272#22310#0" expanded="false" />
-                <element signature="e#22368#22406#0" expanded="false" />
-                <element signature="e#22465#22503#0" expanded="false" />
-                <element signature="e#22851#22860#0" expanded="false" />
-                <element signature="e#23512#23549#0" expanded="false" />
+                <element signature="e#4449#4506#0" expanded="false" />
+                <element signature="e#4961#4993#0" expanded="false" />
+                <element signature="e#5044#5087#0" expanded="false" />
+                <element signature="e#5158#5477#0" expanded="false" />
+                <element signature="e#5977#6824#0" expanded="false" />
+                <element signature="e#8927#10641#0" expanded="false" />
+                <element signature="e#8966#9885#0" expanded="false" />
+                <element signature="e#9841#9873#0" expanded="false" />
+                <element signature="e#9896#10635#0" expanded="false" />
+                <element signature="e#10677#11958#0" expanded="false" />
+                <element signature="e#11066#11893#0" expanded="false" />
+                <element signature="e#12887#13082#0" expanded="false" />
+                <element signature="e#13380#13581#0" expanded="false" />
+                <element signature="e#13700#13860#0" expanded="false" />
+                <element signature="e#13880#13889#0" expanded="false" />
+                <element signature="e#13979#14118#0" expanded="false" />
+                <element signature="e#14138#14147#0" expanded="false" />
+                <element signature="e#14243#14394#0" expanded="false" />
+                <element signature="e#14414#14423#0" expanded="false" />
+                <element signature="e#14513#14654#0" expanded="false" />
+                <element signature="e#14674#14683#0" expanded="false" />
+                <element signature="e#14770#14905#0" expanded="false" />
+                <element signature="e#14925#14934#0" expanded="false" />
+                <element signature="e#15188#15197#0" expanded="false" />
+                <element signature="e#16781#16981#0" expanded="false" />
+                <element signature="e#17781#17824#0" expanded="false" />
+                <element signature="e#22915#22953#0" expanded="false" />
+                <element signature="e#23012#23050#0" expanded="false" />
+                <element signature="e#23109#23147#0" expanded="false" />
+                <element signature="e#23212#23250#0" expanded="false" />
+                <element signature="e#23308#23346#0" expanded="false" />
+                <element signature="e#23405#23443#0" expanded="false" />
+                <element signature="e#23791#23800#0" expanded="false" />
+                <element signature="e#24452#24489#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_tiaojianmanage_modal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_tiaojianmanage_modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.535714">
+              <caret line="17" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_jieguosave_modal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_jieguosave_modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.303571">
+              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_people_detail_modal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_people_detail_modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.214286">
+              <caret line="60" column="55" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
+              <folding>
+                <element signature="n#table#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#tab#1;n#tabset#0;n#div#0;n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -98,11 +133,32 @@
       <file leaf-file-name="ui_message.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.071428">
-              <caret line="119" column="148" selection-start-line="119" selection-start-column="148" selection-end-line="119" selection-end-column="148" />
+            <state vertical-scroll-proportion="-10.142858">
+              <caret line="122" column="243" selection-start-line="122" selection-start-column="219" selection-end-line="122" selection-end-column="243" />
               <folding>
-                <element signature="n#tab#0;n#tabset#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#script#3;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#tab#0;n#tabset#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_resultdetail_Model.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_resultdetail_Model.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.428571">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpservice.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/services/httpservice.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="676" column="8" selection-start-line="676" selection-start-column="8" selection-end-line="676" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,8 +166,37 @@
       <file leaf-file-name="ui_deploy.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="17.642857">
-              <caret line="149" column="195" selection-start-line="149" selection-start-column="195" selection-end-line="149" selection-end-column="195" />
+            <state vertical-scroll-proportion="-8.0">
+              <caret line="196" column="188" selection-start-line="196" selection-start-column="188" selection-end-line="196" selection-end-column="188" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.142858">
+              <caret line="394" column="52" selection-start-line="394" selection-start-column="52" selection-end-line="394" selection-end-column="52" />
+              <folding>
+                <element signature="e#13636#13690#0" expanded="false" />
+                <element signature="e#14129#14159#0" expanded="false" />
+                <element signature="e#21597#21631#0" expanded="false" />
+                <element signature="e#22461#23695#0" expanded="false" />
+                <element signature="e#35121#35131#0" expanded="false" />
+                <element signature="e#35530#35710#0" expanded="false" />
+                <element signature="e#35750#35994#0" expanded="false" />
+                <element signature="e#36401#36504#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setting_people.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting_people.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30551627">
+              <caret line="521" column="37" selection-start-line="521" selection-start-column="37" selection-end-line="521" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -138,7 +223,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_peopleadd_model.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_search.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_analysis.html" />
         <option value="$PROJECT_DIR$/public/libs/angular/angular-bootstrap-nav-tree/dist/abn_tree_directive.js" />
@@ -179,16 +263,17 @@
         <option value="$PROJECT_DIR$/public/app/js/controllers/worktip.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_worktip.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_setting_people.html" />
         <option value="$PROJECT_DIR$/public/libs/angular/angular-bootstrap/ui-bootstrap-tpls.js" />
-        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
-        <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_people_detail_modal.html" />
-        <option value="$PROJECT_DIR$/public/app/css/my.css" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_resultdetail_Model.html" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_jieguosave_modal.html" />
+        <option value="$PROJECT_DIR$/public/app/css/my.css" />
         <option value="$PROJECT_DIR$/public/app/tpl/ui_message.html" />
         <option value="$PROJECT_DIR$/public/app/js/controllers/message.js" />
+        <option value="$PROJECT_DIR$/public/app/tpl/ui_deploy.html" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/deploy.js" />
+        <option value="$PROJECT_DIR$/public/app/js/controllers/setting_people.js" />
       </list>
     </option>
   </component>
@@ -621,7 +706,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chartapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kkk" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -719,12 +804,6 @@
       <created>1455966441221</created>
       <option name="number" value="Default" />
       <updated>1455966441221</updated>
-    </task>
-    <task id="LOCAL-00040" summary="班子分析">
-      <created>1456987952196</created>
-      <option name="number" value="00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1456987952196</updated>
     </task>
     <task id="LOCAL-00041" summary="调配一览 修改下拉编辑匹配框">
       <created>1456997272624</created>
@@ -1014,14 +1093,20 @@
       <option name="project" value="LOCAL" />
       <updated>1459499041695</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="信息浏览">
+      <created>1459669441337</created>
+      <option name="number" value="00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1459669441337</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.233125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -1105,22 +1190,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_tiaojianmanage_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.571428">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_daimaadd_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.571429">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="40" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_setting_daimaupdate_modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.25">
@@ -1413,26 +1482,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/services/httpservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="688" column="8" selection-start-line="688" selection-start-column="8" selection-end-line="688" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_peopleupdate_model.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.94827586">
           <caret line="741" column="277" selection-start-line="741" selection-start-column="277" selection-end-line="741" selection-end-column="277" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting_people.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.466666">
-          <caret line="109" column="53" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1504,116 +1557,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_jieguomanage_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328424">
-          <caret line="1071" column="28" selection-start-line="1071" selection-start-column="15" selection-end-line="1071" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.51763046">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding>
-            <element signature="e#13802#13856#0" expanded="false" />
-            <element signature="e#14295#14325#0" expanded="false" />
-            <element signature="e#21548#21582#0" expanded="false" />
-            <element signature="e#22412#23646#0" expanded="false" />
-            <element signature="e#35072#35082#0" expanded="false" />
-            <element signature="e#35481#35661#0" expanded="false" />
-            <element signature="e#35701#35945#0" expanded="false" />
-            <element signature="e#36352#36455#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_people_detail_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
-          <caret line="74" column="92" selection-start-line="74" selection-start-column="92" selection-end-line="74" selection-end-column="92" />
+        <state vertical-scroll-proportion="-12.214286">
+          <caret line="60" column="55" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
           <folding>
             <element signature="n#table#0;n#div#0;n#div#0;n#div#0;n#tab#0;n#tabset#0;n#tab#1;n#tabset#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_tiaojianmanage_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.857143">
-          <caret line="692" column="26" selection-start-line="692" selection-start-column="26" selection-end-line="692" selection-end-column="26" />
+        <state vertical-scroll-proportion="-11.535714">
+          <caret line="17" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_jieguomanage_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51763046">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_jieguosave_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.178572">
-          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        <state vertical-scroll-proportion="-7.303571">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
+    <entry file="file://$PROJECT_DIR$/public/app/css/my.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="17.642857">
-          <caret line="149" column="195" selection-start-line="149" selection-start-column="195" selection-end-line="149" selection-end-column="195" />
+        <state vertical-scroll-proportion="-13.107142">
+          <caret line="709" column="10" selection-start-line="709" selection-start-column="10" selection-end-line="709" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_message.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.071428">
-          <caret line="119" column="148" selection-start-line="119" selection-start-column="148" selection-end-line="119" selection-end-column="148" />
+        <state vertical-scroll-proportion="-10.142858">
+          <caret line="122" column="243" selection-start-line="122" selection-start-column="219" selection-end-line="122" selection-end-column="243" />
           <folding>
-            <element signature="n#tab#0;n#tabset#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#script#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#tab#0;n#tabset#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/js/controllers/message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41678938">
-          <caret line="640" column="57" selection-start-line="640" selection-start-column="57" selection-end-line="640" selection-end-column="57" />
+        <state vertical-scroll-proportion="-2.913793">
+          <caret line="776" column="12" selection-start-line="776" selection-start-column="12" selection-end-line="783" selection-end-column="13" />
           <folding>
-            <element signature="e#4405#4462#0" expanded="false" />
-            <element signature="e#4917#4949#0" expanded="false" />
-            <element signature="e#5000#5043#0" expanded="false" />
-            <element signature="e#5114#5433#0" expanded="false" />
-            <element signature="e#8883#10597#0" expanded="false" />
-            <element signature="e#8922#9841#0" expanded="false" />
-            <element signature="e#9797#9829#0" expanded="false" />
-            <element signature="e#9852#10591#0" expanded="false" />
-            <element signature="e#10633#11914#0" expanded="false" />
-            <element signature="e#11022#11849#0" expanded="false" />
-            <element signature="e#12843#13038#0" expanded="false" />
-            <element signature="e#13336#13537#0" expanded="false" />
-            <element signature="e#13656#13816#0" expanded="false" />
-            <element signature="e#13836#13845#0" expanded="false" />
-            <element signature="e#13935#14074#0" expanded="false" />
-            <element signature="e#14094#14103#0" expanded="false" />
-            <element signature="e#14199#14350#0" expanded="false" />
-            <element signature="e#14370#14379#0" expanded="false" />
-            <element signature="e#14469#14610#0" expanded="false" />
-            <element signature="e#14630#14639#0" expanded="false" />
-            <element signature="e#14726#14861#0" expanded="false" />
-            <element signature="e#14881#14890#0" expanded="false" />
-            <element signature="e#15144#15153#0" expanded="false" />
-            <element signature="e#16737#16937#0" expanded="false" />
-            <element signature="e#17737#17780#0" expanded="false" />
-            <element signature="e#21975#22013#0" expanded="false" />
-            <element signature="e#22072#22110#0" expanded="false" />
-            <element signature="e#22169#22207#0" expanded="false" />
-            <element signature="e#22272#22310#0" expanded="false" />
-            <element signature="e#22368#22406#0" expanded="false" />
-            <element signature="e#22465#22503#0" expanded="false" />
-            <element signature="e#22851#22860#0" expanded="false" />
-            <element signature="e#23512#23549#0" expanded="false" />
+            <element signature="e#4449#4506#0" expanded="false" />
+            <element signature="e#4961#4993#0" expanded="false" />
+            <element signature="e#5044#5087#0" expanded="false" />
+            <element signature="e#5158#5477#0" expanded="false" />
+            <element signature="e#5977#6824#0" expanded="false" />
+            <element signature="e#8927#10641#0" expanded="false" />
+            <element signature="e#8966#9885#0" expanded="false" />
+            <element signature="e#9841#9873#0" expanded="false" />
+            <element signature="e#9896#10635#0" expanded="false" />
+            <element signature="e#10677#11958#0" expanded="false" />
+            <element signature="e#11066#11893#0" expanded="false" />
+            <element signature="e#12887#13082#0" expanded="false" />
+            <element signature="e#13380#13581#0" expanded="false" />
+            <element signature="e#13700#13860#0" expanded="false" />
+            <element signature="e#13880#13889#0" expanded="false" />
+            <element signature="e#13979#14118#0" expanded="false" />
+            <element signature="e#14138#14147#0" expanded="false" />
+            <element signature="e#14243#14394#0" expanded="false" />
+            <element signature="e#14414#14423#0" expanded="false" />
+            <element signature="e#14513#14654#0" expanded="false" />
+            <element signature="e#14674#14683#0" expanded="false" />
+            <element signature="e#14770#14905#0" expanded="false" />
+            <element signature="e#14925#14934#0" expanded="false" />
+            <element signature="e#15188#15197#0" expanded="false" />
+            <element signature="e#16781#16981#0" expanded="false" />
+            <element signature="e#17781#17824#0" expanded="false" />
+            <element signature="e#22915#22953#0" expanded="false" />
+            <element signature="e#23012#23050#0" expanded="false" />
+            <element signature="e#23109#23147#0" expanded="false" />
+            <element signature="e#23212#23250#0" expanded="false" />
+            <element signature="e#23308#23346#0" expanded="false" />
+            <element signature="e#23405#23443#0" expanded="false" />
+            <element signature="e#23791#23800#0" expanded="false" />
+            <element signature="e#24452#24489#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_deploy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="196" column="188" selection-start-line="196" selection-start-column="188" selection-end-line="196" selection-end-column="188" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/deploy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.142858">
+          <caret line="394" column="52" selection-start-line="394" selection-start-column="52" selection-end-line="394" selection-end-column="52" />
+          <folding>
+            <element signature="e#13636#13690#0" expanded="false" />
+            <element signature="e#14129#14159#0" expanded="false" />
+            <element signature="e#21597#21631#0" expanded="false" />
+            <element signature="e#22461#23695#0" expanded="false" />
+            <element signature="e#35121#35131#0" expanded="false" />
+            <element signature="e#35530#35710#0" expanded="false" />
+            <element signature="e#35750#35994#0" expanded="false" />
+            <element signature="e#36401#36504#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/services/httpservice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="676" column="8" selection-start-line="676" selection-start-column="8" selection-end-line="676" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tpl/ui_resultdetail_Model.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.428571">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/js/controllers/setting_people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30551627">
+          <caret line="521" column="37" selection-start-line="521" selection-start-column="37" selection-end-line="521" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

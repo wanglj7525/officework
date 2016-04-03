@@ -739,7 +739,7 @@
 										<div class="button btn btn-default" ngf-select="uploadphoto($file)" ng-model="file" name="file" ngf-pattern="'image/*'"
 											 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
 											 ngf-resize="{width: 100, height: 100}" style="float: right">请选择</div>
-										<img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 50%;height: 256px;margin-left: 50%" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
+										<img ngf-thumbnail="file || '{{imageurl+user.head_pic}}'" style="width: 50%;height: 256px;margin-left: 50%" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}" src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
 										<!--<button  ng-click="uploadphoto()">Submit</button>-->
 									</div>
 									<div class="form-group" ng-class="{ 'has-error' : addPeopleform_1.work_date.$invalid && !addPeopleform_1.work_date.$pristine }">

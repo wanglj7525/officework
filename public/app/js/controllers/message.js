@@ -94,6 +94,9 @@
 			$scope.resultall={
 				open:false
 			};
+			$scope.resultsave={
+				open:false
+			};
 			$scope.saveresultbtn={
 				open:false
 			};
@@ -707,8 +710,17 @@
 						console.log($scope.resultpersonid)
 					})
 					$scope.result.name=$("#result-name").val();
+					$scope.result.id=$("input[name='resultsaveid']:checked").val();
+					if($scope.result.id){
+						$scope.resultid=$scope.result.id,
+						$scope.result.name=""
+					}
+					else {
+						$scope.resultid=""
+					}
+					console.log($scope.result.id)
 					var postData= $.param({
-						id:"",
+						id:$scope.resultid,
 						name:$scope.result.name,
 						person_ids:$scope.resultpersonid,
 						access_token:$localStorage.token
@@ -745,6 +757,30 @@
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 				
+			}
+			//查看结果集详情
+			$scope.resultdetail=function(id){
+				alert(id);
+				var modaltiaojianmanageInstance = $modal.open({
+					templateUrl: 'resultdetailModel.html',
+					controller: 'ModalresultdetailInstanceCtrl',
+					size: 'lg',
+					resolve:{
+					}
+				});
+				modaltiaojianmanageInstance.result.then(function (deploy) {
+				}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
+				});
+			}
+
+			$scope.selectContacter=function(index){
+				$scope.selCont = index;
+				$scope.selCont1 = 1111100000000;
+			}
+			$scope.selectContacter1=function(index){
+				$scope.selCont1 = index;
+				$scope.selCont=10000000000;
 			}
 			//查询条件管理
 			$scope.tiaojianmanage=function(){
@@ -890,6 +926,16 @@ app.controller('ModaljieguosaveInstanceCtrl', ['$scope', '$modalInstance','$loca
 		};
 	}]);
 app.controller('ModaltiaojianmanageInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
+	function($scope, $modalInstance) {
+		$scope.ok = function () {
+			$modalInstance.close();
+		};
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+	}]);
+app.controller('ModalresultdetailInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
 	function($scope, $modalInstance) {
 		$scope.ok = function () {
 			$modalInstance.close();

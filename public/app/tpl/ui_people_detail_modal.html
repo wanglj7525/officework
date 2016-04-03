@@ -54,7 +54,7 @@
 					</tr>
 					<tr>
 						<td class="detail-td">现任职务</td>
-						<td colspan="6"><span ng-repeat="i in postinfolist">{{i.organization_name[i]}}{{i.post_name[i]}}</span>
+						<td colspan="6"><span ng-repeat="i in postinfolist">{{i.organization_name}}{{i.post_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 						</td>
 					</tr>
 					<tr>
@@ -72,7 +72,7 @@
 					<tr>
 						<td height="120px" class="detail-td">奖惩情况</td>
 						<td colspan="6" >
-							<a ng-repeat="row in jiangchenginfolist">{{row.explanation}}</a>
+							<a ng-repeat="row in jiangchenginfolist">{{row.explanation}}<br></a>
 						</td>
 					</tr>
 					<tr>
@@ -129,59 +129,6 @@
 						</div></td>
 					</tr>
 				</table>
-					<!--<tr>-->
-						<!--<td height="100px">年度考核结果</td>-->
-						<!--<td colspan="6">-->
-							<!--<a ng-repeat="row in examinfolist|filter:'年度考核'">-->
-						<!--考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}-->
-							<!--</a>-->
-						<!--</td>-->
-					<!--</tr>-->
-					<!--<tr>-->
-						<!--<td height="120px">任免理由</td>-->
-						<!--<td colspan="6"></td>-->
-					<!--</tr>-->
-					<!--<tr>-->
-						<!--<td rowspan="{{familyInfolist.length+2}}">家庭主要成员及重要社会关系</td>-->
-						<!--<td>称谓</td>-->
-						<!--<td>姓名</td>-->
-						<!--<td>年龄</td>-->
-						<!--<td>政治面貌</td>-->
-						<!--<td colspan="2">工作单位及职务</td>-->
-					<!--</tr>-->
-					<!--<tr ng-repeat="row in familyInfolist" >-->
-						<!--<td>{{row.renatinship_name}}</td>-->
-						<!--<td>{{row.family_name}}</td>-->
-						<!--<td>{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>-->
-						<!--<td>{{row.family_poli}}</td>-->
-						<!--<td colspan="2">{{row.family_org_name}}</td>-->
-					<!--</tr>-->
-					<!--<tr >-->
-						<!--<td></td>-->
-						<!--<td></td>-->
-						<!--<td></td>-->
-						<!--<td></td>-->
-						<!--<td colspan="2">&nbsp;</td>-->
-					<!--</tr>-->
-					<!--<tr>-->
-						<!--<td>呈报单位</td>-->
-						<!--<td colspan="6"  height="100px">-->
-							<!--<div class="gaizhang">(盖章）<br>-->
-							<!--年&nbsp;&nbsp;月&nbsp;&nbsp;日-->
-							<!--</div>-->
-						<!--</td>-->
-					<!--</tr>-->
-					<!--<tr>-->
-						<!--<td height="120px">审批机关意见</td>-->
-						<!--<td colspan="3" ><div class="gaizhang">(盖章）<br>-->
-							<!--年&nbsp;&nbsp;月&nbsp;&nbsp;日-->
-						<!--</div></td>-->
-						<!--<td height="120px">行政任免机关意见</td>-->
-						<!--<td colspan="2" ><div class="gaizhang">(盖章）<br>-->
-							<!--年&nbsp;&nbsp;月&nbsp;&nbsp;日-->
-						<!--</div></td>-->
-					<!--</tr>-->
-				<!--</table>-->
 			</tab>
 			<tab heading="按信息集查看" class="color-message ">
 				<tabset class="tab-container addpeople" style="width: 80%">
@@ -251,24 +198,6 @@
 							<div class="panel panel-default">
 								<table st-table="postinfolist"  class="table table-bordered" >
 									<thead class="secondtabletitle">
-									<!--<tr>-->
-										<!--<th>职务名称</th>-->
-										<!--<th>职务类别</th>-->
-										<!--&lt;!&ndash;<th>职务统计类别</th>&ndash;&gt;-->
-										<!--<th>职级</th>-->
-										<!--<th>任职状态</th>-->
-										<!--<th>批准任职时间</th>-->
-									<!--</tr>-->
-									<!--</thead>-->
-									<!--<tbody>-->
-									<!--<tr ng-repeat="row in postinfolist" >-->
-										<!--<td>{{row.post_name}}</td>-->
-										<!--<td>{{row.post_category}}</td>-->
-										<!--&lt;!&ndash;<td>{{row.post_statistics_category}}</td>&ndash;&gt;-->
-										<!--<td>{{row.rank}}</td>-->
-										<!--<td>{{row.work_status}}</td>-->
-										<!--<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>-->
-									<!--</tr>-->
 									<tr>
 										<th>任职日期</th>
 										<th>免职日期</th>
@@ -425,52 +354,6 @@
 						<div class="" layout="column" >
 							<div >
 								<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">
-									<!--<div class="row">-->
-									<!--<div class="col-xs-6">-->
-									<!--<div class="form-group">-->
-									<!--<label class="col-xs-3 control-label">首任正处长职时间</label>-->
-									<!--<div class="col-xs-9 row">-->
-									<!--<div  class=" m-l-n">-->
-									<!--<input class="form-control" name="name" type="text"  value="{{resumeinfo.first_director_time | date:'yyyy-MM-dd'}}"  disabled>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--<div class="form-group" >-->
-									<!--<label class="col-xs-3 control-label">部队正团时间</label>-->
-									<!--<div class="col-xs-9 row">-->
-									<!--<div  class=" m-l-n">-->
-									<!--<input class="form-control" name="birthday" type="text"  value="{{resumeinfo.tuan_time | date:'yyyy-MM-dd'}}" disabled>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--<div class="form-group" >-->
-									<!--<label class="col-xs-3 control-label">转业时间</label>-->
-									<!--<div class="col-xs-9 row">-->
-									<!--<div  class=" m-l-n">-->
-									<!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.zhuanye_time | date:'yyyy-MM-dd'}}" disabled>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--<div class="col-xs-6">-->
-									<!--<div class="form-group" >-->
-									<!--<label class="col-xs-3 control-label">是否军转干部</label>-->
-									<!--<div class="col-xs-9 row">-->
-									<!--<div  class=" m-l-n">-->
-									<!--<input class="form-control" name="birthday" type="text" value="{{resumeinfo.is_exchange}}" disabled>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--<div class="form-group" >-->
-									<!--<label class="col-xs-3 control-label">部队副师时间</label>-->
-									<!--<div class="col-xs-9 row">-->
-									<!--<div  class=" m-l-n">-->
-									<!--<input class="form-control" name="minzu" type="text" value="{{resumeinfo.fushi_time | date:'yyyy-MM-dd'}}" disabled>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
-									<!--</div>-->
 									<div class="row">
 										<div class="form-group">
 											<label class="col-xs-1 control-label">个人简历</label>
@@ -508,7 +391,7 @@
 										<td>{{row.renatinship_name}}</td>
 										<td>{{row.family_name}}</td>
 										<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
-										<td>{{row.family_org_name}}、{{row.family_post}}</td>
+										<td>{{row.family_org_name}}&nbsp;&nbsp;{{row.family_post}}</td>
 										<!--<td>{{row.family_post}}</td>-->
 										<td>{{row.family_poli}}</td>
 										<td>{{row.family_status}}</td>

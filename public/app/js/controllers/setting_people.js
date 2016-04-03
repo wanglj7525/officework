@@ -107,6 +107,7 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     if(res.data.code==200){
                         $scope.paginationConf.totalItems = res.data.info.totalElements;
                         $scope.peoplelist = res.data.info.elements;
+                        console.log($scope.peoplelist)
                     }else{
                         alert(res.data.msg);
                     }
@@ -518,10 +519,13 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                         fileType:"."+file.name.split('.')[file.name.split('.').length-1],
                         head_pic:urls.split(',')[urls.split(',').length-1]
                     });
+                    console.log(urls)
                     SettingpeopleService.savePhoto(postData).then(
                         function(res){
+                            console.log(res)
                             if(res.data.flag){
                                 $scope.user.head_pic=res.data.data.picPath;
+                                console.log( $scope.user.head_pic)
                             }
                         },
                         function(rej){
@@ -586,9 +590,11 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                     alternatives2:"",
                     access_token:$localStorage.token
                 });
+                console.log($scope.user.head_pic)
                 SettingpeopleService.updateBase(postData).then(
                     function(res){
                         alert(res.data.msg);
+                        console.log(res)
                     },
                     function(rej){
 

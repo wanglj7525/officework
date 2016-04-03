@@ -29,12 +29,18 @@
 //			$scope.tipinfo.splice(idx,1);
 //		}
 //	} ]);
-app.controller('WorktipListCtrl', ['$scope','$localStorage', 'UIworktipservice', '$stateParams', 'SeetingtreeService', function($scope, $localStorage,UIworktipservice,$stateParams,SeetingtreeService) {
+app.controller('WorktipListCtrl', ['$scope','$state','$localStorage', 'UIworktipservice', '$stateParams', 'SeetingtreeService', function($scope,$state, $localStorage,UIworktipservice,$stateParams,SeetingtreeService) {
 	$scope.currentname='全部';
 	$scope.selectcategory=function(id,name){
 		$scope.pid=name;
 		$scope.currentname=name;
 		
+	}
+	$scope.godeploy=function(id,name){
+		$localStorage.tree_uuid=id, 
+		$localStorage.treeselect=name, 
+		$state.go('app.deploy');
+		console.log($localStorage.tree_uuid)
 	}
 	console.log($localStorage.isuser.state)
 	//切换单位树 请求新的数据

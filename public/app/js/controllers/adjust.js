@@ -165,6 +165,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 				function (res) {
 					//处理获得的数据
 					$scope.adjusttable = res.data.info
+					console.log($scope.adjusttable)
 				},
 				function (rej) {
 					//获取数据失败处理

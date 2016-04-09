@@ -4,6 +4,13 @@
 // signin controller
 app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStorage','SettinguserService',
 		function($scope, $http, $state,$localStorage,SettinguserService) {
+			//回车登陆
+			$scope.enterlogin=function(event){
+				$scope.keycode=event.keyCode;
+				if($scope.keycode==13){
+					$scope.login()
+				}
+			}
 			$scope.user = {};
 			$scope.authError = null;
 			$scope.login = function() {

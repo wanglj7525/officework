@@ -12,7 +12,7 @@
       条件关键字:
       </div>
       <div class="col-xs-4">
-        <input type="text" ng-model="select.name" style="width: 100%">
+        <input type="text" ng-model="select.name" style="width: 100%" required>
       </div>
       <div>
         20字符以内
@@ -42,10 +42,10 @@
             <option value="1">(</option>
           </select>
         </td>
-        <td>
-          <select  name="ccc"  ng-if="1">
-            <option ng-repeat="i in code" value={{i.code}} >{{i.code}}{{i.msg}}</option>
-          </select>
+        <td id="yyy">
+          <select ng-model="pppp" name="ccc"  ng-change="codechange(this)">
+            <option  ng-repeat="i in code" value={{i.code}} >{{i.code}}{{i.msg}}</option>
+          </select >
         </td>
         <td>
           <select  name="ddd">
@@ -64,11 +64,11 @@
           <select name="eee" ng-if="0">
             <option ng-repeat="i in code" value={{i.code}}>{{i.msg}}</option>
           </select>
-          <input type="text"  name="eee" ng-if="1">
-          <ui-select name="eee" theme="bootstrap" ng-if="0" ng-model="select.zhi" >
-            <ui-select-match placeholder="请输入搜索...">{{$select.selected.code}}</ui-select-match>
-            <ui-select-choices repeat="item in code | filter: $select.search">
-              <div ng-bind-html="item.code | highlight: $select.search"></div>
+          <input type="text"  name="eee" ng-if="!secondcode">
+          <ui-select name="eee" theme="bootstrap" ng-if="secondcode" ng-model="aaaaaa" >
+            <ui-select-match placeholder="请输入搜索...">{{$select.selected.jc}}</ui-select-match>
+            <ui-select-choices repeat="item in secondcode | filter: $select.search">
+              <div ng-bind-html="item.jc | highlight: $select.search"></div>
             </ui-select-choices>
           </ui-select>
         </td>
@@ -96,7 +96,7 @@
             </select>
           </td>
           <td>
-            <select   name={{t.model3}} id={{t.codemodel}}>
+            <select  ng-model="t.ii" name={{t.model3}} id={{t.codemodel}} ng-change="codechange(this)">
               <option ng-repeat="i in code" value={{i.code}}>{{i.code}}{{i.msg}}</option>
             </select>
           </td>
@@ -114,10 +114,16 @@
             </select>
           </td>
           <td>
-            <input type="text" name={{t.model5}} ng-if="0"> 
-            <select  name={{t.model5}} id={{t.codechildmodel}}  ng-if="1">
+            <select name="eee" ng-if="0">
               <option ng-repeat="i in code" value={{i.code}}>{{i.msg}}</option>
             </select>
+            <input type="text"  name="eee" ng-if="1">
+            <ui-select name="eee" theme="bootstrap" ng-if="0" ng-model="t.iid" >
+              <ui-select-match placeholder="请输入搜索...">{{$select.selected.code}}</ui-select-match>
+              <ui-select-choices repeat="item in code | filter: $select.search">
+                <div ng-bind-html="item.code | highlight: $select.search"></div>
+              </ui-select-choices>
+            </ui-select>
           </td>
           <td>
             <select  name={{t.model6}}>

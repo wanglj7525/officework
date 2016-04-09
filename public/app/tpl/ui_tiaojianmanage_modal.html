@@ -6,36 +6,40 @@
 		</span>
     </div>
   </div>
-  <div class="modal-body">
-    <button type="button" class="btn btn-addtiaojian" ng-click="addtiaojian()">新增查询条件</button>
-   
+  <div class="" style="padding: 5px">
+    <div class="row">
+      <div class="col-xs-offset-10 col-xs-2">
+      <button type="button" class="btn btn-addtiaojian1" ng-click="addtiaojian()">新增查询条件</button>
+      </div>
+    <div class="col-xs-12">
     <form name="addtreeform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
-      <div class="row">
-      <table class="table table-responsive table-bordered tab-container">
+      <table class="table-responsive table-bordered tab-container tiaojiantable">
         <thead>
         <tr >
-          <td >序号</td>
-          <td >关键字</td>
-          <td>条件详情</td>
-          <td >操作</td>
+          <td width="5%" align="center" valign="middle">序号</td>
+          <td width="15%" align="center" valign="middle">关键字</td>
+          <td width="70%" align="center" valign="middle">条件详情</td>
+          <td width="10%" align="center" valign="middle">操作</td>
         </tr>
         </thead>
         <tbody>
         <tr  ng-repeat="t in xxx" rowspan="4">
-          <td rowspan="1">{{t.id}}</td>
-          <td rowspan="1">{{t.name}}</td>
+          <td rowspan="1" align="center" valign="middle">{{t.id}}</td>
+          <td rowspan="1" align="center" valign="middle">{{t.name}}</td>
           <td rowspan="1" >{{t.queryString}}</td>
-          <td ng-click="delLable(t.id)"  rowspan="1">删除
+          <td rowspan="1" align="center" valign="middle">
             <!--<span class="fa fa-long-arrow-down"></span>-->
             <!--<span class="fa fa-long-arrow-up"></span>-->
+            <button class="btn btn-submit" ng-click="delLable(t.id)">删除</button>
           </td>
         </tr>
         </tbody>
       </table>
-    </div>
     </form>
+    </div>
+    </div>
   </div>
-  <div class="modal-footer">
+  <div class="modal-footer" style="border: 0px">
     <button class="btn btn-default" ng-click="cancel()">取消</button>
     <button class="btn btn-primary" ng-click="ok()">确定</button>
   </div>

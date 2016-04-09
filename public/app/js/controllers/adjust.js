@@ -144,6 +144,7 @@ app.controller('adjustdetailController',[ '$scope', '$http', '$state','$timeout'
 								$scope.adjusttable.splice(i,1);
 							}
 						}
+						console.log(res)
 						//$state.go('app.analysis');
 					}else{
 						console.log(res.data.msg);

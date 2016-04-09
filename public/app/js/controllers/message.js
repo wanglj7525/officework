@@ -1,4 +1,10 @@
 'use strict';
+//根据字段获取条件下拉值
+//	var codechange=function(target){
+//		//console.log(target.value)
+//		var a=$(target).find("option:selected").val();
+//		console.log(a)
+//	}
   app.controller('MessageController', [ '$scope', '$http', '$state','$timeout','$modal','$log','$localStorage','UIMessageService','messageservice','searchservice','SettingpeopleService','SettingdaimaService','getxueliList',
 		function($scope, $http, $state, $timeout,$modal,$log,$localStorage,UIMessageService,messageservice,searchservice,SettingpeopleService,SettingdaimaService,getxueliList) {
 			$scope.isdetail=false;
@@ -29,9 +35,10 @@
 
 		
 			//性别1
-			SettingdaimaService.getfiltCodagetList("GB2261").then(function(res){$scope.sexlist=res.data.info.list;},function(rej){});
+			SettingdaimaService.getfiltCodagetList("GB2261_1").then(function(res){$scope.sexlist=res.data.info.list;},function(rej){});
 			//地址
 			SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
+			console.log($scope.address)
 			//民族
 			SettingdaimaService.getCodagetList("GB3304").then(function(res){ $scope.minzulist=res.data.info.list;},function(rej){});
 			//健康
@@ -104,73 +111,11 @@
 				open:false
 			};
 			$('#checkedAll').click(function () {
-				alert(111)
+				//alert(111)
 				
 			})
 			//自定义查询
-			//删除标签
-			$scope.delLable=function(id){
-				var postData = $.param({
-					id:id,
-					access_token:$localStorage.token
-				});
-				UIMessageService.delLabel(postData).then(
-					function (res) {
-					},
-					function (rej) {
-						console.log(rej);
-					})
-				var postData1 = $.param({
-					access_token:$localStorage.token
-				});
-				UIMessageService.getallLable(postData1).then(
-					function (res) {
-						$scope.lablelist = res.data.data.labelList;
-						$scope.xxx=$scope.lablelist
-						console.log($scope.xxx)
-					},
-					function (rej) {
-						console.log(rej);
-					})
-				var postData2 = $.param({
-					access_token:$localStorage.token
-				});
-				UIMessageService.getallLable(postData2).then(
-					function (res) {
-						$scope.lablelist = res.data.data.labelList;
-						$scope.xxx=$scope.lablelist
-						console.log($scope.xxx)
-					},
-					function (rej) {
-						console.log(rej);
-					})
-			}
-			//删除结果集
-			$scope.delresult=function(id){
-				var postData = $.param({
-					id:id,
-					access_token:$localStorage.token
-				});
-				UIMessageService.delresult(postData).then(
-					function (res) {
-						var postData1 = $.param({
-							access_token:$localStorage.token
-						});
-						UIMessageService.getallresult(postData1).then(
-							function (res) {
-								$scope.resultlist = res.data.data.resultSetList;
-								$scope.yyy=$scope.resultlist
-								console.log($scope.yyy)
-							},
-							function (rej) {
-								console.log(rej);
-							})
-					},
-					function (rej) {
-						console.log(rej);
-					})
-				
-			}
+		
 			//获取所有标签
 			var postData1 = $.param({
 				access_token:$localStorage.token
@@ -184,13 +129,13 @@
 					$scope.showlable.push($scope.xxx[1])
 					$scope.showlable.push($scope.xxx[2])
 					$scope.showlable.push($scope.xxx[3])
+					$scope.showlable.push($scope.xxx[4])
+					$scope.showlable.push($scope.xxx[5])
 					console.log(  $scope.lablelist)
 				},
 				function (rej) {
 					console.log(rej);
 				})
-	
-			
 			//复杂查询
 			$scope.compexsearch=function(id){
 				console.log(id)
@@ -331,7 +276,9 @@
 							$scope.messagetabletab = res.data.info.elements;
 							console.log(res.data.info.totalElements);
 							console.log($scope.messagetabletab)
-
+							//console.log($scope.messagetabletab[0].organization_name)
+							
+							console.log($scope.messagetabletab)
 						}else{
 							//alert(res.data.msg);
 						}
@@ -426,7 +373,7 @@
 			$scope.$watch('complex.open', getMessageImageList);
 			$scope.$watch('resultall.open', getMessageImageList);
 		//	$scope.$watch('id', $scope.compexsearch);
-
+	//清除按钮
 			$scope.cleansubmit=function(){
 				var x=$("[selectbutton='isSelected']").length;
 				console.log($("[selectbutton='isSelected']")[1].selectbutton)
@@ -675,6 +622,8 @@
 							$scope.showresult.push($scope.yyy[1])
 							$scope.showresult.push($scope.yyy[2])
 							$scope.showresult.push($scope.yyy[3])
+							$scope.showresult.push($scope.yyy[4])
+							$scope.showresult.push($scope.yyy[5])
 							console.log(  $scope.showresult)
 						},
 						function (rej) {
@@ -696,6 +645,13 @@
 			//}
 			//保存到结果集
 			$scope.saveresult=function(){
+				$scope.resultpersonid=""
+				$('[name=checkitems]:checkbox:checked').each(function () {
+					console.log($(this).val());
+					$scope.resultpersonid+=$(this).val()+","
+					//console.log($scope.resultpersonid)
+				})
+				if ($scope.resultpersonid!=""){
 				var modaljieguomanegeInstance = $modal.open({
 					templateUrl: 'jieguosaveModel.html',
 					controller: 'ModaljieguosaveInstanceCtrl',
@@ -704,11 +660,14 @@
 					}
 				});
 				modaljieguomanegeInstance.result.then(function () {
+					$scope.resultpersonid=""
 					$('[name=checkitems]:checkbox:checked').each(function () {
 						console.log($(this).val());
 						$scope.resultpersonid+=$(this).val()+","
-						console.log($scope.resultpersonid)
+						//console.log($scope.resultpersonid)
 					})
+					console.log($scope.resultpersonid)
+					
 					$scope.result.name=$("#result-name").val();
 					$scope.result.id=$("input[name='resultsaveid']:checked").val();
 					if($scope.result.id){
@@ -729,7 +688,27 @@
 					UIMessageService.addresult(postData).then(
 						function (res) {
 							if (res.data.msg="更新成功"){
-								//alert("添加结果集成功")
+								//alert("添加结果集成功");
+								var postResult= $.param({
+									access_token:$localStorage.token
+								})
+								UIMessageService.getallresult(postResult).then(
+									function (res) {
+										console.log(res.data)
+										$scope.showresult = res.data.data.resultSetList;
+										$scope.yyy=$scope.showresult
+										$scope.showresult=[]
+										$scope.showresult.push($scope.yyy[0])
+										$scope.showresult.push($scope.yyy[1])
+										$scope.showresult.push($scope.yyy[2])
+										$scope.showresult.push($scope.yyy[3])
+										$scope.showresult.push($scope.yyy[4])
+										$scope.showresult.push($scope.yyy[5])
+										console.log(  $scope.showresult)
+									},
+									function (rej) {
+										console.log(rej);
+									})
 							}
 							else {
 								alert("添加失败")
@@ -756,6 +735,10 @@
 					alert("放弃添加")
 					$log.info('Modal dismissed at: ' + new Date());
 				});
+				}
+				else {
+					alert("请选择对象！")
+				}
 				
 			}
 			//查看结果集详情
@@ -782,6 +765,10 @@
 				$scope.selCont1 = index;
 				$scope.selCont=10000000000;
 			}
+			$scope.cleanjieguocss= function () {
+				$scope.selCont=10000000000;
+				$scope.selCont1=10000000000;
+			}
 			//查询条件管理
 			$scope.tiaojianmanage=function(){
 				var modaltiaojianmanageInstance = $modal.open({
@@ -791,11 +778,31 @@
 					resolve:{
 					}
 				});
-				modaltiaojianmanageInstance.result.then(function (deploy) {
+				modaltiaojianmanageInstance.result.then(function () {
+					var postData1 = $.param({
+						access_token:$localStorage.token
+					});
+					UIMessageService.getallLable(postData1).then(
+						function (res) {
+							$scope.lablelist = res.data.data.labelList;
+							$scope.xxx=$scope.lablelist
+							$scope.showlable=[]
+							$scope.showlable.push($scope.xxx[0])
+							$scope.showlable.push($scope.xxx[1])
+							$scope.showlable.push($scope.xxx[2])
+							$scope.showlable.push($scope.xxx[3])
+							$scope.showlable.push($scope.xxx[4])
+							$scope.showlable.push($scope.xxx[5])
+							console.log(  $scope.lablelist)
+						},
+						function (rej) {
+							console.log(rej);
+						})
 				}, function () {
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			}
+			//添加标签
 			$scope.addtiaojian=function(){
 				var modaladdtiaojianInstance = $modal.open({
 					templateUrl: 'addtiaojianModel.html',
@@ -864,15 +871,6 @@
 						console.log($scope.temp)
 						$scope.queryItemList.push(temp)
 					}
-					//var p={
-					//	logic:$scope.logic,
-					//	isLeftBracket:$scope.isLeftBracket,
-					//	code:$scope.code,
-					//	operate:$scope.operate,
-					//	value:$scope.value,
-					//	isRightBracket:$scope.isRightBracket,
-					//};
-					
 					console.log(temps)
 					console.log(select)
 					var name=select["name"];
@@ -891,6 +889,27 @@
 					UIMessageService.addLabel(postData4).then(
 						function (res) {
 							console.log("添加成功");
+							console.log(res);
+							//添加完成后获取标签
+							var postData1 = $.param({
+								access_token:$localStorage.token
+							});
+							UIMessageService.getallLable(postData1).then(
+								function (res) {
+									$scope.lablelist = res.data.data.labelList;
+									$scope.xxx=$scope.lablelist
+									$scope.showlable=[]
+									$scope.showlable.push($scope.xxx[0])
+									$scope.showlable.push($scope.xxx[1])
+									$scope.showlable.push($scope.xxx[2])
+									$scope.showlable.push($scope.xxx[3])
+									$scope.showlable.push($scope.xxx[4])
+									$scope.showlable.push($scope.xxx[5])
+									console.log(  $scope.lablelist)
+								},
+								function (rej) {
+									console.log(rej);
+								})
 						},
 						function (rej) {
 							console.log(rej);
@@ -902,7 +921,60 @@
 					alert("放弃添加")
 				});
 			}
-			
+			//删除标签
+			$scope.delLable=function(id){
+				var postData = $.param({
+					id:id,
+					access_token:$localStorage.token
+				});
+				UIMessageService.delLabel(postData).then(
+					function (res) {
+						console.log(res)
+						var postData1 = $.param({
+							access_token:$localStorage.token
+						});
+						UIMessageService.getallLable(postData1).then(
+							function (res) {
+								$scope.lablelist = res.data.data.labelList;
+								$scope.xxx=$scope.lablelist
+								console.log($scope.xxx)
+							},
+							function (rej) {
+								console.log(rej);
+							})
+					},
+					function (rej) {
+						console.log(rej);
+					})
+
+
+			}
+			//删除结果集
+			$scope.delresult=function(id){
+				var postData = $.param({
+					id:id,
+					access_token:$localStorage.token
+				});
+				UIMessageService.delresult(postData).then(
+					function (res) {
+						var postData1 = $.param({
+							access_token:$localStorage.token
+						});
+						UIMessageService.getallresult(postData1).then(
+							function (res) {
+								$scope.resultlist = res.data.data.resultSetList;
+								$scope.yyy=$scope.resultlist
+								console.log($scope.yyy)
+							},
+							function (rej) {
+								console.log(rej);
+							})
+					},
+					function (rej) {
+						console.log(rej);
+					})
+
+			}
 
 		} ]);
 app.controller('ModaljieguomanageInstanceCtrl', ['$scope', '$modalInstance','$localStorage',
@@ -961,9 +1033,46 @@ app.controller('ModaladdtiaojianInstanceCtrl', ['$scope', '$modalInstance','$loc
 			function (rej) {
 				console.log(rej);
 			})
-		var codechange=function(id){
-			//alert(id)
+		//
+		 $scope.codechange=function(target){
+			 
+			 //console.log(target.pppp)
+			 //console.log(target)
+			 //console.log($(target).parent().next().next().children().id)
+			 //console.log($(target).parent().id)
+			 //console.log(target.childNodes)
+			 //if(target.pppp=="A0111"||target.pppp=="A0114A"){
+				// //for(var i=0;i<$scope.address.length;i++){
+				//	// if($scope.user.birthplace==$scope.address[i].ano){
+				//	//	 $scope.user.birthplace=$scope.address[i];
+				//	// }
+				//	// if($scope.user.jiguan==$scope.address[i].ano){
+				//	//	 $scope.user.jiguan=$scope.address[i];
+				//	// }
+				// //}
+				// console.log(target.parent)
+			 //}
+			//console.log(target.t.ii)
+			//	 for (var i = 0; i < $scope.codelist.length; i++) {
+			//		 if (target.t.ii == $scope.codelist[i].code&&$scope.codelist[i].zd) {
+			//			 console.log($scope.codelist[i].zd)
+			//			 if($scope.codelist[i].zd){
+			//			 SettingdaimaService.getCodagetList($scope.codelist[i].zd).then(function (res) {
+			//				 $scope.secondcode = res.data.info.list;
+			//				 console.log($scope.secondcode)
+			//			 }, function (rej) {
+			//			 });
+			//			 }
+			//			 
+			//		 }
+			//		 else {
+			//			 $scope.secondcode=""
+			//		 }
+            //
+			//	 }
+			 
 		}
+		console.log($scope.secondcode)
 		//var i=1;
 		//var a="selelct.luoji"+i;
 		//var b="selelct.zuokuohao"+i;
@@ -975,27 +1084,29 @@ app.controller('ModaladdtiaojianInstanceCtrl', ['$scope', '$modalInstance','$loc
 		//$scope.tiaojian=$scope.tiaojianlist;
 		$scope.tiaojianlist=[];
 		var ii=111
+		var jj=1111
 		$scope.addonetiaojian=function(){
-	
-			$scope.tiaojianlist.push({"model1":"aaa","model2":"bbb","model3":"ccc","model4":"ddd","model5":"eee","model6":"fff","id":ii})
+			$scope.tiaojianlist.push({"model1":"aaa","model2":"bbb","model3":"ccc","model4":"ddd","model5":"eee","model6":"fff","id":ii,"iid":jj})
 			console.log($scope.tiaojianlist)
 			ii++;
+			jj++;
 		}
-
-		Array.prototype.remove=function(obj){
-			for(var i =0;i <this.length;i++){
-				var temp = this[i];
-				if(!isNaN(obj)){
-					temp=i;
-				}
-				if(temp == obj){
-					for(var j = i;j <this.length;j++){
-						this[j]=this[j+1];
-					}
-					this.length = this.length-1;
-				}
-			}
-		}
+		
+		//Array.prototype.remove=function(obj){
+		//	for(var i =0;i <this.length;i++){
+		//		var temp = this[i];
+		//		if(!isNaN(obj)){
+		//			temp=i;
+		//		}
+		//		if(temp == obj){
+		//			for(var j = i;j <this.length;j++){
+		//				this[j]=this[j+1];
+		//			}
+		//			this.length = this.length-1;
+		//		}
+		//	}
+		//}
+		
 		$scope.delonetiaojian=function(target){
 			//target.target.parentNode.parentNode.remove()
 			//alert(target.target.name)

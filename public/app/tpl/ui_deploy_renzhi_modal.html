@@ -13,7 +13,7 @@
 			<label class="col-md-2 control-label">调配职务</label>
 			<div class="col-md-10 ">
 				<div  class=" m-l-n">
-					<ui-select name="zhiwei" ng-model="deploy.zhiwei" theme="bootstrap" required>
+					<ui-select name="zhiwei" ng-model="deploy.zhiwei" theme="bootstrap" required ng-click="analysis()">
 						<ui-select-match placeholder="请选择职位...">{{$select.selected.name}}</ui-select-match>
 						<ui-select-choices repeat="item in companylist | filter: $select.search">
 							<div ng-bind-html="item.name| highlight: $select.search"></div>
@@ -27,11 +27,11 @@
 			<div class="col-md-10 col-xs-10 row">
 				<div  class=" m-l-n">
 					<div class="dropdown" dropdown >
-						<input autocompletes="" ng-change="analysis()" class="tags form-control" name="reason" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required />
+						<input autocompletes="" class="tags form-control" name="reason" ng-model="deploy.reason" type="text" loaddata="{{renzhilist | filter: { dz:deploy.reason} }}" required  ng-change="analysis()"/>
 						<div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
 							<span class="caret"  ></span>
 						</div>
-						<ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
+						<ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1" ng-click="analysis()">
 							<li ng-repeat="p in renzhilist" ng-class="{active:deploy.reason==p.dz}"  >
 								<a href="javascript:void(0)" ng-click="deploy.reason=p.dz">{{p.dz}}</a>
 							</li>
@@ -60,6 +60,8 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">取消</button>
-	<button class="btn btn-primary"  ng-disabled="renzhiform.$invalid" ng-click="" ng-show="!hasanalysis">分析</button>
-	<button class="btn btn-primary" ng-click="ok()" ng-show="hasanalysis">确定</button>
+	<button class="btn btn-primary"  ng-disabled="renzhiform.$invalid" ng-click="analysis()" ng-show="0">分析</button>
+	<!--<button class="btn btn-primary"  ng-disabled="renzhiform.$invalid" ng-click="analysis()" ng-show="!hasanalysis">分析</button>-->
+	<button class="btn btn-primary" ng-click="ok()" ng-show="1">确定</button>
+	<!--<button class="btn btn-primary" ng-click="ok()" ng-show="hasanalysis">确定</button>-->
 </div>

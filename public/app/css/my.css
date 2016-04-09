@@ -105,13 +105,20 @@
 
 .detail-td{
     background-color: #E8EDEF;
+    text-align: center;
+    vertical-align: middle;
 }
 .table-people-detaile,
 .table-people-detaile>tbody>tr>td{
     border: 1px  #DDDDDD solid;;
 }
 
-
+.table-peoplecharts-detaile,
+.table-peoplecharts-detaile>tbody>tr>td{
+    border: 1px  #DDDDDD solid;
+    padding: 8px 1px;
+    font-size: 12px;
+}
 .col-padding{
     padding: 0px;
 }
@@ -615,10 +622,11 @@ fieldset[disabled] .btn-mydefault.active {
     position: fixed;bottom: 0px;z-index: 1000;width:27%;
 }
 .gaizhang{
+    float: right;
     width: 100px;
     height: 40px;
     margin-top: 80px;
-    margin-left: 80%;
+   
 }
 .btn-manege{
     float: right;
@@ -627,19 +635,7 @@ fieldset[disabled] .btn-mydefault.active {
     padding-bottom: 0;
     border:1px #ccc solid;
 }
-.btn-all{
-    background-color: #fff;
-    padding-top: 0;
-    padding-bottom: 0;
-    border:1px #ccc solid;
-}
-.btn-all:focus{
-    color: #ffffff !important;
-    background-color: #ee3939;
-    padding-top: 0;
-    padding-bottom: 0;
-    border:1px #ccc solid;
-}
+
 .btn-kuaijie{
     float: left;
     background-color: #fff;
@@ -662,21 +658,99 @@ fieldset[disabled] .btn-mydefault.active {
 }
 .btn-search{
     margin: 3px;
+    margin-left: 0px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+.btn-all{
+    margin: 0px;
     margin-bottom: 1px;
     margin-top: 1px;
+    padding-top: 1px;
+}
+/*.btn-all:hover{*/
+/*margin: 0px;*/
+/*margin-bottom: 5px;*/
+/*margin-top: 1px;*/
+/*padding-bottom: 1px;*/
+/*padding-top: 1px;*/
+/*background-color: #FF5050;*/
+/*color: #fff!important;*/
+/*}*/
+.btn-all:focus,.btn-all:active{
+    margin: 0px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    background-color: red;
+    color: #fff!important;
+}
+.btn-addtiaojian1{
+    float: right;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #2E7BC9;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border:1px #ccc solid;
+}
+.btn-addtiaojian1:hover,.btn-addtiaojian1:focus{
+    color: #ccc;
+    background-color: #2E7BC9;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border:1px #ccc solid;
 }
 .btn-addtiaojian{
+    background-color: #959595;
+    color: #fff;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.btn-addtiaojian:hover,.btn-addtiaojian:focus{
+    background-color: #959595;
+    color: #fff;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.btn-resultbtn{
     float: left;
-    background-color: #fff;
-    padding-top: 0;
-    padding-bottom: 0;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #2E7BC9;
+    padding-top: 3px;
+    padding-bottom: 3px;
     border:1px #ccc solid;
+}
+.btn-resultbtn:hover,.btn-resultbtn:focus{
+    color: #ccc;
+    background-color: #2E7BC9;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border:1px #ccc solid;
+}
+.btn-noresultbtn{
+    float: left;
+    margin-top: 20px;
+    color: #58666e;
+    background-color: #fff;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border:1px #fff solid;
+}
+.btn-noresultbtn:hover,.btn-noresultbtn:focus{
+    color: #58666e;
+    background-color: #fff;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border:1px #fff solid;
 }
 .peopledetailtable tbody tr td{
     vertical-align : middle;
 }
 .searchtable>tbody > tr > td {
     border-color: #DDDDDD;
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 .tab-search> .nav-tabs > li.active > a {
     border-top: 2px #00a8f3 solid;
@@ -728,15 +802,53 @@ a.jieguobtn:focus
 }
 .resultbtn{
     background-color: #fff;
+    /*border: 2px #00a8f3 solid;*/
+    margin-bottom: 0px;
+    margin-top: 10px;
+    border-top: 2px #00a8f3 solid;
+    border-right: 1px #ccc solid;
+    border-left: 1px #ccc solid;
+}
+.resultbtn:focus{
+    background-color: #fff;
+    /*border: 2px #00a8f3 solid;*/
+    color: #00a8f3;
+    border-top: 2px #00a8f3 solid;
+    border-right: 1px #ccc solid;
+    border-left: 1px #ccc solid;
+}
+.noresultbtn{
+    background-color: #fff;
     border: 0px;
     margin-bottom: 0px;
     margin-top: 10px;
 }
-.resultbtn:focus{
+.noresultbtn:focus{
     background-color: #fff;
-    border-top: 2px #00a8f3 solid;
+    border:0px;
     color: #00a8f3;
 }
+.btn-manage{
+    background-color: #828282;
+    color: #fff;
+    padding: 1px 10px;
+}
+.tiaojiantable{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+.tiaojiantable>tbody>tr>td{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.oldresultbtn{
+    border: 5px #ccc solid;
+}
+/*.cleanspan{*/
+    /*display: block;*/
+    /*border: 1px #ccc solid;*/
+/*}*/
 /*.frame {width:100%; padding:10px; background:#fff; float:left; margin-right:0px; display:inline;}*/
 /*.wrap {width:100%; position:relative; overflow:hidden; font-family:arial, sans-serif;}*/
 /*.wrap img {display:block;}*/

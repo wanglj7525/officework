@@ -1,10 +1,434 @@
+<!--<div >-->
+  <!--<div >-->
+    <!--<tabset class="tab-container tab-search">-->
+      <!--<tab heading="按任免表查看" class="color-message analysispeople" >-->
+        <!--<table st-table="postinfolist"  class="table table-bordered table-people-detaile">-->
+          <!--<tr>-->
+            <!--<td class="detail-td" width="10%">姓名</td>-->
+            <!--<td>{{user.name}}</td>-->
+            <!--<td class="detail-td">性别</td>-->
+            <!--<td>{{user.sex.dz}}</td>-->
+            <!--<td class="detail-td">出生年月</td>-->
+            <!--<td>{{user.birthday|date:'yyyy-MM-dd'}}</td>-->
+            <!--<td rowspan="4"  width="100px;"  style="padding: 0px">-->
+              <!--<div style="margin: 0 ;padding: 0">-->
+                <!--<img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">-->
+              <!--</div>-->
+            <!--</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">民族</td>-->
+            <!--<td>{{user.nation.dz}}</td>-->
+            <!--<td  class="detail-td">籍贯</td>-->
+            <!--<td>{{user.jiguan.dz}}</td>-->
+            <!--<td class="detail-td">出生地</td>-->
+            <!--<td>{{user.birthplace.dz}}</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">入党时间</td>-->
+            <!--<td>{{user.organ_date | date:'yyyy-MM-dd'}}</td>-->
+            <!--<td class="detail-td">参加工作日期</td>-->
+            <!--<td>{{user.work_date | date:'yyyy-MM-dd'}}</td>-->
+            <!--<td class="detail-td">健康状况</td>-->
+            <!--<td>{{user.health.dz}}</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">专业技术职务</td>-->
+            <!--<td colspan="2"></td>-->
+            <!--<td class="detail-td">熟悉专业有何特长</td>-->
+            <!--<td colspan="2">{{user.speciaty}}</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">学历</td>-->
+            <!--<td class="detail-td">全日制教育</td>-->
+            <!--<td colspan="2">{{user.speciaty}}</td>-->
+            <!--<td class="detail-td">毕业院校系系专业</td>-->
+            <!--<td colspan="2">{{user.speciaty}}</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">学位</td>-->
+            <!--<td class="detail-td">在职教育</td>-->
+            <!--<td colspan="2">{{user.speciaty}}</td>-->
+            <!--<td class="detail-td">毕业院校系系专业</td>-->
+            <!--<td colspan="2">{{user.speciaty}}</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">现任职务</td>-->
+            <!--<td colspan="6">{{row.post_name}}</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">拟任职务</td>-->
+            <!--<td colspan="6"></td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">拟免职务</td>-->
+            <!--<td colspan="6"></td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">简历</td>-->
+            <!--<td colspan="6" overflow-x;hidden><pre ng-bind="resumeinfo.resume" style="width: 800px;background-color: #fff;border: 0px;overflow:hidden"></pre></td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td height="120px" class="detail-td">奖惩情况</td>-->
+            <!--<td colspan="6" >-->
+              <!--<a ng-repeat="row in jiangchenginfolist">{{row.explanation}}</a>-->
+            <!--</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">年度考核结果</td>-->
+            <!--<td colspan="6">-->
+              <!--<a ng-repeat="row in examinfolist|filter:'年度考核'">-->
+                <!--考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}-->
+              <!--</a>-->
+            <!--</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td class="detail-td">任免理由</td>-->
+            <!--<td colspan="6"></td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td rowspan="{{familyInfolist.length+2}}"  class="detail-td">家庭主要成员及重要社会关系</td>-->
+            <!--<td class="detail-td">称谓</td>-->
+            <!--<td class="detail-td">姓名</td>-->
+            <!--<td class="detail-td">年龄</td>-->
+            <!--<td class="detail-td">政治面貌</td>-->
+            <!--<td colspan="2" class="detail-td">工作单位及职务</td>-->
+          <!--</tr>-->
+          <!--<tr ng-repeat="row in familyInfolist" >-->
+            <!--<td>{{row.renatinship_name}}</td>-->
+            <!--<td>{{row.family_name}}</td>-->
+            <!--<td ng-if="!row.family_birthday">无记录</td>-->
+            <!--<td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>-->
+            <!--<td>{{row.family_poli}}</td>-->
+            <!--<td colspan="2">{{row.family_org_name}}</td>-->
+          <!--</tr>-->
+          <!--<tr >-->
+            <!--<td></td>-->
+            <!--<td></td>-->
+            <!--<td></td>-->
+            <!--<td></td>-->
+            <!--<td colspan="2">&nbsp;</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td  class="detail-td">呈报单位</td>-->
+            <!--<td colspan="6"  height="100px">-->
+              <!--<div class="gaizhang">(盖章）<br>-->
+                <!--年&nbsp;&nbsp;月&nbsp;&nbsp;日-->
+              <!--</div>-->
+            <!--</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td height="120px" class="detail-td">审批机关意见</td>-->
+            <!--<td colspan="2" ><div class="gaizhang">(盖章）<br>-->
+              <!--年&nbsp;&nbsp;月&nbsp;&nbsp;日-->
+            <!--</div></td>-->
+            <!--<td height="120px" class="detail-td">行政任免机关意见</td>-->
+            <!--<td colspan="3" ><div class="gaizhang">(盖章）<br>-->
+              <!--年&nbsp;&nbsp;月&nbsp;&nbsp;日-->
+            <!--</div></td>-->
+          <!--</tr>-->
+        <!--</table>-->
+       <!---->
+      <!--</tab>-->
+      <!--<tab heading="按信息集查看" class="color-message ">-->
+        <!--<tabset class="tab-container analysispeople">-->
+          <!--<tab heading="基本信息"><div flex>-->
+            <!--<div class="" layout="column" >-->
+              <!--<div class=" ">-->
+                <!--<table st-table="postinfolist"  class="table table-bordered table-people-detaile">-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">姓名</td>-->
+                    <!--<td>{{user.name}}</td>-->
+                    <!--<td class="detail-td">性别</td>-->
+                    <!--<td>{{user.sex.jc}}</td>-->
+                    <!--<td class="detail-td">民族</td>-->
+                    <!--<td>{{user.nation.dz}}</td>-->
+                    <!--<td class="detail-td">出生年月</td>-->
+                    <!--<td>{{user.birthday|date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td rowspan="4"  width="100px;"  style="padding: 0px">-->
+                      <!--<div style="margin: 0 ;padding: 0">-->
+                        <!--<img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">-->
+                      <!--</div>-->
+                    <!--</td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">籍贯</td>-->
+                    <!--<td>{{user.jiguan.jc}}</td>-->
+                    <!--<td  class="detail-td">出生地</td>-->
+                    <!--<td colspan="2">{{user.birthplace.dz}}</td>-->
+                    <!--<td class="detail-td">成长地</td>-->
+                    <!--<td colspan="2">{{user.birthplace.dz}}</td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">政治面貌</td>-->
+                    <!--<td>{{user.political_status.dz}}</td>-->
+                    <!--<td class="detail-td">参加组织日期</td>-->
+                    <!--<td colspan="2" >{{user.organ_date|date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td class="detail-td">个人身份</td>-->
+                    <!--<td colspan="2">{{user.personal.dz}}</td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">健康状况</td>-->
+                    <!--<td colspan="3">{{user.health.dz}}</td>-->
+                    <!--<td class="detail-td">婚姻状况</td>-->
+                    <!--<td colspan="3"></td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">专长</td>-->
+                    <!--<td colspan="3">{{user.speciaty}}</td>-->
+                    <!--<td class="detail-td">爱好</td>-->
+                    <!--<td colspan="4">{{user.speciaty}}</td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">人事所在关系</td>-->
+                    <!--<td colspan="8"></td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<td class="detail-td">有效证件类别</td>-->
+                    <!--<td colspan="3"></td>-->
+                    <!--<td class="detail-td">证件号码</td>-->
+                    <!--<td colspan="4">{{user.card_id}}</td>-->
+                  <!--</tr>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div></tab>-->
+          <!--<tab heading="职务信息"><div flex>-->
+            <!--<div class="" layout="column">-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="postinfolist"  class="table table-bordered" >-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<th>职务名称</th>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<th>职务类别</th>&ndash;&gt;-->
+                  <!--&lt;!&ndash;&lt;!&ndash;<th>职务统计类别</th>&ndash;&gt;&ndash;&gt;-->
+                  <!--&lt;!&ndash;<th>职级</th>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<th>任职状态</th>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<th>批准任职时间</th>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<tr ng-repeat="row in postinfolist" >&ndash;&gt;-->
+                  <!--&lt;!&ndash;<td>{{row.post_name}}</td>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<td>{{row.post_category}}</td>&ndash;&gt;-->
+                  <!--&lt;!&ndash;&lt;!&ndash;<td>{{row.post_statistics_category}}</td>&ndash;&gt;&ndash;&gt;-->
+                  <!--&lt;!&ndash;<td>{{row.rank}}</td>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<td>{{row.work_status}}</td>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                  <!--<tr>-->
+                    <!--<th>任职日期</th>-->
+                    <!--<th>免职日期</th>-->
+                    <!--&lt;!&ndash;<th>职务统计类别</th>&ndash;&gt;-->
+                    <!--<th>任职单位</th>-->
+                    <!--<th>职务</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in postinfolist" >-->
+                    <!--<td>{{row.working_date| date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td>{{row.depose_date| date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td>{{row.organization_name}}</td>-->
+                    <!--<td>{{row.post_name }}</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="" layout="column" ng-if="!postinfolist">暂无现任职务</div>&ndash;&gt;-->
+          <!--</div></tab>-->
+          <!--<tab heading="职称信息"><div flex>-->
+            <!--<div  layout="column" >-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="titleinfolist"  class="table table-bordered" >-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--<tr>-->
+                    <!--<th>获得资格日期</th>-->
+                    <!--<th>专业技术任职资格名称</th>-->
+                    <!--&lt;!&ndash;<th>聘任时间</th>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<th>级别</th>&ndash;&gt;-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in titleinfolist" >-->
+                    <!--<td>{{row.get_date | date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td>{{row.title_name}}</td>-->
+                    <!--&lt;!&ndash;<td>{{row.appointment_date | date:'yyyy-MM-dd'}}</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>{{row.level}}</td>&ndash;&gt;-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="" layout="column" ng-if="!titleinfolist">暂无职称</div>&ndash;&gt;-->
+          <!--</div></tab>-->
+          <!--<tab heading="学历信息"><div flex>-->
+            <!--<div  layout="column" >-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="eduinfolist"  class="table table-bordered">-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--<tr>-->
+                    <!--<th>毕业日期</th>-->
+                    <!--<th>学历名称</th>-->
+                    <!--&lt;!&ndash;<th>学历类别</th>&ndash;&gt;-->
+                    <!--<th>毕业院校</th>-->
+                    <!--<th>专业</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in eduinfolist" >-->
+                    <!--<td>{{row.greduation_date | date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td>{{row.edu_level}}</td>-->
+                    <!--&lt;!&ndash;<td>{{row.edu_category}}</td>&ndash;&gt;-->
+                    <!--<td>{{row.school_name}}</td>-->
+                    <!--<td>{{row.profession_name}}</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div  layout="column" ng-if="!eduinfolist">暂无学历</div>&ndash;&gt;-->
+          <!--</div></tab>-->
+          <!--<tab heading="学位信息"><div flex>-->
+            <!--<div  layout="column">-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="degreeinfolist"  class="table table-bordered">-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--<tr>-->
+                    <!--<th>学位授予日期</th>-->
+                    <!--<th>学位名称</th>-->
+                    <!--&lt;!&ndash;<th>学位类别</th>&ndash;&gt;-->
+                    <!--<th>学位授予单位</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in degreeinfolist" >-->
+                    <!--<td>{{row.degree_date}}</td>-->
+                    <!--<td>{{row.degree_code}}</td>-->
+                    <!--&lt;!&ndash;<td>{{row.degree_category}}</td>&ndash;&gt;-->
+                    <!--<td>{{row.school_name}}</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div  layout="column" ng-if="!degreeinfolist">暂无学位</div>&ndash;&gt;-->
+          <!--</div></tab>-->
+          <!--<tab heading="奖惩信息"><div flex>-->
+            <!--<div  layout="column">-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="jiangchenginfolist"  class="table table-bordered">-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--<tr>-->
+                    <!--<th>奖惩说明</th>-->
+                    <!--<th>奖惩类别</th>-->
+                    <!--<th>奖惩名称</th>-->
+                    <!--<th>奖惩授予单位</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in jiangchenginfolist" >-->
+                    <!--<td>{{row.explanation}}</td>-->
+                    <!--<td>{{row.wage_level}}</td>-->
+                    <!--<td>{{row.wage_grade}}</td>-->
+                    <!--<td>{{row.wage_level_2}}</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div  layout="column" ng-if="!jiangchenginfolist"></div>&ndash;&gt;-->
+
+          <!--</div>-->
+          <!--</tab>-->
+          <!--<tab heading="考核信息"><div flex>-->
+            <!--<div  layout="column">-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="examinfolist"  class="table table-bordered">-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--<tr>-->
+                    <!--&lt;!&ndash;<th>考核起始日期</th>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<th>考核截止日期</th>&ndash;&gt;-->
+                    <!--<th>考核日期</th>-->
+                    <!--<th>考核类别</th>-->
+                    <!--&lt;!&ndash;<th>考核组织名称</th>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<th>考核意见</th>&ndash;&gt;-->
+                    <!--<th>考核结论类别</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in examinfolist" >-->
+                    <!--<td>{{row.exa_date | date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td>{{row.exa_category}}</td>-->
+                    <!--<td>{{row.exa_result}}</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div  layout="column" ng-if="!examinfolist"></div>-->
+          <!--</div></tab>-->
+          <!--<tab heading="简历信息"><div  flex>-->
+            <!--<div class="" layout="column" >-->
+              <!--<div >-->
+                <!--<form name="addPeopleform_2" class="form-horizontal" style="width: 99%">-->
+                  <!--<div class="row">-->
+                    <!--<div class="form-group">-->
+                      <!--<label class="col-xs-1 control-label">个人简历</label>-->
+                      <!--<div class="col-xs-11">-->
+                        <!--<pre ng-bind="resumeinfo.resume"></pre>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</form>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div></tab>-->
+          <!--<tab heading="家庭成员及社会关系信息"><div flex>-->
+            <!--<div  layout="column" >-->
+              <!--<div class="panel panel-default">-->
+                <!--<table st-table="familyInfolist"  class="table table-bordered">-->
+                  <!--<thead class="secondtabletitle">-->
+                  <!--<tr>-->
+                    <!--<th>人员与该人的关系名称</th>-->
+                    <!--<th>人员姓名</th>-->
+                    <!--<th>人员出生日期</th>-->
+                    <!--<th>人员工作单位及职务</th>-->
+                    <!--<th>人员政治面貌</th>-->
+                    <!--&lt;!&ndash;<th>人员职务</th>&ndash;&gt;-->
+
+                    <!--<th>人员现状</th>-->
+                    <!--<th>人员排序号</th>-->
+                  <!--</tr>-->
+                  <!--</thead>-->
+                  <!--<tbody>-->
+                  <!--<tr ng-repeat="row in familyInfolist" >-->
+                    <!--<td>{{row.renatinship_name}}</td>-->
+                    <!--<td>{{row.family_name}}</td>-->
+                    <!--<td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>-->
+                    <!--<td>{{row.family_org_name}}、{{row.family_post}}</td>-->
+                    <!--&lt;!&ndash;<td>{{row.family_post}}</td>&ndash;&gt;-->
+                    <!--<td>{{row.family_poli}}</td>-->
+                    <!--<td>{{row.family_status}}</td>-->
+                    <!--<td>{{row.no}}</td>-->
+                  <!--</tr>-->
+                  <!--</tbody>-->
+                <!--</table>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div></tab>-->
+        <!--</tabset>-->
+      <!--</tab>-->
+    <!--</tabset>-->
+  <!--</div>-->
+<!--</div>-->
 <div >
   <div >
     <tabset class="tab-container tab-search">
-      <tab heading="按任免表查看" class="color-message analysispeople" >
-        <table st-table="postinfolist"  class="table table-bordered table-people-detaile">
+      <tab heading="按任免表查看" class="color-message" >
+        <table st-table="postinfolist"  class="table table-bordered table-peoplecharts-detaile" style="width: 100%">
           <tr>
-            <td class="detail-td" width="10%">姓名</td>
+            <td class="detail-td" width="5%">姓名</td>
             <td>{{user.name}}</td>
             <td class="detail-td">性别</td>
             <td>{{user.sex.dz}}</td>
@@ -33,57 +457,62 @@
             <td>{{user.health.dz}}</td>
           </tr>
           <tr>
-            <td class="detail-td">专业技术职务</td>
-            <td colspan="2"></td>
+            <td class="detail-td"><nobr>专业技术职务</nobr></td>
+            <td colspan="2">
+							<span ng-repeat="row in titleinfolist" >
+								<a>{{row.title_name}}</a>
+							</span>
+            </td>
             <td class="detail-td">熟悉专业有何特长</td>
             <td colspan="2">{{user.speciaty}}</td>
           </tr>
           <tr>
-            <td class="detail-td">学历</td>
+            <td class="detail-td" style="border-bottom: none">学历</td>
             <td class="detail-td">全日制教育</td>
-            <td colspan="2">{{user.speciaty}}</td>
-            <td class="detail-td">毕业院校系系专业</td>
-            <td colspan="2">{{user.speciaty}}</td>
+            <td colspan="2"><a  ng-repeat="row in eduinfolist">{{row.edu_level}}</a></td>
+            <td class="detail-td">毕业院校系及专业</td>
+            <td colspan="2"><a ng-repeat="row in eduinfolist">{{row.school_name}}{{row.profession_name}}</a></td>
           </tr>
           <tr>
-            <td class="detail-td">学位</td>
+            <td class="detail-td" style="border-top: none">学位</td>
             <td class="detail-td">在职教育</td>
-            <td colspan="2">{{user.speciaty}}</td>
-            <td class="detail-td">毕业院校系系专业</td>
-            <td colspan="2">{{user.speciaty}}</td>
+            <td colspan="2"><a ng-repeat="row in degreeinfolist">{{row.edu_level}}</a></td>
+            <td class="detail-td">毕业院校系及专业</td>
+            <td colspan="2"><a ng-repeat="row in degreeinfolist">{{row.school_name}}{{row.profession_name}}</a></td>
           </tr>
           <tr>
-            <td class="detail-td">现任职务</td>
-            <td colspan="6">{{row.post_name}}</td>
+            <td class="detail-td" colspan="2">现任职务</td>
+            <td colspan="5"><span ng-repeat="i in postinfolist">{{i.organization_name}}{{i.post_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </td>
           </tr>
           <tr>
-            <td class="detail-td">拟任职务</td>
-            <td colspan="6"></td>
+            <td class="detail-td" colspan="2">拟任职务</td>
+            <td colspan="5"></td>
           </tr>
           <tr>
-            <td class="detail-td">拟免职务</td>
-            <td colspan="6"></td>
+            <td class="detail-td" colspan="2">拟免职务</td>
+            <td colspan="5"></td>
           </tr>
           <tr>
             <td class="detail-td">简历</td>
             <td colspan="6" overflow-x;hidden><pre ng-bind="resumeinfo.resume" style="width: 800px;background-color: #fff;border: 0px;overflow:hidden"></pre></td>
           </tr>
           <tr>
-            <td height="120px" class="detail-td">奖惩情况</td>
+            <td height="100px" class="detail-td">奖惩情况</td>
             <td colspan="6" >
-              <a ng-repeat="row in jiangchenginfolist">{{row.explanation}}</a>
+              <a ng-repeat="row in jiangchenginfolist">{{row.explanation}}<br></a>
             </td>
           </tr>
           <tr>
-            <td class="detail-td">年度考核结果</td>
+            <td class="detail-td" height="100px">年度考核结果</td>
             <td colspan="6">
               <a ng-repeat="row in examinfolist|filter:'年度考核'">
-                考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}
+                考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}<br>
               </a>
             </td>
           </tr>
           <tr>
-            <td class="detail-td">任免理由</td>
+            <td class="detail-td" height="100px">任免理由</td>
             <td colspan="6"></td>
           </tr>
           <tr>
@@ -98,9 +527,9 @@
             <td>{{row.renatinship_name}}</td>
             <td>{{row.family_name}}</td>
             <td ng-if="!row.family_birthday">无记录</td>
-            <td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
+            <td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')}}岁</td>
             <td>{{row.family_poli}}</td>
-            <td colspan="2">{{row.family_org_name}}</td>
+            <td colspan="2">{{row.family_org_name}}{{row.family_post}}</td>
           </tr>
           <tr >
             <td></td>
@@ -112,30 +541,29 @@
           <tr>
             <td  class="detail-td">呈报单位</td>
             <td colspan="6"  height="100px">
-              <div class="gaizhang">(盖章）<br>
-                年&nbsp;&nbsp;月&nbsp;&nbsp;日
+              <div class="gaizhang">&nbsp;&nbsp;&nbsp;&nbsp;(盖章）<br>
+                年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
               </div>
             </td>
           </tr>
           <tr>
-            <td height="120px" class="detail-td">审批机关意见</td>
-            <td colspan="2" ><div class="gaizhang">(盖章）<br>
-              年&nbsp;&nbsp;月&nbsp;&nbsp;日
+            <td height="100px" class="detail-td">审批机关意见</td>
+            <td colspan="2" ><div class="gaizhang">&nbsp;&nbsp;&nbsp;&nbsp;(盖章）<br>
+              年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
             </div></td>
-            <td height="120px" class="detail-td">行政任免机关意见</td>
-            <td colspan="3" ><div class="gaizhang">(盖章）<br>
-              年&nbsp;&nbsp;月&nbsp;&nbsp;日
+            <td height="100px" class="detail-td">行政任免机关意见</td>
+            <td colspan="3" ><div class="gaizhang">&nbsp;&nbsp;&nbsp;&nbsp;(盖章）<br>
+              年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
             </div></td>
           </tr>
         </table>
-       
       </tab>
       <tab heading="按信息集查看" class="color-message ">
-        <tabset class="tab-container analysispeople">
+        <tabset class="tab-container addpeople" >
           <tab heading="基本信息"><div flex>
             <div class="" layout="column" >
               <div class=" ">
-                <table st-table="postinfolist"  class="table table-bordered table-people-detaile">
+                <table st-table="postinfolist"  class="table table-bordered table-peoplecharts-detaile">
                   <tr>
                     <td class="detail-td">姓名</td>
                     <td>{{user.name}}</td>
@@ -198,24 +626,6 @@
               <div class="panel panel-default">
                 <table st-table="postinfolist"  class="table table-bordered" >
                   <thead class="secondtabletitle">
-                  <!--<tr>-->
-                  <!--<th>职务名称</th>-->
-                  <!--<th>职务类别</th>-->
-                  <!--&lt;!&ndash;<th>职务统计类别</th>&ndash;&gt;-->
-                  <!--<th>职级</th>-->
-                  <!--<th>任职状态</th>-->
-                  <!--<th>批准任职时间</th>-->
-                  <!--</tr>-->
-                  <!--</thead>-->
-                  <!--<tbody>-->
-                  <!--<tr ng-repeat="row in postinfolist" >-->
-                  <!--<td>{{row.post_name}}</td>-->
-                  <!--<td>{{row.post_category}}</td>-->
-                  <!--&lt;!&ndash;<td>{{row.post_statistics_category}}</td>&ndash;&gt;-->
-                  <!--<td>{{row.rank}}</td>-->
-                  <!--<td>{{row.work_status}}</td>-->
-                  <!--<td>{{row.working_date | date:'yyyy-MM-dd'}}</td>-->
-                  <!--</tr>-->
                   <tr>
                     <th>任职日期</th>
                     <th>免职日期</th>
@@ -321,9 +731,9 @@
                   <thead class="secondtabletitle">
                   <tr>
                     <th>奖惩说明</th>
-                    <th>奖惩类别</th>
-                    <th>奖惩名称</th>
-                    <th>奖惩授予单位</th>
+                    <th>机关正处工资级别</th>
+                    <th>机关正处工资档次</th>
+                    <th>事业五级管理薪级</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -377,6 +787,9 @@
                       <label class="col-xs-1 control-label">个人简历</label>
                       <div class="col-xs-11">
                         <pre ng-bind="resumeinfo.resume"></pre>
+                        <!--<div ng-bind-html="resumeinfo.resume"></div>-->
+                        <!--<script type="text/html" style="margin:auto;height:300px;width:800px" ng-style=""  ng-model="all_text"  meta-umeditor-->
+                        <!--meta-umeditor-config='all_config' meta-umeditor-placeholder="请输入简历" ></script>-->
                       </div>
                     </div>
                   </div>
@@ -406,7 +819,7 @@
                     <td>{{row.renatinship_name}}</td>
                     <td>{{row.family_name}}</td>
                     <td>{{row.family_birthday | date:'yyyy-MM-dd'}}</td>
-                    <td>{{row.family_org_name}}、{{row.family_post}}</td>
+                    <td>{{row.family_org_name}}&nbsp;&nbsp;{{row.family_post}}</td>
                     <!--<td>{{row.family_post}}</td>-->
                     <td>{{row.family_poli}}</td>
                     <td>{{row.family_status}}</td>

@@ -5,13 +5,13 @@
 		</span>
 	</div>
 </div>
-<div class="modal-body" ng-show="hasanalysis">
+<div class="modal-body" ng-show="1">
 	<form  name="mianzhiform" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled">
 		<div class="form-group" >
 			<label class="col-md-2 col-xs-2 control-label">分析结果</label>
 			<div class="col-md-10 col-xs-10 row">
 				<div  class=" m-l-n">
-					<div class=" list-group"  style="display:inline;">
+					<div class=" list-group"  style="display:inline;border: 0px">
 						<div class="list-group-item" ng-repeat="result in analysis_result track by $index">
 							<span>{{result}}</span>
 						</div>
@@ -26,6 +26,8 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" ng-click="cancel()">重新调配</button>
-	<button class="btn btn-primary"  ng-click="analysis_tijiao()" ng-show="!hasanalysis">分析</button>
-	<button class="btn btn-primary" ng-click="ok()"  ng-show="hasanalysis">保存结果</button>
+	<!--<button class="btn btn-primary"  ng-click="analysis_tijiao()" ng-show="!hasanalysis">分析</button>-->
+	<button class="btn btn-primary"  ng-click="analysis_tijiao()" ng-show="0">分析</button>
+	<!--<button class="btn btn-primary" ng-click="ok()"  ng-show="hasanalysis">保存结果</button>-->
+	<button class="btn btn-primary" ng-click="ok()"  ng-show="1">保存结果</button>
 </div>

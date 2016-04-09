@@ -19,7 +19,7 @@ app.controller('ModalDeployInstanceCtrl', ['$scope', '$modalInstance','$localSto
 			}
 		);
 		$scope.deploy = {};
-
+	
 		//职务变换 重新分析
 		$scope.$watch(function(){ return $scope.deploy.zhiwei},function(newValue,oldValue){
 			if(newValue===oldValue) return;
@@ -75,9 +75,11 @@ app.controller('ModalMianzhiDeployInstanceCtrl', ['$scope', '$modalInstance','$l
 		$scope.deploy = {};
 
 		//调用分析接口
+		
 		$scope.analysis_mianzhi = function () {
 			$scope.hasanalysis=true;
 			$scope.hasresult=true;
+			console.log($scope.deploy.reason)
 			var postData = $.param({
 				person_id:people.id,
 				unit_id:$localStorage.tree_uuid,
@@ -119,7 +121,6 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 	function($scope, $modalInstance,InPerson_ids,OutPerson_ids,$localStorage,UIDeployservice) {
 
 	$scope.hasanalysis=false;
-	$scope.analysis_tijiao = function () {
 		$scope.hasanalysis=true;
 		$scope.hasresult=true;
 		//调用分析接口
@@ -150,7 +151,6 @@ app.controller('SaveDeployInstanceCtrl', ['$scope', '$modalInstance','InPerson_i
 				console.log(rej);
 			}
 		);
-	}
 
 
 	$scope.ok = function () {
@@ -299,7 +299,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 		});
 		$scope.isdetail=false;
 		//性别
-		SettingdaimaService.getfiltCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+		SettingdaimaService.getfiltCodagetList("GB2261_1").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
 		//地址
 		SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
 		//民族
@@ -539,12 +539,31 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				resolve:{
 				}
 			});
-			modaltiaojianmanageInstance.result.then(function (deploy) {
+			modaltiaojianmanageInstance.result.then(function () {
+				var postData1 = $.param({
+					access_token:$localStorage.token
+				});
+				UIMessageService.getallLable(postData1).then(
+					function (res) {
+						$scope.lablelist = res.data.data.labelList;
+						$scope.xxx=$scope.lablelist
+						$scope.showlable=[]
+						$scope.showlable.push($scope.xxx[0])
+						$scope.showlable.push($scope.xxx[1])
+						$scope.showlable.push($scope.xxx[2])
+						$scope.showlable.push($scope.xxx[3])
+						$scope.showlable.push($scope.xxx[4])
+						$scope.showlable.push($scope.xxx[5])
+						console.log(  $scope.lablelist)
+					},
+					function (rej) {
+						console.log(rej);
+					})
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		}
-		//增加条件
+		//添加标签
 		$scope.addtiaojian=function(){
 			var modaladdtiaojianInstance = $modal.open({
 				templateUrl: 'addtiaojiandeployModel.html',
@@ -554,7 +573,7 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				}
 			});
 			modaladdtiaojianInstance.result.then(function (select) {
-				var a=[-1,]
+				var a=["AND",]
 				var b=[]
 				var c=[]
 				var d=[]
@@ -598,23 +617,28 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				)
 				var temps=[];
 				var m= b.length;
+				$scope.n=[]
+				$scope.queryItemList=[]
 				for(var i=0;i<m;i++){
-					var temp={"sqlstr":a[i]+","+b[i]+","+c[i]+","+d[i]+","+e[i]+","+f[i]};
-					temps[i]=temp;
+					var temp={
+						logic:a[i],
+						isLeftBracket:b[i],
+						code:c[i],
+						operate:d[i],
+						value1:e[i],
+						isRightBracket:f[i],
+					};
+					console.log($scope.temp)
+					$scope.queryItemList.push(temp)
 				}
 				console.log(temps)
-
-				//alert(a)
-				//alert(b)
-				//alert(c)
-				//alert(d)
-				//alert(e)
-				//alert(f)
-
-
 				console.log(select)
 				var name=select["name"];
-				delete select["name"]
+				var temps={
+					name:name,
+					queryItemList:$scope.queryItemList
+				};
+				console.log(temps)
 				//添加标签
 				var postData4 = $.param({
 					name:name,
@@ -623,7 +647,28 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 				});
 				UIMessageService.addLabel(postData4).then(
 					function (res) {
-						console.log("添加成功")
+						console.log("添加成功");
+						//添加完成后获取标签
+						var postData1 = $.param({
+							access_token:$localStorage.token
+						});
+						UIMessageService.getallLable(postData1).then(
+							function (res) {
+								$scope.lablelist = res.data.data.labelList;
+								$scope.xxx=$scope.lablelist
+								$scope.showlable=[]
+								$scope.showlable.push($scope.xxx[0])
+								$scope.showlable.push($scope.xxx[1])
+								$scope.showlable.push($scope.xxx[2])
+								$scope.showlable.push($scope.xxx[3])
+								$scope.showlable.push($scope.xxx[4])
+								$scope.showlable.push($scope.xxx[5])
+								console.log(  $scope.lablelist)
+							},
+							function (rej) {
+								console.log(rej);
+							})
+						
 					},
 					function (rej) {
 						console.log(rej);
@@ -638,6 +683,10 @@ app.controller('deployCtrl',['$rootScope', '$scope', '$http', '$state','$timeout
 			$scope.select_tree_id=""
 			console.log($localStorage.tree_uuid)
 
+		}
+		$scope.cleanjieguocss= function () {
+			$scope.selCont=10000000000;
+			$scope.selCont1=10000000000;
 		}
 		//清除选项
 		$scope.cleansubmit=function(){

@@ -65,6 +65,7 @@
       <!--根据权限隐藏 菜单 还需要在路由中 根据权限判断 否则可以在地址栏手动输入地址-->
       <!--ng-if="Auth.roleid()==1"-->
       <li  ui-sref="app.setting.tree" ng-if="Auth.roleid()=='true'"  ng-class="{'active':$state.includes('app.setting')}" ng-click="changeMenu(false,false)">
+      <!--<li  ui-sref="app.setting.tree"   ng-class="{'active':$state.includes('app.setting')}" ng-click="changeMenu(false,false)">-->
         <a  ui-sref="app.setting.tree" href="/setting">
           <span class="nav-title">系统设置</span>
         </a>
@@ -91,7 +92,7 @@
         <!--<a ui-sref="access.signin" class="nav-title"><i class="fa fa-power-off"></i>退出</a>-->
       </li>
       <li>
-        <a ng-click="logout()" class="nav-title"><i class="fa fa-power-off"></i>退出</a>
+        <a ng-click="changeMenu(true,false);logout()" class="nav-title"><i class="fa fa-power-off"></i>退出</a>
         <!--<a ui-sref="access.signin" class="nav-title"><i class="fa fa-power-off"></i>退出</a>-->
       </li>
     </ul>

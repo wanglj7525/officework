@@ -20,6 +20,8 @@ app.controller('SigninFormController', [ '$scope', '$http', '$state','$localStor
 						if(res.data.code==200){
 							//存储access_token
 							$localStorage.token=res.data.info.access_token;
+							$localStorage.user=res.data.info;
+							console.log($localStorage.user)
 							var params=$.param({
 								resource : 'OPERATION_system_setting',
 								access_token : $localStorage.token

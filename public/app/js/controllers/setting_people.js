@@ -517,7 +517,8 @@ app.controller('SetPeopleCtrl',['$scope','$http','$filter','$modal','$log','$loc
                 Upload.base64DataUrl(file).then(function(urls){
                     var postData = $.param({
                         fileType:"."+file.name.split('.')[file.name.split('.').length-1],
-                        head_pic:urls.split(',')[urls.split(',').length-1]
+                        head_pic:urls.split(',')[urls.split(',').length-1],
+                        access_token:$localStorage.token
                     });
                     console.log(urls)
                     SettingpeopleService.savePhoto(postData).then(

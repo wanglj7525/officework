@@ -21,7 +21,7 @@ input{padding-left: 8px}
 }
 .loginbtn { text-align:center;
     border: none;
-    background: #6dc8fd;
+    background: #2E7BC9;
     color: #ffffff;
     font-size: 16px;
     text-decoration: none;
@@ -35,7 +35,7 @@ input{padding-left: 8px}
     transition: 0.25s;
     -webkit-backface-visibility: hidden; }
 .loginbtn:hover, .loginbtn:focus {
-    background-color: #4e6d8d;
+    background-color: #2E7BC9;
     color: #ffffff;
     -webkit-transition: 0.25s;
     -moz-transition: 0.25s;
@@ -55,11 +55,11 @@ input{padding-left: 8px}
     padding-bottom: 12px;
     padding-top: 13px; }
 .loginbtn.login-primary {
-    background-color: #6dc8fd; }
+    background-color: #2E7BC9; }
 .loginbtn.loginbtn-primary:hover, .loginbtn.loginbtn-primary:focus {
-    background-color: #3db2f7; }
+    background-color: #227BC9; }
 .loginbtn.loginbtn-primary:active, .loginbtn.loginbtn-primary.active {
-    background-color: #6dc8fd; }
+    background-color: #227BC9; }
 .loginbtn-block {
     display: block;
     width: 100%;

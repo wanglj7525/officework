@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','$modal','$log','Auth','SettinguserService','SERVICE_URL',
-      function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,$modal,$log,Auth,SettinguserService,SERVICE_URL) {
+    .controller('AppCtrl', ['$rootScope','$scope', '$translate', '$localStorage', '$window','$state','$modal','$log','Auth','SettinguserService','SERVICE_URL','UIworktipservice',
+      function(             $rootScope, $scope,   $translate,   $localStorage,   $window ,$state,$modal,$log,Auth,SettinguserService,SERVICE_URL,UIworktipservice) {
         $rootScope.imageurl=SERVICE_URL;
         $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
           $rootScope.Auth=Auth;
@@ -48,8 +48,12 @@ angular.module('app')
         console.log($scope.showheight);
         //退出
         $scope.logout=function(){
+          $state.go('app.worktip');
+          console.log($localStorage.user)
           var params=$.param({
-            username : $localStorage.user.username
+            username : $localStorage.user.username,
+            access_token:$localStorage.token
+            //username : $localStorage.user.username
           });
           SettinguserService.logoutservice(params).then(
               function(res){

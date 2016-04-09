@@ -11,16 +11,16 @@
       <table class="table table-bordered">
         <thead>
         <tr>
-          <td>序号</td>
-          <td>结果集名称</td>
-          <td>操作</td>
+          <td width="5%"><nobr>序号</nobr></td>
+          <td width="85%">结果集名称</td>
+          <td width="10%">操作</td>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="i in yyy">
-          <td>{{i.id}}</td>
+          <td align="center" valign="middle">{{i.id}}</td>
           <td>{{i.name}}</td>
-          <td>
+          <td align="center" valign="middle"> 
             <button class="btn btn-submit" ng-click="delresult(i.id)">删除</button>
           </td>
         </tr>

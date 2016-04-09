@@ -1,17 +1,13 @@
 <div ng-controller="MessageController" >
-  <div class="modal-header">
+  <div class="modal-header" style="border: 0px">
     保存到结果集
   </div>
   <div class="row">
-  <button class="form-group col-xs-offset-1 col-xs-4 resultbtn active" ng-click="oldresult.open=false">
-    <div class="col-xs-10">
-      <a>保存到现有结果集</a>
-    </div>
+  <button class="btn btn-resultbtn" ng-click="oldresult.open=false" ng-class="{'btn-resultbtn':!oldresult.open,'btn-noresultbtn':oldresult.open }">
+    保存到现有结果集
   </button>
-  <button class="form-group col-xs-offset-2 col-xs-4 resultbtn"  ng-click="oldresult.open=true">
-    <div class="col-xs-10">
-      <a>新建结果集</a>
-    </div>
+  <button  class="btn btn-resultbtn" ng-click="oldresult.open=true" ng-class="{'btn-resultbtn':oldresult.open,'btn-noresultbtn':!oldresult.open }">
+      新建结果集
   </button>
   </div>
   <div class="modal-body" ng-if="!oldresult.open">
@@ -56,3 +52,4 @@
     <button class="btn btn-primary"  ng-disabled="addtreeform.$invalid" ng-click="ok()">确定</button>
   </div>
 </div>
+

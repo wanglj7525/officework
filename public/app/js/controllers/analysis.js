@@ -11,7 +11,7 @@ app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStor
 	console.log(people.person_id);
 
 	//性别
-	SettingdaimaService.getCodagetList("GB2261").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
+	SettingdaimaService.getCodagetList("GB2261_1").then(function(res){ $scope.sexlist=res.data.info.list;},function(rej){});
 	//地址
 	SettingdaimaService.getCodagetList("ZB01").then(function(res){ $scope.address=res.data.info.list;},function(rej){});
 	//民族
@@ -88,6 +88,7 @@ app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStor
 			function(res){
 				if (res.data.code == 200) {
 					$scope.eduinfolist=res.data.info;
+					console.log($scope.eduinfolist)
 				}
 			},
 			function(rej){
@@ -117,77 +118,147 @@ app.controller('peopleChartsController', ['$scope', '$modalInstance','$localStor
 			}
 		);
 		//基本信息
-		SettingpeopleService.getPeopleBase(postData).then(
-			function(res) {
-				if (res.data.code == 200) {
-					$scope.user = res.data.info;
-					console.log($scope.user.sex)
-					//下拉列表默认显示值
-					if($scope.user.jiguan||$scope.user.birthplace){
-						for(var i=0;i<$scope.address.length;i++){
-							if($scope.user.birthplace==$scope.address[i].ano){
-								$scope.user.birthplace=$scope.address[i];
-							}
-							if($scope.user.jiguan==$scope.address[i].ano){
-								$scope.user.jiguan=$scope.address[i];
-							}
+		//SettingpeopleService.getPeopleBase(postData).then(
+		//	function(res) {
+		//		if (res.data.code == 200) {
+		//			$scope.user = res.data.info;
+		//			console.log($scope.user.sex)
+		//			//下拉列表默认显示值
+		//			if($scope.user.jiguan||$scope.user.birthplace){
+		//				for(var i=0;i<$scope.address.length;i++){
+		//					if($scope.user.birthplace==$scope.address[i].ano){
+		//						$scope.user.birthplace=$scope.address[i];
+		//					}
+		//					if($scope.user.jiguan==$scope.address[i].ano){
+		//						$scope.user.jiguan=$scope.address[i];
+		//					}
+		//				}
+		//			}
+		//			if($scope.user.person_status){
+		//				for(var i=0;i<$scope.zhuangtailist.length;i++){
+		//					if($scope.user.person_status==$scope.zhuangtailist[i].ano){
+		//						$scope.user.person_status=$scope.zhuangtailist[i];
+		//					}
+		//				}
+		//			}
+		//			if($scope.user.personal){
+		//				for(var i=0;i<$scope.personallist.length;i++){
+		//					if($scope.user.personal==$scope.personallist[i].ano){
+		//						$scope.user.personal=$scope.personallist[i];
+		//					}
+		//				}
+		//			}
+		//			if($scope.user.rank){
+		//				for(var i=0;i<$scope.zhijilist.length;i++){
+		//					if($scope.user.rank==$scope.zhijilist[i].ano){
+		//						$scope.user.rank=$scope.zhijilist[i];
+		//					}
+		//				}
+		//			}
+		//			if($scope.user.health){
+		//				for(var i=0;i<$scope.jiankanglist.length;i++){
+		//					if($scope.user.health==$scope.jiankanglist[i].ano){
+		//						$scope.user.health=$scope.jiankanglist[i];
+		//					}
+		//				}
+		//			}
+		//			if($scope.user.political_status){
+		//				for(var i=0;i<$scope.zhengzhilist.length;i++){
+		//					if($scope.user.political_status==$scope.zhengzhilist[i].ano){
+		//						$scope.user.political_status=$scope.zhengzhilist[i];
+		//					}
+		//				}
+		//			}
+		//			if($scope.user.sex){
+		//				console.log($scope.user.sex)
+		//				for(var i=0;i<$scope.sexlist.length;i++){
+		//					console.log($scope.sexlist)
+		//					if($scope.user.sex==$scope.sexlist[i].ano){
+		//						$scope.user.sex=$scope.sexlist[i].jc;
+		//					}
+		//				}
+        //
+		//			}
+		//			if( $scope.user.nation){
+		//				for(var i=0;i<$scope.minzulist.length;i++){
+		//					if($scope.user.nation==$scope.minzulist[i].ano){
+		//						$scope.user.nation=$scope.minzulist[i];
+		//					}
+		//				}
+		//			}
+		//		}
+		//	}
+		//)
+	SettingpeopleService.getPeopleBase(postData).then(
+		function(res) {
+			if (res.data.code == 200) {
+				$scope.user = res.data.info;
+				//下拉列表默认显示值
+				if($scope.user.jiguan||$scope.user.birthplace){
+					for(var i=0;i<$scope.address.length;i++){
+						if($scope.user.birthplace==$scope.address[i].ano){
+							$scope.user.birthplace=$scope.address[i];
 						}
-					}
-					if($scope.user.person_status){
-						for(var i=0;i<$scope.zhuangtailist.length;i++){
-							if($scope.user.person_status==$scope.zhuangtailist[i].ano){
-								$scope.user.person_status=$scope.zhuangtailist[i];
-							}
-						}
-					}
-					if($scope.user.personal){
-						for(var i=0;i<$scope.personallist.length;i++){
-							if($scope.user.personal==$scope.personallist[i].ano){
-								$scope.user.personal=$scope.personallist[i];
-							}
-						}
-					}
-					if($scope.user.rank){
-						for(var i=0;i<$scope.zhijilist.length;i++){
-							if($scope.user.rank==$scope.zhijilist[i].ano){
-								$scope.user.rank=$scope.zhijilist[i];
-							}
-						}
-					}
-					if($scope.user.health){
-						for(var i=0;i<$scope.jiankanglist.length;i++){
-							if($scope.user.health==$scope.jiankanglist[i].ano){
-								$scope.user.health=$scope.jiankanglist[i];
-							}
-						}
-					}
-					if($scope.user.political_status){
-						for(var i=0;i<$scope.zhengzhilist.length;i++){
-							if($scope.user.political_status==$scope.zhengzhilist[i].ano){
-								$scope.user.political_status=$scope.zhengzhilist[i];
-							}
-						}
-					}
-					if($scope.user.sex){
-						console.log($scope.user.sex)
-						for(var i=0;i<$scope.sexlist.length;i++){
-							console.log($scope.sexlist)
-							if($scope.user.sex==$scope.sexlist[i].ano){
-								$scope.user.sex=$scope.sexlist[i].jc;
-							}
-						}
-
-					}
-					if( $scope.user.nation){
-						for(var i=0;i<$scope.minzulist.length;i++){
-							if($scope.user.nation==$scope.minzulist[i].ano){
-								$scope.user.nation=$scope.minzulist[i];
-							}
+						if($scope.user.jiguan==$scope.address[i].ano){
+							$scope.user.jiguan=$scope.address[i];
 						}
 					}
 				}
+				if($scope.user.person_status){
+					for(var i=0;i<$scope.zhuangtailist.length;i++){
+						if($scope.user.person_status==$scope.zhuangtailist[i].ano){
+							$scope.user.person_status=$scope.zhuangtailist[i];
+						}
+					}
+				}
+				if($scope.user.personal){
+					for(var i=0;i<$scope.personallist.length;i++){
+						if($scope.user.personal==$scope.personallist[i].ano){
+							$scope.user.personal=$scope.personallist[i];
+						}
+					}
+				}
+				if($scope.user.rank){
+					for(var i=0;i<$scope.zhijilist.length;i++){
+						if($scope.user.rank==$scope.zhijilist[i].ano){
+							$scope.user.rank=$scope.zhijilist[i];
+							console.log($scope.user.rank)
+						}
+					}
+				}
+				if($scope.user.health){
+					for(var i=0;i<$scope.jiankanglist.length;i++){
+						if($scope.user.health==$scope.jiankanglist[i].ano){
+							$scope.user.health=$scope.jiankanglist[i];
+						}
+					}
+				}
+				if($scope.user.political_status){
+					for(var i=0;i<$scope.zhengzhilist.length;i++){
+						if($scope.user.political_status==$scope.zhengzhilist[i].ano){
+							$scope.user.political_status=$scope.zhengzhilist[i];
+						}
+					}
+				}
+				if($scope.user.sex){
+					for(var i=0;i<$scope.sexlist.length;i++){
+						if($scope.user.sex==$scope.sexlist[i].ano){
+							$scope.user.sex=$scope.sexlist[i];
+						}
+					}
+
+				}
+				if( $scope.user.nation){
+					for(var i=0;i<$scope.minzulist.length;i++){
+						if($scope.user.nation==$scope.minzulist[i].ano){
+							$scope.user.nation=$scope.minzulist[i];
+						}
+					}
+				}
+
 			}
-		)
+		}
+	)
 	$scope.ok = function () {
 		$modalInstance.close();
 	};
@@ -275,6 +346,7 @@ app.controller('analysisController',[ '$scope','$localStorage','UIanalysisservic
 				UIanalysisservice.getanalysis(postData).then(
 					function (res) {
 						if(res.data.code==200){
+							//console.log(res)
 							var legendbar=[];
 							var databar=[];
 							var name=res.data.info.title.value;

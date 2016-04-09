@@ -12,11 +12,11 @@
       <div class="col-md-10 col-xs-10 row">
         <div  class=" m-l-n">
           <div class="dropdown" dropdown >
-            <input autocompletes="" class="tags form-control" ng-model="deploy.reason" name="reason" type="text" loaddata="{{mianzhilist | filter: { dz:deploy.reason} }}" required />
+            <input autocompletes="" class="tags form-control" ng-model="deploy.reason" name="reason" type="text" loaddata="{{mianzhilist | filter: { dz:deploy.reason} }}" required ng-change="analysis_mianzhi()" />
             <div  class="input_controller btn btn-default dropdown-toggle" dropdown-toggle  data-toggle="dropdown" ng-if="1">
               <span class="caret"  ></span>
             </div>
-            <ul  class="dropdown-menu" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1">
+            <ul  class="dropdown-menu" ng-model="deploy.selelctreason" role="menu" style="width: 100%;height: 200px;overflow-y: auto" ng-if="1" ng-click="analysis_mianzhi()">
               <li ng-repeat="p in mianzhilist" ng-class="{active:deploy.reason==p.dz}"  >
                 <a href="javascript:void(0)" ng-click="deploy.reason=p.dz">{{p.dz}}</a>
               </li>
@@ -44,6 +44,8 @@
 </div>
 <div class="modal-footer">
   <button class="btn btn-default" ng-click="cancel()">取消</button>
-  <button class="btn btn-primary"  ng-disabled="mianzhiform.$invalid" ng-click="analysis_mianzhi()" ng-show="!hasanalysis">分析</button>
-  <button class="btn btn-primary" ng-click="savedeploy();ok()"  ng-show="hasanalysis">确定</button>
+  <button class="btn btn-primary"  ng-disabled="mianzhiform.$invalid" ng-click="analysis_mianzhi()" ng-show="0">分析</button>
+  <!--<button class="btn btn-primary"  ng-disabled="mianzhiform.$invalid" ng-click="analysis_mianzhi()" ng-show="!hasanalysis">分析</button>-->
+  <button class="btn btn-primary" ng-click="savedeploy();ok()"  ng-show="1">确定</button>
+  <!--<button class="btn btn-primary" ng-click="savedeploy();ok()"  ng-show="hasanalysis">确定</button>-->
 </div>

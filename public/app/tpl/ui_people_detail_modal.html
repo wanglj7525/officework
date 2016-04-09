@@ -11,8 +11,8 @@
 						<td class="detail-td">出生年月</td>
 						<td>{{user.birthday|date:'yyyy-MM-dd'}}</td>
 						<td rowspan="4"  width="100px;"  style="padding: 0px">
-							<div style="margin: 0 ;padding: 0">
-								<img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}">
+							<div style="margin: 0 ;padding: 0" >
+								<img  class="" style="width: 100%;height: 100%;margin: 0px;padding: 0px" onerror="javascript:this.src='/public/app/img/a.png';" ng-src="{{user.head_pic?imageurl+user.head_pic:'/public/app/img/a.png'}}" ng-click="bigimg(user.head_pic)">
 							</div>
 						</td>
 					</tr>
@@ -33,37 +33,41 @@
 						<td>{{user.health.dz}}</td>
 					</tr>
 					<tr>
-						<td class="detail-td">专业技术职务</td>
-						<td colspan="2"></td>
+						<td class="detail-td"><nobr>专业技术职务</nobr></td>
+						<td colspan="2">
+							<span ng-repeat="row in titleinfolist" >
+								<a>{{row.title_name}}</a>
+							</span>
+						</td>
 						<td class="detail-td">熟悉专业有何特长</td>
 						<td colspan="2">{{user.speciaty}}</td>
 					</tr>
 					<tr>
-						<td class="detail-td">学历</td>
+						<td class="detail-td" style="border-bottom: none">学历</td>
 						<td class="detail-td">全日制教育</td>
-						<td colspan="2">{{user.speciaty}}</td>
-						<td class="detail-td">毕业院校系系专业</td>
-						<td colspan="2">{{user.speciaty}}</td>
+						<td colspan="2"><a  ng-repeat="row in eduinfolist">{{row.edu_level}}</a></td>
+						<td class="detail-td">毕业院校系及专业</td>
+						<td colspan="2"><a ng-repeat="row in eduinfolist">{{row.school_name}}{{row.profession_name}}</a></td>
 					</tr>
 					<tr>
-						<td class="detail-td">学位</td>
+						<td class="detail-td" style="border-top: none">学位</td>
 						<td class="detail-td">在职教育</td>
-						<td colspan="2">{{user.speciaty}}</td>
-						<td class="detail-td">毕业院校系系专业</td>
-						<td colspan="2">{{user.speciaty}}</td>
+						<td colspan="2"><a ng-repeat="row in degreeinfolist">{{row.edu_level}}</a></td>
+						<td class="detail-td">毕业院校系及专业</td>
+						<td colspan="2"><a ng-repeat="row in degreeinfolist">{{row.school_name}}{{row.profession_name}}</a></td>
 					</tr>
 					<tr>
-						<td class="detail-td">现任职务</td>
-						<td colspan="6"><span ng-repeat="i in postinfolist">{{i.organization_name}}{{i.post_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<td class="detail-td" colspan="2">现任职务</td>
+						<td colspan="5"><span ng-repeat="i in postinfolist">{{i.organization_name}}{{i.post_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 						</td>
 					</tr>
 					<tr>
-						<td class="detail-td">拟任职务</td>
-						<td colspan="6"></td>
+						<td class="detail-td" colspan="2">拟任职务</td>
+						<td colspan="5"></td>
 					</tr>
 					<tr>
-						<td class="detail-td">拟免职务</td>
-						<td colspan="6"></td>
+						<td class="detail-td" colspan="2">拟免职务</td>
+						<td colspan="5"></td>
 					</tr>
 					<tr>
 						<td class="detail-td">简历</td>
@@ -76,15 +80,15 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="detail-td">年度考核结果</td>
+						<td class="detail-td" height="120px">年度考核结果</td>
 						<td colspan="6">
 							<a ng-repeat="row in examinfolist|filter:'年度考核'">
-								考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}
+								考核时间：{{row.exa_date | date:'yyyy-MM-dd'}}&nbsp;考核结果：{{row.exa_result}}<br>
 							</a>
 						</td>
 					</tr>
 					<tr>
-						<td class="detail-td">任免理由</td>
+						<td class="detail-td" height="120px">任免理由</td>
 						<td colspan="6"></td>
 					</tr>
 					<tr>
@@ -99,9 +103,9 @@
 						<td>{{row.renatinship_name}}</td>
 						<td>{{row.family_name}}</td>
 						<td ng-if="!row.family_birthday">无记录</td>
-						<td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')+1}}岁</td>
+						<td ng-if="row.family_birthday">{{nowyear-(row.family_birthday| date:'yyyy')}}岁</td>
 						<td>{{row.family_poli}}</td>
-						<td colspan="2">{{row.family_org_name}}</td>
+						<td colspan="2">{{row.family_org_name}}{{row.family_post}}</td>
 					</tr>
 					<tr >
 						<td></td>
@@ -112,7 +116,7 @@
 					</tr>
 					<tr>
 						<td  class="detail-td">呈报单位</td>
-						<td colspan="6"  height="100px">
+						<td colspan="6"  height="120px">
 							<div class="gaizhang">(盖章）<br>
 								年&nbsp;&nbsp;月&nbsp;&nbsp;日
 							</div>
@@ -303,9 +307,9 @@
 									<thead class="secondtabletitle">
 									<tr>
 										<th>奖惩说明</th>
-										<th>奖惩类别</th>
-										<th>奖惩名称</th>
-										<th>奖惩授予单位</th>
+										<th>机关正处工资级别</th>
+										<th>机关正处工资档次</th>
+										<th>事业五级管理薪级</th>
 									</tr>
 									</thead>
 									<tbody>

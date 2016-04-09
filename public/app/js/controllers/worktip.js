@@ -30,6 +30,19 @@
 //		}
 //	} ]);
 app.controller('WorktipListCtrl', ['$scope','$state','$localStorage', 'UIworktipservice', '$stateParams', 'SeetingtreeService', function($scope,$state, $localStorage,UIworktipservice,$stateParams,SeetingtreeService) {
+	var postData = $.param({
+		access_token:$localStorage.token
+	});
+	UIworktipservice.getworkcategory(postData).then(
+		function (res) {
+			$scope.tipinfo = res.data.info.list;
+			console.log($scope.tipinfo)
+		},
+		function (rej) {
+			console.log(rej);
+		}
+	)
+
 	$scope.currentname='全部';
 	$scope.selectcategory=function(id,name){
 		$scope.pid=name;
@@ -44,18 +57,7 @@ app.controller('WorktipListCtrl', ['$scope','$state','$localStorage', 'UIworktip
 	}
 	console.log($localStorage.isuser.state)
 	//切换单位树 请求新的数据
-	var postData = $.param({
-		access_token:$localStorage.token
-	});
-	UIworktipservice.getworkcategory(postData).then(
-		function (res) {
-			$scope.tipinfo = res.data.info.list;
-			console.log($scope.tipinfo)
-		},
-		function (rej) {
-			console.log(rej);
-		}
-	)
+
 	$scope.allmarkers=function(){
 		var postData = $.param({
 			access_token:$localStorage.token
